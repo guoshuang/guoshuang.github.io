@@ -1,0 +1,115 @@
+/*by davidguoshuang at gmail.com 2013-05-27*/
+
+//@colorArr:'#b32018,#cd661b,#e5b539,#477f40,#01a2b4,#1b3595,#7f3e98,#e73d96,#572500';
+
+//.random_color(@arg){
+//	background-color:~`@{colorArr}.split(',')[@{arg}]`;
+//}
+
+//.random_color(){
+//	@len:`Math.floor(Math.random()*(@{colorArr}.split(',').length))`;
+//	background-color:~`@{colorArr}.split(',')[@{len}]`;
+//}
+
+.transform(...){
+	-webkit-transform:@arguments;
+	-moz-transform:@arguments;
+	-ms-transform:@arguments;
+	-o-transform:@arguments;
+	transform:@arguments;
+}
+
+.gsPie {
+	margin:0;padding:0;list-style: none;
+	height:200px;
+	width:200px;
+	position:relative;
+	li {
+		margin:0;padding:0;list-style: none;
+		position: absolute;z-index:2;
+		height:200px;width:200px;
+		clip:rect(0px,200px,100px,0px);
+		div {
+			position: absolute;
+			height:200px;width:200px;
+			top:0;left:0;
+			clip:rect(0px,100px,200px,0px);
+			.transform(rotate(0deg));
+			border-radius:100%;
+			//background-image:-webkit-radial-gradient(50% 50%, closest-corner, rgba(255,255,255,.3), rgba(255,255,255,0));;
+		}
+	}
+
+	.pie_donut {
+		border-radius: 100%;
+		background: #fff;
+		position: absolute;
+		left:50%;
+		top:50%;
+	}
+
+	.pielabel {
+		position: absolute;
+		z-index:1;
+		width:110px;
+		height:2px;
+		top:50%;
+		margin-top:-1px;
+		margin-left:-10px;
+		background:#666;
+		-webkit-transform-origin:100% 50%;
+	}
+
+	.label {
+		position: absolute;
+		top:210px;
+		left:0;
+		text-align: center;
+		font-size:0.85rem;
+		white-space: nowrap;
+		i {
+			display: inline-block;
+			width:16px;
+			height:16px;
+			vertical-align: middle;
+			margin-left:1rem;
+			margin-right:0.4rem;
+		}
+	}
+
+//	li:nth-child(1) {
+//		.transform(rotate(0deg));	//60
+//		div {
+//			.random_color(0);
+//			.transform(rotate(-30deg));//60-90
+//		}
+//	}
+//	li:nth-child(2) {
+//		.transform(rotate(60deg));//145
+//		div {
+//			.random_color(1);
+//			.transform(rotate(55deg));//145-90
+//		}
+//	}
+//	li:nth-child(3) {
+//		.transform(rotate(205deg));	//120
+//		div {
+//			.random_color(2);
+//			.transform(rotate(30deg));//120-90
+//		}
+//	}
+//	li:nth-child(4) {
+//		.transform(rotate(325deg));	//120
+//		div {
+//			.random_color(3);
+//			.transform(rotate(-55deg));//35-90
+//		}
+//	}
+}
+
+.gsPie {
+	//-webkit-transform-style : preserve-3d;
+	//-webkit-transform : rotateX(45deg)
+}
+
+

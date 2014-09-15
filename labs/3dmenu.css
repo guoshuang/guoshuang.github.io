@@ -1,0 +1,72 @@
+/*for fun by davidguoshuang at gmail.com*/
+
+.roll-link {
+    display: inline-block;
+    -webkit-perspective: 600px;
+       -moz-perspective: 600px;
+       -ms-perspective: 600px;
+       perspective: 600px;
+    margin-right: 15px;
+    color:#999;
+    font-family: MuseoSlabTumblr;
+}
+
+.roll-link:hover {text-decoration:none;}
+
+.roll-link span {
+    display: block;
+    position: relative;
+    padding: 0 6px;
+    line-height: 1.5rem;
+    width:100%;
+    text-align: center;
+
+    -webkit-transition: all 400ms ease;
+       -moz-transition: all 400ms ease;
+       -ms-transition: all 400ms ease;
+       transition: all 400ms ease;
+    
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+       -ms-transform-origin: 50% 0%;
+       transform-origin: 50% 0%;
+    
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+       -ms-transform-style: preserve-3d;
+       transform-style: preserve-3d;
+}
+.roll-link:hover span {
+        background: #258fb8;
+         
+
+        -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+           -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+           -ms-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+           transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+}
+
+.roll-link span:after {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    text-align: center;
+
+    color: #fff;
+    background: #258fb8;
+
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+       -ms-transform-origin: 50% 0%;
+       transform-origin: 50% 0%;
+
+    -webkit-transform: translate3d( 0px, 100%, 0px ) rotateX( -90deg );
+       -moz-transform: translate3d( 0px, 100%, 0px ) rotateX( -90deg );
+       -ms-transform: translate3d( 0px, 100%, 0px ) rotateX( -90deg );
+       transform: translate3d( 0px, 100%, 0px ) rotateX( -90deg );
+}
+
+

@@ -1,0 +1,50 @@
+!!!5
+html
+  head
+    script(src="/labs/reveal/reveal.min.js")
+    style 
+      @import url(/labs/reveal/reveal.min.css);
+      @import url(/labs/reveal/reveal.default.css);
+      .reveal h1 {font-size:3.5em}
+      .reveal em {color: rgb(130, 195, 53)}
+      .reveal strong {color: #c00}
+      .reveal p,.reveal li {line-height:140%;}
+      .reveal .controls div.navigate-down {display:none;}
+      .reveal .controls div.navigate-up {display:none;}
+  body
+    .reveal
+      .slides
+        section 
+          h1.highlight 手机温度探测器
+          p.fragment.highlight by davidguoshuang and bluegongrui
+        section(data-transition="linear",data-background="#4d7e65",data-background-transition="slide") 
+          h2 产品选型
+          p采用 wifi 温度探测器
+          p.fragment.roll-in <em>原因：</em> usb 无法直接连接手机，还需要 r232 转换器。最重要的是：usb slave 直接不能通讯，也不能充电！
+        section 
+          h2 wifi 温度探测器几个问题
+          ul 
+            li.fragment wifi 热点名称必须在厂家定制（同一机房内多个探测器名称冲突）
+            li.fragment ip 是固定的。
+            li.fragment 探测头 需要测试并标示 1 2 3 ...
+            li.fragment 标准电源是插头变压器。也可定制电池版本(3~5.5V)，大部分时候，机房内的插线板都不是不方便。
+            li.fragment 探头线默认1米，可定制。
+        section 
+          h2 数据处理
+          p.fragment 通电后，探头会发出 t1 23 t2 34 这样的数据包
+          p.fragment socket 连接处理数据包
+        section 
+          h2 功能设计
+          ul 
+            li.fragment 名称  配置（温度探测器 ip 地址 ）
+            li.fragment 获取全部温度 t1 t2 t3
+            li.fragment 手工填写 或者 选择设备  名称、地理位置、编号等
+            li.fragment 发送回数据库 ajax send
+        section
+          p.fragment.fade-in davidguoshuang at gmail.com
+          h3.fragment.fade-in 完
+
+
+
+
+    script(src="/labs/reveal/reveal-mine.js")

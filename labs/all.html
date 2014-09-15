@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>全部文章</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" src="/js/jquery-2.0.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
+var json=new Object();
+var posts=[];
+
+$.ajax({
+	url:'db.json',
+	dateType:'json',
+	cache:true,
+	success:function(data){
+	json=data;
+	// console.log(data)
+	var html='<dl>';
+	var sideHtml='<ul>';
+
+	$.each(data.Post,function(j,k){			
+		if(typeof k!='object'){return}//最后一个 是 _primary
+		posts.push(k);
+		//console.log(k.mtime)
+	})
+
+	//sort by date
+	//	posts.sort(function(b,a){return Date.parse(a.date)-Date.parse(b.date)})
+
+	posts.sort(function(b,a){return a.updated-b.updated})
+
+	$.each(posts,function(j,k){
+		// console.log(k)
+		var tagshtml=new Array();
+		$.each(k.tags,function(n,m){
+			// tagshtml.push(json.tags[m].name)	//结构换了，原来是从表，现在直接
+			tagshtml.push(m)
+		})
+		tagshtml=tagshtml.join(',');
+
+		//console.log(k)
+		// var date=new Date(Date.parse(k.date))
+		// var y=date.getFullYear();
+		// var m=date.getMonth()+1;
+		// m=m<10?'0'+m:m;
+		// var d=date.getDate();
+		// d=d<10?'0'+d:d;
+		// var link='/'+y+'/'+m+'/'+d+'/'+k.slug+'/';
+		
+		// var link='/'+json.categories[k.categories].name+'/'+k.slug+'/';
+		var link='/'+k.slug+'/';
+
+		//console.log(json.categories[k.categories].name)
+
+		//console.log(k.content.replace(/<script.*<\/script>/g,'').replace(/<style.|[\n\r]*.*<\/style>/g,''))
+
+		html+='<div class="realContent"><dt><a class="anchor" name="article-'+(j+1)+'">'+(j+1)+'.</a> <a class="t" target="_blank" href="'+link+'">'+k.title+'</a> '+new Date(Date.parse(k.date)).toLocaleString()+' <span class="s">'+k.source+'</span><div class="tags">'+tagshtml+'</div></dt>';
+		html+='<dd>'+k.content.replace(/<script.*<\/script>/g,'').replace(/<style[\s\S]*<\/style>/g,'').replace(/<iframe[\s\S]*<\/iframe>/g,'')+'</dd></div>';
+		
+	
+		sideHtml+='<li><a href="#article-'+(j+1)+'" class="anchor">'+(j+1)+'</a> <a target="_blank" href="'+link+'">'+k.title+'</a> <span class="tag">'+tagshtml+'</span></li>';
+	})
+
+	
+
+	html+='</dl>';
+	sideHtml+='</ul>';
+
+	$('header').prepend('<span>一共'+(posts.length)+'篇文章</span>')
+	$('aside').append(sideHtml)
+	$('#wrapper').append(html)
+
+$('dt').on('click',function(e){
+	$(this).parent().find('dd').toggle();
+	e.stopPropagation();
+})
+
+	//search features
+	var q=decodeURIComponent(location.search.substr(3))
+	q=q.split('+');
+	//console.log(q)
+
+	//console.log(decodeURIComponent(q))
+
+	var html=$('article').html()
+	//console.log(q)
+
+	/*eval('htmlb=html.replace(/'+q+'/,"<strong>'+q+'</strong>")')
+	$('article').html(htmlb)
+	$('aside').hide()
+	*/
+	
+	// var results=$('dl>dd:contains('+q+'),dl>dt:contains('+q+'),aside li :contains('+q+')');
+	// results.css({color:"red"}).prependTo($('article'))
+	//
+
+
+
+	
+if(q!=''){
+
+var qStr='var results=$(\'.realContent';
+var qStr_side ='var results_side=$(\'aside li';	
+	$.each(q,function(j,k){
+		qStr+=':contains("'+k+'")';
+		qStr_side+=':contains("'+k+'")';
+	})
+	qStr+='\')';
+	qStr_side+='\')';
+
+	//console.log(qStr)	
+	eval(qStr);
+	//var results=$('.realContent:contains('+q+')');
+	//console.log(results)
+	results.prependTo($('#wrapper'))
+	results.find('dt').css({'background':'#a00'});
+	results.find('dd').css({'border':'solid 5px #a00'})
+	$('header').prepend('<span>搜索 '+q+' 得到 '+results.length+' 个结果；</span>');
+	document.title='搜索'+q;
+	
+	//var results_side=$('aside li:contains('+q+')');
+	
+	eval(qStr_side);
+	results_side.prependTo($('aside')).find('a').css({color:'#a00'});
+	}
+
+		
+	}
+})
+
+$(function(){
+///////
+
+//$('aside').draggable();
+$('header button').click(function(){
+	$('aside').toggle()
+})
+
+//////////
+})
+</script>
+<style>
+a {text-decoration: none}
+a:hover {text-decoration: underline;}
+body {font-size:14px;}
+#wrapper {margin-top: 20px;}
+dt {font-size:12px;color:#999;background: #000;margin-bottom:5px;display:block;padding:0 8px;}
+dd {margin:0;pdding:0;display: none}
+dd * {color:#000 !important;}
+
+dt .t {font-size:24px;color:#fff;}
+dt .s {font-size:12px;}
+dl {border:0 !important;}
+
+img {max-width:100%;}
+
+aside {position:fixed;right:0;top:30px;z-index:1;background:rgba(255,255,255,0.75);height:50%;overflow:auto;width:50%;border:solid 1px #ddd;padding:8px;}
+aside ul {list-style:none;margin:0;padding:0;}
+aside li {list-style:none;margin:0;padding:0;}
+aside li .anchor {display:inline-block;cursor:pointer;margin-right: 1em}
+aside li .anchor:hover {background:#000;color: #fff;}
+.tag {font-size:14px;color:green;}
+header {position:fixed;right:0;top:0;z-index:2;background:#fff;border:solid 0px #ccc;font-size: 16px;}
+
+</style>
+<body>
+<h1><a href="/">首页</a></h1>
+<header><button>显示隐藏目录</button></header>
+<aside></aside>
+<div id="wrapper"></div>
+
+<footer>2013 by davidguoshuang at gmail.com for fun</footer>
+</body>
+</body></html>

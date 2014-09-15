@@ -1,0 +1,71 @@
+//davidguoshuang at gmail.com 2013-05-29 09:02:05
+
+@circle_size:150px;//宽度，高度取其一半
+@circle_color:#CD661B;
+
+
+.transform-3d(){
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	/*transform-style: preserve-3d;*/
+
+.g_line_gra(...){
+  @gra:~`"@{arguments}".replace(/[\[\]]/g,'')`;
+  background-image:-webkit-linear-gradient(@gra);
+  background-image:-moz-linear-gradient(@gra);
+  background-image:linear-gradient(@gra);
+}
+
+.transform(...){
+	-webkit-transform:@arguments;
+	-moz-transform:@arguments;
+	-o-transform:@arguments;
+	transform:@arguments;
+}
+
+.circle_3d_thick {
+	position: relative;
+	margin:50px;
+	background: @circle_color;
+	width: @circle_size;
+	height: @circle_size;
+	display: inline-block;
+	border-radius: 100%;
+	.transform-3d();
+	.g_line_gra(right,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.5) 25%,rgba(255,255,255,0) 100%);
+	&:before {
+		content:'';
+		position: absolute;
+		background:@circle_color;
+		.g_line_gra(left,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.5) 25%,rgba(255,255,255,0) 100%);
+		width: @circle_size;
+		height: @circle_size;
+		border-radius: 100%;
+		.transform(translateZ(-1*@circle_size/2));
+	}
+	
+	&:after {
+		content:'';
+		position: absolute;
+		background:@circle_color;
+		.g_line_gra(left,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.5) 25%,rgba(255,255,255,0) 100%);
+		border-top:0;
+		border-bottom:0;
+		width: @circle_size;
+		height: @circle_size/2;
+		-webkit-transform-origin:0% 0%;
+		-moz-transform-origin:0% 0%;
+		transform-origin:0% 0%;
+		.transform(rotateX(90deg) translateY(-1*@circle_size/2) translateZ(-1*@circle_size/2));
+	}
+	.shadow {
+		background:#666;
+		width: @circle_size;
+		height: @circle_size;
+		border-radius: 100%;
+		//opacity: 0.5;
+		box-shadow: 0px 0px 5px #666,0px 0px 10px #666;
+		position:absolute;
+		.transform(translateZ(-85px));
+	}
+}

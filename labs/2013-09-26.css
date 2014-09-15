@@ -1,0 +1,16 @@
+/*md 不允许引号，所以只好外连，抱歉影响大家查看源代码了*/
+
+#stripedAnimationDiv4 {
+	position: relative;
+}
+#stripedAnimationDiv4:after {
+	content:'';
+	position: absolute;
+	background: rgba(255,255,255,.1);
+	height: 1px;
+	width: 100%;
+	top:50%;
+}
+
+
+

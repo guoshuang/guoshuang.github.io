@@ -1,0 +1,569 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 7 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/chrome-address-press-tab-to-search/">chrome address press tab to search</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>chrome address show “press tab to search xxxx”</p>
+<div class="code">chrome://settings/searchEngines</div>
+
+<p>right click a input field,choose <strong>“Add as search engine”</strong></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/china/">china2020</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <div id="china2020"></div>
+
+<script src="/labs/china2020.js"></script>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/uc/">uc 浏览器</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>默认（没有设置任何 a 样式）情况下，uc(active) 是淡蓝色背景。实际上用的是 </p>
+<pre>
+a:hover {} /*按下去(tap)的样式*/ 
+</pre>
+
+<p><strong>为什么不是 focus,active 呢？</strong></p>
+<p>但 bootstrap 的 a {background:transparent;} 会导致没有背景色！即便设置了 a:focus,a:active。必须将 background 设置颜色。（且本页嵌入style，外连css、甚至js都不予处理，诡异）</p>
+<pre>
+&lt;style&gt;
+a {background: #fff;color:green;}
+a:hover {background: #c00;color:#fff;}
+&lt;/style&gt;
+</pre>    
+
+<p>用 jquery</p>
+<pre>
+$('a').on('mousedown',function(){
+  obj=$(this);
+  $(this).css({background:'red',color:'#fff'});
+})
+</pre>  
+
+<p>其它浏览器可以，uc 还是不行。但也可以理解，因为页面要走，js 被打断也无可厚非。</p>
+<h3 id="最终解决办法">最终解决办法</h3>
+<p>在 html 页面中直接（外部js不行），如果uc浏览器，加入一些 css。（会导致一些新的问题，鱼与熊掌不能兼得，哎。。。）</p>
+<pre>
+if(navigator.userAgent.toLowerCase().indexOf('ucbrowser')!=-1){
+  //uc 浏览器必须在本页 css才行！
+  var css = document.createElement('style');
+  css.type = 'text/css';
+  var styles = 'a {background:#fff;}a:hover {background: #c00;color:#fff;}a.more {background:transparent;}';
+  if (css.styleSheet) css.styleSheet.cssText = styles;
+  else css.appendChild(document.createTextNode(styles));
+  document.getElementsByTagName("head")[0].appendChild(css);
+}
+</pre>
+
+<ul>
+<li>我看到的 uc（2014-03-01） 的  userAgent 是： applewebkit 533.1 safari/533.1</li>
+<li>mac lion 的 fafari 是： AppleWebKit/536.29.13</li>
+</ul>
+<h3 id="uc_算不算_好_浏览器">uc 算不算 好 浏览器</h3>
+<ul>
+<li>抄袭。赤裸裸地 copy 当年的 opera mini，还没人家做的好。反正当年 opera mini 就在国内被封（包括现在 opera mobile）。</li>
+<li>流氓推广。曾经国内合约、山寨机上默认都预装。</li>
+<li>早几年甚至连“浏览器”都不算，不支持任何 css,js 等。现在是 webkit 了。</li>
+</ul>
+<p>维基百科对 <a href="http://en.wikipedia.org/wiki/UC_Browser" target="_blank" rel="external">UC_Browser</a> 的介绍来看，比较客观。</p>
+<p>原理：各地云服务器做 proxy，压缩，二次传输到客户端。</p>
+<p>但在 <a href="http://stackoverflow.com/search?q=uc+browser" target="_blank" rel="external">stackover 搜索 uc</a> 的话题，基本0,甚至还有负数！</p>
+<ul>
+<li>uc 似乎加载外部 css,js 有问题！</li>
+<li>uc 支持 @media。</li>
+</ul>
+<p>当然，现在的uc已经比以前好很多了，但和国内那些垃圾浏览器一样。内核做不了，都在壳子上大做文章。正如发动机都做不好的国产汽车、飞机，浅薄的花样倒是不少。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/html5/html5-full-screen/">html5 Full-Screen</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://www.sitepoint.com/understanding-masonry-layout/" target="_blank" rel="external">http://www.sitepoint.com/understanding-masonry-layout/</a> </p>
+<p>css 可以这样玩</p>
+<pre>
+figure:-moz-full-screen img {
+    position: fixed;
+}
+
+figure:-ms-fullscreen {
+    width: auto;
+}
+
+figure:-ms-fullscreen img {
+    position: fixed;
+}
+
+figure:fullscreen img {
+    position: fixed;
+}
+</pre>
+
+<p>js 这样</p>
+<pre>
+if (
+    document.fullscreenEnabled || 
+    document.webkitFullscreenEnabled || 
+    document.mozFullScreenEnabled ||
+    document.msFullscreenEnabled
+) {
+
+    // image container
+    var i = document.getElementById("myimage");
+
+    // click event handler
+    i.onclick = function() {
+
+        // in full-screen?
+        if (
+            document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement
+        ) {
+
+            // exit full-screen
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+
+        }
+        else {
+
+            // go full-screen
+            if (i.requestFullscreen) {
+                this.requestFullscreen();
+            } else if (i.webkitRequestFullscreen) {
+                i.webkitRequestFullscreen();
+            } else if (i.mozRequestFullScreen) {
+                i.mozRequestFullScreen();
+            } else if (i.msRequestFullscreen) {
+                i.msRequestFullscreen();
+            }
+
+        }
+
+    }
+
+}
+</pre>
+
+<p><a href="http://www.sitepoint.com/use-html5-full-screen-api/" class="btn-flat" target="_blank" rel="external">原文</a>  <a href="http://blogs.sitepointstatic.com/examples/tech/full-screen/index2.html" class="btn-flat" target="_blank" rel="external">例子</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/weather/">天气</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>weather.com.cn 越来越小气，到处限制与世界背道而驰。</p>
+<p><input id="yahoo-weoid" value="西安" type="text" style="width:16em;" placeholder="输入地名、邮编之类"> <button id="yahoo-weoid-btn" class="btn-flat">查询 yahoo WOEID</button></p>
+<div id="yahoo-weoid-result"></div>
+
+<style>
+#yahoo-weoid-result table {border-collapse: collapse;}
+#yahoo-weoid-result td {border:solid 1px #ccc;padding: 4px;cursor:pointer;}
+#yahoo-weoid-result tr:hover {background:#eee;}
+#yahoo-weoid-result tr.current {background:#333;color:#fff;}
+</style>
+
+
+<p><input id="yahoo-weather" value="" type="text" style="width:16em;" placeholder="yahoo WOEID"> <button id="yahoo-weather-btn" class="btn-flat">查询天气</button></p>
+<div id="yahoo-weather-result"></div>
+
+<script src="/labs/yahoo-weather.js"></script>
+
+<h3 id="原理">原理</h3>
+<p>位置来自：</p>
+<pre>http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22Place%20name%22&amp;format=json</pre>
+
+<p>天气来自：</p>
+<pre>
+http://weather.yahooapis.com/forecastrss?w=12713912&amp;u=c
+</pre>
+
+<ul>
+<li>w 是 WOEID，<a href="http://woeid.rosselliot.co.nz/lookup/" target="_blank" rel="external">在这里搜索</a></li>
+<li>u 表示单位 c 摄氏度； f 华氏度</li>
+<li>p 不再推荐使用！</li>
+</ul>
+<p><a href="/labs/yahoo-weather.js" class="btn-flat-green">下载 js 文件</a></p>
+<h3 id="天气代码">天气代码</h3>
+<p>没有中文版，yweather:forecast 参数对照表</p>
+<table style="width: 100%;" class="table-bordered"><br>    <tbody><tr><br>      <th style="width: 10%;">Code</th><br>      <th>Description</th><br>    </tr><br>    <tr><br>      <td>0</td><br>      <td>tornado</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>tropical storm</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>hurricane</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>severe thunderstorms</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>thunderstorms</td><br>    </tr><br>    <tr><br>      <td>5</td><br>      <td>mixed rain and snow</td><br>    </tr><br>    <tr><br>      <td>6</td><br>      <td>mixed rain and sleet</td><br>    </tr><br>    <tr><br>      <td>7</td><br>      <td>mixed snow and sleet</td><br>    </tr><br>    <tr><br>      <td>8</td><br>      <td>freezing drizzle</td><br>    </tr><br>    <tr><br>      <td>9</td><br>      <td>drizzle</td><br>    </tr><br>    <tr><br>      <td>10</td><br>      <td>freezing rain</td><br>    </tr><br>    <tr><br>      <td>11</td><br>      <td>showers</td><br>    </tr><br>    <tr><br>      <td>12</td><br>      <td>showers</td><br>    </tr><br>    <tr><br>      <td>13</td><br>      <td>snow flurries</td><br>    </tr><br>    <tr><br>      <td>14</td><br>      <td>light snow showers</td><br>    </tr><br>    <tr><br>      <td>15</td><br>      <td>blowing snow</td><br>    </tr><br>    <tr><br>      <td>16</td><br>      <td>snow</td><br>    </tr><br>    <tr><br>      <td>17</td><br>      <td>hail</td><br>    </tr><br>    <tr><br>      <td>18</td><br>      <td>sleet</td><br>    </tr><br>    <tr><br>      <td>19</td><br>      <td>dust</td><br>    </tr><br>    <tr><br>      <td>20</td><br>      <td>foggy</td><br>    </tr><br>    <tr><br>      <td>21</td><br>      <td>haze</td><br>    </tr><br>    <tr><br>      <td>22</td><br>      <td>smoky</td><br>    </tr><br>    <tr><br>      <td>23</td><br>      <td>blustery</td><br>    </tr><br>    <tr><br>      <td>24</td><br>      <td>windy</td><br>    </tr><br>    <tr><br>      <td>25</td><br>      <td>cold</td><br>    </tr><br>    <tr><br>      <td>26</td><br>      <td>cloudy</td><br>    </tr><br>    <tr><br>      <td>27</td><br>      <td>mostly cloudy (night)</td><br>    </tr><br>    <tr><br>      <td>28</td><br>      <td>mostly cloudy (day)</td><br>    </tr><br>    <tr><br>      <td>29</td><br>      <td>partly cloudy (night)</td><br>    </tr><br>    <tr><br>      <td>30</td><br>      <td>partly cloudy (day)</td><br>    </tr><br>    <tr><br>      <td>31</td><br>      <td>clear (night)</td><br>    </tr><br>    <tr><br>      <td>32</td><br>      <td>sunny</td><br>    </tr><br>    <tr><br>      <td>33</td><br>      <td>fair (night)</td><br>    </tr><br>    <tr><br>      <td>34</td><br>      <td>fair (day)</td><br>    </tr><br>    <tr><br>      <td>35</td><br>      <td>mixed rain and hail</td><br>    </tr><br>    <tr><br>      <td>36</td><br>      <td>hot</td><br>    </tr><br>    <tr><br>      <td>37</td><br>      <td>isolated thunderstorms</td><br>    </tr><br>    <tr><br>      <td>38</td><br>      <td>scattered thunderstorms</td><br>    </tr><br>    <tr><br>      <td>39</td><br>      <td>scattered thunderstorms</td><br>    </tr><br>    <tr><br>      <td>40</td><br>      <td>scattered showers</td><br>    </tr><br>    <tr><br>      <td>41</td><br>      <td>heavy snow</td><br>    </tr><br>    <tr><br>      <td>42</td><br>      <td>scattered snow showers</td><br>    </tr><br>    <tr><br>      <td>43</td><br>      <td>heavy snow</td><br>    </tr><br>    <tr><br>      <td>44</td><br>      <td>partly cloudy</td><br>    </tr><br>    <tr><br>      <td>45</td><br>      <td>thundershowers</td><br>    </tr><br>    <tr><br>      <td>46</td><br>      <td>snow showers</td><br>    </tr><br>    <tr><br>      <td>47</td><br>      <td>isolated thundershowers</td><br>    </tr><br>    <tr><br>      <td>3200</td><br>      <td>not available</td><br>    </tr><br>  </tbody><br></table>
+
+<p>参考：</p>
+<ul>
+<li><a href="http://developer.yahoo.com/weather/" target="_blank" rel="external">yahoo weather api</a></li>
+<li><a href="http://developer.yahoo.com/geo/geoplanet/guide/api_docs.html" target="_blank" rel="external">http://developer.yahoo.com/geo/geoplanet/guide/api_docs.html</a></li>
+<li>更多免费天气 <a href="http://blog.programmableweb.com/2012/01/11/12-json-weather-apis/" target="_blank" rel="external">weather api</a></li>
+</ul>
+<h3 id="yql_好东西">yql 好东西</h3>
+<p>也可以直接返回 jsonp，这个更简单！</p>
+<pre>
+http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D2155661&amp;format=json&amp;callback=
+</pre>
+
+<p>在 <a href="http://developer.yahoo.com/yql/console/" target="_blank" rel="external">yahoo console</a> 可以测试 yql</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/html5-notifier/">html5 notifier</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <button class="btn-flat" id="btn-notifier">请求 notifier 权限</button> <button class="btn-flat-green" id="btn-notifier-close">关闭</button>
+
+<audio src="/labs/html5-notifier.mp3" preload="auto" id="html5-notifier-sound"></audio>
+
+<h3 id="源代码">源代码</h3>
+<p><a href="/labs/html5-notifier.js">js源代码</a>  或者  <a href="/labs/html5-notify-example.html">另一个例子</a></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/notification" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/API/notification</a></li>
+</ul>
+<h3 id="Chrome_浏览器设置">Chrome 浏览器设置</h3>
+<p>在这里管理</p>
+<p>Preferences - Show advanced settings - Privacy - Content settings - Notifications - Manage exceptions</p>
+<p>或者点击地址栏文档图标</p>
+<p><img src="http://i.stack.imgur.com/Fhtgu.jpg" alt=""></p>
+<h2 id="那些酱油">那些酱油</h2>
+<h3 id="声音文件">声音文件</h3>
+<p>念中文需要在 Preferences - Speech - Text to Speech ，system Voice 中选择 customize,然后选中文，<a href="/mac/mac-terminal-tips/">需要安装600M的语言包</a></p>
+<p><code>say 老郭牛逼 -o 1.aiff</code></p>
+<p>听听对不</p>
+<p><code>afplay 1.aiff</code></p>
+<p>下载编译 <a href="http://sourceforge.net/projects/lame/files/lame/3.99/lame-3.99.5.tar.gz/download" target="_blank" rel="external">lame</a>（或者 直接下载 <a href="https://www.macupdate.com/download/18882/lame-3.99.5.pkg.zip" target="_blank" rel="external">lame mac</a>），然后转换 mp3。当然，用某些播放器也可以转换。</p>
+<p><code>lame 1.aiff 1.mp3</code></p>
+<p>测试下</p>
+<p><code>afplay 1.mp3</code></p>
+<h3 id="编译_lame">编译 lame</h3>
+<p>和 *nix 世界一样。解压，终端进入文件夹</p>
+<p><code>./configure</code> 检查环境</p>
+<p><code>make</code> 编译</p>
+<p><code>sudo make install</code>  编译安装</p>
+<script src="/labs/html5-notifier.js"></script>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/g-color/">g color</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <ul class="ul-g-color ul-g-color-2"><br><li style="background:#0068B3">#0068B3</li><br><li style="background:#F8A988">#F8A988</li><br><li style="background:#E51937">#E51937</li><br><li style="background:#C3112F">#C3112F</li><br><li style="background:#FFD24F">#FFD24F</li><br><li style="background:#F0B310">#F0B310</li><br><li style="background:#1AB7EA">#1AB7EA</li><br><li style="background:#0068B3">#0068B3</li><br><li style="background:#005581">#005581</li><br><li style="background:#00704A">#00704A</li><br><li style="background:#00A84F">#00A84F</li><br><li style="background:#B3D88C">#B3D88C</li><br></ul>
+
+<p>color from google</p>
+<ul class="ul-g-color"><br><li style="background:#0068B3">#0068B3</li><br><li style="background:#F8A988">#F8A988</li><br><li style="background:#E51937">#E51937</li><br><li style="background:#C3112F">#C3112F</li><br><li style="background:#FFD24F">#FFD24F</li><br><li style="background:#F0B310">#F0B310</li><br><li style="background:#1AB7EA">#1AB7EA</li><br><li style="background:#0068B3">#0068B3</li><br><li style="background:#005581">#005581</li><br><li style="background:#00704A">#00704A</li><br><li style="background:#00A84F">#00A84F</li><br><li style="background:#B3D88C">#B3D88C</li><br></ul>
+
+<style>
+.ul-g-color,.ul-g-color li {list-style-type: none;padding: 0;margin: 0 !important;}
+.ul-g-color li {padding: 4px 8px;color:rgba(255,255,255,.7);}
+.ul-g-color-2 {
+    column-count:12; column-gap:0;
+    -webkit-column-count:12; -webkit-column-gap:0;
+}
+.ul-g-color-2 li {padding: 0;text-indent: -9999px;margin: 0;}
+</style>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/center-of-origin/">作物原产地</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>根据 <a href="http://en.wikipedia.org/wiki/List_of_domesticated_plants" target="_blank" rel="external">List of domesticated plants</a> 的资料，原产中国的<strong>主要作物</strong>只有 大(黄)豆。所以 豆腐 绝对是中国的发明。</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/7/71/Feature2originmap600.png" alt="origin of crops"></p>
+<p>其它作物中英对照（地图从左到右）：</p>
+<p>美洲大陆</p>
+<ul>
+<li>sunflower 向日葵</li>
+<li>strawberry  草莓</li>
+<li>tomato 西红柿</li>
+<li>corn 玉米</li>
+<li>cotton 棉花</li>
+<li>dry bean <strong><em>干豆</em></strong> </li>
+<li>tobacco 烟草</li>
+<li>potato 土豆</li>
+<li>peanut 花生</li>
+</ul>
+<p>欧洲</p>
+<ul>
+<li>sugarbeet 甜菜</li>
+<li>lettuce 生菜</li>
+</ul>
+<p>中亚</p>
+<ul>
+<li>grape 葡萄</li>
+<li>rye 黑麦</li>
+<li>barley,wheat  大麦 小麦</li>
+<li>almond 杏</li>
+<li>apple 苹果</li>
+</ul>
+<p>非洲</p>
+<ul>
+<li>sorghum 高粱</li>
+</ul>
+<p>南亚</p>
+<ul>
+<li>onnion 洋葱</li>
+<li>rice 稻子（大米）</li>
+<li>orange 桔子</li>
+<li>sugarcane 甘蔗</li>
+</ul>
+<p>BTW:我们平常看到的都是“中国”版世界地图。东亚被称为 far east（远东），两伊、阿拉伯世界被称为 middle east（中东）。</p>
+<h3 id="豆类">豆类</h3>
+<ul>
+<li><p><a href="http://translate.googleusercontent.com/translate_c?depth=1&amp;hl=en&amp;prev=_dd&amp;rurl=translate.google.com.hk&amp;sl=auto&amp;tl=zh-CN&amp;u=http://en.wikipedia.org/wiki/Mung_Bean&amp;usg=ALkJrhgAUG4zRa2V-gUPLTi711y45gbqwg" target="_blank" rel="external">绿豆</a> 原产印度</p>
+</li>
+<li><p><a href="http://translate.googleusercontent.com/translate_c?depth=1&amp;hl=en&amp;prev=_dd&amp;rurl=translate.google.com.hk&amp;sl=auto&amp;tl=zh-CN&amp;u=http://en.wikipedia.org/wiki/Pea&amp;usg=ALkJrhhaQGjBp876uibUhi3ENkQ-jaftRA" target="_blank" rel="external">豌豆</a>野豌豆仅限于地中海盆地和近东</p>
+</li>
+<li><a href="http://translate.googleusercontent.com/translate_c?depth=1&amp;hl=en&amp;prev=_dd&amp;rurl=translate.google.com.hk&amp;sl=auto&amp;tl=zh-CN&amp;u=http://en.wikipedia.org/wiki/Azuki_Bean&amp;usg=ALkJrhjBAQ6w-jGwY_K0l6uNr_x-Lt2rXg" target="_blank" rel="external">红豆</a> 来自日本</li>
+<li><a href="http://zh.wikipedia.org/wiki/%E8%8F%9C%E8%B1%86" target="_blank" rel="external">豆角</a> 也叫菜豆，豇豆,中南美原產。一般認為16世紀末經由歐洲傳到中國，17世紀傳到了日本。不熟的豆角的确有毒：<blockquote>
+<p>所以在煮食菜豆時，要在100度的沸水中煮至少10分鐘，以去除豆內的植物血凝素，然後才可繼續烹煮。至於乾豆，根據美國食物及藥品管理局（FDA）的建議，在食用前應把乾豆浸在水裡至少五小時，然後把浸過豆的水倒走。</p>
+</blockquote>
+</li>
+<li><a href="http://zh.wikipedia.org/wiki/%E9%95%B7%E8%B1%87%E8%B1%86" target="_blank" rel="external">豇豆角</a> jiangdou 那种长长的豆角。豇豆 的亚种。</li>
+</ul>
+<p>再根据 <a href="http://translate.google.com.hk/translate?hl=en&amp;sl=auto&amp;tl=zh-CN&amp;u=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCenter_of_origin" target="_blank" rel="external">Center of origin</a> 资料</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Vavilov-center.jpg/320px-Vavilov-center.jpg" alt="Vavilov-center"></p>
+<p>中国区（8号，包括朝鲜半岛）原产 136 种特有植物，包括</p>
+<ul>
+<li>黍，粟，稗，高粱，荞麦，大麦，大豆，小豆，绿豆</li>
+<li>山药，萝卜，中国白菜，洋葱，黄瓜</li>
+<li>梨，苹果，桃，杏，樱桃，核桃，荔枝 </li>
+<li>甘蔗，罂粟，人参，香樟，麻</li>
+</ul>
+<p>结论：我们在菜市场看到的大部分蔬菜、水果，基本上都是“进口”的。</p>
+<h3 id="再看看动物">再看看动物</h3>
+<p>根据 <a href="http://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%A4%96%E6%9D%A5%E5%85%A5%E4%BE%B5%E7%89%A9%E7%A7%8D%E5%90%8D%E5%8D%95" target="_blank" rel="external">中国外来入侵物种名单</a>，</p>
+<p>牛蛙、福寿螺等都属于害虫。其中 <a href="http://zh.wikipedia.org/wiki/%E5%85%8B%E6%B0%8F%E5%8E%9F%E8%9E%AF%E8%99%BE" target="_blank" rel="external">克氏原螯虾</a> 没错，<strong>就是俗称的 小龙虾</strong>（麻辣虾尾）来自美国东南，美國螯蝦、路易斯安那州螯虾</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Procambarus_clarkii_side.jpg/640px-Procambarus_clarkii_side.jpg" alt="小龙虾"></p>
+<p>主要生活於溫暖的淡水水域，如流速緩慢的河流、沼澤、湖泊和稻田等。生長快速，可以忍受無水的旱季達4個月。此物種也可忍受微鹽的水體，這在淡水螯蝦中是很少見的。在濕季，此物種能在乾地橫跨數英哩尋找棲息地。一般來說，可有五年壽命，儘管已知有部分個體在大自然存活超過六年。</p>
+<p>克氏原鰲蝦的環境容忍性強，因此造成網路瘋狂謠傳此物種能在含有高污染性毒素的水質下存活。小龍蝦多數都是投機主義者（如：克氏原螯蝦、紅鰲螯蝦等大型淡水龍蝦），不論活體甚至連未消化糞便或是動物屍體，都可成為其盤中飧，因此不可與其他生物放養在同一水族箱中</p>
+<p>在中國，克氏原鰲蝦于1929年从日本移植到南京一带，后经人工养殖和推广，逐渐扩展到北京、天津、河北、山西、河南等省市。在中国的南方和北方可生存和发展，已经成为归化于中国自然水体的一个种群。2000年，江苏省盱眙县举办了「龙虾节」，此后盱眙龙虾开始扩展到江、浙、沪及全国。盱眙的「十三香麻辣小龙虾」在中国名声大噪</p>
+<p>克氏原螯虾在一个水域的出现，对同一水域的鱼类、甲壳类、水生植物、水稻等造成了很大的威胁，还直接危害了人工养殖的水产。</p>
+<p>克氏原螯虾不仅吃湖中水生植物和小鱼小虾，由于它们生活在江、河、水库、池塘和水田等的边上，螯虾又喜欢钻洞，破坏能力也是十分强大，常会洞穿田埂破坏堤坝，对防汛抗洪会有影响</p>
+<p>在中国，克氏原螯虾在养殖和烹饪过程中经常遇到食品安全问题，比如烹饪时使用掺入吊白块的伪劣洗虾粉，导致食客患上横纹肌溶解症。此外，使用化学污水养殖克氏原螯虾、携带卫氏并殖吸虫、养殖于卫生程度条件恶劣，都成为影响中国克氏原螯虾食用安全的潜在威胁。</p>
+<p><a href="http://translate.google.com.hk/translate?hl=en&amp;sl=en&amp;tl=zh-CN&amp;u=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FList_of_domesticated_animals" target="_blank" rel="external">家养动物列表</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/6/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/8/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

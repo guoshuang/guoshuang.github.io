@@ -1,0 +1,48 @@
+@color-wall:#555;
+@color-water:#69c;
+
+#twitter-puddle {	
+	position: relative;
+	height: 200px;
+	width: 100%;
+	border-bottom: solid 1px #ccc;
+	ul.wall {		
+		margin: 0;padding: 0;list-style: none;
+		height: 200px;
+		width: 100%;
+		position: absolute;z-index:3;
+		li {
+			position: absolute;
+			margin: 0;padding: 0;list-style: none;
+			background-color: @color-wall;
+			bottom:0;
+			.num {
+				position: absolute;
+				margin-top:-20px;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+	ul.water {
+		position: absolute;margin: 0;padding: 0;list-style: none;
+		height: 200px;
+		width: 100%;
+		position: absolute;z-index:2;
+		li {
+			background: @color-water;width:20px;position: absolute;bottom: 0;
+			height: 0;
+		}
+	}
+	.rainContainer {
+		height: 200px;
+		width: 100%;
+		position: absolute;z-index:1;
+		div {
+			width: 1px;height: 10px;background: @color-water;position: absolute;margin-top:-10px;
+			-webkit-transform:rotate(30deg);
+			transform:rotate(30deg);
+		}
+	}
+}
+#twitter-puddle-info {font-size:2em;}

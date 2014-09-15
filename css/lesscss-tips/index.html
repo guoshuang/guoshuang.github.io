@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>lesscss 笔记 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="div.code {background: #eee;padding:0 6px;font-size:1.2em;margin-top:10px;border-left:solid 4px #79c3d2;white-space: pre;}浅色@nice-blue: #5B83AD;@light-blue: @nice-blue + #111;//也可以 @light-blue: lighten(@nice-blue10%);#header { color: @light-blue; }#header { color: #6c94be; }变量嵌套@fnord:">
+      <meta name="keywords" content="css,less">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta property="og:title" content="lesscss 笔记"/>
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title">lesscss 笔记</h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <style>div.code {background: #eee;padding:0 6px;font-size:1.2em;margin-top:10px;border-left:solid 4px #79c3d2;white-space: pre;}</style>
+
+<h3 id="浅色">浅色</h3>
+<pre>
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+//也可以 @light-blue: lighten(@nice-blue,10%);
+#header { color: @light-blue; }
+</pre>
+
+<div class="code">#header { color: #6c94be; }</div>
+
+<h3 id="变量嵌套">变量嵌套</h3>
+<pre>
+@fnord: "I am fnord.";
+@var: 'fnord';
+content: @@var;
+</pre>
+
+<div class="code">content: “I am fnord.”;</div>
+
+<h3 id="当前作用域中最后一次定义">当前作用域中最后一次定义</h3>
+<pre>
+@var: 0;
+.class1 {
+    @var: 1;
+    .class {
+        @var: 2;
+        three: @var;
+        @var: 3;
+    }
+    one: @var;
+}
+</pre>
+
+<div class="code">.class1 .class {<br>    three: 3;<br>}<br>.class1 {<br>    one: 1;<br>}</div>
+
+<h3 id="变量声明提升（和_js_hoisting_类似）">变量声明提升（和 js hoisting 类似）</h3>
+<pre>
+lazy-eval {
+    width: @var;
+}
+
+@var: @a;
+@a: 9%;
+</pre>
+
+<pre>
+.lazy-eval-scope {
+    width: @var;
+    @a: 9%;
+}
+
+@var: @a;
+@a: 100%;
+</pre>
+
+<p>编译结果一样。注意：第二个例子，作用域优先。</p>
+<div class="code">.lazy-eval-scope {<br>    width: 9%;<br>}</div>
+
+<h3 id="class_混合_mixin">class 混合 mixin</h3>
+<pre>
+.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+#menu a {
+    color: #111;
+    .bordered;
+}
+.post a {
+    color: red;
+    .bordered;
+}
+</pre>
+
+<div class="code">#menu a {<br>    color: #111;<br>    border-top: dotted 1px black;<br>    border-bottom: solid 2px black;<br>}<br>.post a {<br>    color: red;<br>    border-top: dotted 1px black;<br>    border-bottom: solid 2px black;<br>}</div>
+
+<h3 id="默认参数">默认参数</h3>
+<pre>
+.border-radius (@radius: 5px) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+#header {
+      .border-radius;
+}
+</pre>
+
+<p>输出 5px radius</p>
+<h3 id="&amp;_表示父选择器以及反转两种用法">&amp; 表示父选择器以及反转两种用法</h3>
+<pre>
+.child, .sibling {
+    .parent &amp; {
+        color: black;
+    }
+    &amp; + &amp; {
+        color: red;
+    }
+}
+</pre>
+
+<div class="code">.parent .child,<br>.parent .sibling {<br>    color: black;<br>}<br>.child + .child,<br>.child + .sibling,<br>.sibling + .child,<br>.sibling + .sibling {<br>    color: red;<br>}</div>
+
+<h3 id="命名空间">命名空间</h3>
+<pre>
+#bundle {
+    .button () {
+        display: block;
+        border: 1px solid black;
+        background-color: grey;
+        &amp;:hover { background-color: white }
+    }
+    .tab { ... }
+    .citation { ... }
+}
+</pre>
+
+<p>这样使用</p>
+<pre>
+#header a {
+    color: orange;
+    #bundle > .button;
+}
+</pre>
+
+<p>import 可嵌套</p>
+<pre>
+@imported-color: red;
+h1 { color: green; }
+</pre>
+
+<pre>
+pre {
+    @import "library.less";
+    color: @importedColor;
+}
+</pre>
+
+<div class="code">pre {<br>    color: #ff0000; // 定义在library.less中的变量可用<br>}<br>pre h1 { // 定义在library.less中的样式规则被嵌套到pre中<br>    color: green;<br>}</div>
+
+<h3 id="字符串插值">字符串插值</h3>
+<pre>
+@base-url: "http://assets.fnord.com";
+background-image: url("@{base-url}/images/bg.png");
+</pre>
+
+<h3 id="选择器插值">选择器插值</h3>
+<pre>
+@name: blocked;
+.@{name} {
+    color: black;
+}
+</pre>
+
+<div class="code">.blocked {<br>    color: black;<br>}</div>
+
+<h3 id="避免编译_~_和_执行_javascript_`">避免编译 ~ 和 执行 javascript `</h3>
+<p>避免编译 <strong style="font-size:1.5rem;">~”…”</strong> (波浪线+引号)</p>
+<p>执行 javascript `</p>
+<p>执行 javascript <strong style="font-size:1.5rem;">`…`</strong> (反引号)</p>
+<pre>
+@var: `parseInt(Math.random()*255)`;
+.randomColor {color:~"rgb(@{var},@{var},@{var})";}
+</pre>
+
+<div class="code">.randomColor {<br>  color: rgb(191,53,66);<br>}</div>
+
+<p>注意：这个随机颜色没实际意义。除非用 lesscss.min.js 现场解析 css。</p>
+<h3 id="data-uri">data-uri</h3>
+<pre>
+data-uri('../data/image.jpg');
+</pre>
+
+<div class="code">url(‘data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==’);</div>
+
+<h3 id="color">color</h3>
+<pre>
+@c1:#c00;
+.c {
+    color:hsl(hue(@c1),50%,50%);
+}
+</pre>
+
+<p>根据 c1 颜色的 色相（hue），调整饱和度（saturation）和 亮度（lightness）</p>
+<div class="code"><br>.c {<br>  color: #bf4040;<br>}<br></div>
+
+<p>注意： hsv － 通过色相 (hue)，饱和度 (saturation)，色调 (value) 三种值 (HSV) </p>
+<ul>
+<li>saturate 增加饱和度</li>
+<li>desaturate 降低饱和度</li>
+<li>fadeout，fadein 增加（降低透明度）</li>
+<li>fade 设置透明度</li>
+<li>mix 混合两种颜色 mix(#ff0000, #0000ff, 50%)</li>
+<li>greyscale 饱和度为0（置灰）</li>
+<li>multiply,overlay,hardlight,difference 等 类似ps层模式</li>
+</ul>
+<p>via <a href="http://www.lesscss.net/article/document.html" target="_blank" rel="external">http://www.lesscss.net/article/document.html</a></p>
+
+      
+    </div> 
+    
+  </div>
+</article>
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+</div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+ <script type="text/javascript">	if(top.location.port!=4000){//no disqus local:4000		
+	var disqus_shortname = 'guoshuang';		(function(){		  var dsq = document.createElement('script');		  dsq.type = 'text/javascript';		  dsq.async = true;		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);		}());	} </script><script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

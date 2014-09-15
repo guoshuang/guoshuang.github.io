@@ -1,0 +1,854 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 26 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/cisco-vpn-client/">cisco vpn 客户端</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>cisco 真小气，注册登录后，又说什么 服务协议，：（ google 软件名，找到</p>
+<p><a href="http://160.78.48.20/vpn/software/Macintosh/" target="_blank" rel="external">http://160.78.48.20/vpn/software/Macintosh/</a></p>
+<p>“Unable to communicate with the VPN subsystem”</p>
+<p><a href="http://anders.com/cms/192" target="_blank" rel="external">http://anders.com/cms/192</a></p>
+<p><a href="https://supportforums.cisco.com/docs/DOC-3613" target="_blank" rel="external">https://supportforums.cisco.com/docs/DOC-3613</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/script-loader/">script loaders</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>常见 5 个</p>
+<h3 id="headjs"><a href="http://headjs.com/" target="_blank" rel="external">headjs</a></h3>
+<p>曾经最流行。但似乎最后的更新在 大约2012年11月（废弃？）。</p>
+<pre>
+head.js("jquery.js", "app.js", "twitter.js", function() {
+    //called when all scripts have been loaded
+});
+</pre>
+
+<h3 id="requirejs"><a href="http://www.requirejs.org/" target="_blank" rel="external">requirejs</a></h3>
+<pre>
+&lt;script data-main="scripts/app" src="require.js"&gt;&lt;/script&gt;
+</pre>
+
+<h3 id="yepnope"><a href="http://yepnopejs.com/" target="_blank" rel="external">yepnope</a></h3>
+<p>更适合用来 polyfill。检测并加载相应的 js</p>
+<pre>
+yepnope({
+  test: $("html").hasClass("ie"),
+  yep: "ie-fixes.js",
+  nope: "non-ie.js"
+});
+</pre>    
+
+<pre>
+yepnope({
+  load: ['path/to/jquery.js', 'app.js'],
+  complete: function() {
+    $(function() {
+      yepnope({
+        test: $("html").hasClass("ie"),
+        yep: "ie-fixes.js",
+        nope: "non-ie.js",
+      });
+    });
+  });
+});
+</pre>
+
+<h3 id="LABjs"><a href="http://labjs.com/" target="_blank" rel="external">LABjs</a></h3>
+<p>据说效率高。</p>
+<pre>
+$LAB.script("path/to/jquery.js").wait()
+    .script("path/to/plugin.js")
+    .wait(function() {
+      //code to run once both files are loaded
+    });
+</pre>
+
+<ul>
+<li><a href="https://github.com/rgrove/lazyload/" target="_blank" rel="external">lazyload</a></li>
+</ul>
+<p>最小的加载器。注意：是并发加载而不是队列。</p>
+<pre>
+LazyLoad.js(["jquery.js", "plugin.js"], function() {
+  //multiple files all loaded
+});
+</pre>
+
+<p>需要队列的话</p>
+<pre>
+LazyLoad.js("jquery.js", function() {
+  LazyLoad.js("plugin.js", function() {
+    //execute plugin
+  });
+});
+</pre>    
+
+<h3 id="相关">相关</h3>
+<p>AMD (asynchronous module definition) </p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/jquery-best-practices-2/">jquery best practices 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="Methods_Return_the_jQuery_Object">Methods Return the jQuery Object</h3>
+<p>少 遍历DOM(traverse the DOM) 。赋值、操作一行</p>
+<pre>
+var someDiv = $('#someDiv').hide(); 
+</pre>
+
+<h3 id="The_Find_Selector">The Find Selector</h3>
+<p>jquery 的 Sizzle 引擎尽量会用浏览器内置的  QuerySelectorAll。所以下面代码 <strong>后者效率高</strong></p>
+<pre>
+// Fine in modern browsers, though Sizzle does begin "running"  
+$('#someDiv p.someClass').hide();  
+
+// Better for all browsers, and Sizzle never inits.  
+$('#someDiv').find('p.someClass').hide(); 
+</pre>
+
+<p>另外，即便使用 Sizzle，选择器 右边 尽量优化！</p>
+<h3 id="Context_Instead?">Context Instead?</h3>
+<p>原因同上（后者效率高）</p>
+<pre>
+$('#someContainer .someElements').hide(); 
+
+$('.someElements', '#someContainer').hide();
+</pre>
+
+<p>其实，第二句等于</p>
+<pre>
+$('#someContainer')  
+  .find('.someElements')  
+  .hide(); 
+</pre>
+
+<h3 id="Don’t_Abuse_$(this)">Don’t Abuse $(this)</h3>
+<p>不要滥用 $(this)，能 this 就不需要 jquery 包装。</p>
+<h3 id="Accessing_Native_Properties_and_Methods">Accessing Native Properties and Methods</h3>
+<pre>
+// OPTION 1 - Use jQuery  
+var id = $('#someAnchor').attr('id');  
+
+// OPTION 2 - Access the DOM element  
+var id = $('#someAnchor')[0].id;  
+
+// OPTION 3 - Use jQuery's get method  
+var id = $('#someAnchor').get(0).id; 
+
+// OPTION 3b - Don't pass an index to get  
+anchorsArray = $('.someAnchors').get();  
+var thirdId = anchorsArray[2].id; 
+</pre>
+
+<h3 id="Conditionally_Loading_jQuery">Conditionally Loading jQuery</h3>
+<p>本机调试时，不用老等</p>
+<pre>
+<!-- Grab Google CDN jQuery. fall back to local if necessary -->  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  
+<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>  
+</pre>
+
+<h3 id="A_Single_Hover_Function">A Single Hover Function</h3>
+<p>原来是</p>
+<pre>
+$('#someElement').hover(function() {  
+  // mouseover  
+}, function() {  
+ // mouseout  
+}); 
+</pre>
+
+<p>现在可简化为(如何只是 toggle 的话)</p>
+<pre>
+$('#someElement').hover(function() {  
+  // the toggle() method can be used here, if applicable  
+}); 
+</pre>    
+
+<blockquote>
+<p>Note that this isn’t an old vs. new deal. Many times, you’ll still need to pass two functions to hover, and that’s perfectly acceptable. However, if you only need to toggle some element (or something like that), passing a single anonymous function will save a handful of characters or so!</p>
+</blockquote>
+<h3 id="Passing_an_Attribute_Object">Passing an Attribute Object</h3>
+<p>原来</p>
+<pre>
+$('&lt;a /&gt;')  
+  .attr({  
+    id : 'someId',  
+    className : 'someClass',  
+    href : 'somePath.html'  
+  }); 
+</pre>
+
+<p>简写为</p>
+<pre>
+$('&lt;/a&gt;', {  
+    id : 'someId',  
+    className : 'someClass',  
+    href : 'somePath.html'  
+}); 
+</pre>
+
+<p>via <a href="http://net.tutsplus.com/tutorials/javascript-ajax/14-helpful-jquery-tricks-notes-and-best-practices/" target="_blank" rel="external">14 Helpful jQuery Tricks, Notes, and Best Practices</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/jquery-best-practices/">jquery best practices</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="jquery_好处">jquery 好处</h3>
+<ul>
+<li>The DOM sucks without it</li>
+<li>Ajax and JSONP suck without it</li>
+<li>jQuery Utility functions are rad</li>
+<li>jQuery Deferreds/Promises are really rad</li>
+</ul>
+<p>via <a href="http://gregfranko.com/jquery-best-practices/" target="_blank" rel="external">jquery best practices</a> 笔记如下：</p>
+<h3 id="jsbin">jsbin</h3>
+<pre>
+// IIFE - Immediately Invoked Function Expression
+  (function(yourcode) {
+
+    // The global jQuery object is passed as a parameter
+      yourcode(window.jQuery, window, document);
+
+  }(function($, window, document) {
+
+    // The $ is now locally scoped 
+
+   // Listen for the jQuery ready event on the document
+   $(function() {
+
+     // The DOM is ready!
+
+   });
+
+   // The rest of the code goes here!
+
+  }
+  }));
+</pre>
+
+<h3 id="cache_selectors_in_vars（少_DOM）">cache selectors in vars（少 DOM）</h3>
+<pre>
+// Stores the live DOM element inside of a variable
+  var elem = $("#elem");
+
+  // Set's an element's title attribute using it's current text
+  elem.attr("title", elem.text());
+
+  // Set's an element's text color to red
+  elem.css("color", "red");
+
+  // Makes the element fade out
+  elem.fadeOut();
+
+</pre>
+
+<h3 id="Append_once（少_DOM）">Append once（少 DOM）</h3>
+<pre>
+ // Dynamically building an unordered list from an array
+  var localArr = ["Greg", "Peter", "Kyle", "Danny", "Mark"],
+      list = $("ul.people"),
+      dynamicItems = "";
+
+  $.each(localArr, function(index, value) {
+
+    dynamicItems += "<li id=" + index + ">" + value + "</li>";
+
+  });
+
+  list.append(dynamicItems);
+</pre>
+
+<h3 id="event_delegation">event delegation</h3>
+<pre>
+  var list = $("#longlist");
+  list.on("mouseenter", "li", function(){
+    $(this).text("Click me!");
+  });
+
+  list.on("click", "li", function() {
+    $(this).text("Why did you click me?!");
+  });
+</pre>
+
+<h3 id="Ajax">Ajax</h3>
+<pre>
+function getName(personid) {
+  var dynamicData = {};
+  dynamicData["id"] = personID;
+  return $.ajax({
+    url: "getName.php",
+    type: "get",
+    data: dynamicData
+  });
+}
+
+getName("2342342").done(function(data) {
+  // Updates the UI based the ajax result
+  $(".person-name").text(data.name); 
+});
+</pre>
+
+<h3 id="其它话题">其它话题</h3>
+<ul>
+<li>jQuery and CSS</li>
+<li>jQuery Custom Events - Pub/Sub</li>
+<li>jQuery and Object Literals</li>
+<li>jQuery Utility Functions</li>
+<li>jQuery Event Namespaces</li>
+<li>The future of jQuery</li>
+<li>jQuery Event Namespaces</li>
+<li>Authoring jQuery Plugins</li>
+<li>Return False vs Event.preventDefault()</li>
+<li>Animation with Promises</li>
+</ul>
+<p><a href="http://api.jquery.com/promise/" target="_blank" rel="external">jquery promise</a><br><a href="http://api.jquery.com/deferred.always/" target="_blank" rel="external">deferred.always</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/headjs/">headjs</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>headjs 等于 requiredjs + Modernizr</p>
+<p><a href="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.core.min.js" target="_blank" rel="external">head.core.min.js</a> 只有 Responsive Design + Feature Detections（等于 Modernizr）</p>
+<p><a href="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js" target="_blank" rel="external">head.load.min.js</a> 只有 Asset Loader（等于 requiredjs）</p>
+<p><a href="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js" target="_blank" rel="external">head.min.js</a> 包括全部。以上二者之和</p>
+<blockquote>
+<p>Load scripts and stylesheets on demand.</p>
+</blockquote>
+<h3 id="JavaScript_Loader">JavaScript Loader</h3>
+<p>顺序加载 js，并按顺序执行</p>
+<pre>
+head.js("/path/to/jquery.js", "/google/analytics.js", "/js/site.js", function() {
+
+   // all done
+
+});
+</pre>
+
+<p>异步 加载的话（以下两种写法是一回事）</p>
+<pre>
+head.js("file1.js");
+head.js("file2.js");
+head.js("file3.js");
+</pre>
+
+<pre>
+head.js("file1.js").js("file1.js").js("file3.js");
+</pre>
+
+<h3 id="JavaScript_Organizer">JavaScript Organizer</h3>
+<pre>
+// use jQuery on the body of the page even though it is not included yet
+head.ready(function() {
+   $("#my").jquery_plugin();
+});
+
+// load jQuery whenever you wish bottom of the page
+head.js("/path/to/jquery.js");
+</pre>
+
+<h3 id="Responsive_Design_/_Media_Queries">Responsive Design / Media Queries</h3>
+<p>用 js 来 responsive。headjs 打出的 html class 为</p>
+<pre>
+html class="no-js js no-mobile desktop no-ie chrome chrome30 root-section gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions no-touch no-retina fontface domloaded w-782 gt-240 gt-320 gt-480 gt-640 gt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920 no-portrait landscape
+</pre>
+
+<p>所以</p>
+<pre>
+/* screen size less than 1024 pixels */
+.lt-1024 #hero { background-image:(medium.jpg); }
+
+/* fine tune for mobile phone */
+.lt-640 #hero { background-image:(small.jpg); }
+</pre>
+
+<pre>
+/* page in lanscape mode */
+.landscape #hero { width:800px; }
+
+/* page in portrait mode */
+.portrait #hero { width:300px; }
+</pre>
+
+<p>headjs 默认观察这些查用尺寸（screens）</p>
+<p>320, 480, 640, 768, 800, 1024, 1280, 1440, 1680, 1920</p>
+<p>apple 设备尺寸</p>
+<ul>
+<li>iPhone3: 480 x 320</li>
+<li>iPhone4: 960 x 640</li>
+<li>iPad: 1024 x 768</li>
+<li>screens: 800+</li>
+</ul>
+<p>配置 html screens，<strong>只</strong> 观察这些</p>
+<pre>
+var head_conf = { screens: [500, 700, 900] };
+</pre>
+
+<p>输出<strong>哪些</strong> gt 等</p>
+<pre>
+var head_conf = screensCss: {
+  "gt" : true,
+  "gte": false,
+  "lt" : true,
+  "lte": false,
+  "eq" : false
+};
+
+</pre>
+
+<h3 id="CSS_Router">CSS Router</h3>
+<p>根据路径和文件名加载，比如这个路径</p>
+<pre class="prettyprinted" style="color:red;background:#ccc">
+http://mydomain.com/addons/node/router.html
+</pre>
+
+<p>以下样式将会生效</p>
+<pre>
+.addons-section { }
+.addons-node-section { }
+#router-page { }
+</pre>
+
+<p>section 和 page 名称可自定义，比如</p>
+<pre>
+var head_conf = { section: '-area', page: ''};
+</pre>    
+
+<p>就会</p>
+<pre>
+.addons-area { }
+.addons-node-area { }
+#router { }
+</pre>
+
+<h3 id="Browser_Detection_/_Graceful_Degradation">Browser Detection / Graceful Degradation</h3>
+<pre>
+/ older than IE9 /
+.lt-ie9 .box { padding: 10px; }
+
+/ CSS fixes for IE6 /
+.ie6 ul  { list-style: none; }
+
+</pre>        
+
+<h3 id="Dynamic_CSS">Dynamic CSS</h3>
+<p>在 html 增加自定义 class</p>
+<pre>
+&lt;script&gt;
+/*
+detect whether user is logged in. here we check for an
+existence of a cookie
+*/
+head.feature("logged", mycookielib.get_cookie("auth_token"));
+&lt;/script&gt;
+
+&lt;style&gt;
+/ .. and write CSS accordingly /
+.logged #login-box { display: none; }
+&lt;/style&gt;    
+</pre>
+
+<h3 id="CSS3_Feature_Detection">CSS3 Feature Detection</h3>
+<pre>
+/ target CSS for browsers without box-shadow support /
+.no-boxshadow .box {
+   border: 2px solid #ddd;
+}
+</pre>
+
+<p>内置的检测项目如下：</p>
+<ul>
+<li>borderimage</li>
+<li>borderradius</li>
+<li>boxshadow</li>
+<li>cssreflections</li>
+<li>csstransforms</li>
+<li>csstransitions</li>
+<li>fontface</li>
+<li>multiplebgs</li>
+<li>opacity</li>
+<li>rgba</li>
+<li>textshadow</li>
+</ul>
+<p>自定义检测</p>
+<pre>
+head.feature("video", function() {
+    var tag = document.createElement('video');
+    return !!tag.canPlayType;
+});
+</pre>
+
+<h3 id="HTML5_Enabler">HTML5 Enabler</h3>
+<p>类似 html5.js 部分功能</p>
+<pre>
+&lt;style&gt;
+   article { text-shadow:0 0 1px #ccc; }
+&lt;/style&gt;
+
+&lt;!-- works in IE too --&gt;
+&lt;article&gt;
+   &lt;header&gt;&lt;/header&gt;
+   &lt;section&gt;&lt;/section&gt;
+   &lt;footer&gt;&lt;/footer&gt;
+&lt;/article&gt;
+</pre>
+
+<p>支持以下 html5 tag</p>
+<ul>
+<li>abbr</li>
+<li>article</li>
+<li>aside</li>
+<li>audio</li>
+<li>canvas</li>
+<li>details</li>
+<li>figcaption</li>
+<li>figure</li>
+<li>footer</li>
+<li>header</li>
+<li>hgroup</li>
+<li>mark</li>
+<li>meter</li>
+<li>nav</li>
+<li>output</li>
+<li>progressdisplay</li>
+<li>section</li>
+<li>summary</li>
+<li>time</li>
+<li>video</li>
+</ul>
+<h3 id="Script_Organization">Script Organization</h3>
+<p>所有 js 初始化完毕</p>
+<pre>
+head.ready(function() {
+
+});
+</pre>
+
+<p>某个 js 加载完毕</p>
+<pre>
+// call a function after a particular file has been loaded    
+head.ready("file2.js", function() {
+
+});
+</pre>
+
+<p>简写</p>
+<pre>
+// a handy shortcut for head.ready()
+head(function() {
+
+});
+
+</pre>
+
+
+<h3 id="Labeling_Scripts">Labeling Scripts</h3>
+<p>给脚本起名字</p>
+<pre>
+// call a function immediately after jQuery Tools is loaded
+head.ready("tools", function() {
+
+   // setup Tooltips
+   $(".tip").tooltip();
+
+});
+
+// load scripts by assigning a label for them
+head.js(
+   {jquery: "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"},
+   {tools: "http://cnd.jquerytools.org/1.2.5/tiny/jquery.tools.min"},
+   {heavy: "http://a.heavy.library/we/dont/want/to/wait/for.js"},
+
+   // label is optional
+   "http://can.be.mixed/with/unlabeled/files.js"
+);
+</pre>
+
+<p><a href="http://headjs.com/" target="_blank" rel="external">http://headjs.com/</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/less-css-loop/">lesscss loop</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="-less_内容">.less 内容</h3>
+<pre>
+.loopingClass (@index) when (@index > 0) {
+    (~".li@{index}") {
+        padding-left : 6px * @index;
+    }
+    .loopingClass(@index - 1);
+}
+.loopingClass (0) {}
+.loopingClass(5);
+</pre>
+
+<h3 id="输出的_-css">输出的 .css</h3>
+<pre>
+.li5 {
+  padding-left: 30px;
+}
+.li4 {
+  padding-left: 24px;
+}
+.li3 {
+  padding-left: 18px;
+}
+.li2 {
+  padding-left: 12px;
+}
+.li1 {
+  padding-left: 6px;
+}
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/bootstrap-3-grid-breakpoint/">Bootstrap 3 grid 断点</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>默认断点是：</p>
+<ul>
+<li>手机 &lt;768 <strong>.col-xs-</strong></li>
+<li>平板 &gt; 768 <strong>.col-sm-</strong></li>
+<li>电脑 &gt; 992 <strong>.col-md-</strong></li>
+<li>更大的屏幕 &gt; 1170  <strong>.col-lg-</strong></li>
+</ul>
+<table class="table table-bordered table-striped"><br>  <thead><br>    <tr><br>      <th></th><br>      <th><br>        Extra small devices<br>        <small>Phones (&lt;768px)</small><br>      </th><br>      <th><br>        Small devices<br>        <small>Tablets (≥768px)</small><br>      </th><br>      <th><br>        Medium devices<br>        <small>Desktops (≥992px)</small><br>      </th><br>      <th><br>        Large devices<br>        <small>Desktops (≥1200px)</small><br>      </th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>Grid behavior</th><br>      <td>Horizontal at all times</td><br>      <td colspan="3">Collapsed to start, horizontal above breakpoints</td><br>    </tr><br>    <tr><br>      <th>Max container width</th><br>      <td>None (auto)</td><br>      <td>750px</td><br>      <td>970px</td><br>      <td>1170px</td><br>    </tr><br>    <tr><br>      <th>Class prefix</th><br>      <td>.col-xs-</td><br>      <td>.col-sm-</td><br>      <td>.col-md-</td><br>      <td>.col-lg-</td><br>    </tr><br>    <tr><br>      <th># of columns</th><br>      <td colspan="4">12</td><br>    </tr><br>    <tr><br>      <th>Max column width</th><br>      <td class="text-muted">Auto</td><br>      <td>60px</td><br>      <td>78px</td><br>      <td>95px</td><br>    </tr><br>    <tr><br>      <th>Gutter width</th><br>      <td colspan="4">30px (15px on each side of a column)</td><br>    </tr><br>    <tr><br>      <th>Nestable</th><br>      <td colspan="4">Yes</td><br>    </tr><br>    <tr><br>      <th>Offsets</th><br>      <td colspan="1" class="text-muted">N/A</td><br>      <td colspan="3">Yes</td><br>    </tr><br>    <tr><br>      <th>Column ordering</th><br>      <td class="text-muted">N/A</td><br>      <td colspan="3">Yes</td><br>    </tr><br>  </tbody><br></table>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/jquery-easing-1.3/">jquery easing 1.3 速查</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>jquery 内置 easing 只有 linear（默认，匀速直线） 和 swing（也就是 easeOutQuad）。</p>
+<p>jquery easing 1.3 31 种（包括 swing）。算上 linear 全部可选的 easing 效果是 32 种。</p>
+<p>‘linear’, ‘easeOutQuad’, ‘easeInQuad’, ‘easeOutQuad’, ‘easeInOutQuad’, ‘easeInCubic’, ‘easeOutCubic’, ‘easeInOutCubic’, ‘easeInQuart’, ‘easeOutQuart’, ‘easeInOutQuart’, ‘easeInQuint’, ‘easeOutQuint’, ‘easeInOutQuint’, ‘easeInSine’, ‘easeOutSine’, ‘easeInOutSine’, ‘easeInExpo’, ‘easeOutExpo’, ‘easeInOutExpo’, ‘easeInCirc’, ‘easeOutCirc’, ‘easeInOutCirc’, ‘easeInElastic’, ‘easeOutElastic’, ‘easeInOutElastic’, ‘easeInBack’, ‘easeOutBack’, ‘easeInOutBack’, ‘easeInBounce’, ‘easeOutBounce’, ‘easeInOutBounce’</p>
+<script src="/labs/jquery-easing-1.3.js"></script>
+<script src="/labs/jquery-easing-example.js"></script>
+
+<style>
+
+.jquery-easing-example-div {margin:20px 0;background:#eee;}
+.jquery-easing-example-div h3 {padding:10px;}
+.jquery-easing-example-div .ball {background: red;height: 30px;width: 30px;border-radius: 100%;}
+
+</style>
+
+<div id="jquery-easing-example-divs"></div>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/25/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/27/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+@color:#419641;
+
+#lessFuncDiv {
+	div {
+		width: 160px;height: 160px;display: inline-block;
+		border:solid 3px #ccc;margin-right: 10px;
+	}
+	.d1 {
+		background: @color;
+		border-color:darken(@color,20%);
+		&:hover {
+			background: lighten(@color,10%);
+			border-color:lighten(darken(@color,20%),10%);
+		}
+	}
+	.d2 {
+		background: spin(@color,200);
+		border-color:darken(spin(@color,200),20%);
+		&:hover {
+			background: lighten(spin(@color,200),10%);
+			border-color:lighten(darken(spin(@color,200),20%),10%);
+		}
+	}
+	.d3 {
+		background: desaturate(@color,50%);
+	}
+	.d4 {
+		background: mix(green,yellow,50%);
+	}
+}
+
+
+

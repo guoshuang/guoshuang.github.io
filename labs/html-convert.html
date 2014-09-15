@@ -1,0 +1,23 @@
+
+<script type="text/javascript">
+function HtmlEncode(s)
+{
+  var el = document.createElement('div');
+  el.innerText = el.textContent = s;
+  //el.innerHTML=s
+  s = el.innerHTML.replace(/<br>/g,"\n");
+  //console.log(s)
+  return s;
+}
+
+function a2b(){
+	var a=document.getElementById('a').value;
+	document.getElementById('b').value=HtmlEncode(a);
+	//console.log(a)
+}
+</script>
+
+<textarea id="a" style="width:90%;height:6em;"></textarea>
+<textarea id="b" style="width:90%;height:6em;"></textarea>
+
+<div><button id="a2b" onclick="a2b()">代码转换</button></div>

@@ -1,0 +1,21 @@
+
+#white-space-example-div {
+	background: #eee;padding: 10px;
+	a:after {content:none;}
+}
+
+#example-white-space,#example-word-wrap,#example-word-break {
+	li {
+		cursor: pointer;font-size: 1.2em;
+		&:hover {
+			background:#eee;
+		}
+		&.active {
+			color:#690;
+			&:after {
+				content:'\f00c';font-family:'fontAwesome';display: inline-block;margin-left: 6px;
+			}
+		}
+	}
+}
+

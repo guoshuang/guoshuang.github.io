@@ -1,0 +1,46 @@
+/*article .entry {overflow: visible}*/
+#veryless-animation-div {
+  width: 30%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #c00;
+  color: #fff;
+  position: absolute;
+  z-index: 999;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+#veryless-animation-type-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 80px;
+}
+#veryless-animation-type-list li {
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  width: 30%;
+  float: left;
+}
+#veryless-animation-type-list li:hover {
+  background: #ddd;
+}
+#veryless-animation-type-list li.current {
+  background: #666;
+  color: #fff;
+}
+.ani-paused {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused;
+}

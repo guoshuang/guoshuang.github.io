@@ -1,0 +1,525 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 13 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/remove-repeated-mac-context-menu-items/">remove repeated mac context menu items</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>软件升级之后，mac 右键菜单的 open with 经常会出现重复（duplicated）的条目！</p>
+<p>打开终端执行</p>
+<p><code>/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user</code></p>
+<p>然后 <kbd>alt</kbd>+<kbd>鼠标右键</kbd> dock 中的 Finder，选择 Relaunch    </p>
+<p>搞定！</p>
+<p><a href="http://mac.appstorm.net/roundups/utilities-roundups/40-super-secret-os-x-lion-features-and-shortcuts/" target="_blank" rel="external">more</a></p>
+<p><a href="http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks" target="_blank" rel="external">and more</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/google-green/">google green</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>时间无情地带走了2013，2014这个笨蛋蹒跚而至。以下皆为 13 年的烂账，闲后一并拿下。</p>
+<p>根据 <a href="http://www.sitepoint.com/5-ways-prevent-300ms-click-delay-mobile-devices/?utm_medium=email&amp;utm_campaign=SitePoint+Mobile+Newsletter++10+January+2014&amp;utm_content=SitePoint+Mobile+Newsletter++10+January+2014+CID_0ab4e2c703e55ad3275eeb36933be262&amp;utm_source=CampaignMonitor%20SitePoint&amp;utm_term=Read%20more" target="_blank" rel="external">5 Ways to Prevent the 300ms Click Delay on Mobile Devices</a> 的说法。手机 bs 比 local app 慢有个原因是：</p>
+<p>手机浏览器会等 300ms 来确认到底是 点击(click) 还是 double-tapping 或者 两个指头 放大缩小。</p>
+<p>firefox,chrome 用 </p>
+<pre>
+&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;
+</pre>
+或者
+<pre>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"&gt;
+</pre>
+
+<p>chrome 32+</p>
+<pre>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3"&gt;
+</pre>
+
+<p>ie10+</p>
+<pre>
+a, button, .myelements
+{
+    -ms-touch-action: manipulation; /* IE10  */
+    touch-action: manipulation;     /* IE11+ */
+}
+</pre>
+
+
+<p>连 muhua 都 uglify 了，：（</p>
+<p><a href="http://pinyin.hotoo.me/examples/" target="_blank" rel="external">http://pinyin.hotoo.me/examples/</a></p>
+<p>貌似 seajs 不错哦</p>
+<p><a href="https://github.com/seajs/seajs/issues/547" target="_blank" rel="external">https://github.com/seajs/seajs/issues/547</a></p>
+<p><a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="external">https://github.com/seajs/seajs/issues/588</a></p>
+<p><a href="https://github.com/tooling/book-of-modern-frontend-tooling" target="_blank" rel="external">https://github.com/tooling/book-of-modern-frontend-tooling</a></p>
+<p><a href="http://graphicdesignjunction.com/2013/04/flat-icons-and-web-elements-for-ui-design/" target="_blank" rel="external">http://graphicdesignjunction.com/2013/04/flat-icons-and-web-elements-for-ui-design/</a></p>
+<p><a href="http://idevie.com/freebies/icons/40-beautiful-flat-icon-sets-for-web-ui-design/" target="_blank" rel="external">http://idevie.com/freebies/icons/40-beautiful-flat-icon-sets-for-web-ui-design/</a></p>
+<p><a href="https://github.com/mattbryson/TouchSwipe-Jquery-Plugin" target="_blank" rel="external">https://github.com/mattbryson/TouchSwipe-Jquery-Plugin</a></p>
+<p>不能用在 a!!!</p>
+<p>homebrew install mysql</p>
+<p><a href="http://madebyhoundstooth.com/blog/install-mysql-on-mountain-lion-with-homebrew/" target="_blank" rel="external">http://madebyhoundstooth.com/blog/install-mysql-on-mountain-lion-with-homebrew/</a></p>
+<p><a href="http://www.google.com.hk/green/bigpicture/" target="_blank" rel="external">http://www.google.com.hk/green/bigpicture/</a></p>
+<p><a href="http://slides.html5rocks.com/#filewriter" target="_blank" rel="external">http://slides.html5rocks.com/#filewriter</a></p>
+<p><a href="http://www.html5rocks.com/en/tutorials/file/filesystem/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/file/filesystem/</a></p>
+<p><a href="http://css.dzone.com/articles/markdown-javascript-great-html" target="_blank" rel="external">http://css.dzone.com/articles/markdown-javascript-great-html</a></p>
+<progress></progress>
+
+<progress value="75" max="100">3/4 complete</progress>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mobile/how-to-modify-android-hosts/">修改安卓hosts文件</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>因为 mac 开了 vhost 虚拟主机，手机测试时，不能直接ip，否则去的是 A，而不是 B。必须修改手机 hosts 文件。 </p>
+<h3 id="步骤1_root">步骤1  root</h3>
+<p>用 z4root.apk 或 <a href="http://shuaji.360.cn/root/" target="_blank" rel="external">360 root</a> 之流先 root 手机，获取 su 权限。</p>
+<h3 id="步骤2_shell">步骤2  shell</h3>
+<p>前提：</p>
+<ol>
+<li>本机安装了 android sdk</li>
+<li>把手机连接到usb上</li>
+<li>手机打开  程序 － 安装和调试 － usb 调试</li>
+</ol>
+<p>开始：</p>
+<p><code>adb shell</code> 进入手机 shell</p>
+<p><code>su</code> 冒充系统管理员</p>
+<p><code>mount -o rw,remount /system</code> 重新以读写方式挂接（否则只能看不能摸）</p>
+<p><code>vi /system/etc/hosts</code> 伟大的 vi </p>
+<p>vi 添加一条</p>
+<pre>
+192.168.0.136  gs    
+</pre>
+
+<p><code>mount -o ro,remount /system</code> 再次恢复系统为只读</p>
+<p>以后手机就可直接 gs 访问我的 mac 虚拟主机了。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/throttle/">mac 下低网速测试 web 页面(Throttle)</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="经常需要模拟低网速下，页面加载效果">经常需要模拟低网速下，页面加载效果</h3>
+<p>以前传说中的 Firefox Throttle 也彻底消失了。还好，mac 下默认已有 ipfw 命令。</p>
+<p>限制带宽为 100k/s</p>
+<p><code>sudo ipfw pipe 1 config bw 100Kbytes/s</code>  管道1配置为100k/s<br><code>sudo ipfw add 1 pipe 1 tcp from any to me</code>  规则 1 加到 管道 1 tcp 协议 任何 in（别人到我）的访问</p>
+<p>取消限制</p>
+<p><code>sudo ipfw delete 1</code> 删除规则1 </p>
+<p>或者</p>
+<p><code>sudo ipfw flush</code>  删除全部规则</p>
+<h3 id="可以写个脚本">可以写个脚本</h3>
+<p>限制带宽</p>
+<pre>
+#!/bin/sh  
+
+LIMITDOWN="30Kbytes/s"  
+LIMITUP="10Kbytes/s"  
+
+if [[ $EUID -ne 0 ]]; then  
+ echo "This script must be run as root." 1>&amp;2  
+ exit 1  
+fi  
+
+ipfw pipe 1 config bw $LIMITDOWN  
+ipfw pipe 2 config bw $LIMITUP  
+ipfw add 1 pipe 1 tcp from any to me  
+ipfw add 2 pipe 2 tcp from me to any  
+</pre>
+
+<p>取消带宽</p>
+<pre>
+#!/bin/sh  
+
+if [[ $EUID -ne 0 ]]; then  
+ echo "This script must be run as root." 1>&amp;2  
+ exit 1  
+fi  
+
+ipfw delete 1  
+ipfw delete 2  
+</pre>
+
+<h3 id="延伸">延伸</h3>
+<p><code>sudo ipfw add 1 pipe 1 tcp from any to me</code> </p>
+<p>也可换为（如果只是为了测试 80 的话）。</p>
+<p><code>sudo ipfw add 1 pipe 1 src-port 80</code> 表示只在 80 端口应用规则</p>
+<p><code>sudo ipfw show</code> 显示所有规则</p>
+<h3 id="再延伸">再延伸</h3>
+<p>如果有后台的话,比如 ajax php，可在 php</p>
+<pre>
+sleep 300;
+</pre>    
+
+<p>延迟响应时间。</p>
+<h3 id="其它类似的工具？">其它类似的工具？</h3>
+<ul>
+<li><a href="http://bandwidthcontroller.com/trafficShaperXp.html" target="_blank" rel="external">Traffic Shaper XP </a> </li>
+<li><a href="http://www.linuxfoundation.org/collaborate/workgroups/networking/netem" target="_blank" rel="external">netem</a> </li>
+<li><a href="http://fiddler2.com/" target="_blank" rel="external">Fiddler</a> </li>
+<li><a href="http://www.dallaway.com/sloppy/" target="_blank" rel="external">sloppy</a></li>
+<li><a href="http://www.charlesproxy.com/" target="_blank" rel="external">charlesproxy</a> <a href="http://roderick.dk/2012/05/11/simulate-slow-web-connections/" target="_blank" rel="external">使用教程</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/html5-video/">html5 video</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="html5_video_tag">html5 video tag</h3>
+<p>标准写法为</p>
+<pre>
+&lt;video controls preload="false" poster="v/oceans.png"&gt;
+  &lt;source src="v/oceans.mp4" type="video/mp4"&gt;
+  &lt;source src="v/oceans.ogv"&gt;
+  &lt;track src="v/zimu.vtt" kind="subtitles" srclang="中文" label="中文"&gt;&lt;/track&gt;
+  &lt;track src="v/zimu.vtt" kind="captions" srclang="中文" label="中文"&gt;&lt;/track&gt;
+&lt;/video
+</pre>
+
+<ul>
+<li>controls 是否显示控制（播放、暂停、全屏、字幕等）</li>
+<li>preload 是否预加载</li>
+<li>poster  封面（视频截图）</li>
+<li>source  视频的多个地址（依次）。firefox 不能放 mp4，只能 ogg，或者 webm</li>
+<li>track 字幕</li>
+</ul>
+<h3 id="现实是残酷的">现实是残酷的</h3>
+<p>有很多视频解决办法。 videojs jwplayer 等等。思路都是：</p>
+<p>如果sb浏览器，如ie67等，用 flash 替换。否则用浏览器自带。</p>
+<h3 id="判断办法">判断办法</h3>
+<pre>
+var v = document.createElement('video');
+if(v.canPlayType){console.log('浏览器支持 video tag');}
+</pre>
+
+<p>更可以判断是否支持某视频格式</p>
+<pre>
+return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+</pre>
+
+<p>当然，如果有 Modernizr js，就更简单了</p>
+<pre>
+if (Modernizr.video) {
+  // let's play some video! but what kind?
+  if (Modernizr.video.webm) {
+    // try WebM
+  } else if (Modernizr.video.ogg) {
+    // try Ogg Theora + Vorbis in an Ogg container
+  } else if (Modernizr.video.h264){
+    // try H.264 video + AAC audio in an MP4 container
+  }
+}
+</pre>
+
+<h3 id="其它">其它</h3>
+<p>ie8-9-10 这个笨蛋，经常返回 unsupported video type or invalid file path。估计是 mime 的问题，懒得验证了。</p>
+<p>iphone 也是笨蛋。更方面显示，都是支持的。但就是不能播放。有说法，图像分辨率超过 iphone 尺寸的不放。也有人拿越狱说事。（没iphone，测试不方便，就此放弃）</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track</a></li>
+<li><a href="http://diveintohtml5.info/detect.html" target="_blank" rel="external">http://diveintohtml5.info/detect.html</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-apache-vhost/">mac apache vhost</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>编辑 /etc/apache2/httpd.conf</p>
+<p><code>sudo nano /etc/apache2/httpd.conf</code></p>
+<p>打开虚拟目录</p>
+<pre>
+# Virtual hosts
+
+Include /private/etc/apache2/extra/httpd-vhosts.conf
+</pre>
+
+<p>编辑 httpd-vhosts.conf</p>
+<p><code>sudo nano /etc/apache2/extra/httpd-vhosts.conf</code></p>
+<p>内容为：</p>
+<pre>
+<virtualhost *:80="">
+    ServerAdmin davidguoshuang@gmail.com
+    DocumentRoot "/Users/david/workshop"
+    ServerName gs
+    ServerAlias gs
+    ErrorLog "/Users/david/workshop/apache-error.log"
+    CustomLog "/Users/david/workshop/apache-access.log" common
+    &lt;Directory "/Users/david/workshop"&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+</virtualhost>
+</pre>
+
+<p>编辑 hosts，添加“域名”</p>
+<p><code>sudo nano /etc/hosts</code></p>
+<p>添加</p>
+<pre>
+127.0.0.1 gs
+</pre>
+
+<p>重启 apache</p>
+<p><code>sudo apachectl restart</code></p>
+<p>浏览器访问 <a href="http://gs/" target="_blank" rel="external">http://gs/</a></p>
+<p>via <a href="http://www.coolestguidesontheplanet.com/downtown/how-set-virtual-hosts-apache-mac-osx-109-mavericks-and-osx-108-mountain-lion" target="_blank" rel="external">how-set-virtual-hosts-apache-mac</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/bootstrap-narrow/">bootstrap narrow</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>bootstrap 超过 1170 会继续全宽！有时候，我们更希望传统的 980 宽度。</p>
+<pre>
+@media (min-width: 768px){
+    .container {
+        max-width: 980px;
+    }
+}
+</pre>
+
+<p>前提是内容部分必须被  .container 包裹。</p>
+<p>粗暴一点（为了支持ie67，已有 html5shiv 情况下）可以直接</p>
+<p>.container {max-width: 980px;}</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/a-href-javascript-void-0/">a href javascript void 0</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="看看下面代码错误何在？">看看下面代码错误何在？</h3>
+<p>1 显示，2 不显示</p>
+<pre>
+&lt;a id="btn-test" href="javascript:void(0);"&gt;do something&lt;/a&gt;
+&lt;script&gt;
+jQuery(function($){
+    $('#btn-test').on('click',function(){
+        console.log(1);
+        $.ajax({
+            url:'';
+            success:function(d){
+                console.log(d);
+            }
+        })
+        console.log(2);
+    })
+})
+&lt;/script&gt;
+</pre>
+
+<p><a href="javascript:void(0);" onclick="$('#answerDiv').show()" class="btn-falt" target="_blank" rel="external">看答案</a><div id="answerDiv" style="display:none;"><p> ajax 默认是 异步（async），所以 a 点击后：先 log 1，然后开始 ajax，然后执行 void(0)，停止一切！ajax 被打断了。</p><p>ajax 同步，或者 ajax 后面主动  return false。先下手为强。（我估计的，没测试）</p></div></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/12/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/14/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/*by davidguoshuang at gmail.com 2013-05-27*/
+
+@colorArr:'#b32018,#cd661b,#e5b539,#477f40,#01a2b4,#1b3595,#7f3e98,#e73d96,#572500';
+
+.random_color(@arg){
+	background-color:~`@{colorArr}.split(',')[@{arg}]`;
+}
+
+.random_color(){
+	@len:`Math.floor(Math.random()*(@{colorArr}.split(',').length))`;
+	background-color:~`@{colorArr}.split(',')[@{len}]`;
+}
+
+.transform(...){
+	-webkit-transform:@arguments;
+	-moz-transform:@arguments;
+	-ms-transform:@arguments;
+	-o-transform:@arguments;
+	transform:@arguments;
+}
+
+.pureCssPie {
+	margin:0;padding:0;list-style: none;
+	height:200px;
+	position:relative;
+	li {
+		margin:0;padding:0;list-style: none;
+		/*background:#aaa;*/
+		position: absolute;
+		height:200px;width:200px;
+		clip:rect(0px,200px,100px,0px);
+		div {
+			position: absolute;
+			height:200px;width:200px;
+			clip:rect(0px,100px,200px,0px);
+			.transform(rotate(0deg));
+			border-radius:100%;
+		}
+	}
+	li:nth-child(1) {
+		.transform(rotate(0deg));	//60
+		div {
+			.random_color(0);
+			.transform(rotate(-30deg));//60-90
+		}
+	}
+	li:nth-child(2) {
+		.transform(rotate(60deg));//145
+		div {
+			.random_color(1);
+			.transform(rotate(55deg));//145-90
+		}
+	}
+	li:nth-child(3) {
+		.transform(rotate(205deg));	//120
+		div {
+			.random_color(2);
+			.transform(rotate(30deg));//120-90
+		}
+	}
+	li:nth-child(4) {
+		.transform(rotate(325deg));	//120
+		div {
+			.random_color(3);
+			.transform(rotate(-55deg));//35-90
+		}
+	}
+}

@@ -1,0 +1,141 @@
+/*by davidguoshuang at gmail.com 2013-05-26*/
+
+.transform(...){
+	-webkit-transform:@arguments;
+	-moz-transform:@arguments;
+	-ms-transform:@arguments;
+	-o-transform:@arguments;
+	transform:@arguments;
+}
+.transform-origin(...){
+	-webkit-transform-origin:@arguments;
+	-moz-transform-origin:@arguments;
+	-ms-transform-origin:@arguments;
+	-o-transform-origin:@arguments;
+	transform-origin:@arguments;
+}
+.animation(...){
+	-webkit-animation:@arguments;
+	-moz-animation:@arguments;
+	-ms-animation:@arguments;
+	-o-animation:@arguments;
+	animation:@arguments;
+}
+
+@pos1_left:50px;
+@pos1_top:50px;
+@font_size:16px;
+
+/*
+animation 参数
+1s 动画长度
+2s 延迟
+1 重复次数
+forwards 停留在前方（最后一桢）
+*/
+
+#gs_animate {
+	height:300px;
+	background: #06c;
+	position:relative;
+	&>div {
+		box-sizing:border-box;
+		font-size: @font_size;
+		color:rgba(255,255,255,.8);
+	}
+	div:nth-child(1) {//ball 1
+		position:absolute;
+		z-index:2;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		border:solid 2px rgba(255,255,255,0.8);
+		/*background: rgba(255,255,255,0.5);*/
+		left:@pos1_left;
+		top:@pos1_top;
+		.animation(ball1 1s 1 linear forwards );		
+	}
+	div:nth-child(2) {//line 1
+		position:absolute;
+		z-index:1;
+		width:100px;
+		height:2px;
+		background:rgba(255,255,255,0.6);
+		left:@pos1_left+12;
+		top:@pos1_top+12;
+		opacity: 0;
+		.transform-origin(0%,50%);
+		.transform(rotate(45deg));
+		.animation(line1 1s 1s 1 ease-in forwards);
+	}
+	div:nth-child(3) {//ball 2
+		position:absolute;
+		z-index:2;
+		border-radius: 100%;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		border:solid 2px rgba(255,255,255,0.8);
+		left:@pos1_left+100/1.414+10;
+		top:@pos1_top+100/1.414+10;
+		opacity:0;
+		.animation(ball2 1s 2s 1 linear forwards);
+	}
+	div:nth-child(4) {//text 开始
+		position:absolute;
+		z-index:2;
+		left:@pos1_left;
+		top:@pos1_top;
+		margin-left:1.5*@font_size;
+		margin-top:-4px;
+		opacity: 0;
+		.animation(text1 1s 2s 1 linear forwards);
+	}
+	div:nth-child(5) {//line2 
+		position:absolute;
+		z-index:1;
+		width:150px;
+		height:2px;
+		background:rgba(255,255,255,0.6);
+		left:146px;
+		top:138px;
+		/*.transform-origin(0%,50%);
+		.transform(rotate(45deg));*/
+	}
+}
+
+@-webkit-keyframes ball1 {
+  from {
+    -webkit-transform:scale(2,2);opacity: 0;
+  }
+  to{
+    -webkit-transform:scale(1,1);opacity: 1;
+  }
+}
+
+@-webkit-keyframes line1 {
+  from {
+    opacity: 0;width:0;
+  }
+  to{
+    opacity: 1;width:100px;
+  }
+}
+
+@-webkit-keyframes ball2 {
+  from {
+    opacity: 0;background-color:rgba(255,255,255,1);
+  }
+  to{
+    opacity: 1;background-color:rgba(255,255,255,0);
+  }
+}
+
+@-webkit-keyframes text1 {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;;
+  }
+}

@@ -1,0 +1,21 @@
+<div id="abc" style="color:red;">111</div>
+
+<script>
+function getStyle(el,cssprop){
+ if (el.currentStyle) {//ie
+ 		cssArr=cssprop.split('-');//change font-size to fontSize etc.
+		for(i=1;i<cssArr.length;i++){
+			cssArr[i]=cssArr[i].substr(0,1).toUpperCase()+cssArr[i].substr(1)
+		}
+		cssprop=cssArr.join('');
+  	return el.currentStyle[cssprop];
+	}else if (window.getComputedStyle) {//modern browser  
+  	return window.getComputedStyle(el).getPropertyValue(cssprop)
+ 	}else {//try and get inline style
+  	return el.style[cssprop]
+	}
+}
+
+alert(getStyle(document.getElementById('abc'),'font-size'))
+alert(getStyle(document.getElementById('abc'),'color'))
+</script>

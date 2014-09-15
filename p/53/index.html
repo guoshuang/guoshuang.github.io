@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 53 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo简单本地搜索/">hexo简单本地搜索</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo 默认是google搜索 <strong><em> site:guoshuang.com</em></strong>。本机写东西的时候经常要搜索、方便修改，做了个简单搜索，自己用，找东西方便。</p>
+<p>每次需要手工把 hexo 项目根目录里面的 db.json 拷贝到 source/labs/ 目录中，all.htm 也在 source/labs/ 目录。</p>
+<p>每次 jquery loadJSON 画页面，搜索排序,没有参数的时候就是全部posts，至少还可以用浏览器搜索。比如：</p>
+<p><a target="_blank" class="btn" href="/labs/all.html?q=sublime">sublime</a> <a target="_blank" class="btn btn-success" href="/labs/all.html?q=hexo">hexo</a> <a target="_blank" class="btn btn-danger" href="/labs/all.html?q=主题">主题</a> <a target="_blank" class="btn btn-purple" href="/labs/all.html?q=css+性能">css+性能</a></p>
+<p>控制台有 json 和 posts 。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-attr/">css attr()</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <pre>
+a:hover:after {
+    content:'\00A9 ⇢'attr(href);
+}
+</pre>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo显示更多的问题/">hexo 显示&quot;更多&quot;的问题</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo 显示 index 时，不需要的时候也会出现 more 按钮。修改 themes/light/layout/_partial/article.ejs 30行</p>
+<p>修改</p>
+<pre>
+&lt;% if (item.excerpt){ %&gt;
+</pre>
+
+
+<p>为下面内容</p>
+<pre>
+&lt;% if (item.content.length&gt;item.excerpt.length){ %&gt;
+</pre>
+
+<p>最终代码类似这样</p>
+<pre class="linenums:30">
+&lt;% if (<span class="nocode" style="color:#c00;font-size:14px;">item.content.length&gt;item.excerpt.length</span>){ %&gt;
+  &lt;div class="alignleft"&gt;
+    &lt;a href="&lt;%- config.root %&gt;&lt;%- item.path %&gt;#more" class="more-link" title="&lt;%= theme.excerpt_link %&gt;"&gt;&lt;%= theme.excerpt_link %&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;% } %&gt;
+</pre>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/flatland theme 4 vim/">flatland theme 4 vim</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>下载 <a href="https://github.com/thinkpixellab/flatland/blob/master/Vim/colors/flatland.vim" target="_blank" rel="external">vim 的主题文件</a>，拷贝到 ~/.vim/colors/ 目录中。</p>
+<p><code>cp flatland.vim ~/.vim/colors/flatland.vim</code></p>
+<p>然后打开 vim，执行</p>
+<p><code>:colorscheme flatland</code></p>
+<p>或者 </p>
+<p><code>:colo flatland</code></p>
+<p>但下次打开 vim 还是默认主题，需要建立 ~/.vimrc</p>
+<p><code>vi ~/.vimrc</code></p>
+<pre>
+colo flatland
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/sublime 使用技巧/">sublime 使用技巧</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="打开刚关掉的文件">打开刚关掉的文件</h3>
+<key><kbd class="mac"></kbd>+<kbd>shift</kbd>+<kbd>t</kbd></key>
+
+<hr>
+<h3 id="自动绕行（word_wrap）_快捷键">自动绕行（word wrap） 快捷键</h3>
+<p>选择 Preferences - Key Bindings-User</p>
+<pre>
+{ "keys": ["Command+alt+w"], "command": "toggle_setting", "args": {"setting": "word_wrap"} }
+</pre>
+
+<hr>
+<h3 id="Side_Bar_高亮当前文档（类似_eclipse_的_link）">Side Bar 高亮当前文档（类似 eclipse 的 link）</h3>
+<p><span class="key"><kbd class="mouse-right">右键</kbd> + Reveal in Side Bar </span></p>
+<hr>
+<h3 id="使用project（Side_Bar_显示常用目录）">使用project（Side Bar 显示常用目录）</h3>
+<p>使用 project 可以迅速定位那些常用的文件们。sidebar 的那些目录会被保存。拖动文件夹到 sidebar 中；删除用 <kbd class="mouse-right">右键点击</kbd> 根目录  Remove Folder from Project。Projrct - Save Project as </p>
+<hr>
+<h3 id="批量改名（Multiple_cursors）">批量改名（Multiple cursors）</h3>
+<div><key><kbd class="mac"></kbd>+<kbd>B</kbd></key> 选择和当前选择一样的内容（下一个）</div>
+
+<div><key><kbd class="mac"></kbd>+<kbd>Ctrl</kbd>+<kbd>G</kbd></key> 选择和当前选择一样的内容（全部）</div>
+
+<p>直接写，所有地方一起修改</p>
+<hr>
+<h3 id="开关_sidebar">开关 sidebar</h3>
+<p></p><p>默认是 <key><kbd class="mac"></kbd>+<kbd>k</kbd></key> 然后 <key><kbd class="mac"></kbd>+<kbd>b</kbd></key></p><br>而在我的mac <key><kbd class="mac"></kbd>+<kbd>k</kbd></key> 是删除当前行 ）直接改成 <key><kbd class="mac"></kbd>+<kbd>b</kbd></key>，选择 Preferences - Key Bindings-User<p></p>
+<pre>
+{ "keys": ["Command+b"], "command": "toggle_side_bar"}
+</pre>
+
+<p>注意：<key><kbd class="mac"></kbd>+<kbd>b</kbd></key> 默认是 { “keys”: [“super+b”], “command”: “build” } </p>
+<hr>
+<h3 id="文件查找和搜索">文件查找和搜索</h3>
+<ul>
+<li><key><kbd class="mac"></kbd>+<kbd>p</kbd></key> 搜索 project 中的文件名</li>
+<li>输入 #123,在当前文件所有 123 的内容！等同于 <key><kbd class="mac"></kbd>+<kbd>f</kbd></key> 或者 <key><kbd class="mac"></kbd>+<kbd>I</kbd></key>  搜索</li>
+<li>输入 :12 切换到第 12 行</li>
+</ul>
+<hr>
+<h3 id="快速执行命令">快速执行命令</h3>
+<div><key><kbd class="mac"></kbd>+<kbd>Shift</kbd>+<kbd>p</kbd></key> 搜索相关命令。</div>
+
+<hr>
+<h3 id="查找类或者函数">查找类或者函数</h3>
+<div><key><kbd class="mac"></kbd>+<kbd>r</kbd></key> 比如打开一个 .js 文件，会显示所有函数和类的名称</div>
+
+<hr>
+<h3 id="多行（列）布局">多行（列）布局</h3>
+<p>View - Layout - Columns:2 等等方便对比文件</p>
+<p>注意：Command 或者 Cmd 或者 super 实际上都是指苹果的“花”键 <key><kbd class="mac"></kbd></key> ⌘ html entity 代码是  <code>&amp;amp;#8984;</code></p>
+<hr>
+<h3 id="书写_html_标签（前后标签一起修改）">书写 html 标签（前后标签一起修改）</h3>
+<ul>
+<li>选择一段文字，<key><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>w</kbd></key></li>
+<li>直接 <key><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>w</kbd></key></li>
+<li>双击开始 &lt;tag&gt; ，然后 <key><kbd class="mac"></kbd>+<kbd>d</kbd></key> 前后标签一起修改</li>
+</ul>
+<hr>
+<h3 id="列选择"><a href="http://www.sublimetext.com/docs/2/column_selection.html" target="_blank" rel="external">列选择</a></h3>
+<div><key><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>↑</kbd></key> 或者  <key><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>↓</kbd></key></div>
+
+<p>我的Mac 下的 ctrl+shift+上下键 被 mission control 占领了，只好修改 Preferences - Key Bindings-User</p>
+<pre>
+{ "keys": ["super+alt+up"], "command": "select_lines", "args": {"forward": false} },
+{ "keys": ["super+alt+down"], "command": "select_lines", "args": {"forward": true} }
+</pre>
+
+<p>官方说 <kbd class="mouse-left">Left Mouse Button</kbd>+<kbd>Option</kbd> 也可以；但我的 mac 是  <kbd class="mac"></kbd>+<kbd class="mouse-left">Left Mouse Button</kbd></p>
+<hr>
+<h3 id="注释和取消">注释和取消</h3>
+<div><key><kbd class="mac"></kbd>+<kbd>/</kbd></key></div><br><div><key><kbd class="mac"></kbd>+<kbd>alt</kbd>+<kbd>/</kbd></key></div>
+
+<hr>
+<h3 id="合并下一行">合并下一行</h3>
+<div><key><kbd class="mac"></kbd>+<kbd>j</kbd></key></div>
+
+<h3 id="多重选择">多重选择</h3>
+<div><key><kbd class="mac"></kbd></key>+鼠标拖选 或者 双击</div>
+
+<p>相关：</p>
+<ul>
+<li><a href="/software/sublime2-flatland-theme/">sublime2 主题 flatland</a></li>
+<li><a href="/software/sublime%E5%85%B3%E9%97%AD%E6%90%9C%E7%B4%A2%E6%A0%8F/">sublime关闭搜索栏</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/Mac Finder 显示隐藏文件/">Mac Finder 显示隐藏文件</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Finder 显示隐藏文件（设置并重启 Finder）</p>
+<p><code>defaults write com.apple.Finder AppleShowAllFiles YES;killall -HUP Finder</code></p>
+<p>关掉用</p>
+<p><code>defaults write com.apple.Finder AppleShowAllFiles NO;killall -HUP Finder</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-can-not-start/">Mac升级efi后无法启动</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>犯骚，update 里面有个 efi，顺手就选了。关机后重开，响了一声，屏幕什么都没有。</p>
+<p>郁闷啊，重置 smc</p>
+<p>shift+control+option+电源键</p>
+<p>按住 5秒，恢复主板默认配置</p>
+<p>另外：<a href="http://support.apple.com/kb/ht1237" target="_blank" rel="external">查看 efi 版本</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac文件关联/">Mac 文件关联</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>需要关联 .md 文件到 sublime，右键一个md文件，按 alt 键（lion）出现 always open with，选择 sublime。</p>
+<p>或者</p>
+<p>右键一个md文件，Get Info，在 open with 下面有一个 Use this application to open all documents like this one</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/52/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/54/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/*by davidguoshuang at gmail.com 2013-05-27*/
+.pureCssPie {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 200px;
+  position: relative;
+}
+.pureCssPie li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /*background:#aaa;*/
+
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  clip: rect(0px, 200px, 100px, 0px);
+}
+.pureCssPie li div {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  clip: rect(0px, 100px, 200px, 0px);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 100%;
+}
+.pureCssPie li:nth-child(1) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.pureCssPie li:nth-child(1) div {
+  background-color: #b32018;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+.pureCssPie li:nth-child(2) {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.pureCssPie li:nth-child(2) div {
+  background-color: #cd661b;
+  -webkit-transform: rotate(55deg);
+  -moz-transform: rotate(55deg);
+  -ms-transform: rotate(55deg);
+  -o-transform: rotate(55deg);
+  transform: rotate(55deg);
+}
+.pureCssPie li:nth-child(3) {
+  -webkit-transform: rotate(205deg);
+  -moz-transform: rotate(205deg);
+  -ms-transform: rotate(205deg);
+  -o-transform: rotate(205deg);
+  transform: rotate(205deg);
+}
+.pureCssPie li:nth-child(3) div {
+  background-color: #e5b539;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.pureCssPie li:nth-child(4) {
+  -webkit-transform: rotate(325deg);
+  -moz-transform: rotate(325deg);
+  -ms-transform: rotate(325deg);
+  -o-transform: rotate(325deg);
+  transform: rotate(325deg);
+}
+.pureCssPie li:nth-child(4) div {
+  background-color: #477f40;
+  -webkit-transform: rotate(-55deg);
+  -moz-transform: rotate(-55deg);
+  -ms-transform: rotate(-55deg);
+  -o-transform: rotate(-55deg);
+  transform: rotate(-55deg);
+}

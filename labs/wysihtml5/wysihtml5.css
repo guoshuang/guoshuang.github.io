@@ -1,0 +1,134 @@
+#gsEditor-toolbar {
+  border: solid 1px #ccc;
+  position: relative;
+  background: #eee;
+  margin-bottom: 0px;
+  border-bottom: 0; }
+  #gsEditor-toolbar ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none; }
+    #gsEditor-toolbar ul li {
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none;
+      float: left;
+      cursor: pointer;
+      color: #666; }
+      #gsEditor-toolbar ul li:hover {
+        background: #f4f4f4;
+        color: #06c; }
+  #gsEditor-toolbar .fore-color {
+    position: relative; }
+  #gsEditor-toolbar .fore-color ul {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 35px;
+    right: -1px;
+    left: -2px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background: #fff;
+    overflow: hidden; }
+  #gsEditor-toolbar .fore-color li {
+    float: none;
+    display: block;
+    margin: 3px;
+    width: auto;
+    border: 0;
+    height: 15px; }
+  #gsEditor-toolbar .fore-color:hover ul {
+    display: block; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="silver"] {
+    background-color: silver; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="gray"] {
+    background-color: gray; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="maroon"] {
+    background-color: maroon; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="red"] {
+    background-color: red; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="purple"] {
+    background-color: purple; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="green"] {
+    background-color: green; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="olive"] {
+    background-color: olive; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="navy"] {
+    background-color: navy; }
+  #gsEditor-toolbar [data-wysihtml5-command-value="blue"] {
+    background-color: blue; }
+  #gsEditor-toolbar .wysihtml5-action-active, #gsEditor-toolbar .wysihtml5-command-active {
+    box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.2);
+    background: #fff !important;
+    color: #c00; }
+  #gsEditor-toolbar:after {
+    clear: both;
+    content: ' ';
+    display: table; }
+
+/*wysihtml5 会读取 textarea 子字体大小，用在 iframe body style="..."*/
+#gsEditor-textarea {
+  border: 0;
+  width: 100%;
+  height: 10em;
+  font-size: 16px; }
+
+[data-wysihtml5-command]:after,
+[data-wysihtml5-action]:after,
+.fore-color:after {
+  font-family: fontAwesome;
+  display: inline-block;
+  padding: 0px 10px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px; }
+
+[data-wysihtml5-command="bold"]:after {
+  content: "\f032"; }
+
+[data-wysihtml5-command="italic"]:after {
+  content: "\f033"; }
+
+[data-wysihtml5-command="insertUnorderedList"]:after {
+  content: "\f0ca"; }
+
+[data-wysihtml5-command="insertOrderedList"]:after {
+  content: "\f0cb"; }
+
+[data-wysihtml5-command="createLink"]:after {
+  content: "\f0c1"; }
+
+[data-wysihtml5-command="insertImage"]:after {
+  content: "\f03e"; }
+
+[data-wysihtml5-command-value="h1"]:after {
+  content: 'H1'; }
+
+[data-wysihtml5-command-value="h2"]:after {
+  content: 'H2'; }
+
+[data-wysihtml5-command-group="foreColor"]:after {
+  content: "\f00a"; }
+
+[data-wysihtml5-command="insertSpeech"]:after {
+  content: "\f130"; }
+
+[data-wysihtml5-action="change_view"]:after {
+  content: "\f121"; }
+
+/*dialog*/
+[data-wysihtml5-dialog="createLink"], [data-wysihtml5-dialog="insertImage"] {
+  position: absolute;
+  padding: 8px 10px;
+  top: 35px;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  border: solid 1px transparent; }
+  [data-wysihtml5-dialog="createLink"] input, [data-wysihtml5-dialog="insertImage"] input {
+    width: 16em;
+    font-size: 12px; }
+  [data-wysihtml5-dialog="createLink"] a, [data-wysihtml5-dialog="insertImage"] a {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 8px; }

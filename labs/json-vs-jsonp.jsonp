@@ -1,0 +1,4 @@
+jsonp_func({
+	"name":"guoshuang",
+	"city":"xi'an"
+});

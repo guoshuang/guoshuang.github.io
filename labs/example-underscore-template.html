@@ -1,0 +1,52 @@
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/labs/underscore-min.js"></script>
+
+<!-- Create your template (Note the type="text/html") -->
+
+<script type="text/html" id="usageList">
+<table cellspacing='0' cellpadding='0' border='1' >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                // repeat items 
+                _.each(items,function(item,key,list){
+                    // create variables
+                    var f = item.name.split("").shift().toLowerCase();
+            %>
+                <tr>
+                    <!-- use variables -->
+                    <td><%= key %> (<%=f%>)</td>
+                    <td class="<%= f %>"><%= item.name %></td>
+                </tr>
+            <%
+                });
+            %>
+        </tbody>
+    </table>
+</script>
+
+<!-- Create your target -->
+
+<div id="target"></div>
+
+<!-- Write some code to fetch the data and apply template -->
+
+<script type="text/javascript">
+    var items = [
+        {name:"Alexander"},
+        {name:"Barklay"},
+        {name:"Chester"},
+        {name:"Domingo"},
+        {name:"Edward"},
+        {name:"shuang GUO"},
+        {name:"Yolando"},
+        {name:"Zachary"}
+    ];
+    var template = $("#usageList").html();
+    $("#target").html(_.template(template,{items:items}));
+</script>

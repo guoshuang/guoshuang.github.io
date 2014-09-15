@@ -1,0 +1,31 @@
+body {margin:10px;}
+
+#header {width:auto;padding: 0;margin: 0;}
+#header .alignleft { }
+#main-nav ul {
+/*clear: both;
+float: none;*/
+white-space: nowrap;
+}
+
+#gWords {white-space: nowrap}
+
+#content {float: none;padding-top: 20px;padding: 0;margin: 0;width:100%;margin-top: 20px}
+#search {display:none;}
+
+#main-col {float: none;padding: 0;margin: 0;width:100%;}
+
+#sidebar {float: none;margin: 0;padding: 0;}
+
+#footer {clear: both;width: auto;margin: 0;padding: 0;}
+
+#comment {display: none;}
+
+pre {padding: 0;margin: 0;}
+.clearfix {display: none;}
+
+.date-shadow {display: none;}
+
+#sidebar {clear: both;float: none;margin: 0;padding: 0;width:auto;}
+
+

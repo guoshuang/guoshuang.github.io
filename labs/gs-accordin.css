@@ -1,0 +1,107 @@
+/*颜色列表*/
+/*几列*/
+/*mouse over width*/
+/*速度*/
+.gs-accordin {
+  background-color: #eeeeee;
+  padding: 0;
+  margin: 0 !important;
+  list-style: none;
+}
+.gs-accordin:after {
+  /*self clear float*/
+
+  content: ' ';
+  display: table;
+  clear: both;
+  *zoom: 1;
+}
+.gs-accordin:hover li {
+  width: 12.733333333333334%;
+}
+.gs-accordin li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: all 0.5s ease;
+  float: left;
+  width: 25%;
+  background-color: green;
+}
+.gs-accordin li:hover {
+  width: 61.8%;
+  background-color: red;
+}
+.gs-accordin li .wrapper :first-child {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+}
+.gs-accordin li .wrapper :last-child {
+  margin-bottom: 0 !important;
+  margin-right: 0 !important;
+}
+.gs-accordin li .wrapper h3 {
+  color: #fff !important;
+  padding: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gs-accordin li .wrapper p {
+  color: #fff !important;
+  padding: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.gs-accordin li:nth-child(1) .wrapper {
+  background-color: #a5c838;
+}
+.gs-accordin li:nth-child(1) .wrapper h3:after {
+  content: '1';
+  display: inline-block;
+  margin-left: 6px;
+}
+.gs-accordin li:nth-child(2) .wrapper {
+  background-color: #c4473a;
+}
+.gs-accordin li:nth-child(2) .wrapper h3:after {
+  content: '2';
+  display: inline-block;
+  margin-left: 6px;
+}
+.gs-accordin li:nth-child(3) .wrapper {
+  background-color: #34586b;
+}
+.gs-accordin li:nth-child(3) .wrapper h3:after {
+  content: '3';
+  display: inline-block;
+  margin-left: 6px;
+}
+.gs-accordin li:nth-child(4) .wrapper {
+  background-color: #006600;
+}
+.gs-accordin li:nth-child(4) .wrapper h3:after {
+  content: '4';
+  display: inline-block;
+  margin-left: 6px;
+}
+@media (max-width: 600px) {
+  .gs-accordin:hover li {
+    width: auto;
+  }
+  .gs-accordin li {
+    float: none;
+    width: auto;
+  }
+  .gs-accordin li .wrapper p {
+    height: 0;
+  }
+  .gs-accordin li:hover {
+    width: auto;
+  }
+  .gs-accordin li:hover .wrapper p {
+    height: auto;
+  }
+}

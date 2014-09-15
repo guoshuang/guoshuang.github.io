@@ -1,0 +1,15 @@
+.increment-ul,.increment-ul li {list-style: none;margin:0;padding:0;}
+.increment-ul li:before {display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#999;}
+
+.increment-ul {counter-reset:l1;}
+.increment-ul>li:before {content:counter(l1)'.';counter-increment:l1;}
+
+.increment-ul>li>ol {counter-reset:l2;}
+.increment-ul>li>ol>li:before {content:counter(l1)'.'counter(l2);counter-increment:l2;}
+
+.increment-ul>li>ol>li>ol {counter-reset:l3;}
+.increment-ul>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3);counter-increment:l3;}
+
+.increment-ul>li>ol>li>ol>li>ol {counter-reset:l4;}
+.increment-ul>li>ol>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3)'.'counter(l4);counter-increment:l4;}
+/*you can add more level here*/

@@ -1,0 +1,85 @@
+
+<title>html 实体entity 转换｜查询</title>
+<style>
+
+#t {font-size:2em;border:solid 1px #ddd;padding:10px;}
+#t li {list-style: none;margin:0;padding:0;margin-right:1em;display:inline-block;}
+#t i {font-size:0.5em;}
+
+.red {color:#c00;}
+.blue {color:blue;}
+</style>
+<body onload="render()">
+<form onsubmit="render();return false;">
+<input id="a" value="9698"><input id="b" value="9999"><input type="submit" id="c" value="渲染 html entity"></form>
+
+<form onsubmit="charcode();return false;">
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<input id="d" value="%"><input type="submit" id="e" value="转 entity"></form>
+
+<p>每次查询数量不要太多！(<span class="red">A</span>)(<span class="blue">B</span>) <br><span class="red">A</span> 是 html entity 这样写 &amp;#1234; ;<br><span class="blue">B</span> 是 unicode（16进制） 用于 css content，用 \1234；<br>javascrtipt 值是 \u1234	</p>
+
+<div id="t"></div>
+<div id="hex"></div>
+
+<script>
+
+function GetObjectTypeCode(entityName) {
+    try {
+        var lookupService = new RemoteCommand("LookupService", "RetrieveTypeCode");
+        lookupService.SetParameter("entityName", entityName);
+        var result = lookupService.Execute();
+
+        if (result.Success && typeof result.ReturnValue == "number") {
+            return result.ReturnValue;
+        }
+        else {
+            return null;
+        }
+    }
+    catch (ex) {
+        throw ex;
+    }
+}
+
+function inter2hex(a){
+	a=a.toString(16);
+	//console.log(a)
+	if(a.length==1){a='000'+a}
+	else if(a.length==2){a='00'+a}
+	else if(a.length==3){a='0'+a}
+	return a;
+}
+
+function render(){
+	var html='';
+	var a=document.getElementById('a').value;
+	var b=document.getElementById('b').value;
+	//console.log(a,b)
+	for(i=a;i<b;i++){
+		html+='<li>&#'+i+';<i class="red" id="i'+i+'">('+i+')</i> <i class="blue" id="hex'+i+'">(\\'+inter2hex(i)+')</i></li>'
+	}
+	document.getElementById('t').innerHTML=html
+}
+
+
+function charcode(){
+	var d=document.getElementById('d').value;
+	var txt='';
+	console.log(d.length)
+	for(i=0;i<d.length;i++){
+		txt+='&#'+d.charCodeAt(i)+';';
+		hex=d.charCodeAt(i);
+	}
+	console.log(txt)
+	document.getElementById('t').innerText=txt
+	document.getElementById('hex').innerText='\\'+inter2hex(hex)
+}
+</script>
+
+<script>
+document.write('\u00a9 &#169 \00A9')
+</script>
+
+
+</body>

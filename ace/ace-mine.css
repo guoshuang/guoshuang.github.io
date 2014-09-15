@@ -1,0 +1,32 @@
+.codeContainer {
+	position: relative;width: 100%;margin-top: 10px;
+}
+
+.ace-editor { 
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#ace-themes-selector ul {
+	padding: 0;margin: 0;list-style: none;
+}
+
+#ace-themes-selector li {
+	padding: 0;margin: 0;list-style: none;
+	display: inline-block;width:33%;cursor:pointer;
+}
+
+#ace-themes-selector li:hover {
+	background-color: #ccc;
+}
+
+#ace-themes-selector li.current {
+	background-color: #06c;
+	color:#fff;
+}

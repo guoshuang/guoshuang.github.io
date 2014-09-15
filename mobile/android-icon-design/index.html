@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>android 图标设计需求 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="android.com 如果被咔嚓，可以访问下面这个http://developer.android.com.nyud.net/design/style/iconography.html为适应各种分辨率，android 分为（高中低分辨率）：LDPI MDPI HDPI XHDPI XXHDPI XXXHDPI啥叫 dpDensity-independent pixel —— 分辨率无关的像素启动图标大小启动图标 大小是：48dp 也就是：以下单位为像素 pxLDPI 36 x 36MDPI 48 x 48HDPI 72 x 72XHDPI 96 x 96X">
+      <meta name="keywords" content="android">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta property="og:title" content="android 图标设计需求"/>
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title">android 图标设计需求</h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>android.com 如果被咔嚓，可以访问下面这个</p>
+<p><a href="http://developer.android.com.nyud.net/design/style/iconography.html" target="_blank" rel="external">http://developer.android.com.nyud.net/design/style/iconography.html</a></p>
+<p>为适应各种分辨率，android 分为（高中低分辨率）：LDPI ,MDPI ,HDPI ,XHDPI ,XXHDPI ,XXXHDPI</p>
+<h3 id="啥叫_dp">啥叫 dp</h3>
+<p><strong>D</strong>ensity-independent <strong>p</strong>ixel —— <strong>分辨率无关的像素</strong></p>
+<h3 id="启动图标大小">启动图标大小</h3>
+<p>启动图标 大小是：48dp 也就是：</p>
+<p>以下单位为像素 px</p>
+<ul>
+<li>LDPI 36 x 36</li>
+<li>MDPI 48 x 48</li>
+<li>HDPI 72 x 72</li>
+<li>XHDPI 96 x 96</li>
+<li>XXHDPI 144 x 144</li>
+<li>XXXHDPI 192 x 192</li>
+</ul>
+<p><strong>换算办法：</strong></p>
+<ul>
+<li>LDPI is MDPI x 0.75</li>
+<li>HDPI is MDPI x 1.5</li>
+<li>XHDPI is MDPI x 2</li>
+<li>XXHDPI is MDPI x 3</li>
+<li>XXXHDPI is MDPI x 4</li>
+</ul>
+<p>web 站点（google play）的图标是 512x512</p>
+<h3 id="图标样式指南">图标样式指南</h3>
+<blockquote>
+<p>Pictographic, flat, not too detailed, with smooth curves or sharp shapes. If the graphic is thin, rotate it 45° left or right to fill the focal space. The thickness of the strokes and negative spaces should be a minimum of 2 dp.</p>
+</blockquote>
+<p>图片，平面化设计，不需要太多细节，可以圆角。如果太窄（扁），可以旋转 45 度。边框最细和留边不得低于 2dp。</p>
+<ul>
+<li>白是 #ffffff</li>
+<li>黑是 #333333</li>
+<li>透明 30 60 80 % </li>
+</ul>
+<h3 id="菜单区图标">菜单区图标</h3>
+<p><img src="http://developer.android.com.nyud.net/design/media/iconography_actionbar_focal.png" alt="android icon"></p>
+<p><strong>32dp</strong> ，内容最大 24dp（剩下的留白）</p>
+<h3 id="通知区图标">通知区图标</h3>
+<p><strong>24dp</strong> 内容最大 22dp</p>
+<h3 id="内容区的(小)图标">内容区的(小)图标</h3>
+<p><strong>16dp</strong> ，内容最大 12dp（剩下的留白）</p>
+<h3 id="设计技巧">设计技巧</h3>
+<ul>
+<li>原文件做成矢量图</li>
+<li>图形原始大小推荐  864x864 大小</li>
+<li>位图不能放大（糊了）</li>
+<li><p>命名规则</p>
+  <table class="table-bordered" width="100%"><br>  <tbody><tr><br>  <th>Asset Type</th><br>  <th>Prefix</th><br>  <th>Example</th><br>  </tr><br>  <tr><br>  <td>Icons</td><br>  <td>ic_</td><br>  <td>ic_star.png</td><br>  </tr><br>  <tr><br>  <td>Launcher icons</td><br>  <td>ic_launcher</td><br>  <td>ic_launcher_calendar.png</td><br>  </tr><br>  <tr><br>  <td>Menu icons and Action Bar icons</td><br>  <td>ic_menu</td><br>  <td>ic_menu_archive.png</td><br>  </tr><br>  <tr><br>  <td>Status bar icons</td><br>  <td>ic_stat_notify</td><br>  <td>ic_stat_notify_msg.png</td><br>  </tr><br>  <tr><br>  <td>Tab icons</td><br>  <td>ic_tab</td><br>  <td>ic_tab_recent.png</td><br>  </tr><br>  <tr><br>  <td>Dialog icons</td><br>  <td>ic_dialog</td><br>  <td>ic_dialog_info.png</td><br>  </tr><br>  </tbody></table>
+</li>
+<li><p>开发源文件中保存原始 psd 文件</p>
+  <pre>
+art/...
+  mdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+  hdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+  xhdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+</pre>
+
+<p>  注意：每个目录的 finished_asset.png 的文件名是一样的！！</p>
+<p>  成品 app 中的目录结构是</p>
+  <pre>
+res/...
+drawable-ldpi/...
+    finished_asset.png
+drawable-mdpi/...
+    finished_asset.png
+drawable-hdpi/...
+    finished_asset.png
+drawable-xhdpi/...
+    finished_asset.png
+</pre></li>
+<li>成品 app 中的 png 优化（甭把分层的原始 png 直接打包），减少尺寸。推荐工具为 <a href="http://optipng.sourceforge.net/" target="_blank" rel="external">OptiPNG</a> 和 <a href="http://pmt.sourceforge.net/pngcrush/" target="_blank" rel="external">Pngcrush</a></li>
+</ul>
+<h3 id="郭爽点评">郭爽点评</h3>
+<p>万恶的巩骚吹嘘的 native，原来就是这样处理图片的。嗯，web responsive 何在啊？</p>
+<p>At last，android 项目的目录结构</p>
+<pre>
+MyProject/
+  src/  
+      MyActivity.java  
+  res/
+      drawable/  
+          icon.png  
+      layout/  
+          main.xml
+          info.xml
+      values/  
+          strings.xml
+      animator/
+      anim/
+      color/
+      menu/
+      raw/
+      xml/
+</pre> 
+
+<p>更多信息： <a href="http://developer.android.com.nyud.net/guide/topics/resources/providing-resources.html" target="_blank" rel="external">如何在 project 中保存原始设计文件</a></p>
+<h3 id="获取分辨率（dp）">获取分辨率（dp）</h3>
+<pre>
+DisplayMetrics metrics = new DisplayMetrics();
+Display display = activity.getWindowManager().getDefaultDisplay();
+display.getMetrics(metrics);
+</pre>    
+
+      
+    </div> 
+    
+  </div>
+</article>
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+</div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+ <script type="text/javascript">	if(top.location.port!=4000){//no disqus local:4000		
+	var disqus_shortname = 'guoshuang';		(function(){		  var dsq = document.createElement('script');		  dsq.type = 'text/javascript';		  dsq.async = true;		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);		}());	} </script><script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

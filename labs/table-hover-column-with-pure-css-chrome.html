@@ -1,0 +1,48 @@
+<style>
+#hoverTb {width:100%;cursor: pointer;border-spacing: 1px;background:rgba(255,255,255,0.5);}
+#hoverTb thead th {color:#def;background-color:#345;background-image: -webkit-linear-gradient(top, #567, #345);background-image:-moz-linear-gradient(top, #567, #345);line-height:30px;}
+#hoverTb thead th:first-child {width:2%;white-space: nowrap;}
+
+#hoverTb th,#hoverTb td {padding:0 4px;}
+
+#hoverTb tbody {counter-reset:trindex;}
+#hoverTb tbody tr {counter-increment:trindex;}
+#hoverTb tbody tr td:first-child {text-align: center;}
+#hoverTb tbody tr td:first-child:before {content:counter(trindex);color:#999;}
+
+#hoverTb tbody tr:hover {background-color: rgba(170, 221, 238,1) }
+</style>
+
+
+<style>
+#hoverTb {overflow:hidden;}
+#hoverTb tbody tr td {position: relative;background:rgba(220,220,220,0.5);}
+#hoverTb tbody td:not(:first-child):hover:after {
+	content:'';
+	position:absolute;
+	background: rgba(170, 221, 238,1);
+	width:100%;
+	height:10000px;
+	left:0;
+	top:-5000px;
+	z-index:-1;
+}
+</style>
+
+<table id="hoverTb">
+<thead>
+<tr><th>序号</th><th>姓名</th><th>专业</th><th>爱好</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td>guoshuang</td><td>web前端</td><td>电影、音乐</td></tr>
+<tr><td></td><td>龚骚</td><td>程序员</td><td>啤酒</td></tr>
+<tr><td></td><td>蒲骚</td><td>程序员</td><td>打酱油</td></tr>
+<tr><td></td><td>老柴</td><td>平面设计师</td><td>电影、美女</td></tr>
+</tbody>
+</table>
+
+
+
+
+
+

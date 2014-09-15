@@ -1,0 +1,129 @@
+@import 'fontawesome_variables.scss';
+
+$toolbar_height: 35px;
+
+#gsEditor-toolbar {
+	border:solid 1px #ccc;position: relative;
+	background:#eee;margin-bottom: 0px;border-bottom:0;
+	ul {
+		margin: 0 !important;padding: 0 !important;list-style: none;
+		li {
+			margin: 0 !important;padding: 0 !important;list-style: none;float: left;cursor: pointer;color:#666;
+			&:hover {
+				background:#f4f4f4;
+				color:#06c;
+			}
+		}
+	}
+
+	.fore-color {
+		position:relative;
+	}
+
+	.fore-color ul {
+	  display: none; position: absolute; z-index: 2; top: 35px; right: -1px; left: -2px; border: 1px solid #ccc; border-top: 0; background: #fff; overflow: hidden;
+	}
+
+	.fore-color li {
+		float:none; display: block; margin: 3px; width: auto; border: 0; height: 15px;
+	}
+
+	.fore-color:hover ul {
+	  display: block;
+	}
+	
+	[data-wysihtml5-command-value="silver"] {background-color:silver; }
+
+	[data-wysihtml5-command-value="gray"] {background-color:gray; }
+	[data-wysihtml5-command-value="maroon"] {background-color:maroon; }
+	[data-wysihtml5-command-value="red"] {background-color:red; }
+	[data-wysihtml5-command-value="purple"] {background-color:purple; }
+	[data-wysihtml5-command-value="green"] {background-color:green; }
+	[data-wysihtml5-command-value="olive"] {background-color:olive; }
+	[data-wysihtml5-command-value="navy"] {background-color:navy; }
+	[data-wysihtml5-command-value="blue"] {background-color:blue; }
+	
+	.wysihtml5-action-active, .wysihtml5-command-active {
+	  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.2);
+	  background: #fff !important;
+	  color:#c00;
+	}
+
+	&:after {
+		clear:both;
+		content:' ';
+		display: table;
+	}
+}
+
+/*wysihtml5 会读取 textarea 子字体大小，用在 iframe body style="..."*/
+#gsEditor-textarea {
+	border:0; width: 100%;height:10em;font-size:16px;
+}
+
+[data-wysihtml5-command]:after,
+[data-wysihtml5-action]:after,
+.fore-color:after {
+  font-family:fontAwesome;
+  display: inline-block;
+  padding:0px 10px;
+  height:$toolbar_height;line-height:$toolbar_height;font-size:16px;
+}
+
+[data-wysihtml5-command="bold"]:after {
+	content:$bold;	
+}
+
+[data-wysihtml5-command="italic"]:after {
+	content:$italic;	
+}
+
+[data-wysihtml5-command="insertUnorderedList"]:after {
+	content:$list-ul;	
+}
+
+[data-wysihtml5-command="insertOrderedList"]:after {
+	content:$list-ol;	
+}
+
+[data-wysihtml5-command="createLink"]:after {
+	content:$link;	
+}
+
+[data-wysihtml5-command="insertImage"]:after {
+	content:$picture;	
+}
+
+[data-wysihtml5-command-value="h1"]:after {
+	content:'H1';
+}
+
+[data-wysihtml5-command-value="h2"]:after {
+	content:'H2';
+}
+
+[data-wysihtml5-command-group="foreColor"]:after {
+	content:$th;
+}
+
+[data-wysihtml5-command="insertSpeech"]:after {
+	content:$microphone;
+}
+
+[data-wysihtml5-action="change_view"]:after {
+	content:$code;
+}
+
+/*dialog*/
+[data-wysihtml5-dialog="createLink"],[data-wysihtml5-dialog="insertImage"] {
+	position:absolute;
+	padding:8px 10px;
+	top:$toolbar_height;
+	background:rgba(255,255,255,.8);
+	width: 100%;
+	border:solid 1px transparent;
+	input {width:16em;font-size:12px;}
+	a {cursor: pointer;display:inline-block;margin-left: 8px;}
+}
+
+

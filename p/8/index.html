@@ -1,0 +1,654 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 8 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/linksoon/">幽默的软件</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>这程序员真幽默</p>
+<p><img src="/pics/comment-more-than-zero.png" alt="comment-more-than-zero"></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/dot-net-is-shit/">.net 升级后报错</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>早上犯骚，windows 2003 服务器，要测 flash，adobe 官方太罗嗦，想起 360 软件管家。装完 flash 顺手点了 安装安全补丁。</p>
+<p>重启后，网站报错 噩梦就此开始！</p>
+<blockquote>
+<p>服务器应用程序不可用<br><br>    您试图在此 Web 服务器上访问的 Web 应用程序当前不可用。请点击 Web 浏览器中的“刷新”按钮重试您的请求。<br><br>    管理员注意事项: 详述此特定请求失败原因的错误消息可在 Web 服务器的系统事件日志中找到。请检查此日志项以查明导致该错误发生的原因。</p>
+</blockquote>
+<p>在事件查看器，发现 “错误”</p>
+<blockquote>
+<p>由于无法创建应用程序域，因此未能执行请求。错误: 0x80070002 系统找不到指定的文件。</p>
+</blockquote>
+<p>搜索发现<a href="http://bbs.csdn.net/topics/390666757" target="_blank" rel="external">不少人都中招了</a>，里面说法很多，我的<strong>解决办法</strong>是这样：</p>
+<ol>
+<li><p>下载 <a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-08-90-44-93/dotnetfx_5F00_cleanup_5F00_tool.zip" target="_blank" rel="external">dotnetfx_cleanup_tool.zip</a> 工具，删除所有的  .NET Framework，重启</p>
+</li>
+<li><p>下载 <a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=22" target="_blank" rel="external">.NET Framework 3.5 SP1</a> 安装，重启，收工。</p>
+</li>
+</ol>
+<p>3.5 is an extension of 2.0, so the cumulative installer includes 2.0 .NET Framework 3.5 SP1 安装时，会安装 2.0 的。</p>
+<h3 id="原因">原因</h3>
+<p>某个 kbxxxxx 的 framework 2.x 补丁有问题！</p>
+<!-- 太久不用 windows 了。我要是项目经理，绝不用2k3+sqlserver 2000+.net这样垃圾中的战斗机！ -->
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/telnet-80/">telnet 80</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>执行</p>
+<p><code>telnet guoshuang.com 80</code></p>
+<p>返回</p>
+<div class="code">Trying 64.136.56.122…<br>Connected to guoshuang.com.<br>Escape character is ‘^]’.</div>
+
+<p>然后执行</p>
+<p><code>GET / HTTP/1.1 
+host: guoshuang.com</code></p>
+<p>两次回车，得到类似 curl 的 html 代码。</p>
+<p><strong>注意</strong>：大小写和换行、两次回车 都必须。（拷贝执行，否则回车会退出 telnet）</p>
+<h3 id="只显示头信息">只显示头信息</h3>
+<p><code>HEAD /index.html HTTP/1.1
+host: guoshuang.com</code></p>
+<h3 id="telnet_ftp">telnet ftp</h3>
+<p><code>telnet xxxx.com 21</code></p>
+<div class="code"><br>Trying 113.141.31.3…<br>Connected to tcstv.com.<br>Escape character is ‘^]’.<br>220-FileZilla Server version 0.9.43 beta<br>220 hi,welcome back david guoshuang<br></div>
+
+<p><code>USER guoshuang</code></p>
+<div class="code">331 Password required for guoshuang</div>
+
+<p><code>PASS 密码</code></p>
+<div class="code">230 Logged on</div>
+
+<p>更多ftp命令(help)：</p>
+<ul>
+<li>CWD  - 等于 cd </li>
+<li>PASV – 被动模式，客户端连接服务器</li>
+<li>RETR – 下载文件</li>
+<li>QUIT – 退出</li>
+</ul>
+<p>USER   PASS   QUIT   CWD    PWD    PORT   PASV   TYPE<br>LIST   REST   CDUP   RETR   STOR   SIZE   DELE   RMD<br>MKD    RNFR   RNTO   ABOR   SYST   NOOP   APPE   NLST<br>MDTM   XPWD   XCUP   XMKD   XRMD   NOP    EPSV   EPRT<br>AUTH   ADAT   PBSZ   PROT   FEAT   MODE   OPTS   HELP<br>ALLO   MLST   MLSD   SITE   P@SW   STRU   CLNT   MFMT<br>HASH</p>
+<p>这些属于 <a href="http://www.nsftools.com/tips/RawFTP.htm" target="_blank" rel="external">rawftp command</a>，和 ftp shell 不一样！</p>
+<p>list（NLST） 之前必须先 pasv</p>
+<p>Tells the server to enter “passive mode”. In passive mode, the server will wait for the client to establish a connection with it rather than attempting to connect to a client-specified port. The server will respond with the address of the port it is listening on, with a message like:<br>227 Entering Passive Mode (a1,a2,a3,a4,p1,p2)<br>where a1.a2.a3.a4 is the IP address and p1*256+p2 is the port number.</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/google-how-earn-money/">google 是怎么赚钱的</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>根据 <a href="http://translate.google.com.hk/translate?hl=en&amp;prev=_dd&amp;sl=auto&amp;tl=zh-CN&amp;u=http://investor.google.com/financial/tables.html" target="_blank" rel="external">google 官方财务报表 2013</a></p>
+<p>2013年</p>
+<ul>
+<li>网站收入(google.com)是 $374.53 亿</li>
+<li>下属网站收入是 $131.25 亿</li>
+<li>总营收 $555.5 亿</li>
+<li>总成本 $458.59 亿</li>
+<li>净利润 $122.14 亿</li>
+<li>总资产 $1109.20 亿</li>
+</ul>
+<p>赚钱渠道：</p>
+<ul>
+<li>广告</li>
+<li>收集市场数据（消费者习惯），卖给商家</li>
+<li>竞价排名</li>
+<li>出卖关键字</li>
+<li>收费搜索</li>
+<li>买数据给第三方搜索引擎</li>
+</ul>
+<h3 id="再看百度的财务">再看百度的财务</h3>
+<p>这是 <a href="http://ir.baidu.com/phoenix.zhtml?c=188488&amp;p=irol-reportsAnnual" target="_blank" rel="external">百度财务报表</a>，郁闷有二：</p>
+<ol>
+<li>中国企业的财务报表都是英文 ：（</li>
+<li>已经2014-1-13，但 2103 第四季度以及全年的数据还没有！</li>
+</ol>
+<p>2013 第三季度</p>
+<ul>
+<li>收入 88.92亿（人民币）</li>
+<li>净收入 33.38亿</li>
+</ul>
+<p>这是 <a href="http://www.google.com.hk/finance?q=NASDAQ%3ABIDU&amp;hl=zh-CN&amp;ei=5mn8Uqi6BIqWkgW8igE" target="_blank" rel="external">nasdaq  的数据</a></p>
+<p>市值(人民币)</p>
+<ul>
+<li>baidu 584.57亿</li>
+<li>google 3985.28亿</li>
+<li>中国电信 380.38亿</li>
+<li>中国移动 1916.37亿</li>
+<li>360 240.14亿</li>
+<li>sina 45亿</li>
+<li>sohu 26亿</li>
+</ul>
+<h3 id="苹果">苹果</h3>
+<p><a href="http://investor.apple.com/financials.cfm" target="_blank" rel="external">apple financials</a></p>
+<p>2013年9月28报告 ，收入 501亿美元</p>
+<p><a href="http://www.microsoft.com/investor/default.aspx" target="_blank" rel="external">微软财务报告</a></p>
+<p>guoshuang 2014-02-13 14:59:53+笔者不懂财务，不妥见谅。</p>
+<h3 id="中国最赚钱的企业">中国最赚钱的企业</h3>
+<p>根据 <a href="http://www.kualalumpurpost.net/most-money-making-companies/" target="_blank" rel="external">这个数据</a>，依次是：</p>
+<ul>
+<li>ExxonMobil 美国电信运营商</li>
+<li>壳牌石油</li>
+<li>沃尔玛</li>
+<li>BP 英国</li>
+<li>Vitol Group</li>
+<li>中国石化</li>
+<li>Chevron Corporation  美国卖油的</li>
+<li>ConocoPhillips  美国卖油的</li>
+<li>丰田汽车</li>
+<li>（中国）国家电网</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mobile/android-icon-design/">android 图标设计需求</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>android.com 如果被咔嚓，可以访问下面这个</p>
+<p><a href="http://developer.android.com.nyud.net/design/style/iconography.html" target="_blank" rel="external">http://developer.android.com.nyud.net/design/style/iconography.html</a></p>
+<p>为适应各种分辨率，android 分为（高中低分辨率）：LDPI ,MDPI ,HDPI ,XHDPI ,XXHDPI ,XXXHDPI</p>
+<h3 id="啥叫_dp">啥叫 dp</h3>
+<p><strong>D</strong>ensity-independent <strong>p</strong>ixel —— <strong>分辨率无关的像素</strong></p>
+<h3 id="启动图标大小">启动图标大小</h3>
+<p>启动图标 大小是：48dp 也就是：</p>
+<p>以下单位为像素 px</p>
+<ul>
+<li>LDPI 36 x 36</li>
+<li>MDPI 48 x 48</li>
+<li>HDPI 72 x 72</li>
+<li>XHDPI 96 x 96</li>
+<li>XXHDPI 144 x 144</li>
+<li>XXXHDPI 192 x 192</li>
+</ul>
+<p><strong>换算办法：</strong></p>
+<ul>
+<li>LDPI is MDPI x 0.75</li>
+<li>HDPI is MDPI x 1.5</li>
+<li>XHDPI is MDPI x 2</li>
+<li>XXHDPI is MDPI x 3</li>
+<li>XXXHDPI is MDPI x 4</li>
+</ul>
+<p>web 站点（google play）的图标是 512x512</p>
+<h3 id="图标样式指南">图标样式指南</h3>
+<blockquote>
+<p>Pictographic, flat, not too detailed, with smooth curves or sharp shapes. If the graphic is thin, rotate it 45° left or right to fill the focal space. The thickness of the strokes and negative spaces should be a minimum of 2 dp.</p>
+</blockquote>
+<p>图片，平面化设计，不需要太多细节，可以圆角。如果太窄（扁），可以旋转 45 度。边框最细和留边不得低于 2dp。</p>
+<ul>
+<li>白是 #ffffff</li>
+<li>黑是 #333333</li>
+<li>透明 30 60 80 % </li>
+</ul>
+<h3 id="菜单区图标">菜单区图标</h3>
+<p><img src="http://developer.android.com.nyud.net/design/media/iconography_actionbar_focal.png" alt="android icon"></p>
+<p><strong>32dp</strong> ，内容最大 24dp（剩下的留白）</p>
+<h3 id="通知区图标">通知区图标</h3>
+<p><strong>24dp</strong> 内容最大 22dp</p>
+<h3 id="内容区的(小)图标">内容区的(小)图标</h3>
+<p><strong>16dp</strong> ，内容最大 12dp（剩下的留白）</p>
+<h3 id="设计技巧">设计技巧</h3>
+<ul>
+<li>原文件做成矢量图</li>
+<li>图形原始大小推荐  864x864 大小</li>
+<li>位图不能放大（糊了）</li>
+<li><p>命名规则</p>
+  <table class="table-bordered" width="100%"><br>  <tbody><tr><br>  <th>Asset Type</th><br>  <th>Prefix</th><br>  <th>Example</th><br>  </tr><br>  <tr><br>  <td>Icons</td><br>  <td>ic_</td><br>  <td>ic_star.png</td><br>  </tr><br>  <tr><br>  <td>Launcher icons</td><br>  <td>ic_launcher</td><br>  <td>ic_launcher_calendar.png</td><br>  </tr><br>  <tr><br>  <td>Menu icons and Action Bar icons</td><br>  <td>ic_menu</td><br>  <td>ic_menu_archive.png</td><br>  </tr><br>  <tr><br>  <td>Status bar icons</td><br>  <td>ic_stat_notify</td><br>  <td>ic_stat_notify_msg.png</td><br>  </tr><br>  <tr><br>  <td>Tab icons</td><br>  <td>ic_tab</td><br>  <td>ic_tab_recent.png</td><br>  </tr><br>  <tr><br>  <td>Dialog icons</td><br>  <td>ic_dialog</td><br>  <td>ic_dialog_info.png</td><br>  </tr><br>  </tbody></table>
+</li>
+<li><p>开发源文件中保存原始 psd 文件</p>
+  <pre>
+art/...
+  mdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+  hdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+  xhdpi/...
+      _pre_production/...
+          working_file.psd
+      finished_asset.png
+</pre>
+
+<p>  注意：每个目录的 finished_asset.png 的文件名是一样的！！</p>
+<p>  成品 app 中的目录结构是</p>
+  <pre>
+res/...
+drawable-ldpi/...
+    finished_asset.png
+drawable-mdpi/...
+    finished_asset.png
+drawable-hdpi/...
+    finished_asset.png
+drawable-xhdpi/...
+    finished_asset.png
+</pre></li>
+<li>成品 app 中的 png 优化（甭把分层的原始 png 直接打包），减少尺寸。推荐工具为 <a href="http://optipng.sourceforge.net/" target="_blank" rel="external">OptiPNG</a> 和 <a href="http://pmt.sourceforge.net/pngcrush/" target="_blank" rel="external">Pngcrush</a></li>
+</ul>
+<h3 id="郭爽点评">郭爽点评</h3>
+<p>万恶的巩骚吹嘘的 native，原来就是这样处理图片的。嗯，web responsive 何在啊？</p>
+<p>At last，android 项目的目录结构</p>
+<pre>
+MyProject/
+  src/  
+      MyActivity.java  
+  res/
+      drawable/  
+          icon.png  
+      layout/  
+          main.xml
+          info.xml
+      values/  
+          strings.xml
+      animator/
+      anim/
+      color/
+      menu/
+      raw/
+      xml/
+</pre> 
+
+<p>更多信息： <a href="http://developer.android.com.nyud.net/guide/topics/resources/providing-resources.html" target="_blank" rel="external">如何在 project 中保存原始设计文件</a></p>
+<h3 id="获取分辨率（dp）">获取分辨率（dp）</h3>
+<pre>
+DisplayMetrics metrics = new DisplayMetrics();
+Display display = activity.getWindowManager().getDefaultDisplay();
+display.getMetrics(metrics);
+</pre>    
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/robots-txt/">robots txt</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="robots-txt_不能跨（子sub）域。">robots.txt 不能跨（子sub）域。</h3>
+<p>比如 </p>
+<pre>http://guoshuang.com/robots.txt</pre>
+
+<p>不能控制 </p>
+<pre>
+http://www.guoshuang.com/
+http://labs.guoshuang.com/
+https://guoshuang.com/
+http://guoshuang.com:8080
+</pre>
+
+<h3 id="允许搜索引擎访问全部">允许搜索引擎访问全部</h3>
+<p>等于没有(默认) robots.txt 一样！</p>
+<pre>
+User-agent: *
+Disallow:    
+</pre>
+
+<h3 id="不允许搜索引擎收录">不允许搜索引擎收录</h3>
+<pre>
+User-agent: *
+Disallow:    /
+</pre>
+
+<h3 id="不允许搜索引擎收录_某些目录">不允许搜索引擎收录 某些目录</h3>
+<pre>
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /page/
+</pre>
+
+<h3 id="不允许搜索引擎收录_某些具体文件">不允许搜索引擎收录 某些具体文件</h3>
+<pre>
+User-agent: *
+Disallow: /directory/file.html
+</pre>
+
+<h3 id="不允许_某些_搜索爬虫(Googlebot_MSNbot)">不允许 某些 搜索爬虫(Googlebot MSNbot)</h3>
+<pre>
+User-agent: googlebot
+Disallow: /private/
+</pre>
+
+<h3 id="非标准属性">非标准属性</h3>
+<p>让爬虫（crawlers 蜘蛛 spider robots）不要来的太密集！</p>
+<pre>
+User-agent: *
+Crawl-delay: 10 # 间隔10秒
+</pre>
+
+<hr>
+<p>允许某文件 但不允许该目录的其它文件（顺序无所谓）</p>
+<pre>
+Allow: /directory1/myfile.html
+Disallow: /directory1/
+</pre>
+
+<hr>
+<p>站点地图。搜索引擎会自动找 / 目录下的 sitemap.xml，但如果不是这个名字的话，写一些还是好一些。</p>
+<pre>
+Sitemap: http://guoshuang.com/sitemap.xml.gz
+</pre>
+
+<hr>
+<p>多个镜像站点可以 “推荐一个” 给搜索引擎(Yandex, Google)</p>
+<pre>
+Host: guoshuang.com
+</pre>
+
+<hr>
+<p>Disallow:* 这个没用！ 恐怕你想要的是 Disallow:/</p>
+<p>google 支持文件带 * 匹配。其它 搜索引擎 可能不同。</p>
+<h3 id="在_meta_和_headers_中使用">在 meta 和 headers 中使用</h3>
+<p>不要索引（收录）本页！</p>
+<pre>
+&lt;meta name="robots" content="noindex" /&gt;
+</pre>
+
+<p>http request header</p>
+<pre>
+X-Robots-Tag: noindex
+</pre>
+
+<p>二者区别：用 meta 方法，其实本页面已经被“爬过”了，但得知 站长 不想要它们收录。后者 request header，http 握手之后，转身就走。</p>
+<h3 id="传说中的_nofollow">传说中的 nofollow</h3>
+<pre>
+<a href="流氓站点" rel="nofollow">流氓内容</a>
+</pre>
+
+<p>大象因为 象牙 而被贪婪的人们猎杀，所以干脆主动不要 象牙！nofollow 思路大抵如此：既然流氓们，到处 spam 的目的就是 pagerank 盗取外站链接，那我们则宣布：朕不给，你不能拿！</p>
+<h3 id="NOODP">NOODP</h3>
+<p><a href="http://en.wikipedia.org/wiki/Open_Directory_Project" target="_blank" rel="external">Open Directory Project</a> 开放目录，google yahoo msn 支持，让 搜索引擎 可以列出站点结构。</p>
+<h3 id="Crawling_policy">Crawling policy</h3>
+<p>搜索引擎 的爬虫遵循以下规则</p>
+<ul>
+<li>a selection policy that states which pages to download,</li>
+<li>a re-visit policy that states when to check for changes to the pages,</li>
+<li>a politeness policy that states how to avoid overloading Web sites, and</li>
+<li>a parallelization policy that states how to coordinate distributed web crawlers.</li>
+</ul>
+<p>选择，重新检查（更新）、礼貌（甭把人家站点弄挂掉，成 DDOS 攻击了）,并发(派出 几号 间谍)</p>
+<p>有兴趣可以研究一下 <a href="http://en.wikipedia.org/wiki/Web_crawler" target="_blank" rel="external">Web_crawler 原理</a>，貌似开源的 爬虫 还是蛮多的。</p>
+<h3 id="网页历史版本">网页历史版本</h3>
+<p><a href="http://en.wikipedia.org/wiki/Web_archiving" target="_blank" rel="external">Web_archiving</a> 这里的 网页存档 站点还不少呢。</p>
+<h3 id="wikipedia_需要捐助">wikipedia 需要捐助</h3>
+<p><a href="https://donate.wikimedia.org/wiki/Special:FundraiserLandingPage?uselang=zh" target="_blank" rel="external">wikipedia 需要捐助</a> 伟大的维基百科，雇员 202，全世界 8000 兼职,每月访问 5.3亿人次。</p>
+<p>via <a href="http://en.wikipedia.org/wiki/Robots_exclusion_standard" target="_blank" rel="external">Robots_exclusion_standard</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/Bugatti/">布加迪威龙</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>恩，价钱公道，量又足。<a href="http://data.auto.qq.com/car_serial/450/" target="_blank" rel="external">才 2500 - 4300 万元</a></p>
+<p>根据 <a href="http://zh.wikipedia.org/wiki/%E5%B8%83%E5%8A%A0%E8%BF%AA%E5%A8%81%E9%BE%99" target="_blank" rel="external">wikipedia 数据</a></p>
+<p>馬力輸出（英制）：</p>
+<ul>
+<li>SSC Ultimate Aero TT：1500 V8</li>
+<li>布加迪 Veyron 16/4：1200 W16</li>
+<li>科尼賽克 CCX：806</li>
+<li>Saleen S7TT：750</li>
+<li>法拉利 Enzo：660</li>
+<li>迈凯轮 F1 GTR：680</li>
+<li>賓士迈凯轮 SLR 722：650</li>
+<li>保时捷 Carrera GT：612</li>
+<li>兰博基尼 Murciélago LP640：640</li>
+</ul>
+<p>最高時速（mph(km/h)）：</p>
+<ul>
+<li>布加迪 Veyron 16/4：267.856（431.072）</li>
+<li>SSC Ultimate Aero TT：257.15（413.83）</li>
+<li>科尼賽克 CCX：245+（394.28+）</li>
+<li>迈凯轮 F1 GTR：240（386.23）</li>
+<li>Saleen S7TT：237+（381.4+）</li>
+<li>法拉利 Enzo：217（349.22）</li>
+<li>賓士迈凯轮 SLR 722：209（336.34）</li>
+<li>保时捷 Carrera GT：205（329.91）</li>
+<li>林寶堅尼 Murcielago LP640：205+（329.91+）</li>
+</ul>
+<p>靜止加速（0-62mph / 0-100km/h）需時（秒）：</p>
+<ul>
+<li>布加迪 Veyron 16/4：2.5</li>
+<li>SSC Ultimate Aero TT：2.78</li>
+<li>科尼賽克 CCX：3.2</li>
+<li>Saleen S7TT：2.8</li>
+<li>法拉利 Enzo：3.3</li>
+<li>迈凯轮 F1 GTR：3.2</li>
+<li>賓士 迈凯轮SLR 722：3.5</li>
+<li>保时捷 Carrera GT：3.6</li>
+<li>林寶堅尼 Murcielago LP640：3.4</li>
+</ul>
+<p>那个 <a href="http://en.wikipedia.org/wiki/SSC_Aero" target="_blank" rel="external">SSC</a> 是美国人搞的。</p>
+<p>据说小贝和力帆老板儿子有此车。国内3－4辆以上。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/wordpress/ie-head-content-inside-body-tag/">IE head content inside body tag</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Suddenly find the wordpress theme broken in ie6-7-8! check the IE develop tool,found html DOM like below</p>
+<pre>
+html
+    title
+body
+    空文本
+    meta
+    link rel="stylesheet"
+    script
+</pre>
+
+<p>open the .php with notepad++，<strong>change UTF-8 to UTF-8 without BOM</strong></p>
+<p>more about <a href="/design/feff-can-not-see/">letter can not see BOM</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/7/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/9/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

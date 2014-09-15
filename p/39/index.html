@@ -1,0 +1,523 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 39 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/lesscss-arguments/">lesscss arguments 办法</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>比如我要用 less 写这样的样式</p>
+<div id="lesscss-arguments-eg"></div>
+
+<p><style>@import url(/labs/less-arguments-eg.css)</style></p>
+<h2 id="正确的写法一">正确的写法一</h2>
+<pre>
+.g_line_gra(@gra,...){
+  background-image:-webkit-linear-gradient(@gra);
+  background-image:-moz-linear-gradient(@gra);
+  background-image:linear-gradient(@gra);
+}
+#lesscss-arguments-eg {
+  height:60px;
+  @str:left,red 0%,green 33%,blue 66%,yellow 100%;
+  .g_line_gra(@str);
+}
+</pre>
+
+<p>生成的 <a target="_blank" href="/labs/less-arguments-eg.css">css 文件内容</a></p>
+<h2 id="解释一下？">解释一下？</h2>
+<h3 id="-g_line_gra(@gra,…){">.g_line_gra(@gra<strong>,…</strong>){</h3>
+<p><strong>,…</strong> 表示其它更多的参数。如果没有，在下面的引用中 .g_line_gra(AAA,<strong>BBB</strong>) 的话，less 编译会报错！（当然这个例子中其实并不需要，但下面的例子…）</p>
+<h3 id="为什么要用_@str_变量">为什么要用 @str 变量</h3>
+<p>如果直接</p>
+<pre class="prettyprinted">
+.g_line_gra(@gra,...){
+  background-image:-webkit-linear-gradient(@gra);
+  。。。
+}
+#lesscss-arguments-eg {
+  height:60px;
+  .g_line_gra(left,red 0%,green 33%,blue 66%,yellow 100%);
+}
+</pre>
+
+<p>生成的 css 是</p>
+<pre class="prettyprinted">
+background-image:-webkit-linear-gradient(left);
+background-image:-moz-linear-gradient(left);
+background-image:linear-gradient(left);
+</pre>
+
+<p><strong>原因：逗号分隔，被认为是多个参数！</strong> 所以用变量 @str 来转换一下，整个作为一个参数。</p>
+<h2 id="正确的写法二">正确的写法二</h2>
+<pre>
+.g_line_gra(...){
+  @gra:~`"@{arguments}".replace(/[\[\]]/g,'')`;
+  background-image:-webkit-linear-gradient(@gra);
+  background-image:-moz-linear-gradient(@gra);
+  background-image:linear-gradient(@gra);
+}
+
+#lesscss-arguments-eg {
+  height:60px;
+  .g_line_gra(left,red 0%,green 33%,blue 66%,yellow 100%);
+}
+</pre>
+
+<p>和第一种办法反过来：mixin（混合）定义的时候折腾，下面用的时候，直接写。看着有点累，哈，一解释就清楚了</p>
+<ul>
+<li><strong>@arguments</strong> 表示所有参数，在字符串（或者在 selector）中应用加 {}，即 <strong>“@{arguments}”</strong> 表示  这是所有参数的数组字符串，类似 [a,b,c] 格式</li>
+<li><strong>`</strong>javascript code<strong>`</strong> 表示执行一段 javascript 代码,注意是 <span style="font-size:2em;color:red;vertical-align:middle;font-weight:600;">`</span> （键盘 tab 键上面那个）而不是引号。</li>
+<li><strong>~</strong> 表示输出字符串（否则输出字符串带引号）</li>
+</ul>
+<p>把 [a,b,c] 两头[ ]去掉，然后输出 a,b,c</p>
+<h2 id="如何用_sublime_折腾之">如何用 sublime 折腾之</h2>
+<p><img src="/pics/less-arguments-comma.png" alt="less-arguments-comma"></p>
+<ul>
+<li>command+alt+2 打开双列布局</li>
+<li><a href="/software/sublime-package-control/">安装 sublime less 语法高亮和 lessbuild</a></li>
+<li>编辑 .less 以后，command+b 编译为同名 .css 文件</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/img-after-not-work/">img :after not work</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>img:after 或者 input:after 没用！因为</p>
+<p>img 是 replaced element。其它 object,embed,input,button,textarea,select 这些都是。类似于“控件”的感觉，它们的样子由“控件”决定而不是浏览器。</p>
+<blockquote>
+<p>A replaced element is any element whose appearance and dimensions are defined by an external resource. Examples include images (&lt;img&gt; tags), plugins (&lt;object&gt; tags), and form elements (&lt;button&gt;, &lt;textarea&gt;, &lt;input&gt;, and &lt;select&gt; tags). All other elements types can be referred to as non-replaced elements.</p>
+</blockquote>
+<p>:before 和 :after 只能和那些 non-replaced elements 配合。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-terminal-prompt/">mac terminal prompt</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><img src="/pics/mac-ternimal-prompt.png" alt="每天用终端太多，优化一下"></p>
+<p>每天用终端太多，优化一下。原来的主机名太长，修改为 gsmac（guo shuang mac）。因为经常 ssh 远程主机，所以主机名还是要保留，不然分不清本地还是远程。当前目录 很重要，所以 高亮。其它 日期、时间等我不需要。</p>
+<h2 id="修改主机名">修改主机名</h2>
+<p>在 System Preferences - Sharing 修改 computer name</p>
+<h2 id="修改提示符_prompt">修改提示符 prompt</h2>
+<p><code>vim ~/.bash_profile</code> 编辑用户目录下的 .bash_profile，加入变量</p>
+<pre>
+export PS1="\u@\h \[\e[0;35m\]\w\[\e[m\]$ "
+</pre>
+
+<p>重开新终端看效果。</p>
+<h2 id="解释">解释</h2>
+<h3 id="格式">格式</h3>
+<p><code>export PS1=&quot;\u@\h\w$ &quot;</code></p>
+<p>表示 <strong><em>prompt 1 格式为：用户名@主机名 当前完整目录 $</em></strong></p>
+<ul>
+<li>\d – 日期</li>
+<li>\t – 事件</li>
+<li>\h – 主机名</li>
+<li>\# – 计算机号</li>
+<li>\u – 用户名</li>
+<li>\W – 当前目录</li>
+<li>\w – 当前完整目录</li>
+</ul>
+<h3 id="颜色说明">颜色说明</h3>
+<p>格式为：</p>
+<pre>\[\e[颜色\m\]</pre>
+
+<ul>
+<li><strong>\[\e[</strong> 颜色开始</li>
+<li><strong>\m\]</strong>  颜色结束</li>
+</ul>
+<p>0 或 1 表示子体加粗</p>
+<p>颜色值为：</p>
+<ul>
+<li><strong style="color:black">30</strong> black 30</li>
+<li><strong style="color:red">31</strong> red 31</li>
+<li><strong style="color:green">32</strong> green 32</li>
+<li><strong style="color:yellow">33</strong> yellow 33</li>
+<li><strong style="color:blue">34</strong> blue 34</li>
+<li><strong style="color:magenta">35</strong> magenta 35</li>
+<li><strong style="color:cyan">36</strong> cyan 36</li>
+<li><strong style="color:#ddd">37</strong> white 37</li>
+</ul>
+<p>就是 terminal - preferences 中的 ANSI Colors 设置</p>
+<p><img src="/pics/mac-ternimal-prompt2.jpg" alt="mac terminal color"></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/vendor-prefixes-is-shit/">恶心的 Vendor Prefixes</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Vendor Prefixes 就是垃圾。但为了前卫装X，又不得不弄这些劳什子，真烦人。昨天写的 line-gradient，无意中发现 android 浏览器和 safari 对 css3 标准写法支持有问题，一片方块，：（</p>
+<p>看来的确需要一件兵器来写 css 了。</p>
+<p>有这么几个办法：</p>
+<ul>
+<li><a href="http://css3please.com/" target="_blank" rel="external">http://css3please.com/</a> 在线 Vendor Prefixes 速查</li>
+<li><a href="http://leaverou.github.io/prefixfree/" target="_blank" rel="external">http://leaverou.github.io/prefixfree/</a>  客户端处理，页面嵌入 prefixfree.js，对 link style 用 jquery css()处理</li>
+<li><a href="http://prefixr.com/index.php" target="_blank" rel="external">http://prefixr.com/index.php</a> 在线转换</li>
+<li>用 Sass, Compass, lesscss 等的 mixin </li>
+</ul>
+<h3 id="好吧我看中的是_Lesscss">好吧我看中的是 Lesscss</h3>
+<p>先安装 lesscss</p>
+<p><code>npm install -g less</code></p>
+<p>保证终端的 </p>
+<p><code>lessc 123.less &gt; 123.css</code>  能够运行。</p>
+<p>Sublime 安装 <a href="https://github.com/berfarah/LESS-build-sublime" target="_blank" rel="external">LESS-build-sublime</a> 和 <a href="https://github.com/danro/LESS-sublime" target="_blank" rel="external">lesscss syntax</a></p>
+<p>编辑 .less 的时候，<kbd class="mac"></kbd>+<kbd>b</kbd> build 编译的时候，或生成同名 .css 文件。</p>
+<p>Sublime 包里还有个大同小异 less2css，这个在保存 .less 的时候生成同名 .css，压缩掉了换行。（我写的 css 就是给大家看的，所以使用前者。）</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/sublime-cli/">sublime 终端命令行</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>根据官方说法：<a href="http://www.sublimetext.com/docs/2/osx_command_line.html" target="_blank" rel="external">OS X Command Line</a>，是在 ~/bin 建立符号链接。</p>
+<p><code>ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; ~/bin/subl</code></p>
+<p>但官方还说如果装了 Macports 的话，上面办法不行，但没说该怎么办。</p>
+<blockquote>
+<p>If you have the MacPorts version of Python installed, then starting Sublime Text 2 via the subl will not work correctly. As a workaround, start Sublime Text 2 first via Finder, and then interact with it using subl.</p>
+</blockquote>
+<p>郁闷啊，我的办法如下</p>
+<p><code>vim ~/.bash_profile</code></p>
+<p>加入</p>
+<p><code>alias subl=&quot;&#39;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&#39; $1&quot;</code></p>
+<p>使用</p>
+<p><code>subl AAAA.txt</code></p>
+<h3 id="设置_sublime_为默认的文本编辑器">设置 sublime 为默认的文本编辑器</h3>
+<p>To use Sublime Text 2 as the editor for many commands that prompt for input, set your EDITOR environment variable:</p>
+<pre>export EDITOR='subl -w'</pre>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/regexp-dot-not-include-newline/">正则 .（点） 不包含换行</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>比如，我想删除 html 中所有的 <strong>&lt;style&gt;…&lt;/style&gt;</strong>,下面哪个正则是对的呢？</p>
+<ul id="regexp-eg0511-rules"><br> <li><a href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();this.nextSibling.style.display='inline';" target="_blank" rel="external">/&lt;style.*&lt;\/style&gt;/g</a><i class="icon-remove"></i></li><br>    <li><a href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();this.nextSibling.style.display='inline';" target="_blank" rel="external">/&lt;style[.\r\n]*&lt;\/style&gt;/g</a><i class="icon-remove"></i></li><br>    <li><a href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();this.nextSibling.style.display='inline';" target="_blank" rel="external">/&lt;style(.|[\r\n])*&lt;\/style&gt;/g</a><i class="icon-ok"></i></li><br>    <li><a href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();this.nextSibling.style.display='inline';" target="_blank" rel="external">/&lt;style[\s\S]*&lt;\/style&gt;/g</a><i class="icon-ok"></i></li><br></ul>
+
+<p><input id="regexp-eg0511-rule1" class="text" size="40" value="/<style.*<\/style>/g"> <span class="btn" onclick="var p=document.getElementById('regexp-eg0511').firstChild;var n=p.nextSibling;var v=document.getElementById('regexp-eg0511-rule1').value;eval('n.value=p.value.replace('+v+',\'\')');" id="regexp-eg0511-btn">正则替换</span> </p>
+<div id="regexp-eg0511"><textarea style="clear:left;width:40%;display:inline-block;height:8em;padding:6px;border:solid 1px  #ccc;background:#fec;font-size:14px;white-space:nowrap;overflow:hidden"><br>aa.aaa.a a<br>&lt;style&gt;@import url(abc.css)&lt;/style&gt;<br>&lt;style&gt;<br>#abc {color: red;}<br>&lt;/style&gt;<br>b bb.bb.bb</textarea><textarea style="margin-left:10px;width:40%;display:inline-block;height:8em;padding:6px;border:solid 1px #ccc;background:#cef;font-size:14px;white-space:nowrap;overflow:hidden"></textarea></div>
+
+<style>
+#regexp-eg0511-rule1,#regexp-eg0511-btn {display:none;}
+#regexp-eg0511-rules {list-style: none;padding-bottom:10px;}
+#regexp-eg0511-rules a {cursor:pointer;font-size:1.3em;letter-spacing:2px;padding:0 8px;background: #fff;color:#000;}
+#regexp-eg0511-rules a:hover {text-decoration: none;color:green;}
+#regexp-eg0511-rules i {display:none;font-size: 1.5em}
+#regexp-eg0511-rules .icon-ok {color:green;}
+#regexp-eg0511-rules .icon-remove {color:red;}
+</style>
+
+<h2 id="why?">why?</h2>
+<p>第一个 <strong>.*</strong></p>
+<p>. 是<strong>除了换行</strong>以外的“任意”字符。不包括 \n \r 也就是 \u2028 or \u2029。所以不能替换 带换行的 style</p>
+<p>再看二个 <strong>[.\r\n]*</strong></p>
+<p>似乎没问题 － “任意”＋不“任意” ＝ 全部？！ 道理没错，写法不对。. 在 [ ] 里面 . 只是匹配自己（就是 . 或者说 点） 下面两段代码（去掉了aaa bbb中间的点）结果一样：</p>
+<p><a style="font-size:16px;" href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();document.getElementById('regexp-eg0511').scrollIntoView(true)" target="_blank" rel="external">/[.]*/g</a> 或者<br><a style="font-size:16px;" href="javascript:void(0);" onclick="document.getElementById('regexp-eg0511-rule1').value=this.firstChild.nodeValue;document.getElementById('regexp-eg0511-btn').click();document.getElementById('regexp-eg0511').scrollIntoView(true)" target="_blank" rel="external">/[\.]*/g</a></p>
+<h3 id="正确的写法">正确的写法</h3>
+<p><strong>[\s\S]</strong> 呢？ \s 表示空字符,包括 空格 换行 等于 [ \t\r\n]（注意：最前面是一个空格！），\S 表示非空字符，除 \s 以外的字符。二者相加等于全部。</p>
+<p><strong>(.|[\r\n])*</strong> 表示：点 或者 换行（回车）若干个</p>
+<h3 id="/r_/n_什么地干活">/r /n 什么地干活</h3>
+<ul>
+<li>\n linefeed 换行 — \r carriage return 回车</li>
+<li>在 ascii 码中 \r 13 — \n 10</li>
+<li>在 *nix 和 windows 以及各种狗屁标准的混战中 他们各自，甚至一起，用来表示 “嗯，这行完了，该下一行了”</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/addEventListener/">javascript addEventListener</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>addEventListener 语法格式：</p>
+<p><strong>target.addEventListener(type, listener[, useCapture]);</strong></p>
+<ul>
+<li>type 事件类型</li>
+<li>listener 侦听函数</li>
+<li>useCapture 使用捕捉（true,false）</li>
+</ul>
+<p>在嵌套结构结构，内部元素的事件会冒泡（bubble）。比如下面例子，点击红色，会继续触发蓝色的 click</p>
+<div class="blue" id="addEventListenerDiv"><div class="red"></div></div><br><div id="addEventListenerDiv-msg"></div>
+
+<style>
+#addEventListenerDiv-msg {height:40px;background:#ddd;padding-left:1em;line-height:40px}
+#addEventListenerDiv-msg span {font-size: 1.5em;}
+#addEventListenerDiv {background:#06c;padding:30px;}
+#addEventListenerDiv .red {height:60px;background:#a00}
+#addEventListenerDiv:hover {background:#17c;}
+#op20130511 {padding:10px 0;}
+#op20130511 input {color:#06c;cursor:pointer;padding:3px;background:#eee;border-radius: 10px;border:solid 1px #ccc;text-align: center}
+</style>
+
+<div id="op20130511">蓝色：<input size="4" class="text" readonly id="addEventListener-blue" value="false"><br>红色：<input size="4" class="text" readonly id="addEventListener-red" value="false"><br></div>
+
+<script src="/labs/add_event_listener.js"></script>
+
+<p>结论：</p>
+<ul>
+<li>默认为false，则内层的触发先于外层</li>
+<li>true 的触发顺序总是在 false 之前</li>
+<li>如果多个均为 true，外层优先</li>
+</ul>
+<h3 id="如何停止事件冒泡？">如何停止事件冒泡？</h3>
+<p>event.stopPropagation() 老版本 ie 用 event.cancelBubble=true</p>
+<pre>
+var target = event.target || event.srcElement
+
+event = event || window.event // cross-browser event
+event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true)
+</pre>
+
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/linear-gradient/">linear-gradient</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="语法">语法</h3>
+<p><strong>background-image:linear-gradient(point,color position,color position)</strong></p>
+<ul>
+<li>point 可以为 top,to bottom,45deg 等 </li>
+<li>color 颜色</li>
+<li>position 起始、结束位置 可以用 百分比 或 像素 等</li>
+</ul>
+<p>注意：chrome 基本支持标准的 css3 语法。而 firefox，尤其是 safari 经常需要 vendor prefix（厂家声明）</p>
+<h3 id="例子">例子</h3>
+<p><style>@import url(/labs/line-gradient.css)</style></p>
+<div id="linear-gradient-eg20130510"><br>    <div class="eg1"></div><br>    <pre>background-image:linear-gradient( -45deg, blue, red )</pre><br>    兼容：firefox,chrome,safari<br><br>    <hr><br><br>    <div class="eg2"></div><br>    <pre>background-image:linear-gradient( to right top, blue, red )</pre><br>    兼容：firefox,chrome <strong>safari 不支持 to right top</strong><br><br>    <hr><br><br>    <div class="eg3"></div><br>    <pre>background-image:linear-gradient( top ,blue,red )</pre><br><br>    <hr><br><br>    <div class="eg4"></div><br>    <pre>background-image:linear-gradient(left,red 0,green 33%,blue 66%,yellow 100% )</pre><br><br>    <hr><br><br>    <div class="eg5"></div><br>    <pre>background: -webkit-radial-gradient(50% 50%, closest-corner, #1a82f7, #2F2727);background:-moz-radial-gradient(50% 50%, closest-corner, #1a82f7, #2F2727)</pre><br><br>    <hr><br><br>    <div class="eg6">一枚按钮</div> 
+
+<p></p></div><p></p>
+<p>查看 <a href="/labs/line-gradient.css">样式表文件</a>  </p>
+<h3 id="厂家声明顺序">厂家声明顺序</h3>
+<p>-webkit- -moz- -ms- -o- 等，不带厂家前缀的标准声明放在最后！</p>
+<h3 id="低版本_ie？">低版本 ie？</h3>
+<pre>filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB);
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB)";</pre>
+
+<h3 id="意外">意外</h3>
+<p>webkit（chrome,safari）的 90deg 和 gecko(firefox) 90deg 解释不一样！前者上下，后者水平！</p>
+<h3 id="radial-gradient">radial-gradient</h3>
+<ul>
+<li>closest-side    The gradient’s ending shape meets the side of the box closest to its center (for circles) or meets both the vertical and horizontal sides closest to the center (for ellipses).</li>
+<li>closest-corner    The gradient’s ending shape is sized so it exactly meets the closest corner of the box from its center.</li>
+<li>farthest-side    Similar to closest-side, except the ending shape is sized to meet the side of the box farthest from its center (or vertical and horizontal sides).</li>
+<li>farthest-corner    The gradient’s ending shape is sized so it exactly meets the farthest corner of the box from its center.</li>
+</ul>
+<p>tips: body radial-gradient 可能会需要 html {height:100%;} !</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/38/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/40/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 35 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/pure-css-ajax-loader/">pure css ajax loader</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>昨天需测试ie9-10，虚机装win8，花都谢了。每次切过去，老是看见那个“转啊转”的小轮子。嗯  ？于是又开始无聊了</p>
+<div style="margin:1em;" class="gAjaxLoader" data-balls="8" data-color="#c00" data-time="6"></div>
+
+<link rel="Stylesheet" href="/labs/g-ajax-loader.css">
+
+<script src="/labs/g-ajax-loader.js"></script>
+
+<p>修改下面参数试试？（别把自己的浏览器玩死啦）<br><br></p>
+<div id="gAjaxLoaderTest">时间：<input class="text" size="2" value="6" onblur="$('.gAjaxLoader').attr('data-time',$(this).val());initialAjaxLoader();"> 球数：<input class="text" size="2" value="8" onblur="$('.gAjaxLoader').attr('data-balls',$(this).val());initialAjaxLoader();"> 颜色：<input class="text" size="6" value="#c00" onblur="$('.gAjaxLoader').attr('data-color',$(this).val());initialAjaxLoader();"></div><br><div style="clear:both;"></div>
+
+<h3 id="代码">代码</h3>
+<pre>
+&lt;div class="gAjaxLoader" data-balls="10" data-color="#0c0" data-time="3"&gt;&lt;/div&gt;
+</pre>
+
+<h3 id="原理">原理</h3>
+<p>其实不需要 js，但我懒得手工写一堆 div，纯 css 就可以实现。js 只是为了控制 球数、速度和颜色。</p>
+<p>嵌入N个div，都 absolute 挪到正中间。然后 translateX 移到最左边，开始 @keyframes 动画 － 旋转 360。</p>
+<p>下载源文件： <a href="/labs/g-ajax-loader.less">less</a> 和 <a href="/labs/g-ajax-loader.coffee">coffee</a> 这个 less 用到了我的 <a href="/labs/lib.less">lib.less</a></p>
+<p>查看源文件： <a href="/labs/g-ajax-loader.css">css</a> 和 <a href="/labs/g-ajax-loader.js">js</a></p>
+<p>因为 @keyframes 很罗嗦，所以没有把 容器大小 和 球 大小 写到js。但其实是可以的，看下面</p>
+<p>js 控制 @keyframes 还需要第三方插件 <a href="http://blog.joelambert.co.uk/2011/05/20/css-animation-keyframe-events-javascript-solution/" target="_blank" rel="external">CSS Animation Keyframe Events</a>，哎，还是算了吧。大家手工改 less 或者 css 吧</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-hack/">css hack 速查</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>哎，定期搞这些劳什子，放这速查</p>
+<h3 id="IE_css_hack">IE css hack</h3>
+<pre class="prettyprinted">
+body {
+    color: red; /* 所有浏览器 */
+    color: red<strong style="font-size:1.2rem">\0/</strong>; /* ie8-9 */
+    color: red<strong style="font-size:1.2rem">\9</strong>; /* ie6-7-8 */
+    <strong style="font-size:1.2rem">*</strong>color: red; /* ie6-7 */    
+    <strong style="font-size:1.2rem">_</strong>color: red; /* ie6 */
+}
+</pre>
+
+<p>ie9-10</p>
+<pre>
+@media screen and (min-width:0\0) {
+    body { color: red}
+} /* ie9-10 */
+</pre>
+
+<h3 id="条件注释表达式">条件注释表达式</h3>
+<p>如果ie7</p>
+<pre>
+&lt;!--[if IE 7]&gt;
+    &lt;link rel="stylesheet" href="ie7.css"&gt;
+&lt;![endif]--&gt;
+</pre>
+
+<p>ie6 或者更低</p>
+<pre>
+&lt;!--[if lte IE 6]&gt;
+    &lt;link rel="stylesheet" href="ie6.css"&gt;
+&lt;![endif]--&gt;
+</pre>
+
+<p>如果不是ie</p>
+<pre>
+&lt;!--[if !IE]&gt; --&gt;
+According to the conditional comment this is not IE&lt;br /&gt;
+&lt;!-- &lt;![endif]--&gt;
+</pre>
+
+<h3 id="javascript">javascript</h3>
+<pre>
+var isFF = !!navigator.userAgent.match(/firefox/i);/*firefox*/
+var isOpera = !!window.opera;/*opera 12-*/
+var isChrome = !!window.chrome;/*Chrome, Opera 14+*/
+</pre>
+
+<h3 id="曾经的_jQuery-browser">曾经的 jQuery.browser</h3>
+<pre>
+jQuery.browser.msie&amp;&amp;jQuery.browser.version&lt;8
+</pre>
+
+<h3 id="最好的办法">最好的办法</h3>
+<p>用ie条件注释＋ <a href="http://modernizr.com/" target="_blank" rel="external">modernizr</a> 功能检测</p>
+<p>更多资料</p>
+<ul>
+<li><a href="http://browserhacks.com/" target="_blank" rel="external">BROWSERHACKS</a></li>
+<li><a href="http://modernizr.com" target="_blank" rel="external">modernizr</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-3d-cylinder/">css 3d cylinder</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>谁敢把我装桶里来着？</p>
+<div id="circle_3d_thick" class="circle_3d_thick rotated" style="float:left"></div><br><div id="circle_3d_thick_slider" style="float:left;margin-top:100px;margin-left:60px"></div><br><div style="clear:both;"></div>
+
+<h3 id="代码：">代码：</h3>
+<pre>
+&lt;div id="circle_3d_thick" class="circle_3d_thick rotated"&gt;&lt;/div&gt;
+</pre>
+
+<p><style>@import url(/labs/css-3d-cylinder.css)</style></p>
+<link rel="Stylesheet" href="/cs/jquery-ui.css">
+
+<script src="/js/jquery-ui.min.js"></script>
+
+<script src="/labs/css-3d-cylinder.js"></script> 
+
+<div style="clear:both"></div>
+
+<h3 id="原理">原理</h3>
+<ol>
+<li>150*150px的方块，自己 position:relative，border-radius:100% </li>
+<li>然后 :before :after 插入两个 position:absolute 方块 A（before） B(after)</li>
+<li>A 是桶底。transform:translateZ(-75px) 向 z 方向挪动 75;</li>
+<li>B 担任侧面。比较罗嗦 rotateX(90deg) translateY(-1<em>@circle_size/2) translateZ(-1</em>@circle_size/2)  首先旋转（因为是侧面嘛），然后往中间挪动（根本不是曲面，就是平面，所以要放在圆心上）</li>
+<li>打酱油的阴影是 jquery append 进去的。z 方向 85 然后 box-shadow 几次(温柔点的阴影)。</li>
+</ol>
+<h3 id="源代码">源代码</h3>
+<p>js 引入 jquery ui slider，是为了方便查看桶的侧面。我写的时候是 <a href="/labs/css-3d-cylinder.less">less</a> 和 <a href="/labs/css-3d-cylinder.coffee">coffee</a>。当然，你也可以直接查看 <a href="/labs/css-3d-cylinder.css">css</a> 和 <a href="/labs/css-3d-cylinder.js">js</a>。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/sublime-insert-date/">sublime insert date</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Install <a href="https://github.com/FichteFoll/sublimetext-insertdate" target="_blank" rel="external">sublimetext-insertdate</a> with <a href="http://wbond.net/sublime_packages/package_control" target="_blank" rel="external">Package Control</a> or directly install with git clone.</p>
+<p><code class="no-flash no-dollar">ctrl+`</code> open sublime console and type</p>
+<p><code class="no-flash no-dollar">sublime.packages_path()</code> to show the packages_path</p>
+<p><code class="no-flash no-dollar">cd PATH_OF_YOUR_SUBLIME_PACKAGES</code> and git clone</p>
+<p><code class="no-flash no-dollar">git clone git://github.com/FichteFoll/sublimetext-insertdate.git</code></p>
+<p>then modify Key Bindings-User,add</p>
+<pre>
+{ "keys": ["ctrl+d"],"command": "insert_date","args": {"format": "%Y-%m-%d %H:%M:%S"} }
+</pre>
+
+<p>Any time you want insert date,just <key><kbd>ctrl</kbd>+<kbd>d</kbd></key>.will output</p>
+<p><strong>2013-05-29 08:30:54</strong></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/js-compile/">js compile</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>For instance if you are into classical OOP instead of prototypal and want some syntactical sugar, you might enjoy <strong><em>CoffeeScript</em></strong>. In case you wish to have a stricter typing system, you could find <strong><em>Dart</em></strong> or <strong><em>TypeScript</em></strong> interesting. Those that enjoy functional programming, could perhaps enjoy <strong><em>ClojureScript</em></strong> or <strong><em>Roy</em></strong>. coffee 面向对象的编程；严谨编程用 dart 或者 typescript；注重功能用 ClojureScript 或者 roy</p>
+<p>via </p>
+<ul>
+<li><a href="http://jster.net/blog/js-alternatives-coffeescript-dart-typescript#.UaUn-C-SCv0" target="_blank" rel="external">The Others: CoffeeScript, Dart, TypeScript</a></li>
+<li><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank" rel="external">List of languages that compile to JS</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mobile/phonegap-web-font/">phonegap not show webfont</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Android does support TTF and OTF files.</p>
+<p><strong>Don’t use the local hack for ie</strong></p>
+<p>If you realy want to support ie,use code below</p>
+<pre>
+&lt;link rel="stylesheet" type="text/css" href="/css/fonts.css" /&gt;
+&lt;!--[if IE]&gt;
+    &lt;link rel="stylesheet" href="/css/styleiefonts.css" type="text/css" charset="utf-8" /&gt;
+&lt;![endif]--&gt;
+</pre>
+
+<p>via <a href="http://stackoverflow.com/questions/3200069/css-fonts-on-android#answer-4520467" target="_blank" rel="external">http://stackoverflow.com/questions/3200069/css-fonts-on-android#answer-4520467</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/less-css-variables-use-array/">less variables use array</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>I want set random color to sth use lesscss.</p>
+<pre class="linenums">
+@colorArr:'#00c,red,green';
+
+.random_color(@arg){
+    background-color:~`@{colorArr}.split(',')[@{arg}]`;
+}
+
+.random_color(){
+    @len:`Math.floor(Math.random()*(@{colorArr}.split(',').length))`;
+    background-color:~`@{colorArr}.split(',')[@{len}]`;
+}
+
+.div1 {
+    height:300px;
+    .random_color();
+    .random_color(0);
+}
+</pre>
+
+<ul>
+<li>use <strong><em>.random_color()</em></strong> to generate random color. </li>
+<li><strong><em>.random_color(N)</em></strong> get the N-index of colorArr.</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/pure-css-pie/">pure css pie</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>用 webkit 或者 firefox 看</p>
+<ul class="pureCssPie"><br><li><div></div></li><br><li><div></div></li><br><li><div></div></li><br><li><div></div></li><br></ul>
+
+<h3 id="原理如下">原理如下</h3>
+<p>两个200x200 div(a,b)，各自横竖方向 clip:rect(…) 一半，旋转一个角度，注意重合的部分就是我们要的 pie。当然，还需要 border-radius:100% ，例外 b 应该嵌在 a 里面，这样溢出的部分不会显示。查看源文件：<a href="/labs/pure-css-pie.less">lesscss</a> 或者 <a href="/labs/pure-css-pie.css">css</a></p>
+<div style="background:#ccc;position:relative;height:200px;margin:1em 0;"><br><div style="position:absolute;background:red;width:200px;height:200px;clip:rect(0,100px,200px,0);opacity:0.5;border-radius:100%;"></div><br><div style="position:absolute;background:green;width:200px;height:200px;clip:rect(0,100px,200px,0);-webkit-transform:rotate(60deg);transform:rotate(60deg);border-radius:100%;opacity:0.5;"></div><br></div> 
+
+<h3 id="javascript_版本?">javascript 版本?</h3>
+<ul class="gsPie" style="display:inline-block;width:220px;"><br><li data-pie="200"></li><br><li data-pie="50"></li><br><li data-pie="50"></li><br><li data-pie="300"></li><br><li data-pie="650"></li><br><li data-pie="240"></li><br></ul>
+
+<ul class="gsPie" style="display:inline-block;" data-donut="0.3"><br><li data-pie="50">谱扫</li><br><li data-pie="200">郭爽</li><br><li data-pie="80">共扫</li><br></ul>
+
+<ul class="gsPie" data-piesize="0.5" style="display:inline-block;"><br><li data-pie="50"></li><br><li data-pie="200"></li><br><li data-pie="80"></li><br><li data-pie="300"></li><br><li data-pie="650"></li><br><li data-pie="240"></li><br></ul>
+
+<ul class="gsPie" style="display:inline-block;" data-piesize="0.8" data-pielabel="true"><br><li data-pie="50">谱扫</li><br><li data-pie="200">郭爽</li><br><li data-pie="80">共扫</li><br></ul>
+
+<p>代码如下：</p>
+<pre>
+&lt;ul class="gsPie"&gt;
+&lt;li data-pie="90"&gt;&lt;/li&gt;
+&lt;li data-pie="180"&gt;&lt;/li&gt;
+&lt;li data-pie="89"&gt;&lt;/li&gt;
+&lt;li data-pie="300"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt;@import url(http://guoshuang.com/labs/gspie.css)&lt;/style&gt;
+&lt;script src="http://guoshuang.com/js/jquery-2.0.0.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://guoshuang.com/labs/gspie.js"&gt;&lt;/script&gt;
+</pre>
+
+<h3 id="简单说明">简单说明</h3>
+<ul>
+<li>data-pie 数量（百分比当然也可以）</li>
+<li>data-donut=”0.5” 圆心的百分比</li>
+<li>data-piesize=”0.5” 默认大小为 200x200px，0.5 表示一半大小</li>
+<li>label绕圈？嗯，这个不好处理。简单放在下边。</li>
+</ul>
+<p><style>@import url(/labs/pure-css-pie.css)</style></p>
+<p><style>@import url(/labs/gspie.css)</style></p>
+<script src="/labs/gspie.js"></script>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/34/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/36/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

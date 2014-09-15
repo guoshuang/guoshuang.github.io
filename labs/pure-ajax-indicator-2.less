@@ -1,0 +1,85 @@
+@ball-size:40px;
+@indi-length:8px;
+@indi-width:2px;
+@divs-nums:12;
+@circle-time:1s;
+@indi-color:#c00;
+@indi-color-default:#999;
+
+.gsAjaxIndi-2 {
+	position: relative;
+	display: inline-block;
+	width: @ball-size;height: @ball-size;
+	div {
+		position: absolute;
+		left:50%;margin-left: -1 * @indi-width / 2;
+		border:solid @indi-length @indi-color-default;
+		height: @ball-size - (@indi-length *2);
+		width: @indi-width;
+		box-sizing:content-box;
+		display: inline-block;
+		border-left: 0;
+		border-right: 0;
+		border-bottom-color: transparent;
+	}
+	
+	.rotateDiv(@index) when (@index =< @divs-nums){
+		& :nth-child(@{index}) {
+			-webkit-transform:rotate(360/@divs-nums*@index*1deg);
+			transform:rotate(360/@divs-nums*@index*1deg);
+			-webkit-animation: gs_spin_2 @circle-time (@circle-time/@divs-nums*@index) linear infinite;
+			animation: gs_spin_2 @circle-time (@circle-time/@divs-nums*@index) linear infinite;
+		}
+		.rotateDiv(@index+1);
+	}
+
+	.rotateDiv(1);
+}
+
+.gsAjaxIndi-3 {
+	.rotateDiv(@index) when (@index =< @divs-nums){
+		& :nth-child(@{index}) {
+			-webkit-transform:rotate(360/@divs-nums*@index*1deg);
+			transform:rotate(360/@divs-nums*@index*1deg);
+			-webkit-animation: gs_spin_3 @circle-time (@circle-time/@divs-nums*@index) linear infinite;
+			animation: gs_spin_3 @circle-time (@circle-time/@divs-nums*@index) linear infinite;
+		}
+		.rotateDiv(@index+1);
+	}
+
+	.rotateDiv(1);
+}
+
+@-webkit-keyframes gs_spin_2 {
+	100% {
+		border-top-color:@indi-color;
+	}
+}
+
+@-webkit-keyframes gs_spin_3 {
+	40% {
+		border-top-color:@indi-color;
+	}
+}
+
+@keyframes gs_spin_2 {
+	100% {
+		border-top-color:@indi-color;
+	}
+}
+
+@keyframes gs_spin_3 {
+	40% {
+		border-top-color:@indi-color;
+	}
+}
+
+.paused div {
+	-webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+
+
+

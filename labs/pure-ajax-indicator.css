@@ -1,0 +1,51 @@
+.gsAjaxIndi {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: gs_spin 2s linear infinite;
+  -o-animation: gs_spin 2s linear infinite;
+  animation: gs_spin 2s linear infinite;
+}
+.gsAjaxIndi div {
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  border: solid 8px #cc0000;
+  height: 24px;
+  width: 2px;
+  box-sizing: content-box;
+  display: inline-block;
+  border-left: 0;
+  border-right: 0;
+}
+.gsAjaxIndi :nth-child(1) {
+  -webkit-transform: rotate(36deg);
+  transform: rotate(36deg);
+}
+.gsAjaxIndi :nth-child(2) {
+  -webkit-transform: rotate(72deg);
+  transform: rotate(72deg);
+}
+.gsAjaxIndi :nth-child(3) {
+  -webkit-transform: rotate(108deg);
+  transform: rotate(108deg);
+}
+.gsAjaxIndi :nth-child(4) {
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+}
+.gsAjaxIndi :nth-child(5) {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+@-webkit-keyframes gs_spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes gs_spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

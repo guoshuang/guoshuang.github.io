@@ -1,0 +1,74 @@
+@import "lib.less";
+
+@containerSize:100px; //容器大小
+@ballSize:10px; //球大小
+
+.gAjaxLoader {
+	position: relative;
+	width: @containerSize;
+	height: @containerSize;
+	div {
+		content:'';
+		opacity:0; 
+		position: absolute;
+		width: @ballSize;
+		height: @ballSize;
+		left: @containerSize /2;
+		top: @containerSize /2;
+		margin-left:-1* @ballSize /2;
+		margin-top:-1* @ballSize /2;
+		background: blue;
+		border-radius: 100%;
+		//transition:all 2s linear;
+		//.transition(all 1s infinite linear);
+		//.transform-origin(5px,50px);
+		//.transform(translateY(-45px) rotate(90deg));
+		//.transform(translateY(-45px));
+		//.animation(r360 6s infinite linear);
+	}
+}
+
+@-webkit-keyframes r360 {
+  0% {
+    .transform(rotate(0deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+  75% {
+    .transform(rotate(180deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:0.5;
+  }
+  100%{
+    .transform(rotate(360deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+}
+
+@-moz-keyframes r360 {
+  0% {
+    .transform(rotate(0deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+  75% {
+    .transform(rotate(180deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:0.5;
+  }
+  100%{
+    .transform(rotate(360deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+}
+
+@keyframes r360 {
+  0% {
+    .transform(rotate(0deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+  75% {
+    .transform(rotate(180deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:0.5;
+  }
+  100%{
+    .transform(rotate(360deg) translateX((@ballSize/2)-(@containerSize/2)));
+    opacity:1;
+  }
+}

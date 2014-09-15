@@ -1,0 +1,82 @@
+/*img hover transition by davdiguoshuang at gamil.com 2013-06-04 21:54:21 Free for all.*/
+
+@import "lib.less";
+
+#gsimghover2 {
+	list-style: none;padding:0;margin: 0;
+	 background:#ccc; 
+	li {
+		list-style: none;padding:0;margin: 0;
+		float:left;width:250px;height:200px;
+		position:relative; 
+		background:#ccc;
+		margin:40px 0;
+		text-align: right;line-height: 200px;
+		.box-sizing(border-box);
+		padding-right:1em;
+		.perspective(700px);
+		margin-right:10px;
+		div {
+			position: absolute; background:url(/pics/girl.jpg); width:50px; height:100%;
+			top:0;left:0;
+			.transform-style(preserve-3d);
+			.transform-origin(left center);	
+			.transform(translateX(50px));
+
+		}
+		.shadow {
+			background-image:none;background:rgba(0,0,0,0.2);
+			width:10px;
+			display:none;
+		}
+		.d1 {
+			.transform(translateX(0));
+			background-position:0 0;
+		}
+		.d2 {background-position:-50px 0;}
+		.d3 {background-position:-100px 0;}
+		.d4 {background-position:-150px 0;}
+		.d5 {background-position:-200px 0;}
+		&:hover {
+			div {
+				.transition(all 400ms ease-out);
+			}
+			.d1 {
+				.transform(translateX(0) rotateY(-45deg));
+			}
+			.d2 {
+				.transform(translateX(49px) rotateY(90deg));
+			}
+			.d3 {
+				.transform(translateX(49px) rotateY(-90deg));
+			}
+			.d4 {
+				.transform(translateX(49px) rotateY(90deg));
+			}
+			.d5 {
+				.transform(translateX(49px) rotateY(-90deg));
+			}
+			.shadow {display:block;}
+		}
+		/*style2*/
+		&.style2:hover {
+			.d1 {
+				.transform(translateX(0) rotateY(-14deg));
+			}
+			.d2 {
+				.transform(translateX(49px) rotateY(-14deg));
+			}
+			.d3 {
+				.transform(translateX(49px) rotateY(-14deg));
+			}
+			.d4 {
+				.transform(translateX(49px) rotateY(-14deg));
+			}
+			.d5 {
+				.transform(translateX(49px) rotateY(-14deg));
+			}
+			.shadow {display:block;}
+		}
+	}
+}
+

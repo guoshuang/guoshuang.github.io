@@ -1,0 +1,18 @@
+#white-space-example-div {
+  background: #eee;
+  padding: 10px; }
+  #white-space-example-div a:after {
+    content: none; }
+
+#example-white-space li, #example-word-wrap li, #example-word-break li {
+  cursor: pointer;
+  font-size: 1.2em; }
+  #example-white-space li:hover, #example-word-wrap li:hover, #example-word-break li:hover {
+    background: #eee; }
+  #example-white-space li.active, #example-word-wrap li.active, #example-word-break li.active {
+    color: #690; }
+    #example-white-space li.active:after, #example-word-wrap li.active:after, #example-word-break li.active:after {
+      content: '\f00c';
+      font-family: 'fontAwesome';
+      display: inline-block;
+      margin-left: 6px; }

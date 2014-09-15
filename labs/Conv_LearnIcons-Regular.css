@@ -1,0 +1,50 @@
+@font-face{font-family:'Conv_LearnIcons-Regular';src:url(https://d3jdkh4ynqm70e.cloudfront.net/assets/LearnIcons-Regular-1a4a9f54ce3488347de63f829902d674.eot);src:url(https://d3jdkh4ynqm70e.cloudfront.net/assets/LearnIcons-Regular.eot?#iefix) format("embedded-opentype"),url(https://d3jdkh4ynqm70e.cloudfront.net/assets/LearnIcons-Regular-701171bc881e65fff50f79ca315d0190.woff) format("woff"),url(https://d3jdkh4ynqm70e.cloudfront.net/assets/LearnIcons-Regular-718db2826a929cb11318c585389a7066.ttf) format("truetype"),url(https://d3jdkh4ynqm70e.cloudfront.net/assets/LearnIcons-Regular.svg#learniconsregular) format("svg");font-weight:normal;font-style:normal}
+.topiclist{font-size:2.8em;list-style:none;clear:both;overflow:hidden;margin-bottom:1em}
+.topiclist li{float:left;width:13.5%;text-align:center;list-style:none}
+.topic{display:block;text-align:center;margin:0 auto;font-size:.4em;height:8em;line-height:100%;position:relative;text-decoration:none;padding-bottom:.25em}
+.topic:before{border-radius:50%;font-family:'Conv_LearnIcons-Regular', sans-serif;text-align:center;background:#505472;line-height:150%;font-size:2.75em;top:0;font-weight:100;margin:.5em auto;left:0;display:block;width:1.7em;height:1.7em;content:'⌨';color:rgba(255,255,255,0.8);-webkit-font-smoothing:antialiased;text-shadow:0 0 4px rgba(0,0,0,0);-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear}
+a.topic:hover{text-decoration:none}
+a.topic:hover:before{color:white;text-shadow:0 0 4px rgba(0,0,0,0.1);-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;text-decoration:none !important}
+
+.topic.asp-net:before{background-color:#3083c8;content:'ʌ'}
+.topic.android:before{content:'Д';background-color:#a5c838;line-height:160%}
+.topic.angular-js:before{content:'а';background-color:#c4473a;line-height:160%}
+.topic.blogging:before{content:'⎙';background-color:#34586b;line-height:160%}
+.topic.back-end:before{content:'™';background-color:#006600}
+.topic.business:before{content:'∂';background-color:#338888}
+.topic.backbone-js:before{content:'Ж ';background-color:#2a71b5;line-height:175%}
+.topic.css3:before{content:'ʒ';background-color:#318cbe;line-height:180%}
+.topic.coffeescript:before{content:'☕ ';background-color:#623800;line-height:170%}
+.topic.cms:before{content:'™';background-color:#a5c838;line-height:170%}
+.topic.design:before{content:'θ';background-color:#ff3333}
+.topic.dreamweaver:before{content:'‡';background-color:#a5c838}
+.topic.dotnet:before{content:'ɳ';background-color:#2663b5;line-height:170%}
+.topic.drupal:before{content:'Ɗ';background-color:#318cbe;line-height:170%}
+.topic.front-end:before{content:'◊';background-color:#ff3333}
+.topic.git:before{content:'±';background-color:#607988}
+.topic.html5:before,
+.topic.html:before{content:'Ƽ';background-color:#f68d02;line-height:180%}
+.topic.ios:before{content:'ө';background-color:#34586b;color:#d9d7d8}
+.topic.joomla:before{content:'※';background-color:#323241;line-height:165%}
+.topic.jquery:before{content:'⛁';background-color:#131b28;color:#1ba5c7;line-height:160%}
+.topic.javascript:before{content:'ʝ';background-color:orange;color:#222;line-height:160%}
+.topic.learnable:before{content:'♥';background-color:#338ebf;color:#67d0ed;line-height:170%}
+.topic.layout:before{content:'◊';background-color:#990000}
+.topic.less:before{content:'{';background-color:#2b4e82}
+.topic.marketing:before{content:'†';background-color:#c8154f;line-height:160%}
+.topic.mobile:before{content:'▣';background-color:#505472;line-height:160%}
+.topic.node-js:before{content:'∏';background-color:#a4c63b;color:#FFF}
+.topic.podcasting:before{content:'☊';background-color:purple;line-height:170%}
+.topic.photoshop:before{content:'Ƥ';background-color:#2264ae;line-height:175%}
+.topic.php:before{content:'ф';background-color:#2264ae;line-height:140%}
+.topic.responsive-web-design:before{content:'¶';background-color:#f68d02;line-height:170%}
+.topic.ruby:before,
+.topic.sinatra:before{content:'♦';background-color:#b31001;line-height:170%}
+.topic.rails:before{content:'Ⲇ';background-color:#7c0114;line-height:170%}
+.topic.sp:before{content:'ʂ';background-color:#2b4e82}
+.topic.seo:before{content:'†';background-color:#6aabeb;line-height:160%}
+.topic.sass:before{content:'Ⲋ';background-color:#cd6699;line-height:160%}
+.topic.sitepoint:before{content:'%';background-color:#2b4e82}
+.topic.ux:before{content:'‡';background-color:orange;line-height:140%}
+.topic.wordpress:before{content:'Ш';background-color:#3c99cd;line-height:175%}
+

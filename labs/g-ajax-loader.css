@@ -1,0 +1,87 @@
+.gAjaxLoader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.gAjaxLoader div {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 50px;
+  top: 50px;
+  margin-left: -5px;
+  margin-top: -5px;
+  background: blue;
+  border-radius: 100%;
+}
+@-webkit-keyframes r360 {
+  0% {
+    -webkit-transform: rotate(0deg) translateX(-45px);
+    -moz-transform: rotate(0deg) translateX(-45px);
+    -o-transform: rotate(0deg) translateX(-45px);
+    transform: rotate(0deg) translateX(-45px);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: rotate(180deg) translateX(-45px);
+    -moz-transform: rotate(180deg) translateX(-45px);
+    -o-transform: rotate(180deg) translateX(-45px);
+    transform: rotate(180deg) translateX(-45px);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(-45px);
+    -moz-transform: rotate(360deg) translateX(-45px);
+    -o-transform: rotate(360deg) translateX(-45px);
+    transform: rotate(360deg) translateX(-45px);
+    opacity: 1;
+  }
+}
+@-moz-keyframes r360 {
+  0% {
+    -webkit-transform: rotate(0deg) translateX(-45px);
+    -moz-transform: rotate(0deg) translateX(-45px);
+    -o-transform: rotate(0deg) translateX(-45px);
+    transform: rotate(0deg) translateX(-45px);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: rotate(180deg) translateX(-45px);
+    -moz-transform: rotate(180deg) translateX(-45px);
+    -o-transform: rotate(180deg) translateX(-45px);
+    transform: rotate(180deg) translateX(-45px);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(-45px);
+    -moz-transform: rotate(360deg) translateX(-45px);
+    -o-transform: rotate(360deg) translateX(-45px);
+    transform: rotate(360deg) translateX(-45px);
+    opacity: 1;
+  }
+}
+@keyframes r360 {
+  0% {
+    -webkit-transform: rotate(0deg) translateX(-45px);
+    -moz-transform: rotate(0deg) translateX(-45px);
+    -o-transform: rotate(0deg) translateX(-45px);
+    transform: rotate(0deg) translateX(-45px);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: rotate(180deg) translateX(-45px);
+    -moz-transform: rotate(180deg) translateX(-45px);
+    -o-transform: rotate(180deg) translateX(-45px);
+    transform: rotate(180deg) translateX(-45px);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(-45px);
+    -moz-transform: rotate(360deg) translateX(-45px);
+    -o-transform: rotate(360deg) translateX(-45px);
+    transform: rotate(360deg) translateX(-45px);
+    opacity: 1;
+  }
+}

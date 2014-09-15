@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 48 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-meta-description/">hexo 的 meta description</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo meta description 部分的代码有点问题</p>
+<p>在 light/layout/_partial/head.ejs 的代码</p>
+<pre class="linenums">&lt;% if (page.description){ %&gt;
+  &lt;meta name="description" content="&lt;%= page.description %&gt;"&gt;
+  &lt;% } else if (config.description){ %&gt;
+  &lt;meta name="description" content="&lt;%= config.description %&gt;"&gt;
+  &lt;% } else if (page.excerpt){ %&gt;
+  &lt;meta name="description" content="&lt;%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %&gt;"&gt;
+  &lt;% } else if (page.content){ %&gt;
+  &lt;meta name="description" content="&lt;%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %&gt;"&gt;
+  &lt;% } %&gt;
+  &lt;% if (page.keywords){ %&gt;&lt;meta name="keywords" content="&lt;%= page.keywords %&gt;"&gt;&lt;% } %&gt;
+</pre>
+
+<p>解释：<br>
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/hexo/hexo-meta-description/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/javascript-fun/">javascript 的幽默</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <style>
+strong.hide {color:#999;visibility:hidden;color:#c00;margin-left:10px;}
+.mt10 {margin-top: 0px;cursor: help}
+</style>
+
+<p>Javascript 还是很幽默地，点击代码块，看答案！</p>
+<p><pre title="点击看答案" class="mt10" onclick="this.nextSibling.nextSibling.style.visibility='visible';"><br>typeof NaN<br></pre><br><strong class="hide">Number</strong></p>
+<p><pre title="点击看答案" class="mt10" onclick="this.nextSibling.nextSibling.style.visibility='visible';"><br>typeof null<br></pre><br><strong class="hide">object</strong></p>
+
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/javascript/javascript-fun/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/刘慈欣/">刘慈欣</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>最近在看 <a href="https://zh.wikipedia.org/wiki/%E5%88%98%E6%85%88%E6%AC%A3" target="_blank" rel="external">刘慈欣</a> 的小说，很有想象力，难以释卷。</p>
+<p>作品目录</p>
+<p><a target="_blank" href="http://book.kanunu.org//book3/6630/index.html">《三体》</a> <a target="_blank" href="http://book.kanunu.org//book3/6632/index.html">《三体 2·黑暗森林》</a> <a target="_blank" href="http://book.kanunu.org//book3/6656/index.html">《三体3：死神永生》</a> <a target="_blank" href="http://book.kanunu.org//book3/6633/index.html">《球状闪电》</a> <a target="_blank" href="http://book.kanunu.org//book3/6634/index.html">《超新星纪元》</a> <a target="_blank" href="http://book.kanunu.org//book3/6635/index.html">《梦之海》</a> <a target="_blank" href="http://book.kanunu.org//book3/6636/index.html">《诗云》</a> <a target="_blank" href="http://book.kanunu.org//book3/6637/index.html">《欢乐颂》</a> <a target="_blank" href="http://book.kanunu.org//book3/6638/index.html">《地火》</a> <a target="_blank" href="http://book.kanunu.org//book3/6639/index.html">《流浪地球》</a> <a target="_blank" href="http://book.kanunu.org//book3/6640/index.html">《乡村教师》</a> <a target="_blank" href="http://book.kanunu.org//book3/6641/index.html">《微纪元》</a> <a target="_blank" href="http://book.kanunu.org//book3/6642/index.html">《全频段阻塞干扰》</a> <a target="_blank" href="http://book.kanunu.org//book3/6643/index.html">《中国太阳》</a> <a target="_blank" href="http://book.kanunu.org//book3/6644/index.html">《朝闻道》</a> <a target="_blank" href="http://book.kanunu.org//book3/6645/index.html">《魔鬼积木》</a> <a target="_blank" href="http://book.kanunu.org//book3/6646/index.html">《吞食者》</a> <a target="_blank" href="http://book.kanunu.org//book3/6647/index.html">《光荣与梦想》</a> <a target="_blank" href="http://book.kanunu.org//book3/6648/index.html">《地球大炮》</a> <a target="_blank" href="http://book.kanunu.org//book3/6649/index.html">《思想者》</a> <a target="_blank" href="http://book.kanunu.org//book3/6650/index.html">《圆圆的肥皂泡》</a> <a target="_blank" href="http://book.kanunu.org//book3/6651/index.html">《白垩纪往事》</a> <a target="_blank" href="http://book.kanunu.org//book3/6652/index.html">《镜子》</a> <a target="_blank" href="http://book.kanunu.org//book3/6653/index.html">《赡养上帝》</a> <a target="_blank" href="http://book.kanunu.org//book3/6654/index.html">《山》</a> <a target="_blank" href="http://book.kanunu.org//book3/6655/index.html">《中国 2185》</a> </p>
+<p>短篇作品</p>
+<p><a target="_blank" href="http://book.kanunu.org//book3/6631/116035.html">《鲸歌》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116040.html">《微观尽头》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116055.html">《坍缩》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116070.html">《带上她的眼睛》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116080.html">《混沌蝴蝶》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116174.html">《天使时代》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116245.html">《赡养人类》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116246.html">《海水高山》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116247.html">《命运》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116248.html">《人生》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116249.html">《西洋》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116250.html">《纤维》</a> <a target="_blank" href="http://book.kanunu.org//book3/6631/116251.html">《信使》</a> </p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/express-jade-stylus-coffee/">express+jade+stylus+coffee</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="前言">前言</h2>
+<p>Express 是 Node 的一个流行框架之一，npm 是 Node 的包管理器。jade 是 html 模版引擎，stylus 是 css 预处理器，和 LESS 或者 SASS 差不错。coffee 用来写 javascript。Nib 是 stylus 一个工具，用来加入 vendor-prefix，-webkit-transform(chrome,safari) -moz-transform(mozilla,firefox) -o-transform(opera) </p>
+<p>白话版：express 就是 node，npm 是 node 安装东西的工具，jade 用来写 html5，coffee 写javascript，stylus 写 css，nib 用来帮助生成 这些混乱的浏览器厂家 css 标记。总之，一切为了 － <strong style="font-size:2em;display:inline-block;-webkit-transform:rotate(15deg);transform:rotate(15deg);">快</strong>！<br>
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/frontend/express-jade-stylus-coffee/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-zero-file/">hexo zero file</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo 经常出错，生成 0 字节大小的文件。而且 hexo generate 也不能修复，必须手工删除，下次 hexo generate 才行</p>
+<p>进入 hexo 的 <strong style="color:#c00">public</strong> 目录</p>
+<p>找到所有 0 字节文件</p>
+<p><code>find . -size 0</code></p>
+<p>删除这些 0 字节文件 <strong style="color:#c00">看清楚！别弄错了目录！</strong></p>
+<p><code>find . -size 0 -exec rm {} +</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/man-pageup-down/">man pagedown pageup</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>比如 <code>man find</code> 内容很长，找东西很不方便。</p>
+<h2 id="在_man_中">在 man 中</h2>
+<p>Mac 没有pageup down键，所以只能用 b(back) f(forward)</p>
+<p><kbd>f</kbd> 或者 <kbd>z</kbd>  向前（下）翻页</p>
+<p><kbd>b</kbd> 或者 <kbd>w</kbd>  向后（上）翻页</p>
+<p><kbd>q</kbd> 退出</p>
+<p><strong>/AAA</strong></p>
+<p>向前（下）查找AAA </p>
+<p><strong>?AAA</strong> </p>
+<p>向后（上）查找AAA</p>
+<p><kbd>n</kbd> 继续查找  <kbd>N</kbd> 反方向继续查找</p>
+<p><kbd>d</kbd> 向前（下）半页<br><kbd>u</kbd> 向后（上）半页</p>
+<p><kbd>h</kbd> 快捷键 帮助</p>
+<h2 id="在_vim_中">在 vim 中</h2>
+<p><kbd>ctrl</kbd>+<kbd>f</kbd> 向前（下）翻页</p>
+<p><kbd>ctrl</kbd>+<kbd>b</kbd> 向后（上）翻页</p>
+<h2 id="其它办法">其它办法</h2>
+<p><code>man find &gt; 1.txt</code> 然后打开 1.txt 慢慢看</p>
+<p><code>man find | pbcopy</code> 已经拷贝到系统剪贴板了，找个文本编辑器粘贴吧</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-typeerror/">hexo 启动错误</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <blockquote>
+<p>throw new TypeError(‘first argument must be a string or Buffer’);</p>
+</blockquote>
+<p>这是  nodejs 错误。直接把数字当成文本输出了，应该这样</p>
+<pre>
+response.write(total + '');
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/chrome-console-command/">chrome console command</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="$_">$_</h2>
+<p>返回刚才的值</p>
+<pre class="prettyprinted console_command">
+<strong>2*4</strong>
+8
+<strong>$_</strong>
+8
+<strong>document</strong>
+#document
+<strong>$_</strong>
+#document
+</pre>
+
+<div style="color:#3a7312"><strong>小技巧：</strong> <p><kbd class="mac"></kbd>+<kbd>alt</kbd>+<kbd>j</kbd> 打开 chrome 控制台（Mac）</p><p><kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>j</kbd> (Windows/Linux).</p></div>
+
+<h2 id="$0-4">$0-4</h2>
+<p>$0 返回 Elements 标签页中选定的节点;$1 上一次选的…</p>
+
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/frontend/chrome-console-command/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/47/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/49/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

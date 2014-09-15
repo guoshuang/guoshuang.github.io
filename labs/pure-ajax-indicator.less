@@ -1,0 +1,54 @@
+@ball-size:40px;
+@indi-length:8px;
+@indi-width:2px;
+@divs-nums:5;
+@circle-time:2s;
+@indi-color:#c00;
+@indi-color-default:#999;
+
+.gsAjaxIndi {
+	position: relative;
+	display: inline-block;
+	width: @ball-size;height: @ball-size;
+	-webkit-animation: gs_spin @circle-time linear infinite;
+	-o-animation: gs_spin @circle-time linear infinite;
+	animation: gs_spin @circle-time linear infinite;
+	div {
+		position: absolute;
+		left:50%;margin-left: -1 * @indi-width / 2;
+		border:solid @indi-length @indi-color;
+		height: @ball-size - (@indi-length *2);
+		width: @indi-width;
+		box-sizing:content-box;
+		display: inline-block;
+		border-left: 0;
+		border-right: 0;
+	}
+	
+	.rotateDiv(@index) when (@index =< @divs-nums){
+		& :nth-child(@{index}) {
+			-webkit-transform:rotate(180/@divs-nums*@index*1deg);
+			transform:rotate(180/@divs-nums*@index*1deg);
+		}
+		.rotateDiv(@index+1);
+	}
+
+	.rotateDiv(1);
+}
+
+@-webkit-keyframes gs_spin {
+	100% {
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+@keyframes gs_spin {
+	100% {
+		transform:rotate(360deg);
+	}
+}
+
+
+
+
+

@@ -1,0 +1,77 @@
+@w:30px; // indi 宽
+@h:30px; //indi 高
+@ball:10px; //ball size
+@color:'red,green,blue,#f90'; //颜色数组
+
+.get_color(@arg){
+	background-color: ~`@{color}.split(',')[@{arg}]`
+}
+
+.google-ajax-indi {
+	display: inline-block; width: @w;height: @h; position: relative;
+	div {
+		width: @ball;height: @ball;border-radius:100%;position: absolute;
+		
+		background-image:-webkit-radial-gradient(60% 40%, closest-corner, rgba(255,255,255,.3), rgba(255,255,255,0));
+		background-image:-moz-radial-gradient(60% 40%, closest-corner, rgba(255,255,255,.3), rgba(255,255,255,0));
+		background-image:radial-gradient(60% 40%, closest-corner, rgba(255,255,255,.3), rgba(255,255,255,0));
+	}
+	.b1 {
+		.get_color(0); top: 0;left: 0;
+		-webkit-animation: ani1 2s infinite ease-in-out forwards,zindex 4s infinite;
+		-moz-animation: ani1 2s infinite ease-in-out forwards,zindex 4s infinite;
+	}
+	.b2 {
+		.get_color(1);top: 0;left: @w - @ball; 
+		-webkit-animation: ani2 2s infinite ease-in-out forwards,zindex 4s infinite 1s;
+		-moz-animation: ani2 2s infinite ease-in-out forwards,zindex 4s infinite 1s;
+	}	
+	.b3 {
+		.get_color(2);top:  @h - @ball;;left: 0; 
+		-webkit-animation: ani3 2s infinite ease-in-out forwards,zindex 4s infinite 2s;
+		-moz-animation: ani3 2s infinite ease-in-out forwards,zindex 4s infinite 2s;
+	}
+	.b4 {
+		.get_color(3);top:  @h - @ball;;left: @w - @ball;
+		-webkit-animation: ani4 2s infinite ease-in-out forwards,zindex 4s infinite 3s;
+		-moz-animation: ani4 2s infinite ease-in-out forwards,zindex 4s infinite 3s;
+	}
+}
+
+@-webkit-keyframes ani1 {
+  50% {left:@w - @ball;top: @h - @ball;}
+}
+@-webkit-keyframes ani2 {
+  50% {left:0;top: @h - @ball;}
+}
+@-webkit-keyframes ani3 {
+  50% {left:@w - @ball;top: 0;}
+}
+@-webkit-keyframes ani4 {
+  50% {left:0;top: 0;}
+}
+
+@-webkit-keyframes zindex {
+	0% {z-index:1;}
+	50% {z-index:2;}
+}
+
+/*for mozilla*/
+
+@keyframes ani1 {
+  50% {left:@w - @ball;top: @h - @ball;}
+}
+@keyframes ani2 {
+  50% {left:0;top: @h - @ball;}
+}
+@keyframes ani3 {
+  50% {left:@w - @ball;top: 0;}
+}
+@keyframes ani4 {
+  50% {left:0;top: 0;}
+}
+
+@keyframes zindex {
+	0% {z-index:1;}
+	50% {z-index:2;}
+}

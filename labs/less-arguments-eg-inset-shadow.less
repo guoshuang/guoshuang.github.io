@@ -1,0 +1,25 @@
+@text-link:#06c;
+@text-link2:#9c0;
+
+header{
+	.link_color(@c:@text-link2){
+		color:@c;
+	}
+	a{
+		.link_color();
+	}
+}
+
+article{
+	.link_color(@c:@text-link){
+		color:@c;
+	}
+	a{
+		.link_color();
+	}
+}
+//////////////////
+
+
+
+

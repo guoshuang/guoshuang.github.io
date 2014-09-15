@@ -1,0 +1,13 @@
+.sass-vs-less-example a {
+  display: block;
+  text-decoration: none; }
+  .sass-vs-less-example a span {
+    display: block;
+    height: 2px;
+    background: -webkit-linear-gradient(left, #cc0000, #cc0000 5%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0));
+    background: -moz-linear-gradient(left, #cc0000, #cc0000 5%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0));
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: all .5s ease-in-out; }
+  .sass-vs-less-example a:hover span {
+    background-position: -100% 0; }

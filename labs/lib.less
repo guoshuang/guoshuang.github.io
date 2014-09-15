@@ -1,0 +1,75 @@
+//less lib used by davidguoshuang at gamil.com
+//紧密团结在 以 webkit 为核心的...
+
+.transform (...) {
+	-webkit-transform:@arguments;
+	-moz-transform:@arguments;
+	-o-transform:@arguments;
+	transform:@arguments;
+}
+
+.animation (...) {
+	-webkit-animation:@arguments;
+	-moz-animation:@arguments;
+	-o-animation:@arguments;
+	animation:@arguments;
+}
+
+.perspective (...){
+	-webkit-perspective:@arguments;
+	-moz-perspective:@arguments;
+	-o-perspective:@arguments;
+	perspective:@arguments;
+}
+
+.transform-style (...){
+	-webkit-transform-style:@arguments;
+	-moz-transform-style:@arguments;
+	-o-transform-style:@arguments;
+	transform-style:@arguments;
+}
+
+.transform-origin (...) {
+	-webkit-transform-origin: @arguments;
+	-moz-transform-origin:@arguments;
+	-ms-transform-origin:@arguments;
+	-o-transform-origin:@arguments;
+	transform-origin:@arguments;
+}
+
+.box-sizing(...) {
+	-webkit-box-sizing: @arguments;
+	-moz-box-sizing:@arguments;
+	-ms-box-sizing:@arguments;
+	-o-box-sizing:@arguments;
+	box-sizing:@arguments;
+}
+
+//自定义颜色
+@gsColor:'#b32018,#cd661b,#e5b539,#477f40,#01a2b4,#1b3595,#7f3e98,#e73d96,#572500';
+
+.gsColor (@arg){
+	background-color:~`@{gsColor}.split(',')[@{arg}]`;
+}
+
+.gsColor (){
+	@len:`Math.floor(Math.random()*(@{gsColor}.split(',').length))`;
+	background-color:~`@{gsColor}.split(',')[@{len}]`;
+}
+
+//line 渐变
+.line-gradient (...){
+  @gra:~`"@{arguments}".replace(/[\[\]]/g,'')`;
+  background-image:-webkit-linear-gradient(@gra);
+  background-image:-moz-linear-gradient(@gra);
+  background-image:-o-linear-gradient(@gra);
+  background-image:linear-gradient(@gra);
+}
+
+.transition (@tra) {
+	-webkit-transition: @tra;  
+	-moz-transition:    @tra;
+	-ms-transition:     @tra; 
+	-o-transition:      @tra; 
+	transition:         @tra;
+}

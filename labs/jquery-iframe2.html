@@ -1,0 +1,15 @@
+<script type="text/javascript" src="/js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+$('#showParent').click(function(){
+	var info=$('body',window.parent.document).html()
+	alert(info);
+})
+
+})
+</script>
+
+这里是 iframe 里面的内容
+
+<button id="showParent">显示外面页面的内容</button>

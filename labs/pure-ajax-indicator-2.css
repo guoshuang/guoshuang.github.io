@@ -1,0 +1,188 @@
+.gsAjaxIndi-2 {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+.gsAjaxIndi-2 div {
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  border: solid 8px #999999;
+  height: 24px;
+  width: 2px;
+  box-sizing: content-box;
+  display: inline-block;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-color: transparent;
+}
+.gsAjaxIndi-2 :nth-child(1) {
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -webkit-animation: gs_spin_2 1s 0.08333333333333333s linear infinite;
+  animation: gs_spin_2 1s 0.08333333333333333s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(2) {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-animation: gs_spin_2 1s 0.16666666666666666s linear infinite;
+  animation: gs_spin_2 1s 0.16666666666666666s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(3) {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-animation: gs_spin_2 1s 0.25s linear infinite;
+  animation: gs_spin_2 1s 0.25s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(4) {
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-animation: gs_spin_2 1s 0.3333333333333333s linear infinite;
+  animation: gs_spin_2 1s 0.3333333333333333s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(5) {
+  -webkit-transform: rotate(150deg);
+  transform: rotate(150deg);
+  -webkit-animation: gs_spin_2 1s 0.41666666666666663s linear infinite;
+  animation: gs_spin_2 1s 0.41666666666666663s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(6) {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-animation: gs_spin_2 1s 0.5s linear infinite;
+  animation: gs_spin_2 1s 0.5s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(7) {
+  -webkit-transform: rotate(210deg);
+  transform: rotate(210deg);
+  -webkit-animation: gs_spin_2 1s 0.5833333333333333s linear infinite;
+  animation: gs_spin_2 1s 0.5833333333333333s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(8) {
+  -webkit-transform: rotate(240deg);
+  transform: rotate(240deg);
+  -webkit-animation: gs_spin_2 1s 0.6666666666666666s linear infinite;
+  animation: gs_spin_2 1s 0.6666666666666666s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(9) {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  -webkit-animation: gs_spin_2 1s 0.75s linear infinite;
+  animation: gs_spin_2 1s 0.75s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(10) {
+  -webkit-transform: rotate(300deg);
+  transform: rotate(300deg);
+  -webkit-animation: gs_spin_2 1s 0.8333333333333333s linear infinite;
+  animation: gs_spin_2 1s 0.8333333333333333s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(11) {
+  -webkit-transform: rotate(330deg);
+  transform: rotate(330deg);
+  -webkit-animation: gs_spin_2 1s 0.9166666666666666s linear infinite;
+  animation: gs_spin_2 1s 0.9166666666666666s linear infinite;
+}
+.gsAjaxIndi-2 :nth-child(12) {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-animation: gs_spin_2 1s 1s linear infinite;
+  animation: gs_spin_2 1s 1s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(1) {
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -webkit-animation: gs_spin_3 1s 0.08333333333333333s linear infinite;
+  animation: gs_spin_3 1s 0.08333333333333333s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(2) {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-animation: gs_spin_3 1s 0.16666666666666666s linear infinite;
+  animation: gs_spin_3 1s 0.16666666666666666s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(3) {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-animation: gs_spin_3 1s 0.25s linear infinite;
+  animation: gs_spin_3 1s 0.25s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(4) {
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-animation: gs_spin_3 1s 0.3333333333333333s linear infinite;
+  animation: gs_spin_3 1s 0.3333333333333333s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(5) {
+  -webkit-transform: rotate(150deg);
+  transform: rotate(150deg);
+  -webkit-animation: gs_spin_3 1s 0.41666666666666663s linear infinite;
+  animation: gs_spin_3 1s 0.41666666666666663s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(6) {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-animation: gs_spin_3 1s 0.5s linear infinite;
+  animation: gs_spin_3 1s 0.5s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(7) {
+  -webkit-transform: rotate(210deg);
+  transform: rotate(210deg);
+  -webkit-animation: gs_spin_3 1s 0.5833333333333333s linear infinite;
+  animation: gs_spin_3 1s 0.5833333333333333s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(8) {
+  -webkit-transform: rotate(240deg);
+  transform: rotate(240deg);
+  -webkit-animation: gs_spin_3 1s 0.6666666666666666s linear infinite;
+  animation: gs_spin_3 1s 0.6666666666666666s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(9) {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  -webkit-animation: gs_spin_3 1s 0.75s linear infinite;
+  animation: gs_spin_3 1s 0.75s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(10) {
+  -webkit-transform: rotate(300deg);
+  transform: rotate(300deg);
+  -webkit-animation: gs_spin_3 1s 0.8333333333333333s linear infinite;
+  animation: gs_spin_3 1s 0.8333333333333333s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(11) {
+  -webkit-transform: rotate(330deg);
+  transform: rotate(330deg);
+  -webkit-animation: gs_spin_3 1s 0.9166666666666666s linear infinite;
+  animation: gs_spin_3 1s 0.9166666666666666s linear infinite;
+}
+.gsAjaxIndi-3 :nth-child(12) {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-animation: gs_spin_3 1s 1s linear infinite;
+  animation: gs_spin_3 1s 1s linear infinite;
+}
+@-webkit-keyframes gs_spin_2 {
+  100% {
+    border-top-color: #cc0000;
+  }
+}
+@-webkit-keyframes gs_spin_3 {
+  40% {
+    border-top-color: #cc0000;
+  }
+}
+@keyframes gs_spin_2 {
+  100% {
+    border-top-color: #cc0000;
+  }
+}
+@keyframes gs_spin_3 {
+  40% {
+    border-top-color: #cc0000;
+  }
+}
+.paused div {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused;
+}

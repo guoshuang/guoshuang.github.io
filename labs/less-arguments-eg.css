@@ -1,0 +1,32 @@
+#lesscss-arguments-eg {
+  height: 60px;
+  background-image: -webkit-linear-gradient(left, #ff0000 0%, #008000 33%, #0000ff 66%, #ffff00 100%);
+  background-image: -moz-linear-gradient(left, #ff0000 0%, #008000 33%, #0000ff 66%, #ffff00 100%);
+  background-image: linear-gradient(left, #ff0000 0%, #008000 33%, #0000ff 66%, #ffff00 100%);
+}
+/*
+.g_line_gra(@gra,...){
+  background-image:-webkit-linear-gradient(@gra);
+  background-image:-moz-linear-gradient(@gra);
+  background-image:linear-gradient(@gra);
+}
+#lesscss-arguments-eg {
+  height:60px;
+  @str:left,red 0%,green 33%,blue 66%,yellow 100%;
+  .g_line_gra(@str);
+}
+*/
+/*
+.g_line_gra(@dir,@rest...){
+	@gra:~`"@{rest}".replace(/[\[\]]/g,'')`;
+	test:~`"@{dir}".match(/to/)=="to"`;
+	background-image:-webkit-linear-gradient(@dir,@gra);
+	background-image:-moz-linear-gradient(@dir,@gra);
+	background-image:linear-gradient(@dir,@gra);
+}
+
+#lesscss-arguments-eg {
+	height:60px;
+	.g_line_gra(to left top,red 0%,green 33%,blue 66%,yellow 100%);
+}
+*/

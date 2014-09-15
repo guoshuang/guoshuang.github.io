@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>windows7 install ubuntu server | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="恢复 grubhp 安装 ubuntu 以后没有 grub 菜单找到你安装ubuntu的安装光盘或u盘进入liveCD模式，启动后打开终端(ctrl + alt +T)sudo -i ，进入根用户下。fdisk -l ，查看你的ubuntu系统安装位置，我的是sda3.mount  /dev/sda3 /mnt  ，挂载上硬盘。grub-install —root-directory=/mnt /dev/sda，把启动项安装到硬盘启动信息中（注意/mnt和/dev/sda有个空格）重启电脑sudo update-grub2 ，更新启动列表，引导其它系统。成功解决，这个很蛋疼">
+      <meta name="keywords" content="ubuntu">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta property="og:title" content="windows7 install ubuntu server"/>
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title">windows7 install ubuntu server</h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="恢复_grub">恢复 grub</h3>
+<p>hp 安装 ubuntu 以后没有 grub 菜单</p>
+<ol>
+<li>找到你安装ubuntu的安装光盘或u盘</li>
+<li>进入liveCD模式，启动后打开终端(ctrl + alt +T)</li>
+<li>sudo -i ，进入根用户下。</li>
+<li>fdisk -l ，查看你的ubuntu系统安装位置，我的是sda3.</li>
+<li>mount  /dev/sda3 /mnt  ，挂载上硬盘。</li>
+<li>grub-install —root-directory=/mnt /dev/sda，把启动项安装到硬盘启动信息中（注意/mnt和/dev/sda有个空格）</li>
+<li>重启电脑</li>
+<li>sudo update-grub2 ，更新启动列表，引导其它系统。<br>成功解决，这个很蛋疼的问题，其它品牌电脑没有这样的问题。其实上述步骤也解决<br>grub损坏的问题。</li>
+</ol>
+<h3 id="恢复_grub_里的_windows_启动项目">恢复 grub 里的 windows 启动项目</h3>
+<p><code>sudo update-grub</code></p>
+<h3 id="设置无线为固定ip">设置无线为固定ip</h3>
+<pre>
+auto wlan0
+iface wlan0 inet static
+address 192.168.0.2
+netmask 255.255.255.0
+network 192.168.0.0
+broadcast 192.168.0.255
+gateway 192.168.0.1
+dns-nameservers 192.168.0.1 192.168.0.2 8.8.8.8
+wpa-ssid &lt;Your Wifi Network SSID&gt;
+wpa-psk &lt;Your HEX encoded Wifi WPA password&gt;
+</pre>
+
+<p>多个 dns 之间用 空格 分开</p>
+<p>开关网卡</p>
+<pre>
+sudo ifdown wlan0
+sudo ifup wlan0
+</pre>
+
+<p>或者</p>
+<pre>sudo service networking restart</pre>
+
+<h3 id="安装_nodejs">安装 nodejs</h3>
+<pre>
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+</pre>
+
+<h3 id="关机">关机</h3>
+<p>启用高级电源管理</p>
+<p>apt-get install acpid </p>
+<p>命令集</p>
+<p>sudo init 0  </p>
+<p>sudo init 6 #为重新启动  </p>
+<p>sudo shutdown -h now  </p>
+<p>sudo poweroff #关闭  </p>
+<p>sudo reboot #重启  </p>
+<p>sudo shutdown -r now #重启  </p>
+<p>如果切换到root权下 直接输入命令 免sudo  </p>
+<p>shutdown -h #是关机，最终是调用halt命令关机。  </p>
+<p>poweroff #只是做了磁盘同步就直接切断了电源，对于运行后台服务的服务器来说不太合适。</p>
+<h3 id="more">more</h3>
+<ul>
+<li>ratchet mobile for iphone</li>
+<li>jekyll ruby static html generator</li>
+<li>csshake css 抖动</li>
+<li><p>nanobar 不需要 jquery 的简单</p>
+</li>
+<li><p>🎸🎸🎸🎸 mac 输入法 吉它 出现的图形文字</p>
+</li>
+<li>baidu brainmap (漂亮)</li>
+</ul>
+<h3 id="添加用户">添加用户</h3>
+<p>useradd 和 adduser 区别是</p>
+<p>useradd 是系统自带。adduser 是前者的 perl 脚本，后者更好用！</p>
+<hr>
+<p>显示所有组</p>
+<p>cat /etc/group</p>
+<p>但前用户所在组</p>
+<p>groups</p>
+<p>加用户 guoshuang（带home目录）</p>
+<p>sudo adduser guoshuang</p>
+<p>把 guoshuang 加到 这些组中</p>
+<p>sudo usermod -G adm,cdrom,sudo,dip,plugdev,sambashare,lpadmin -a guoshuang</p>
+<p>注意：ssh 连接的话，还需要退出重新连接一次！！！</p>
+<p>-G, —groups GROUP1[,GROUP2,…[,GROUPN]]]</p>
+<p>A list of supplementary groups which the user is also a member of.<br>Each group is separated from the next by a comma, with no<br>intervening whitespace. The groups are subject to the same<br>restrictions as the group given with the -g option.</p>
+<p>If the user is currently a member of a group which is not listed,<br>the user will be removed from the group. This behaviour can be<br>changed via the -a option, which appends the user to the current<br>supplementary group list.</p>
+<h3 id="停掉自启动服务">停掉自启动服务</h3>
+<p><code>sudo update-rc.d apache2 disable</code></p>
+<p>打开自启动</p>
+<p><code>sudo update-rc.d apache2 enable</code></p>
+<h3 id="web_html_ios">web html ios</h3>
+<p>html class=”no-js”</p>
+<pre>
+&lt;link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/nc-icon/namecheap-icon-152x152.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/nc-icon/namecheap-icon-144x144.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/nc-icon/namecheap-icon-120x120.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/nc-icon/namecheap-icon-114x114.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/img/nc-icon/namecheap-icon-76x76.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/nc-icon/namecheap-icon-72x72.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" href="/assets/img/nc-icon/namecheap-icon-57x57.png" /&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+</pre>
+
+
+      
+    </div> 
+    
+  </div>
+</article>
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+</div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+ <script type="text/javascript">	if(top.location.port!=4000){//no disqus local:4000		
+	var disqus_shortname = 'guoshuang';		(function(){		  var dsq = document.createElement('script');		  dsq.type = 'text/javascript';		  dsq.async = true;		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);		}());	} </script><script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

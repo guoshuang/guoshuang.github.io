@@ -1,0 +1,103 @@
+#gsDock {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  padding: 0 20px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  -o-perspective: 500px;
+  perspective: 500px;
+  margin: 100px 0;
+}
+#gsDock:before {
+  left: 0;
+  top: 0;
+  content: '';
+  background: #aaaaaa;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 51%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 51%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 51%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 51%, rgba(255, 255, 255, 0.2) 100%);
+  position: absolute;
+  z-index: 0;
+  height: 40px;
+  width: 100%;
+  -webkit-transform: rotateX(45deg);
+  -moz-transform: rotateX(45deg);
+  -o-transform: rotateX(45deg);
+  transform: rotateX(45deg);
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+#gsDock:after {
+  content: '';
+  background: #aaaaaa;
+  position: absolute;
+  z-index: 1;
+  height: 5px;
+  left: 0;
+  width: 100%;
+  top: 40px;
+}
+#gsDock li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: relative;
+  z-index: 1;
+  top: -10px;
+}
+#gsDock li a {
+  text-decoration: none;
+}
+#gsDock li i {
+  font-size: 40px;
+  position: relative;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  top: 0;
+}
+#gsDock li .t {
+  position: absolute;
+  text-align: center;
+  display: block;
+  white-space: nowrap;
+  top: 0;
+  visibility: hidden;
+  font-size: 14px;
+  background: #333;
+  border-radius: 10px;
+  color: #fff;
+}
+#gsDock li .t:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #333;
+  left: 50%;
+  bottom: -5px;
+  margin-left: -5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#gsDock li:hover i {
+  font-size: 72px;
+  top: -32px;
+}
+#gsDock li:hover .t {
+  visibility: visible;
+  margin-top: -72px;
+  width: 100%;
+}

@@ -1,0 +1,130 @@
+title: 郭爽个人简历
+date: 2013-04-23 16:49:02
+comments: false
+---
+
+<div id="gsResume">
+
+<div style="text-align:right;"><span title="by mac ternimal - say" class="btn" onclick="document.getElementById('gPlayer').play()">懒得看？那就听吧</span> <span class="btn" onclick="document.getElementById('gPlayer').pause()">停止播放</span></div>
+
+<h2>概况</h2>
+
+<img id="photo" src="http://0.gravatar.com/avatar/6d04c24c1d3fc8dfbb98c97b6ba99bb8" alt="it is guoshuang" />
+
+<p>郭爽 1972年生，从事[web前端十年以上](http://www.guoshuang.com/)。厦门大学 计算机科学系 系统工程专业 2.5年级退学。2000年以前做商务，以后互联网 - [早期博客](http://blog.guoshuang.com/page/190),在 [blueidea](http://wiki.blueidea.com/index.php?title=%E8%93%9D%E8%89%B2%E7%90%86%E6%83%B3_Team_%E6%88%90%E5%91%98%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99)、mozilla、csdn、donews、opera、ubuntu(2006)、[del.icio.us](https://delicious.com/search?p=guoshuang) 厮混。
+
+ <!--   历经三代网页设计师的努力与挣扎，当然ta们很多已经改行，多靠应酬和ppt来解释这个世界。web2.0的第三代网页设计师（好吧，现在叫前端了）有很多 能力NB +自信 的家伙，web 技术再次突飞猛进中。老家伙痛并快乐地跟进中。--></p>
+
+<h2>技能</h2>
+
+<ul>
+
+<li>熟悉web前端开发的技术和规范，熟练掌握 Html5,JS,css3,Sematic,jquery 等前端技术，**手写代码**。</li>
+
+<li>开发、升级改造过很多项目，**实践经验丰富**。</li>
+
+<li>熟悉那些必要的软件：如 ps,fireworks（万不得已，我不会打开ps，fw足够）,flash pro（多媒体演示或者as coding）,dw（其实我需要的只是 关联文件 切换 这一个功能。win下一般 editplus+notepad plus 或者 eclipse，ubuntu 下一般 gedit+vi，mac 下 vi+sublime）等.**熟悉windows、ubuntu、mac 系统（wo de）**，mac,\*nix好玩，windows － 打游戏专用。</li>
+
+<li>关于 bootstrap LESS SASS modernizr stylus html5boilerplate  等等 web 前端技术框架 — 都很有想法，提高了工作效率。**问题在于：如果对 html5,css,javascript，浏览器兼容性 没有足够的经验，项目后期将会是一场噩梦。**（正如前些年臭名昭著的 dojo 和 extjs 一样）而这些技术对我来说，只是工具而已，我会向项目经理报告并一起评估 风险，并选择一条不那么糟糕的方案。好吧，我承认我孤陋寡闻，但我至今也没有见过一个所谓的 完美的 代码。没有最好，只有更好。</li>
+
+<li>**熟悉浏览器兼容性问题**（大部分web站点对ie6基本持放弃态度，而很多企业应用鉴于国内怪异的逻辑，常纠结于此）。兼容性问题其实主要就是ie6-7的问题（ie7和6一样烂，只是多了个标签页、支持背景png、部分非a标签:hover和background-attachment:fixed ），ie6-7 bug极多，但可以规避（但 ie6-7性能除外：只能简化，保持所有浏览器UI一致，可以但性能代价高昂。方法有二：1.css hacker ie6_;ie7\*;ie8+ 2.if ie 条件判断，好处就是可以通过 css validate，但开发时很罗嗦，不方便修改维护，而且主代码相当冗余，ie6-7-8-9-10 一大堆。）。3.ie8-9少量bug，8－9向下兼容性很差，产生断裂（如 ie filter 和 svg vml），但对w3c支持还不够。ie10，很不错。当然，modernizr 也可以提供部分帮助。polyfills 和 html-shim(v) 等则有风险。</li>
+
+<li>了解 W3C validate（html+css） 规则和机制 **熟悉 accessibility section 508** 验证规则。验证本身没有意义（如css hacker,form ajax 应用等，为了验证会产生冗余代码，且html5只是测试标准），但验证习惯会养成合理、正确、语义的代码。</li>
+
+<li>熟悉 web2.0，当del.icio.us,flickr,digg,bloglines, twitter,facebook等或死或墙以后，转向 ＊nix+mac</li>
+
+<li>建站项目一般采用 ubuntu+lighttpd+php+mysql+wordpress 方式（apache性能差，nginx静态NB，但文档太少，lighttpd 刚好，perfect）</li>
+
+</ul>
+
+<h2>个人爱好</h2>
+
+<p>游戏＋[电影](http://movie.douban.com/people/guoshuang/collect)＋[读书](http://wiki.guoshuang.com/)＋[旅游](http://trip.guoshuang.com/)＋[音乐](http://www.xiami.com/space/lib-song/u/11100804)</p>
+
+<h2>前端技术自评(1-10)</h2>
+
+<table>
+<thead><tr><td>技能</td><td class="score">分数</td></tr></thead>
+<tbody>
+<tr><td>HTML5 / XHTML</td><td class="score">10</td></tr>
+<tr><td>CSS2.1 / CSS3</td><td class="score">10</td></tr>
+<tr><td>JavaScript / Ajax</td><td class="score">9</td></tr>
+<tr><td>jQuery</td><td class="score">10</td></tr>
+<tr><td>HTML5 Boilerplate</td><td class="score">8</td></tr>
+<tr><td>Modernizr</td><td class="score">9</td></tr>
+<tr><td>YUI Library</td><td class="score">0</td></tr>
+<tr><td>OOCSS</td><td class="score">0</td></tr>
+<tr><td>CSS Grids</td><td class="score">0</td></tr>
+<tr><td>CSS Frameworks / Resets</td><td class="score">8</td></tr>
+<tr><td>Progressive Enhancement / Graceful Degradation</td><td class="score">5</td></tr>
+<tr><td>HTML and CSS Specifications (W3C / WHATWG)</td><td class="score">9</td></tr>
+<tr><td>UX / Usability</td><td class="score">10</td></tr>
+<tr><td>Website Speed / Performance</td><td class="score">8</td></tr>
+<tr><td>Debugging Tools (Firebug, etc)</td><td class="score">10</td></tr>
+<tr><td>Dojo / MooTools / Prototype</td><td class="score">0</td></tr>
+<tr><td>Responsive Web Design</td><td class="score">9</td></tr>
+<tr><td>Mobile Web Development</td><td class="score">6</td></tr>
+<tr><td>Mobile Web Performance</td><td class="score">3</td></tr>
+<tr><td>Cross-Browser / Cross-Platform Development</td><td class="score">10</td></tr>
+<tr><td>Document Object Model (DOM)</td><td class="score">10</td></tr>
+<tr><td>Cross-Browser Bugs and Inconsistencies (primarily IE6-8)</td><td class="score">10</td></tr>
+<tr><td>CSS Pre-Processors (LESS / Sass)</td><td class="score">8</td></tr>
+<tr><td>Version Control (Git / GitHub / CVS / Subversion)</td><td class="score">8</td></tr>
+<tr><td>HTML5 APIs (Canvas, Geolocation, Video, etc.)</td><td class="score">7</td></tr>
+<tr><td>OOP</td><td class="score">8</td></tr>
+<tr><td>Back-end Templating languages/technologies (PHP, Ruby, .NET, etc)</td><td class="score">4</td></tr>
+<tr><td>MySql</td><td class="score">6</td></tr>
+<tr><td>Accessibility</td><td class="score">10</td></tr>
+<tr><td>WAI-ARIA</td><td class="score">3</td></tr>
+<tr><td>Microdata / Microformats</td><td class="score">3</td></tr>
+<tr><td>HTML5/CSS3 Polyfills</td><td class="score">3</td></tr>
+<tr><td>CMS (WordPress, Drupal, Joomla, etc)</td><td class="score">9</td></tr>
+<tr><td>Functional Programming</td><td class="score">4</td></tr>
+<tr><td>Data Formats (e.g. JSON, XML)</td><td class="score">9</td></tr>
+<tr><td>Internationalization / Localization</td><td class="score">0</td></tr>
+<tr><td>Content Strategy</td><td class="score">0</td></tr>
+<tr><td>Offline Web Apps</td><td class="score">3</td></tr>
+<tr><td>Regular Expressions</td><td class="score">9</td></tr>
+<tr><td>Basic .htaccess</td><td class="score">9</td></tr>
+<tr><td>SVG</td><td class="score">9</td></tr>
+<tr><td>Image Editing Tools (Photoshop, Fireworks, etc.)</td><td class="score">10</td></tr>
+<tr><td>Web Font Embedding / Licensing</td><td class="score">8</td></tr>
+<tr><td>SEO Basics</td><td class="score">10</td></tr>
+<tr><td>Haml</td><td class="score">2</td></tr>
+<tr><td>CoffeeScript</td><td class="score">2</td></tr>
+</tbody>
+</table>
+
+<h2>近期部分web项目</h2>
+
+<ul>
+<li><a href="http://blog.guoshuang.com/wp-content/hesh/html03/">hesh ver0.3</a> 未完成 （2012年10月）</li>
+<li><a href="http://blog.guoshuang.com/wp-content/anzhi/html12/">anzhi topo</a> （2012年8月）</li>
+<li><a href="http://blog.guoshuang.com/wp-content/labs/itms2010/html16/">itms ver 0.16</a> （2012年4－6月）用户名、密码 随便</li>
+<li><a href="http://xyludeng.com/">xyludeng</a></li>
+<li><a href="http://www.eknoware.com/">专知网</a></li>
+<li><a href="http://pensee.net.cn/">pensee</a>
+</ul>
+
+<h2>What I Want?</h2>
+
+<ul>
+<li>To be respected.I want a team to cooperate with and money to survive.And you want a guy who can solve the problem.</li>
+<li>Do web front-end stuffs as geek.Not PSer or Copy &amp; Paste "fake coder"</li>
+</ul>
+
+<h2>Contact</h2>
+
+<p>13002956450 </p>
+<p>davidguoshuang at gmail.com</p>
+
+</div>
+
+<audio id="gPlayer" src="/labs/resume.ogg"></audio>
+
+<style>
+#gsResume li {margin-top: 8px;}
+#gsResume strong {color:#036;}
+#gsResume td {border-bottom:solid 1px #ddd;}
+</style>
+

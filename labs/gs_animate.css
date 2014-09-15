@@ -1,0 +1,140 @@
+/*by davidguoshuang at gmail.com 2013-05-26*/
+/*
+animation 参数
+1s 动画长度
+2s 延迟
+1 重复次数
+forwards 停留在前方（最后一桢）
+*/
+#gs_animate {
+  height: 300px;
+  background: #06c;
+  position: relative;
+}
+#gs_animate > div {
+  box-sizing: border-box;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+#gs_animate div:nth-child(1) {
+  position: absolute;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: solid 2px rgba(255, 255, 255, 0.8);
+  /*background: rgba(255,255,255,0.5);*/
+
+  left: 50px;
+  top: 50px;
+  -webkit-animation: ball1 1s 1 linear forwards;
+  -moz-animation: ball1 1s 1 linear forwards;
+  -ms-animation: ball1 1s 1 linear forwards;
+  -o-animation: ball1 1s 1 linear forwards;
+  animation: ball1 1s 1 linear forwards;
+}
+#gs_animate div:nth-child(2) {
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  left: 62px;
+  top: 62px;
+  opacity: 0;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-animation: line1 1s 1s 1 ease-in forwards;
+  -moz-animation: line1 1s 1s 1 ease-in forwards;
+  -ms-animation: line1 1s 1s 1 ease-in forwards;
+  -o-animation: line1 1s 1s 1 ease-in forwards;
+  animation: line1 1s 1s 1 ease-in forwards;
+}
+#gs_animate div:nth-child(3) {
+  position: absolute;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: solid 2px rgba(255, 255, 255, 0.8);
+  left: 130.72135785007072px;
+  top: 130.72135785007072px;
+  opacity: 0;
+  -webkit-animation: ball2 1s 2s 1 linear forwards;
+  -moz-animation: ball2 1s 2s 1 linear forwards;
+  -ms-animation: ball2 1s 2s 1 linear forwards;
+  -o-animation: ball2 1s 2s 1 linear forwards;
+  animation: ball2 1s 2s 1 linear forwards;
+}
+#gs_animate div:nth-child(4) {
+  position: absolute;
+  z-index: 2;
+  left: 50px;
+  top: 50px;
+  margin-left: 24px;
+  margin-top: -4px;
+  opacity: 0;
+  -webkit-animation: text1 1s 2s 1 linear forwards;
+  -moz-animation: text1 1s 2s 1 linear forwards;
+  -ms-animation: text1 1s 2s 1 linear forwards;
+  -o-animation: text1 1s 2s 1 linear forwards;
+  animation: text1 1s 2s 1 linear forwards;
+}
+#gs_animate div:nth-child(5) {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  left: 146px;
+  top: 138px;
+  /*.transform-origin(0%,50%);
+		.transform(rotate(45deg));*/
+
+}
+@-webkit-keyframes ball1 {
+  from {
+    -webkit-transform: scale(2, 2);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes line1 {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100px;
+  }
+}
+@-webkit-keyframes ball2 {
+  from {
+    opacity: 0;
+    background-color: #ffffff;
+  }
+  to {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+@-webkit-keyframes text1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

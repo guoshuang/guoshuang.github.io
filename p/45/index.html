@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>第 45 页 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="web front end coder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-plus-selector/">css + 选择器例子有趣玩法</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><style><br>input:focus + label {color:#c00;font-weight: 700;}<br></style></p>
+<div style="direction:rtl"><br>    <input type="text" id="username"><br>    <label for="username">:姓名</label><br></div>
+
+<p>代码如下：</p>
+<pre>
+&lt;style&gt;
+input:focus + label {color:#c00;font-weight: 700;}
+&lt;/style&gt;
+&lt;div style="direction:rtl"&gt;
+    &lt;input type="text" id="username" &gt;
+    &lt;label for="username"&gt;:Username&lt;/label&gt;
+&lt;/div&gt;
+</pre>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/confusing-css/">confusing css</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="~_VS-_+">~ VS. +</h2>
+<ul>
+<li><strong>A ~ B</strong> means All B after A</li>
+<li><strong>C + D</strong> means D immediately after C.</li>
+</ul>
+<h3 id="Example_code:">Example code:</h3>
+<pre class="linenums">
+&lt;style&gt;
+.a ~ .b {background:red;color:#fff;}
+.c + .d {background:blue;color: #fff;}
+&lt;/style&gt;
+
+&lt;p class="a"&gt;1111&lt;/p&gt;
+&lt;p class="b"&gt;1111&lt;/p&gt;
+&lt;p class="b"&gt;1111&lt;/p&gt;
+&lt;p&gt;other p&lt;/p&gt;
+&lt;p class="b"&gt;1111&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li class="b"&gt;this is li&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="b"&gt;after list&lt;/p&gt;
+
+&lt;p class="c"&gt;1111&lt;/p&gt;
+&lt;p class="d"&gt;1111&lt;/p&gt;
+&lt;p class="d"&gt;1111&lt;/p&gt;
+&lt;p&gt;222&lt;/p&gt;
+&lt;p class="d"&gt;1111&lt;/p&gt;
+</pre>
+
+<h3 id="The_resule:">The resule:</h3>
+<hr>
+<style>
+.a ~ .b {background:red;color:#fff;}
+.c + .d {background:green;color: #fff;}
+</style>
+
+<div class="a">1111</div><br><div class="b">1111</div><br><div class="b">1111</div><br><div>other div</div><br><div class="b">1111</div><br><ul><br>    <li class="b">this is li</li><br></ul><br><div class="b">after list</div>
+
+<div class="c">2222</div><br><div class="d">2222</div><br><div class="d">2222</div>
+
+<hr>
+<h2 id=":target">:target</h2>
+<style>
+:target {background:#000;color:#fff;}
+</style>
+
+<div id="test_target" style="margin-top:15px;padding:20px;"><a href="#test_target" class="btn">click this link anchor</a> see browser location address:  #test_target</div>
+
+<h3 id="the_Code">the Code</h3>
+<pre>
+&lt;style&gt;
+:target {background:purple;color:#fff;}
+&lt;/style&gt;
+&lt;a href="#test_target"&gt;click here&lt;/a&gt;
+&lt;div id="test_target"&gt;see browser location bar:......#test_target&lt;/div&gt;
+</pre>
+
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/clear-float/">best clear float method</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>目前最好的办法 <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank" rel="external">micro clearfix hack</a></p>
+<pre class="lang-css">
+.cf:before,
+.cf:after {
+    content: " "; /* 解决 opera bug */
+    display: table; /* 子元素有 margin-top 的情况下,block 不行 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1; /*ie67*/
+}
+</pre>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/auto-increment-ol-list/">Auto increment ol list with css only</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Nested ol show numder just use CSS only.(not support ie6-7)</p>
+<p><style>@import url(/labs/increment-ol.css)</style></p>
+<div style="height:210px;overflow:scroll;border:solid 1px #ccc;"><ol class="increment-ul"><br>    <li>第一章</li><br>    <li>第二章<br>            <ol><br>                    <li>第一节</li><br>                    <li>第二节<br>                            <ol><br>                                <li>第一段</li><br>                                <li>第二段</li><br>                                <li>第三段<br>                                    <ol><br>                                        <li>第一小段</li><br>                                        <li>第二小段</li><br>                                        <li>第三小段</li><br>                                </ol><br>                                </li><br>                        </ol><br>                    </li><br>                    <li>第三节</li><br>            </ol><br>    </li><br>    <li>第三章<br>            <ol><br>                    <li>第一节</li><br>                    <li>第二节</li><br>                    <li>第三节</li><br>            </ol><br>    </li><br></ol><br></div>
+
+<h2 id="How_it_works?">How it works?</h2>
+<p>Html code is simple,just keep the right hierarchy.</p>
+<pre>
+&lt;ol class="increment-ul"&gt;
+    &lt;li&gt;第一章&lt;/li&gt;
+    &lt;li&gt;第二章
+            &lt;ol&gt;
+                    &lt;li&gt;第一节&lt;/li&gt;
+                    &lt;li&gt;第二节
+                            &lt;ol&gt;
+                                &lt;li&gt;第一段&lt;/li&gt;
+                                &lt;li&gt;第二段&lt;/li&gt;
+                                &lt;li&gt;第三段
+                                    &lt;ol&gt;
+                                        &lt;li&gt;第一小段&lt;/li&gt;
+                                        &lt;li&gt;第二小段&lt;/li&gt;
+                                        &lt;li&gt;第三小段&lt;/li&gt;
+                                &lt;/ol&gt;
+                                &lt;/li&gt;
+                        &lt;/ol&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;第三节&lt;/li&gt;
+            &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;第三章
+            &lt;ol&gt;
+                    &lt;li&gt;第一节&lt;/li&gt;
+                    &lt;li&gt;第二节&lt;/li&gt;
+                    &lt;li&gt;第三节&lt;/li&gt;
+            &lt;/ol&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+<p>The css code</p>
+<pre class="lang-css">
+.increment-ul,.increment-ul li {list-style: none;margin:0;padding:0;}
+.increment-ul li:before {display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#999;}
+
+.increment-ul {counter-reset:l1;}
+.increment-ul>li:before {content:counter(l1)'.';counter-increment:l1;}
+
+.increment-ul>li>ol {counter-reset:l2;}
+.increment-ul>li>ol>li:before {content:counter(l1)'.'counter(l2);counter-increment:l2;}
+
+.increment-ul>li>ol>li>ol {counter-reset:l3;}
+.increment-ul>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3);counter-increment:l3;}
+
+.increment-ul>li>ol>li>ol>li>ol {counter-reset:l4;}
+.increment-ul>li>ol>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3)'.'counter(l4);counter-increment:l4;}
+/*you can add more level here*/
+</pre>
+
+<p>You can  add more level yourself.l1-l4（is just variables you named） reset the level of li tag.</p>
+<p><a target="_blank" href="/labs/ol-auto-increment.html" class="btn">View the Demo</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/ol-li-bullet-size/">ol bullet 样式</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>无序列表(ul)改变 bullet 办法比较简单（list-style,:before），有序列表(ol)怎么办呢？</p>
+<h2 id="方法一">方法一</h2>
+<pre class="linenums">
+&lt;ol class="ulTest01"&gt;
+    &lt;li&gt;&lt;span&gt;第一行&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;第二行&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;第三行&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;style&gt;
+.ulTest01 li {font-size: 1.6em;font-style: italic;color:#3a7312;}
+.ulTest01 li span {font-size: 14px;font-style: normal;color:#444;}
+&lt;/style&gt;
+</pre>
+
+<p>效果：</p>
+<ol class="ulTest01"><br>    <li><span>第一行</span></li><br>    <li><span>第二行</span></li><br>    <li><span>第三行</span></li><br></ol>
+
+<style>
+.ulTest01 {padding-left: 20px;}
+.ulTest01 li {font-size: 1.6em;font-style: italic;color:#3a7312;}
+.ulTest01 li span {font-size: 14px;font-style: normal;color:#444;}
+</style>
+
+<p>兼容所有浏览器。但需要手工加入 span，当然也可以用 jQuery 来处理</p>
+<pre>
+$('.ulTest01 li').wrapInner('<span></span>');
+</pre>
+
+<h2 id="方法二">方法二</h2>
+<p>只用css，不支持 ie8 以下</p>
+<pre class="linenums">
+&lt;ol class="ulTest02"&gt;
+    &lt;li&gt;第一行&lt;/li&gt;
+    &lt;li&gt;第二行&lt;/li&gt;
+    &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;style&gt;
+.ulTest02,.ulTest02 li {list-style: none;margin:0;padding:0;}
+.ulTest02 {counter-reset:li;}
+.ulTest02 li:before {content:counter(li) ;counter-increment:li;display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#3a7312;}
+&lt;/style&gt;
+</pre>
+
+<p>效果：</p>
+<ol class="ulTest02"><br>    <li>第一行</li><br>    <li>第二行</li><br>    <li>第三行</li><br></ol>
+
+<style>
+.ulTest02,.ulTest02 li {list-style: none;margin:0;padding:0;}
+.ulTest02 {counter-reset:section;}
+.ulTest02 li:before {content:counter(section) ;counter-increment:section;display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#3a7312;}
+</style>
+
+<h2 id="方法三">方法三</h2>
+<p>用jQuery each 遍历 。</p>
+<pre>
+jQuery('ul#test li').each(function(){
+    $(this).prepend('<span>'+$(this).index()+'</span>')
+})
+</pre>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-no-menu/">mac去掉menu菜单</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Mac 默认把自己和应用程序的菜单（menu）永远放在最上方。menu+dock（去dock简单，直接点右键 trun hideing on） 太占地方了，决心去掉。</p>
+<ol>
+<li><p>下载安装 <a href="http://www.400gb.com/downhtml/3433091/1367469271/606840278/5333f178b2efddb7d687bf183213f3e8.html" target="_blank" rel="external">PlistEdit Pro</a></p>
+</li>
+<li><p>Finder 打开 Applications，右键一个软件，比如 sublime，show Package cotents，找到 Info.plist，右键用 PlistEdit Pro 打开。New Child 新建一个键值叫 Application UI Presentation Mode，class 为 number，value 为 4（也就是 All suppressed）。可能回提问是否解锁该文件，当然，不然怎么改。</p>
+</li>
+</ol>
+<p><img src="/pics/plisteditor-pro.png" alt="PlistEdit Pro 添加 Application UI Presentation Mode 为 4"></p>
+<p>3.重启 sublime。</p>
+<p>以后，切换到 sublime 的时候，类似全屏状态，鼠标靠近屏幕上方出菜单，下方出 dock。这个桌面干净了,你可以对常用的软件都这么干。</p>
+<p>另：传说中的 magicmenu 在 lion 下报错。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-2/">javascript tutorial notes 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Array_every_方法">Array every 方法</h2>
+<p>array.every(callback[, thisObject])</p>
+<p>Tests whether all elements in the array pass the test implemented by the provided function.根据提供的函数测试 是否 所有数组元素都满足该条件</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+a=[1,2,3,4,5,6,7];
+alert(a.every(function(el,i,arr){return el>0}));
+</pre>
+
+<p>找到 false 就立即（退出循环）返回 false，否则返回 true。下面例子返回 1－5</p>
+<pre>
+console.log(a.every(function(el,i,arr){console.log(el);return el<5})) <="" pre="">
+
+<p>回调的三个参数：element, index, array</p>
+<p>every 不改变 array.</p>
+<p>空数组 满足任意条件，甚至不可能的 &gt;1 &amp;&amp; &lt;0</p>
+<pre>
+console.log([].every(function(el,i,arr){console.log(el);return el>1 &amp;&amp; el<0})) <="" pre="">
+
+<p>The range of elements processed by every is set before the first invocation of callback. Elements which are appended to the array after the call to every begins will not be visited by callback. If existing elements of the array are changed, their value as passed to callback will be the value at the time every visits them; elements that are deleted are not visited.第一次调用前，数组元素就已经被处理。新添加或者修改数组元素，没用了。看下面例子</p>
+<pre class="prettyprinted console_command">
+<strong>a=[1,2,3,4,5,6,7]</strong>
+<strong>console.log(a.every(function(el,i,arr){a[0]=-1;console.log(el);return el>0}))</strong>
+1... 7 true
+<strong>console.log(a)</strong>
+[-1, 2, 3, 4, 5, 6, 7]
+</pre>
+
+
+<pre onclick="eval(this.innerText||this.textContent)">
+function isLetter(character) {
+    var character=character.toLowerCase();
+  return (character &gt;= "a" &amp;&amp; character &lt;= "z");
+}
+var word = prompt('输入一个单词');
+alert(isLetter(word))
+</pre>
+
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sina.com.cn/s/blog_6230d93701018vpt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6230d93701018vpt.html</a></li>
+<li><a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">http://javascript.info/tutorial/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments/callee" target="_blank" rel="external">参数回调 arguments.callee</a></li>
+</ul>
+</0}))></pre></5}))></pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/save-gas/">驾驶如何省油</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>看看美国鬼子如何解释这个问题：<a href="http://www.howcast.com/videos/53095-How-to-Save-Gas-with-Eight-Secret-Tips" target="_blank" rel="external">How to Save Gas with Eight Secret Tips</a>，和简体中文世界看到的不太一样</p>
+<ul>
+<li>关掉空调，把窗户打开。</li>
+<li>快没油了，再加。（你又不是去戈壁沙漠，前面会有加油站的）</li>
+<li>加油枪倒过来，控一下。（难了，据我所知，除了新泽西，美国加油站都是自助，自己动手加油刷卡。国内，似乎都是工作人员才能动加油枪）</li>
+<li>邮箱盖子拧紧。（“汽”油挥发很快）</li>
+<li>开慢点，使用经济车速。每个车不太一样，看说明书，一般80-100km/h</li>
+<li>不要没事变道。（个人体验，在美国变道很少，经常开了100公里，前后左右还是那几辆车，打死也不变道。国内，似乎到处都是f1赛场）</li>
+<li>高速路用巡航，路况复杂的时候别用。</li>
+<li>能关掉的都关掉（音响之类）。</li>
+<li>按时换机油、滤清器。</li>
+<li>不要急停急驶。</li>
+<li>清理车内不需要带的东西。</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<nav id="pagination">
+  
+    <a href="/p/44/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/p/46/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+<script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

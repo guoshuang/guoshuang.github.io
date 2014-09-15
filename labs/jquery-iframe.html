@@ -1,0 +1,17 @@
+<script type="text/javascript" src="/js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$('#showIframeContent').click(function(){
+	var info=$('body',$('#iframeId').contents()).html()
+	//var info=$('body',$('iframe').contents()).html()
+	//var info=$('body',$('iframe').eq(0).contents()).html()
+	//var info=$('body',$('iframe:nth-child(1)').contents()).html()
+	//var info=$('body',$('iframe:first').contents()).html()
+	//var info=$('body',$($('iframe')[0]).contents()).html()
+	//var info=$('#iframeId').contents().find('body').html()
+	alert(info);
+})
+})
+</script>
+<iframe name="iframeId" id="iframeId" style="width:95%;border:solid 1px #ccc;" src="/labs/jquery-iframe2.html"></iframe>
+<button id="showIframeContent">iframe内容</button>

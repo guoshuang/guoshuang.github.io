@@ -1,0 +1,40 @@
+<div id="css-stroke-container">
+	<div class="cssstroke1">css text stroke 文字边框</div>
+	<div class="cssstroke2">css text stroke 文字边框</div>
+	<div class="cssstroke3">css text stroke 文字边框</div>
+	<div class="cssstroke4">css text stroke 文字边框</div>
+	<div class="cssstroke5">css text stroke 文字边框</div>
+	<div class="cssstroke6">css text stroke 文字边框</div>	
+	<div class="cssstroke7">css text stroke 文字边框</div>
+	<div class="cssstroke8">css text stroke 文字边框</div>
+	<div class="cssstroke9">
+		<span data-t="C">c</span><span data-t="S">s</span><span data-t="S">s</span> <span data-t="T">t</span><span data-t="E">e</span><span data-t="X">x</span><span data-t="T">t</span> <span data-t="S">s</span><span data-t="T">t</span><span data-t="R">r</span><span data-t="O">o</span><span data-t="K">k</span><span data-t="E">e</span> <span data-t="文">文</span><span data-t="字">字</span><span data-t="边">边</span><span data-t="框">框</span>
+	</div>
+</div>
+
+<style>
+#css-stroke-container {font-family:MuseoSlabTumblr; font-size: 2.5em; font-style:italic; color: #fff;text-transform: capitalize;background:#333;padding:10px;} 
+
+.cssstroke1 {-webkit-text-stroke: 2px #000; text-stroke: 2px #000; }
+
+.cssstroke2 {text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+
+.cssstroke3 {text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black; }
+
+.cssstroke4 {text-shadow: 1px 1px 1px rgba(255,255,255,.8),3px 3px 3px #000; color:#333;background: #fff;}
+
+.cssstroke5 {text-shadow: 1px 1px 1px rgba(255,255,255,.8),3px 3px 3px #000; }
+
+.cssstroke6 {position: relative;color:#000;}
+.cssstroke6:after {content:'css text stroke 文字边框';color:#fff;position: absolute;left:-2px;top:-2px;}
+
+.cssstroke7 {-webkit-text-fill-color: transparent; -webkit-text-stroke:2px #000;}
+
+.cssstroke8 { background: -webkit-linear-gradient(#000, #333);  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;position:relative;}
+.cssstroke8:after {content:'css text stroke 文字边框';;position: absolute;left:-5px;top:-5px;-webkit-text-fill-color: #fff;z-index:1;}
+
+.cssstroke9 span {position:relative;color:#000;display: inline-block;}
+.cssstroke9 span:after {content:attr(data-t);color:#fff;position: absolute;-webkit-transform:scale(.9,.9);left:-2px;top:-1px;-webkit-transform-origin:0 50%;}
+
+</style>
+

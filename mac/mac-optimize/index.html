@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mac 优化 | Digest of guoshuang</title>
+  <meta name="author" content="David Guoshuang">
+  <meta name="description" content="Mac 和我Mac 用了三年，主板撒啤酒换掉了（淘宝上海二手，2500mac店要8500），硬盘不关机到处走，坏道若干，成天4国。后来把硬盘直接分成两半分区，使用后面那个，基本上不太死机。现在用的是朋友龚骚淘汰的ps3的硬盘。找朋友换的主板，笔记本本来就紧凑，mac更是密密麻麻，换完之后，电量显示、声卡麦克风都挂了。Mac 就象当初买的 swatch，一次性消费品，基本上没有升级、维修的必要和可能性。这次的 mac lion 使用了将近一年，没有重装，居然还能用，奇迹。当然，这和我现在不太乱装软件有关。当初用 ubuntu desktop 大约半年肯定挂，windows 大约1年。毕竟 ">
+      <meta name="keywords" content="mac,optimize">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta property="og:title" content="Mac 优化"/>
+  <meta property="og:site_name" content="Digest of guoshuang"/>
+  <meta property="og:image" content="http://guoshuang.com/pics/guoshuang128.png"/>
+  <link href="/favicon.ico" rel="icon" />
+  <link rel="alternate" href="/atom.xml" title="Digest of guoshuang" type="application/atom+xml" />
+  <link rel="stylesheet" href="/cs/style.css" media="screen" type="text/css" />
+  <link href="/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="/cs/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+  <link rel="author" href="https://plus.google.com/112004170577825985894" />
+  <script src="/js/jquery-2.0.3.min.js"></script> 
+  <!--[if lt IE 8]><script src="/js/jquery-1.9.1.min.js"></script><script src="/js/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/labs/gs.css" type="text/css" />
+  <link rel="apple-touch-icon-precomposed" href="/guo128.png" />
+</head>
+<body>
+<header id="header" class="inner">  <div class="alignleft">
+    <h1><a href="/">Digest of guoshuang</a></h1>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/archives/">Archives</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <div id="gWords"></div>
+<div class="search" id="search">
+  <form action="/labs/all.html" method="get" accept-charset="utf-8" target="_blank">
+    <input type="search" name="q" placeholder="搜素" speech="speech" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate" />
+  </form>
+</div></header>
+<div id="content" class="inner">
+  <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title">Mac 优化</h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="Mac_和我">Mac 和我</h3>
+<p>Mac 用了三年，主板撒啤酒换掉了（淘宝上海二手，2500,mac店要8500），硬盘不关机到处走，坏道若干，成天4国。后来把硬盘直接分成两半分区，使用后面那个，基本上不太死机。现在用的是朋友龚骚淘汰的ps3的硬盘。找朋友换的主板，笔记本本来就紧凑，mac更是密密麻麻，换完之后，电量显示、声卡麦克风都挂了。Mac 就象当初买的 swatch，一次性消费品，基本上没有升级、维修的必要和可能性。</p>
+<p>这次的 mac lion 使用了将近一年，没有重装，居然还能用，奇迹。当然，这和我现在不太乱装软件有关。当初用 ubuntu desktop 大约半年肯定挂，windows 大约1年。毕竟 mac 下的软件要比 linux 和 windows 下普遍质量高。</p>
+<h3 id="Mac_优化项目（lion）">Mac 优化项目（lion）</h3>
+<ul>
+<li><p>Menu &gt; System Preferences &gt; Users &amp; Groups &gt; Login Items,删除不需要的启动项。</p>
+</li>
+<li><p>关掉蓝牙、语音识别和共享。web share 是 apache，file share 是 afp 和 smb(windows 局域网，开始－运行－\macip 访问),internet share 分享互联网，类似wingate的代理服务器，甚至可以<a href="http://osxdaily.com/2012/01/05/enable-internet-sharing-mac-os-x/" target="_blank" rel="external">模拟安卓的热点</a>功能)</p>
+</li>
+<li><p>关掉 Widgets</p>
+</li>
+<li><p>用 Activity Monitor 检查还有什么不需要的劳什子</p>
+</li>
+<li><p>时不时用磁盘工具，verify 一下权限。这个很重要，*nix 和 windows 系统很不一样，权限在文件本身而不是象windows那样在其它地方其中管理。</p>
+</li>
+<li><p>桌面少放点东西。我个人的恶习是：过几天建一个日期格式的（2013-05-02）目录，然后把所有桌面东西拖进去。好处是：桌面很清爽，要找的东西肯定在这个目录里。坏处是：几乎找不到！（2013-05-02/2013-04-18/2013…）还好，一般要找的东西，大约都是个把月内的，时间长的还不如上网找。逼急了，用 find。</p>
+</li>
+<li><p>关掉 dock 效果。（再美的老婆，也架不住天天看啊）</p>
+</li>
+<li><p>如果你晚上总是关机，运行一下那些 <a href="http://www.thexlab.com/faqs/maintscripts.html" target="_blank" rel="external">dayli,weekly,monthly 脚本</a>,清理垃圾文件。人家mac设计的是 － 永远不关机，所以这些系统自带脚本都是半夜运行。</p>
+<p><code>sudo periodic daily weekly monthly</code></p>
+<p>查看一下执行结果</p>
+<p><code>ls -al /var/log/*.out</code></p>
+<p>输出大致如下：</p>
+<p>  -rw-r—r—  1 root  wheel  496994  5 Mar 03:15 /var/log/daily.out<br><br>  -rw-r—r—  1 root  wheel    2088  1 Mar 06:02 /var/log/monthly.out<br><br>-rw-r—r—  1 root  wheel    5289  5 Mar 03:15 /var/log/weekly.out</p>
+</li>
+</ul>
+<h3 id="值得商榷">值得商榷</h3>
+<ul>
+<li><p>time machine 用过一阵，很不实用。绝大部分时候，我需要的只是备份 百十个 文本类的东西，和几个较大的软件安装包和一些电影。我不需要整个系统备份！直到现在，一个1年前的 time machine 仍然占据着我的一个移动硬盘。好吧，也许在世界毁灭之前，我可能还会用到它。有鉴于此，我现在手工拷贝一些东西到移动硬盘，再小的东西，自己给自己发邮箱里。</p>
+</li>
+<li><p>系统升级。无数的说法推荐及时升级，我怀疑。就个人体验来看，好处没体会到，而且 mac 升级动辄2－3G，跟重装有什么区别？有两次升级带来了麻烦，一次四国，还有一次不能启动，然后 ctrl+shift+command+电源 键恢复 smc。我也不太理解这有什么用处，但就是稀里糊涂，能启动了。我不是 mac support 或者测试，我买电脑为了用，我可不想成天打断手头的事，去给 mac 去做什么测试工作。</p>
+</li>
+<li><p>*nix 和 windows 文件系统的习惯不一样。windows c d e f，重装只需要（甚至不需要）格式化一个盘符，装系统很方便。所以我的 windows 机器一般有4－5个系统（+ubuntu），只要硬盘不完蛋，今天我就能干活。而 *nix 官方说法是 mount /home 到独立的分区。我个人土办法是：弄一个 fat分区，作为备份区，大家（windows,ubuntu,mac）都往这里备份。Mac 有一点挺恶心（人家是为了安全，ubuntu 安装的时候如果选了加密 home 也是这个德性），即便硬盘拆下来，装移动硬盘盒，挂到其它电脑上，很多目录不让进！没权限！弄得跟 FBI 似的。</p>
+</li>
+<li><p>第三方优化工具，如 <strong>Monolingual</strong> 删除多余的语言。<strong>Onyx</strong> 清理缓存等文件。<strong>FanControl</strong>  控制风扇。我个人不喜欢装这些东西。早期，用这些类似软件，导致系统不稳定。在 </p>
+<p>  150公里/小时+不那么安全  <span style="font-size:2em">VS.</span>  80公里/小时+安全</p>
+<p>  之间，我选择 安全。</p>
+</li>
+</ul>
+
+      
+    </div> 
+    
+  </div>
+</article>
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+</div></div>  
+  <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <div class="clearfix"></div>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+</div>
+
+  </aside>    
+  <div class="clearfix"></div>
+</div>
+
+<footer id="footer" class="inner"><div class="alignleft">
+    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+ rel="author">David Guoshuang</a>
+  </div>
+<div class="clearfix"></div></footer>
+<!--[if lt IE 8]> <link rel="stylesheet" href="/cs/ie.css" type="text/css" /><![endif]--> 
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script><script type="text/javascript" src="/js/google-code-prettify/lang-css.js"></script> 
+ <script type="text/javascript">	if(top.location.port!=4000){//no disqus local:4000		
+	var disqus_shortname = 'guoshuang';		(function(){		  var dsq = document.createElement('script');		  dsq.type = 'text/javascript';		  dsq.async = true;		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);		}());	} </script><script src="/js/moment.min.js"></script> <script src="/js/zh-cn.js"></script> <script src="/labs/gs.js"></script>
+</body>
+</html>

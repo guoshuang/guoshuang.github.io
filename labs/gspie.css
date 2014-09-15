@@ -1,0 +1,67 @@
+/*by davidguoshuang at gmail.com 2013-05-27*/
+.gsPie {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 200px;
+  width: 200px;
+  position: relative;
+}
+.gsPie li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  z-index: 2;
+  height: 200px;
+  width: 200px;
+  clip: rect(0px, 200px, 100px, 0px);
+}
+.gsPie li div {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 0;
+  left: 0;
+  clip: rect(0px, 100px, 200px, 0px);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 100%;
+}
+.gsPie .pie_donut {
+  border-radius: 100%;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.gsPie .pielabel {
+  position: absolute;
+  z-index: 1;
+  width: 110px;
+  height: 2px;
+  top: 50%;
+  margin-top: -1px;
+  margin-left: -10px;
+  background: #666;
+  -webkit-transform-origin: 100% 50%;
+}
+.gsPie .label {
+  position: absolute;
+  top: 210px;
+  left: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.gsPie .label i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-left: 1rem;
+  margin-right: 0.4rem;
+}

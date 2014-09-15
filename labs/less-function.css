@@ -1,0 +1,29 @@
+#lessFuncDiv div {
+  width: 160px;
+  height: 160px;
+  display: inline-block;
+  border: solid 3px #ccc;
+  margin-right: 10px;
+}
+#lessFuncDiv .d1 {
+  background: #419641;
+  border-color: #224f22;
+}
+#lessFuncDiv .d1:hover {
+  background: #55b555;
+  border-color: #327232;
+}
+#lessFuncDiv .d2 {
+  background: #96417a;
+  border-color: #4f2240;
+}
+#lessFuncDiv .d2:hover {
+  background: #b55595;
+  border-color: #72325d;
+}
+#lessFuncDiv .d3 {
+  background: #6c6c6c;
+}
+#lessFuncDiv .d4 {
+  background: #80c000;
+}

@@ -1,0 +1,47 @@
+<style>
+#hoverTb {width:100%;cursor: pointer;border-spacing: 1px;background:rgba(255,255,255,0.5);}
+#hoverTb thead th {color:#def;background-color:#345;background-image: -webkit-linear-gradient(top, #567, #345);background-image:-moz-linear-gradient(top, #567, #345);line-height:30px;}
+#hoverTb thead th:first-child {width:2%;white-space: nowrap;}
+
+#hoverTb tbody {counter-reset:trindex;}
+#hoverTb tbody tr {counter-increment:trindex;}
+#hoverTb tbody tr td:first-child {text-align: center;}
+#hoverTb tbody tr td:first-child:before {content:counter(trindex);color:#999;}
+
+#hoverTb tbody tr:hover {background-color: rgba(170, 221, 238,1) }
+</style>
+
+
+<style>
+#hoverTb {overflow:hidden;}
+#hoverTb tbody td {background:rgba(220,220,220,0.5);}
+#hoverTb tbody .c {position: relative;padding:2px 4px;font-size: 14px;}
+#hoverTb tbody .c:hover:after {
+	content:'';
+	position:absolute;
+	background: rgba(170, 221, 238,1);
+	width:100%;
+	height:10000px;
+	left:0;
+	top:-5000px;
+	z-index:-1;
+}
+</style>
+
+<table id="hoverTb">
+<thead>
+<tr><th>序号</th><th>姓名</th><th>专业</th><th>爱好</th></tr>
+</thead>
+<tbody>
+<tr><td><div class="c"></div></td><td><div class="c">guoshuang</div></td><td><div class="c">web前端</div></td><td><div class="c">电影、音乐</div></td></tr>
+<tr><td><div class="c"></div></td><td><div class="c">龚骚</div></td><td><div class="c">程序员</div></td><td><div class="c">啤酒</div></td></tr>
+<tr><td><div class="c"></div></td><td><div class="c">蒲骚</div></td><td><div class="c">程序员</div></td><td><div class="c">打酱油</div></td></tr>
+<tr><td><div class="c"></div></td><td><div class="c">老柴</div></td><td><div class="c">平面设计师</div></td><td><div class="c">电影、美女</div></td></tr>
+</tbody>
+</table>
+
+
+
+
+
+

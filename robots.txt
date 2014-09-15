@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /cat/
+Disallow: /p/
+Disallow: /archives/
+Disallow: /resume/
+Disallow: /tag/
+Sitemap: http://guoshuang.com/sitemap.xml
+
+User-Agent: W3C-checklink
+Disallow:

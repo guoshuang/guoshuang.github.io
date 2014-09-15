@@ -1,0 +1,83 @@
+/*颜色列表*/
+@colorArr: '#3083c8,#a5c838,#c4473a,#34586b,#006600,#338888,#318cbe,#623800,#a5c838,#ff3333,#34586b,purple,#2b4e82';
+.getColor(@arg){
+	background-color:~`@{colorArr}.split(',')[@{arg}]`;
+}
+
+@cols:4;/*几列*/
+@width-hover:61.8%;/*mouse over width*/
+@accordin-background:#eee;
+@speed:0.5s;/*速度*/
+@horizontal2vertical-breakpoint:600px;
+
+.gs-accordin {
+	background-color: @accordin-background;
+	padding: 0;margin: 0 !important;list-style: none;
+
+	&:after {/*self clear float*/
+		content:' ';
+		display: table;
+		clear:both;
+		*zoom:1;
+	}
+	&:hover {
+		li {
+			width:(100% - @width-hover)/(@cols - 1 );
+		}
+	}
+	li {
+		padding: 0;margin: 0;list-style: none;
+		transition:all @speed ease;
+		float:left;
+		width: 100%/@cols;
+		background-color: green;
+		&:hover {
+			width: @width-hover;
+			background-color: red;
+		}
+		.wrapper {
+
+			//fix inside first and last elements overflow parent!!
+			:first-child {margin-top:0 !important;margin-left:0 !important;}
+			:last-child {margin-bottom:0 !important;margin-right:0 !important;}
+
+			h3 {color:#fff !important;padding: 8px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;}
+			p {color:#fff !important;padding: 8px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;transition:all @speed ease;}
+		}
+	}
+}
+
+.rotateWrapper(@index) when (@index =< @cols){
+    .gs-accordin li:nth-child(@{index}) .wrapper {
+			.getColor(@index);
+			h3:after {content:'@{index}';display: inline-block;margin-left: 6px;}
+    }
+    .rotateWrapper(@index+1);
+}
+
+.rotateWrapper(1);
+
+///////////////////////////
+
+@media (max-width:@horizontal2vertical-breakpoint) {
+//小于@horizontal2vertical-breakpoint
+	.gs-accordin {
+		&:hover {
+			li {width:auto;}
+		}
+		li {
+			float:none;width: auto;	
+			.wrapper {
+				p {height: 0;}
+			}
+			&:hover {
+				width:auto;
+				.wrapper {
+					p {height:auto;}
+				}
+			}
+		}
+	}
+}
+
+
