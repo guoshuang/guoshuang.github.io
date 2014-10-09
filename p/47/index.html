@@ -51,6 +51,256 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/hexo/hexo-run-js/">hexo run js</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo markdown 没办法写 javascript,script 里面的 引号 会被转义，html 里面的 引号不会。所以只好用这个土办法！</p>
+<div style="transform:rotate(180deg);-webkit-transform:rotate(180deg);">镜子啊，镜子，谁是这个世界上最NB的前端啊？</div>
+
+<p><img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" style="display:none;"> </p>
+<div id="jsCode2Run" style="display:none;"><br>jQuery(function($){<br>///////<br><br>var article=$(‘#jsCode2Run’).parents(‘article’);<br>article.css({“transform”: “scale(-1, 1)”})<br><br>article.mouseenter(function(){<br>    $(this).css({“transform”: “scale(1, 1)”})<br>}).mouseleave(function(){<br>    $(this).css({“transform”: “scale(-1, 1)”})<br>});<br><br>//////<br>})<br></div>
+
+<pre class="linenums">
+&lt;img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" /&gt; 
+
+&lt;div id="jsCode2Run" style="display:none;"&gt;
+jQuery(function($){
+///////    
+
+var article=$('#jsCode2Run').parents('article');
+article.css({"transform": "scale(-1, 1)"})
+
+article.mouseenter(function(){
+    $(this).css({"transform": "scale(1, 1)"})
+}).mouseleave(function(){
+    $(this).css({"transform": "scale(-1, 1)"})
+});
+
+//////
+})
+&lt;/div&gt;
+</pre>
+
+
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/hexo/hexo-run-js/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-1/">javascript tutorial notes 1</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://javascript.info/" target="_blank" rel="external">The JavaScript Tutorial</a> 学习笔记，不分先后</p>
+<h2 id="浏览器引擎">浏览器引擎</h2>
+<ul>
+<li>firefox - gecko</li>
+<li>safari/chrome - webkit</li>
+<li>opera - presto</li>
+<li>ie - trident</li>
+</ul>
+<h2 id="文档参考">文档参考</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/" target="_blank" rel="external">MDSN</a></li>
+<li><a href="https://developer.mozilla.org/" target="_blank" rel="external">MDN</a></li>
+</ul>
+<p>JavaScript 是 Oracle 注册商标，所以 javascript 标准是 ECMAScript。传统版本是 es3，现在是 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank" rel="external">es5</a></p>
+<h2 id="函数参数_Function_arguments">函数参数 <a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">Function arguments</a></h2>
+<h3 id="没有参数，里面是_underfined">没有参数，里面是 underfined</h3>
+<pre onclick="eval(this.innerText||this.textContent)">
+function check(x) {
+    alert(x === undefined) //没提供参数，里面是 underfined
+}
+check()
+</pre>
+
+<p><strong>点击代码，执行之</strong></p>
+<h3 id="重复定义">重复定义</h3>
+<pre onclick="eval(this.innerText||this.textContent)">
+function f(a){alert(a)}
+function f(a,b,c){alert(a+','+b+','+c)}
+f(1,2,3,4)
+</pre>
+
+<pre onclick="eval(this.innerText||this.textContent)">
+function f(a,b,c){alert(a+','+b+','+c)}
+function f(a){alert(a)}
+f(1,2,3,4)
+</pre>
+
+<h3 id="arguments_是个“伪“数组，是个_object">arguments 是个“伪“数组，是个 object</h3>
+<blockquote>
+<p>An Array-like object corresponding to the arguments passed to a function.The arguments object is not an Array. It is similar to an Array, but does not have any Array properties except length. via <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">mdn</a></p>
+</blockquote>
+<pre>
+function sayHi() {
+  var a = arguments.shift() // error! arguments is not Array
+  alert(a)
+}
+sayHi()
+</pre>
+
+<p>错误！（Object has no method ‘shift’）arguments 是个“伪“数组，是个 object</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+(function() {
+  alert( {}.toString.call(arguments) )  // [object Arguments] 
+})()
+</pre>
+
+<h3 id="Using_arguments_as_Array">Using arguments as Array</h3>
+<pre onclick="eval(this.innerText||this.textContent)">
+(function(a,b,c){alert(arguments.length)})(1,2)
+</pre>
+
+<p>注意：是 2 而不是 3</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+(function(a,b,c){console.log(arguments[0]===a)})(1,2)
+</pre>
+
+<pre onclick="eval(this.innerText||this.textContent)">
+function sayHi() {
+  var args = [].join.call(arguments, ':')
+  alert(args)  // 1:2:3
+}
+sayHi(1,2,3)
+</pre>
+
+<p>这个办法对 numeric indexes 的 object （其实就是“数组”了，这点很象 php 数组）也能用</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+var obj = { 0: "A", 1: "B", length: 2 }
+alert( [].join.call(obj) ) // "A,B"
+</pre>
+
+<p>非数组索引的不行，用 Object.keys（）</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+var obj = { name: "guoshuang", age: "xxx", location: "xi\'an" }
+alert( [].join.call(obj) ) // ""
+alert(Object.keys(obj).length) //3
+</pre>
+
+<p>真正的数组</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+(function(a,b,c){
+alert(Array.isArray(Array.prototype.slice.call(arguments)));
+alert(Array.isArray(arguments));
+})(1,2)
+</pre>
+
+<blockquote>
+<p>The arguments and named parameters reference same values. 函数 arguments 和 parameters 指向同一个值（一荣俱荣一损俱损）</p>
+</blockquote>
+<pre onclick="eval(this.innerText||this.textContent)">
+f(1)
+function f(x) {
+  arguments[0] = 5
+  alert(x) // 5, updating arguments changed x
+}
+</pre>
+
+<pre onclick="eval(this.innerText||this.textContent)">
+f(1)
+function f(x) {
+  x = 5
+  alert(arguments[0]) // 5, update of x reflected in arguments
+}
+</pre>
+
+<p>不要试图改变 arguments(Generally, it is a good practice not to modify arguments.)</p>
+<h2 id="默认值">默认值</h2>
+<pre onclick="eval(this.innerText||this.textContent)" id="abc">
+function sayHi(who) {
+  who = who || 'me'  // if who is falsy, returns 'me'
+  alert(who)  
+}
+sayHi("John")
+sayHi()  // 'me'
+</pre>
+
+<h2 id="类型检测_Type_detection">类型检测 <a href="http://javascript.info/tutorial/type-detection" target="_blank" rel="external">Type detection</a></h2>
+<h3 id="检测_AAAA_是否存在_typeof">检测 AAAA 是否存在 typeof</h3>
+<p><del>if(typeof AAA !==’undefined’){}</del> //不推荐！</p>
+<p><del>if(AAA){}</del> //没有时，js报错</p>
+<pre>
+if(window.aaaa){} //正确办法
+</pre>
+
+<h3 id="区分_Array_Date_类型_[[Class]]">区分 Array Date 类型 [[Class]]</h3>
+<p>object,array 都是 object 类型，如何区分呢？</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+alert( typeof {key:'val'} ) // Object is object
+alert( typeof [1,2] ) // Array is object
+alert( typeof new Date ) // Date object
+</pre>
+
+<blockquote>
+<p>Fortunately, there is a hidden [[Class]] property in all JavaScript native objects. It equals “Array” for arrays, “Date” for dates etc.</p>
+</blockquote>
+<pre onclick="eval(this.innerText||this.textContent)">
+var toClass={}.toString;
+alert( toClass.call( [1,2] ) ) // [object Array]
+alert( toClass.call( new Date ) ) // [object Date]
+</pre>
+
+<blockquote>
+<ol>
+<li>Copy a reference to toString for objects into toClass variable.</li>
+<li>Call it, but provide the object which we are going to check as this. So, object toString becomes applied to arrays, dates etc. We have to do it, because their own toString behaves differently. For arrays it returns element list, for dates it returns the string representation.</li>
+</ol>
+</blockquote>
+<p>该方法对原始类型也可以</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+alert( toClass.call(123) ) // [object Number]
+alert( toClass.call("primitive")) ) // [object String
+</pre>
+
+<h3 id="用_instanceof_检测数组">用 instanceof 检测数组</h3>
+<pre onclick="eval(this.innerText||this.textContent)">
+alert( [] instanceof Array ) 
+</pre>
+
+<p>注意：跨窗口（frame）不行！每个window有自己的 层次结构。用 [[class]] 方法</p>
+<blockquote>
+<p>Although, it will not work if arr was created in another window or iframe and then passed into current window. That’s because each window has it’s own object hierarchy.<br> To workaround that, most frameworks use [[Class]] for native objects.</p>
+</blockquote>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/javascript/javascript-quiz-3/">javascript quiz 3</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
     </header>
@@ -347,17 +597,17 @@ span.hide b {color:#c00;}
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
-          <span class="d">10</span>
+          <span class="d">16</span>
           <span class="ym">09/2014</span>
         </div>
       </div> 
     <h1 class="title"><a href="/frontend/regular-expression/">正则表达式速查</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+ <div class="meta">最后更新: <span class="pubTime">Tue Sep 16 2014 11:32:31 GMT+0800</span></div>
     </header>
     <div class="entry">
       
         <p>正则表达式（Regular Expression,regex）</p>
-<table id="regTable"><br><thead><br><tr><br><th>字符</th><br><th>描述</th><br></tr><br></thead><br><tbody><br><tr><br><th style="text-align:center;">\</th><br><td>将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，<strong>n</strong>匹配字符<strong>n</strong>。<strong>\n</strong>匹配一个换行符。序列<strong>\\</strong>匹配<strong>\</strong>而<strong>(</strong>则匹配<strong>(</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">^</th><br><td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配<strong>\n</strong>或<strong>\r</strong>之后的位置。</td><br></tr><br><tr><br><th style="text-align:center;">$</th><br><td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配<strong>\n</strong>或<strong>\r</strong>之前的位置。</td><br></tr><br><tr><br><th style="text-align:center;"><em></em></th><br><td>匹配前面的子表达式零次或多次。例如，zo能匹配<strong>z</strong>以及<strong>zoo</strong>。<em>等价于{0,}。</em></td><br></tr><br><tr><br><th style="text-align:center;">+</th><br><td>匹配前面的子表达式一次或多次。例如，<strong>zo+</strong>能匹配<strong>zo</strong>以及<strong>zoo</strong>，但不能匹配<strong>z</strong>。+等价于{1,}。</td><br></tr><br><tr><br><th style="text-align:center;">?</th><br><td>匹配前面的子表达式零次或一次。例如，<strong>do(es)?</strong>可以匹配<strong>do</strong>或<strong>does</strong>中的<strong>do</strong>。?等价于{0,1}。</td><br></tr><br><tr><br><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>}</th><br><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。匹配确定的<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但是能匹配<strong>food</strong>中的两个o。</td><br></tr><br><tr><br><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}</th><br><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。至少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2,}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但能匹配<strong>foooood</strong>中的所有o。<strong>o{1,}</strong>等价于<strong>o+</strong>。<strong>o{0,}</strong>则等价于<strong>o</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}</th><br><td><span style="font-family:Times New Roman; font-style:italic;">m</span>和<span style="font-family:Times New Roman; font-style:italic;">n</span>均为非负整数，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>&lt;=<span style="font-family:Times New Roman; font-style:italic;">m</span>。最少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次且最多匹配<span style="font-family:Times New Roman; font-style:italic;">m</span>次。例如，<strong>o{1,3}</strong>将匹配<strong>fooooood</strong>中的前三个o。<strong>o{0,1}</strong>等价于<strong>o?</strong>。请注意在逗号和两个数之间不能有空格。</td><br></tr><br><tr><br><th style="text-align:center;">?</th><br><td>当该字符紧跟在任何一个其他限制符（*,+,?，{<span style="font-family:Times New Roman; font-style:italic;">n</span>}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串<strong>oooo</strong>，<strong>o+?</strong>将匹配单个<strong>o</strong>，而<strong>o+</strong>将匹配所有<strong>o</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">.</th><br><td>匹配除<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>之外的任何单个字符。要匹配包括<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>在内的任何字符，请使用像<strong>(.|\n)</strong>的模式。</td><br></tr><br><tr><br><th style="text-align:center;">(pattern)</th><br><td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括號字符，请使用<strong>(</strong>或<strong>)</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">(?:pattern)</th><br><td>匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符<strong>(|)</strong>来组合一个模式的各个部分是很有用。例如<strong>industr(?:y|ies)</strong>就是一个比<strong>industry|industries</strong>更简略的表达式。</td><br></tr><br><tr><br><th style="text-align:center;">(?=pattern)</th><br><td>正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<strong>Windows(?=95|98|NT|2000)</strong>能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td><br></tr><br><tr><br><th style="text-align:center;">(?!pattern)</th><br><td>正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<strong>Windows(?!95|98|NT|2000)</strong>能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td><br></tr><br><tr><br><th style="text-align:center;">(?&lt;=pattern)</th><br><td>反向肯定预查，与正向肯定预查类似，只是方向相反。例如，<strong>(?&lt;=95|98|NT|2000)Windows</strong>能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">(?&lt;!pattern)</th><br><td>反向否定预查，与正向否定预查类似，只是方向相反。例如<strong>(?&lt;!95|98|NT|2000)Windows</strong>能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">x|y</th><br><td>匹配x或y。例如，<strong>z|food</strong>能匹配<strong>z</strong>或<strong>food</strong>。<strong>(z|f)ood</strong>则匹配<strong>zood</strong>或<strong>food</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">[xyz]</th><br><td>字符集合。匹配所包含的任意一个字符。例如，<strong>[abc]</strong>可以匹配<strong>plain</strong>中的<strong>a</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">[^xyz]</th><br><td>负值字符集合。匹配未包含的任意字符。例如，<strong>[^abc]</strong>可以匹配<strong>plain</strong>中的<strong>plin</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">[a-z]</th><br><td>字符范围。匹配指定范围内的任意字符。例如，<strong>[a-z]</strong>可以匹配<strong>a</strong>到<strong>z</strong>范围内的任意小写字母字符。</td><br></tr><br><tr><br><th style="text-align:center;">[^a-z]</th><br><td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，<strong>[^a-z]</strong>可以匹配任何不在<strong>a</strong>到<strong>z</strong>范围内的任意字符。</td><br></tr><br><tr><br><th style="text-align:center;">\b</th><br><td>匹配一个单词边界，也就是指单词和空格间的位置。例如，<strong>er\b</strong>可以匹配<strong>never</strong>中的<strong>er</strong>，但不能匹配<strong>verb</strong>中的<strong>er</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\B</th><br><td>匹配非单词边界。<strong>er\B</strong>能匹配<strong>verb</strong>中的<strong>er</strong>，但不能匹配<strong>never</strong>中的<strong>er</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\cx</th><br><td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的<strong>c</strong>字符。</td><br></tr><br><tr><br><th style="text-align:center;">\d</th><br><td>匹配一个数字字符。等价于<strong>[0-9]</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\D</th><br><td>匹配一个非数字字符。等价于<strong>[^0-9]</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\f</th><br><td>匹配一个换页符。等价于\x0c和\cL。</td><br></tr><br><tr><br><th style="text-align:center;">\n</th><br><td>匹配一个换行符。等价于\x0a和\cJ。</td><br></tr><br><tr><br><th style="text-align:center;">\r</th><br><td>匹配一个回车符。等价于\x0d和\cM。</td><br></tr><br><tr><br><th style="text-align:center;">\s</th><br><td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<strong>[\f\n\r\t\v]</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\S</th><br><td>匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</td><br></tr><br><tr><br><th style="text-align:center;">\t</th><br><td>匹配一个制表符。等价于\x09和\cI。</td><br></tr><br><tr><br><th style="text-align:center;">\v</th><br><td>匹配一个垂直制表符。等价于\x0b和\cK。</td><br></tr><br><tr><br><th style="text-align:center;">\w</th><br><td>匹配包括下划线的任何单词字符。等价于<strong>[A-Za-z0-9<em>]</em></strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\W</th><br><td>匹配任何非单词字符。等价于<strong>[^A-Za-z0-9]</strong>。</td><br></tr><br><tr><br><th style="text-align:center;">\x<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，<strong>\x41</strong>匹配<strong>A</strong>。<strong>\x041</strong>则等价于<strong>\x04&amp;1</strong>。正則表达式中可以使用ASCII编码。.</td><br></tr><br><tr><br><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">num</span></th><br><td>匹配<span style="font-family:Times New Roman; font-style:italic;">num</span>，其中<span style="font-family:Times New Roman; font-style:italic;">num</span>是一个正整数。对所获取的匹配的引用。例如，<strong>(.)\1</strong>匹配两个连续的相同字符。</td><br></tr><br><tr><br><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">n</span>之前至少<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取的子表达式，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为向后引用。否则，如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-7），则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个八进制转义值。</td><br></tr><br><tr><br><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nm</span></th><br><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">nm</span>个获得子表达式，则<span style="font-family:Times New Roman; font-style:italic;">nm</span>为向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个后跟文字<span style="font-family:Times New Roman; font-style:italic;">m</span>的向后引用。如果前面的条件都不满足，若<span style="font-family:Times New Roman; font-style:italic;">n</span>和<span style="font-family:Times New Roman; font-style:italic;">m</span>均为八进制数字（0-7），则\<span style="font-family:Times New Roman; font-style:italic;">nm</span>将匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>。</td><br></tr><br><tr><br><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nml</span></th><br><td>如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-3），且<span style="font-family:Times New Roman; font-style:italic;">m和l</span>均为八进制数字（0-7），则匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>l。</td><br></tr><br><tr><br><th style="text-align:center;">\u<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>是一个用四个十六进制数字表示的Unistrong字符。例如，\u00A9匹配版权符号（©）。</td><br></tr><br></tbody></table>
+<table id="regTable"><thead><tr><th>字符</th><th>描述</th></tr></thead><tbody><tr><th style="text-align:center;">\</th><td>将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，<strong>n</strong>匹配字符<strong>n</strong>。<strong>\n</strong>匹配一个换行符。序列<strong>\\</strong>匹配<strong>\</strong>而<strong>(</strong>则匹配<strong>(</strong>。</td></tr><tr><th style="text-align:center;">^</th><td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配<strong>\n</strong>或<strong>\r</strong>之后的位置。</td></tr><tr><th style="text-align:center;">$</th><td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配<strong>\n</strong>或<strong>\r</strong>之前的位置。</td></tr><tr><th style="text-align:center;"><em></em></th><td>匹配前面的子表达式零次或多次。例如，zo能匹配<strong>z</strong>以及<strong>zoo</strong>。<em>等价于{0,}。</em></td></tr><tr><th style="text-align:center;">+</th><td>匹配前面的子表达式一次或多次。例如，<strong>zo+</strong>能匹配<strong>zo</strong>以及<strong>zoo</strong>，但不能匹配<strong>z</strong>。+等价于{1,}。</td></tr><tr><th style="text-align:center;">?</th><td>匹配前面的子表达式零次或一次。例如，<strong>do(es)?</strong>可以匹配<strong>do</strong>或<strong>does</strong>中的<strong>do</strong>。?等价于{0,1}。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>}</th><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。匹配确定的<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但是能匹配<strong>food</strong>中的两个o。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}</th><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。至少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2,}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但能匹配<strong>foooood</strong>中的所有o。<strong>o{1,}</strong>等价于<strong>o+</strong>。<strong>o{0,}</strong>则等价于<strong>o</strong>。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}</th><td><span style="font-family:Times New Roman; font-style:italic;">m</span>和<span style="font-family:Times New Roman; font-style:italic;">n</span>均为非负整数，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>&lt;=<span style="font-family:Times New Roman; font-style:italic;">m</span>。最少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次且最多匹配<span style="font-family:Times New Roman; font-style:italic;">m</span>次。例如，<strong>o{1,3}</strong>将匹配<strong>fooooood</strong>中的前三个o。<strong>o{0,1}</strong>等价于<strong>o?</strong>。请注意在逗号和两个数之间不能有空格。</td></tr><tr><th style="text-align:center;">?</th><td>当该字符紧跟在任何一个其他限制符（*,+,?，{<span style="font-family:Times New Roman; font-style:italic;">n</span>}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串<strong>oooo</strong>，<strong>o+?</strong>将匹配单个<strong>o</strong>，而<strong>o+</strong>将匹配所有<strong>o</strong>。</td></tr><tr><th style="text-align:center;">.</th><td>匹配除<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>之外的任何单个字符。要匹配包括<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>在内的任何字符，请使用像<strong>(.|\n)</strong>的模式。</td></tr><tr><th style="text-align:center;">(pattern)</th><td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括號字符，请使用<strong>(</strong>或<strong>)</strong>。</td></tr><tr><th style="text-align:center;">(?:pattern)</th><td>匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符<strong>(|)</strong>来组合一个模式的各个部分是很有用。例如<strong>industr(?:y|ies)</strong>就是一个比<strong>industry|industries</strong>更简略的表达式。</td></tr><tr><th style="text-align:center;">(?=pattern)</th><td>正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<strong>Windows(?=95|98|NT|2000)</strong>能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td></tr><tr><th style="text-align:center;">(?!pattern)</th><td>正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<strong>Windows(?!95|98|NT|2000)</strong>能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td></tr><tr><th style="text-align:center;">(?&lt;=pattern)</th><td>反向肯定预查，与正向肯定预查类似，只是方向相反。例如，<strong>(?&lt;=95|98|NT|2000)Windows</strong>能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>。</td></tr><tr><th style="text-align:center;">(?&lt;!pattern)</th><td>反向否定预查，与正向否定预查类似，只是方向相反。例如<strong>(?&lt;!95|98|NT|2000)Windows</strong>能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>。</td></tr><tr><th style="text-align:center;">x|y</th><td>匹配x或y。例如，<strong>z|food</strong>能匹配<strong>z</strong>或<strong>food</strong>。<strong>(z|f)ood</strong>则匹配<strong>zood</strong>或<strong>food</strong>。</td></tr><tr><th style="text-align:center;">[xyz]</th><td>字符集合。匹配所包含的任意一个字符。例如，<strong>[abc]</strong>可以匹配<strong>plain</strong>中的<strong>a</strong>。</td></tr><tr><th style="text-align:center;">[^xyz]</th><td>负值字符集合。匹配未包含的任意字符。例如，<strong>[^abc]</strong>可以匹配<strong>plain</strong>中的<strong>plin</strong>。</td></tr><tr><th style="text-align:center;">[a-z]</th><td>字符范围。匹配指定范围内的任意字符。例如，<strong>[a-z]</strong>可以匹配<strong>a</strong>到<strong>z</strong>范围内的任意小写字母字符。</td></tr><tr><th style="text-align:center;">[^a-z]</th><td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，<strong>[^a-z]</strong>可以匹配任何不在<strong>a</strong>到<strong>z</strong>范围内的任意字符。</td></tr><tr><th style="text-align:center;">\b</th><td>匹配一个单词边界，也就是指单词和空格间的位置。例如，<strong>er\b</strong>可以匹配<strong>never</strong>中的<strong>er</strong>，但不能匹配<strong>verb</strong>中的<strong>er</strong>。</td></tr><tr><th style="text-align:center;">\B</th><td>匹配非单词边界。<strong>er\B</strong>能匹配<strong>verb</strong>中的<strong>er</strong>，但不能匹配<strong>never</strong>中的<strong>er</strong>。</td></tr><tr><th style="text-align:center;">\cx</th><td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的<strong>c</strong>字符。</td></tr><tr><th style="text-align:center;">\d</th><td>匹配一个数字字符。等价于<strong>[0-9]</strong>。</td></tr><tr><th style="text-align:center;">\D</th><td>匹配一个非数字字符。等价于<strong>[^0-9]</strong>。</td></tr><tr><th style="text-align:center;">\f</th><td>匹配一个换页符。等价于\x0c和\cL。</td></tr><tr><th style="text-align:center;">\n</th><td>匹配一个换行符。等价于\x0a和\cJ。</td></tr><tr><th style="text-align:center;">\r</th><td>匹配一个回车符。等价于\x0d和\cM。</td></tr><tr><th style="text-align:center;">\s</th><td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<strong>[\f\n\r\t\v]</strong>。</td></tr><tr><th style="text-align:center;">\S</th><td>匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</td></tr><tr><th style="text-align:center;">\t</th><td>匹配一个制表符。等价于\x09和\cI。</td></tr><tr><th style="text-align:center;">\v</th><td>匹配一个垂直制表符。等价于\x0b和\cK。</td></tr><tr><th style="text-align:center;">\w</th><td>匹配包括下划线的任何单词字符。等价于<strong>[A-Za-z0-9<em>]</em></strong>。</td></tr><tr><th style="text-align:center;">\W</th><td>匹配任何非单词字符。等价于<strong>[^A-Za-z0-9]</strong>。</td></tr><tr><th style="text-align:center;">\x<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，<strong>\x41</strong>匹配<strong>A</strong>。<strong>\x041</strong>则等价于<strong>\x04&amp;1</strong>。正則表达式中可以使用ASCII编码。.</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">num</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">num</span>，其中<span style="font-family:Times New Roman; font-style:italic;">num</span>是一个正整数。对所获取的匹配的引用。例如，<strong>(.)\1</strong>匹配两个连续的相同字符。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">n</span>之前至少<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取的子表达式，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为向后引用。否则，如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-7），则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个八进制转义值。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nm</span></th><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">nm</span>个获得子表达式，则<span style="font-family:Times New Roman; font-style:italic;">nm</span>为向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个后跟文字<span style="font-family:Times New Roman; font-style:italic;">m</span>的向后引用。如果前面的条件都不满足，若<span style="font-family:Times New Roman; font-style:italic;">n</span>和<span style="font-family:Times New Roman; font-style:italic;">m</span>均为八进制数字（0-7），则\<span style="font-family:Times New Roman; font-style:italic;">nm</span>将匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nml</span></th><td>如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-3），且<span style="font-family:Times New Roman; font-style:italic;">m和l</span>均为八进制数字（0-7），则匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>l。</td></tr><tr><th style="text-align:center;">\u<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>是一个用四个十六进制数字表示的Unistrong字符。例如，\u00A9匹配版权符号（©）。</td></tr></tbody></table>
 
 <style>
 #regTable {border-collapse: collapse;}
@@ -426,79 +676,6 @@ import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_p
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo-post-list-code-backup/">hexo post list code backup</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>Personal code for article list at index page.themes/guoshuang/layout/index.js</p>
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/hexo/hexo-post-list-code-backup/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime-syntax-coffee-jade-stylus/">sublime 添加 coffee,jade,stylus,ejs,less 语法高亮</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="方法一_使用包管理器安装">方法一 使用包管理器安装</h3>
-<p>安装 <a href="/software/sublime-package-control/">sublime 包管理器</a> </p>
-<h3 id="方法二_最小安装">方法二 最小安装</h3>
-<p>如果你需要“干净”的话,。</p>
-<p>在 <a href="http://labs.guoshuang.com/sublime/syntax/" target="_blank" rel="external">labs guoshuang</a> 分别下载这些语法文件</p>
-<p>打开 sublime ，选择 Preferenes - browser packages，打开 <strong>sublime包目录</strong>（也就是 Mac 下的这个目录 <code>cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages</code>），<br>分别建立 coffee,jade,stylus,ejs,less 目录，把各自的 .tmLanguage 文件放进去。</p>
-<p>sublime打开一个文件后，点击 sublime 窗口右下角，选择 coffee,jade,stylus,ejs 等。</p>
-<p>该菜单第一个 open all with current extension as … 关联同样扩展名的文件 被该语法解释，以后，在 Preferenes - settings-more - Syntax Specific-User 查看。</p>
-<h3 id="方法三_手工_git">方法三 手工 git</h3>
-<p>在 <strong>sublime包目录</strong> git clone 下面的项目</p>
-<ul>
-<li><a href="https://github.com/falsefalse/sublime-ejs" target="_blank" rel="external">https://github.com/falsefalse/sublime-ejs</a></li>
-<li><a href="https://github.com/jashkenas/coffee-script-tmbundle" target="_blank" rel="external">https://github.com/jashkenas/coffee-script-tmbundle</a></li>
-<li><a href="https://github.com/miksago/jade-tmbundle" target="_blank" rel="external">https://github.com/miksago/jade-tmbundle</a></li>
-<li><a href="https://github.com/LearnBoost/stylus" target="_blank" rel="external">https://github.com/LearnBoost/stylus</a></li>
-<li><a href="https://github.com/danro/LESS-sublime" target="_blank" rel="external">https://github.com/danro/LESS-sublime</a></li>
-</ul>
-<h3 id="方法四">方法四</h3>
-<p>比如安装 jade 语法文件。打开 sublime ，选择 Preferenes - browser packages，打开 <strong>sublime包目录</strong>，然后建立 jade 目录，终端进入目录执行</p>
-<p><code>curl -O https://raw.github.com/miksago/jade-tmbundle/master/Syntaxes/Jade.tmLanguage</code></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/46/" class="alignleft prev">上一页</a>
@@ -512,14 +689,14 @@ import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_p
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

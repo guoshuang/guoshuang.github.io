@@ -47,17 +47,113 @@
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
+          <span class="d">09</span>
+          <span class="ym">10/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/text-overflow-ellipsis-on-multiline/">text overflow ellipsis on multiline</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Thu Oct 09 2014 11:09:13 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="opera">opera</h3>
+<pre>text-overflow: -o-ellipsis-lastline, but it only works in Opera:</pre>
+
+<h3 id="webkit">webkit</h3>
+<pre>&lt;p style="
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+"&gt;
+  WebKit Browsers will clamp the number of lines 
+  in this paragraph to 2. Lorem ipsum dolor sit amet, 
+  consectetur adipisicing elit, sed do eiusmod tempor 
+  incididunt ut labore et dolore magna aliqua. Ut enim 
+  ad minim veniam, quis nostrud exercitation ullamco 
+  laboris nisi ut aliquip ex ea commodo consequat. Duis 
+  aute irure dolor in reprehenderit in voluptate velit 
+  esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+  sint occaecat cupidatat non proident, sunt in culpa qui 
+  officia deserunt mollit anim id est laborum.
+&lt;/p&gt;</pre>
+
+<p style="overflow : hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; "> WebKit Browsers will clamp the number of lines in this paragraph to 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">09</span>
+          <span class="ym">10/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/gs-ajax-percent-loading/">gs ajax percent loading</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Thu Oct 09 2014 11:10:28 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <pre>$.ajax({
+    url: url,
+    data: para,
+    dataType:'json',
+    xhr: function () {
+    var xhr = new window.XMLHttpRequest();
+    xhr.addEventListener("progress", function (evt) {
+        console.log(evt)
+    }, false);
+    return xhr;
+    },
+    success: function(d) {
+        ///////
+        console.log(d)
+    }
+})</pre>
+
+<p>xhr.upload.addEventListener 上传！！</p>
+<p>lengthComputable 总是 false。如果能计算，用 loaded/total 就是百分比</p>
+<p>Network 右键 Copy Response Headers</p>
+<p>稍微的不严格（json 必须双引号！都会导致 lengthComputable: false）！！！！！！</p>
+<p>Content-Encoding:gzip 也不行！！！</p>
+<p>header(“Content-Encoding: compress”); //可以！！！</p>
+<p>HTTP/1.1 200 OK<br>Date: Mon, 15 Sep 2014 04:37:56 GMT<br>Server: Apache/2.2.22 (Unix) DAV/2 PHP/5.3.15 with Suhosin-Patch<br>X-Powered-By: PHP/5.3.15<br><strong>Content-Length: 9703</strong><br>Keep-Alive: timeout=15, max=100<br>Connection: Keep-Alive<br>Content-Type: text/html</p>
+<p>HTTP/1.1 200 OK<br>Date: Mon, 15 Sep 2014 07:09:02 GMT<br>Server: Apache/2.2.22 (Unix) DAV/2 PHP/5.3.15 with Suhosin-Patch<br>Last-Modified: Mon, 15 Sep 2014 03:10:07 GMT<br>ETag: “59aa3f7-414-50311f8cc01c0”<br>Accept-Ranges: bytes<br><strong>Content-Length: 1044</strong><br>Keep-Alive: timeout=15, max=99<br>Connection: Keep-Alive<br>Content-Type: application/json</p>
+<p>&lt;? ob_start(); ?&gt;<br>{<br>  “name”: “guoshuang test”<br>}</p>
+<p>&lt;?<br>$length = ob_get_length();<br>header(“Content-Length: “.$length);<br>//header(“X-Content-Length: “.$length);<br>ob_end_flush();<br>?&gt;</p>
+<p><a href="http://www.jnecw.com/p/1340" target="_blank" rel="external">http://www.jnecw.com/p/1340</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
           <span class="d">15</span>
           <span class="ym">09/2014</span>
         </div>
       </div> 
     <h1 class="title"><a href="/javascript/funny-stuffs/">funny stuffs</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Mon Sep 15 2014 10:14:57 GMT+0800</span></div>
+ <div class="meta">最后更新: <span class="pubTime">Mon Sep 15 2014 10:29:14 GMT+0800</span></div>
     </header>
     <div class="entry">
       
-        <p>111</p>
-<h3 id="CHARTIST-JS_优点："><a href="https://gionkunz.github.io/chartist-js/index.html" target="_blank" rel="external">CHARTIST.JS</a> 优点：</h3>
+        <h3 id="CHARTIST-JS_优点："><a href="https://gionkunz.github.io/chartist-js/index.html" target="_blank" rel="external">CHARTIST.JS</a> 优点：</h3>
 <ul>
 <li>svg 个人感觉的确比 canvas 好控制。canvas 太黑箱了</li>
 <li>也正是因为 svg，所以可以直接 css 控制（media queries and responsive）</li>
@@ -309,64 +405,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/baidu-map-customize-marker/">baidu map customize marker</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>很多年不用 lib in china，的确有些成见。用 wordpress,jquery, 甚至 google map 都有惊喜。近期不得不使用 baidu map，的确也有“惊喜”，哎…</p>
-<pre>
-var myIcon = new BMap.Icon("pics/marker-blue.png", new BMap.Size(66, 128),{  
-  offset: new BMap.Size(10, 25)
-});
-console.log(myIcon);
-</pre>
-
-<p>2014-09-01 v2.0 以后 offset 没用了，应该是 anchor。可惜混乱的官方文档、甚至例子，仍然是 offset，哎。。。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/baidu-map-event/">baidu map event</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 13:04:51 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <table class="table-bordered"><tbody><tr><th>事件</th><th>参数</th><th>描述</th></tr><tr><td>click</td><td>{type, target, point, pixel, overlay}</td><td>左键单击地图时触发此事件。当双击时，产生的事件序列为：click click dblclick(自 1.1 更新)</td></tr><tr><td>dblclick</td><td>{type, target, pixel, point}</td><td>鼠标双击地图时会触发此事件。</td></tr><tr><td>rightclick</td><td>{type, target, point, pixel, overlay}</td><td>右键单击地图时触发此事件。当双击时，产生的事件序列为：rightclick rightclick rightdblclick(自 1.1 更新)</td></tr><tr><td>rightdblclick</td><td>{type, target, point, pixel, overlay}</td><td>右键双击地图时触发此事件。(自 1.1 新增)</td></tr><tr><td>maptypechange</td><td>{type, target}</td><td>地图类型发生变化时触发此事件。(自 1.1 新增)</td></tr><tr><td>mousemove</td><td>{type, target, point, pixel, overlay}</td><td>鼠标在地图区域移动过程中触发此事件。(自 1.1 新增)</td></tr><tr><td>mouseover</td><td>{type, target}</td><td>鼠标移入地图区域时触发此事件。(自 1.2 新增)</td></tr><tr><td>mouseout</td><td>{type, target}</td><td>鼠标移出地图区域时触发此事件。(自 1.2 新增)</td></tr><tr><td>movestart</td><td>{type, target}</td><td>地图移动开始时触发此事件。</td></tr><tr><td>moving</td><td>{type, target}</td><td>地图移动过程中触发此事件。</td></tr><tr><td>moveend</td><td>{type, target}</td><td>地图移动结束时触发此事件。</td></tr><tr><td>zoomstart</td><td>{type, target}</td><td>地图更改缩放级别开始时触发触发此事件。</td></tr><tr><td>zoomend</td><td>{type, target}</td><td>地图更改缩放级别结束时触发触发此事件。</td></tr><tr><td>addoverlay</td><td>{type, target}</td><td>当使用Map.addOverlay()方法向地图中添加单个覆盖物时会触发此事件。</td></tr><tr><td>addcontrol</td><td>{type, target}</td><td>当使用Map.addControl()方法向地图中添加单个控件时会触发此事件。</td></tr><tr><td>removecontrol</td><td>{type, target}</td><td>当使用Map.removeControl()方法移除单个控件时会触发此事件。</td></tr><tr><td>removeoverlay</td><td>{type, target}</td><td>当使用Map.removeOverlay()方法移除单个覆盖物时会触发此事件。</td></tr><tr><td>clearoverlays</td><td>{type, target}</td><td>当使用Map.clearOverlays()方法一次性移除全部覆盖物时会触发此事件。</td></tr><tr><td>dragstart</td><td>{type, target, pixel, point}</td><td>开始拖拽地图时触发。</td></tr><tr><td>dragging</td><td>{type, target, pixel, point}</td><td>拖拽地图过程中触发。</td></tr><tr><td>dragend</td><td>{type, target, pixel, point}</td><td>停止拖拽地图时触发。</td></tr><tr><td>addtilelayer</td><td>{type, target}</td><td>添加一个自定义地图图层时触发此事件。</td></tr><tr><td>removetilelayer</td><td>{type, target}</td><td>移除一个自定义地图图层时触发此事件。</td></tr><tr><td>load</td><td>{type, target, pixel, point, zoom}</td><td>调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块。</td></tr><tr><td>resize</td><td>{type, target, size}</td><td>地图可视区域大小发生变化时会触发此事件。</td></tr><tr><td>hotspotclick</td><td>{type, target, hotspots}</td><td>点击热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>hotspotover</td><td>{type, target, hotspots}</td><td>鼠标移至热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>hotspotout</td><td>{type, target, hotspots}</td><td>鼠标移出热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>tilesloaded</td><td>{type, target}</td><td>当地图所有图块完成加载时触发此事件。(自 1.2 新增)</td></tr><tr><td>touchstart</td><td>{type, target, point,pixel}</td><td>触摸开始时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>touchmove</td><td>{type, target, point,pixel}</td><td>触摸移动时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>touchend</td><td>{type, target, point,pixel}</td><td>触摸结束时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>longpress</td><td>{type, target, point,pixel}</td><td>长按事件，仅适用移动设备。(自 1.5新增)</td></tr></tbody></table>
-
-<p>via <a href="http://developer.baidu.com/map/reference/index.php" target="_blank" rel="external">http://developer.baidu.com/map/reference/index.php</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
   
@@ -378,14 +416,14 @@ console.log(myIcon);
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

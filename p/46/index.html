@@ -51,6 +51,110 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-2/">javascript tutorial notes 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Array_every_方法">Array every 方法</h2>
+<p>array.every(callback[, thisObject])</p>
+<p>Tests whether all elements in the array pass the test implemented by the provided function.根据提供的函数测试 是否 所有数组元素都满足该条件</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+a=[1,2,3,4,5,6,7];
+alert(a.every(function(el,i,arr){return el>0}));
+</pre>
+
+<p>找到 false 就立即（退出循环）返回 false，否则返回 true。下面例子返回 1－5</p>
+<pre>
+console.log(a.every(function(el,i,arr){console.log(el);return el<5})) <="" pre="">
+
+<p>回调的三个参数：element, index, array</p>
+<p>every 不改变 array.</p>
+<p>空数组 满足任意条件，甚至不可能的 &gt;1 &amp;&amp; &lt;0</p>
+<pre>
+console.log([].every(function(el,i,arr){console.log(el);return el>1 &amp;&amp; el<0})) <="" pre="">
+
+<p>The range of elements processed by every is set before the first invocation of callback. Elements which are appended to the array after the call to every begins will not be visited by callback. If existing elements of the array are changed, their value as passed to callback will be the value at the time every visits them; elements that are deleted are not visited.第一次调用前，数组元素就已经被处理。新添加或者修改数组元素，没用了。看下面例子</p>
+<pre class="prettyprinted console_command">
+<strong>a=[1,2,3,4,5,6,7]</strong>
+<strong>console.log(a.every(function(el,i,arr){a[0]=-1;console.log(el);return el>0}))</strong>
+1... 7 true
+<strong>console.log(a)</strong>
+[-1, 2, 3, 4, 5, 6, 7]
+</pre>
+
+
+<pre onclick="eval(this.innerText||this.textContent)">
+function isLetter(character) {
+    var character=character.toLowerCase();
+  return (character &gt;= "a" &amp;&amp; character &lt;= "z");
+}
+var word = prompt('输入一个单词');
+alert(isLetter(word))
+</pre>
+
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sina.com.cn/s/blog_6230d93701018vpt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6230d93701018vpt.html</a></li>
+<li><a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">http://javascript.info/tutorial/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments/callee" target="_blank" rel="external">参数回调 arguments.callee</a></li>
+</ul>
+</0}))></pre></5}))></pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/save-gas/">驾驶如何省油</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>看看美国鬼子如何解释这个问题：<a href="http://www.howcast.com/videos/53095-How-to-Save-Gas-with-Eight-Secret-Tips" target="_blank" rel="external">How to Save Gas with Eight Secret Tips</a>，和简体中文世界看到的不太一样</p>
+<ul>
+<li>关掉空调，把窗户打开。</li>
+<li>快没油了，再加。（你又不是去戈壁沙漠，前面会有加油站的）</li>
+<li>加油枪倒过来，控一下。（难了，据我所知，除了新泽西，美国加油站都是自助，自己动手加油刷卡。国内，似乎都是工作人员才能动加油枪）</li>
+<li>邮箱盖子拧紧。（“汽”油挥发很快）</li>
+<li>开慢点，使用经济车速。每个车不太一样，看说明书，一般80-100km/h</li>
+<li>不要没事变道。（个人体验，在美国变道很少，经常开了100公里，前后左右还是那几辆车，打死也不变道。国内，似乎到处都是f1赛场）</li>
+<li>高速路用巡航，路况复杂的时候别用。</li>
+<li>能关掉的都关掉（音响之类）。</li>
+<li>按时换机油、滤清器。</li>
+<li>不要急停急驶。</li>
+<li>清理车内不需要带的东西。</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/life/2-dimensions/">二维生物</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
     </header>
@@ -273,256 +377,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo-run-js/">hexo run js</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>hexo markdown 没办法写 javascript,script 里面的 引号 会被转义，html 里面的 引号不会。所以只好用这个土办法！</p>
-<div style="transform:rotate(180deg);-webkit-transform:rotate(180deg);">镜子啊，镜子，谁是这个世界上最NB的前端啊？</div>
-
-<p><img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" style="display:none;"> </p>
-<div id="jsCode2Run" style="display:none;"><br>jQuery(function($){<br>///////<br><br>var article=$(‘#jsCode2Run’).parents(‘article’);<br>article.css({“transform”: “scale(-1, 1)”})<br><br>article.mouseenter(function(){<br>    $(this).css({“transform”: “scale(1, 1)”})<br>}).mouseleave(function(){<br>    $(this).css({“transform”: “scale(-1, 1)”})<br>});<br><br>//////<br>})<br></div>
-
-<pre class="linenums">
-&lt;img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" /&gt; 
-
-&lt;div id="jsCode2Run" style="display:none;"&gt;
-jQuery(function($){
-///////    
-
-var article=$('#jsCode2Run').parents('article');
-article.css({"transform": "scale(-1, 1)"})
-
-article.mouseenter(function(){
-    $(this).css({"transform": "scale(1, 1)"})
-}).mouseleave(function(){
-    $(this).css({"transform": "scale(-1, 1)"})
-});
-
-//////
-})
-&lt;/div&gt;
-</pre>
-
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/hexo/hexo-run-js/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-1/">javascript tutorial notes 1</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="http://javascript.info/" target="_blank" rel="external">The JavaScript Tutorial</a> 学习笔记，不分先后</p>
-<h2 id="浏览器引擎">浏览器引擎</h2>
-<ul>
-<li>firefox - gecko</li>
-<li>safari/chrome - webkit</li>
-<li>opera - presto</li>
-<li>ie - trident</li>
-</ul>
-<h2 id="文档参考">文档参考</h2>
-<ul>
-<li><a href="http://msdn.microsoft.com/" target="_blank" rel="external">MDSN</a></li>
-<li><a href="https://developer.mozilla.org/" target="_blank" rel="external">MDN</a></li>
-</ul>
-<p>JavaScript 是 Oracle 注册商标，所以 javascript 标准是 ECMAScript。传统版本是 es3，现在是 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank" rel="external">es5</a></p>
-<h2 id="函数参数_Function_arguments">函数参数 <a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">Function arguments</a></h2>
-<h3 id="没有参数，里面是_underfined">没有参数，里面是 underfined</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-function check(x) {
-    alert(x === undefined) //没提供参数，里面是 underfined
-}
-check()
-</pre>
-
-<p><strong>点击代码，执行之</strong></p>
-<h3 id="重复定义">重复定义</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-function f(a){alert(a)}
-function f(a,b,c){alert(a+','+b+','+c)}
-f(1,2,3,4)
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-function f(a,b,c){alert(a+','+b+','+c)}
-function f(a){alert(a)}
-f(1,2,3,4)
-</pre>
-
-<h3 id="arguments_是个“伪“数组，是个_object">arguments 是个“伪“数组，是个 object</h3>
-<blockquote>
-<p>An Array-like object corresponding to the arguments passed to a function.The arguments object is not an Array. It is similar to an Array, but does not have any Array properties except length. via <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">mdn</a></p>
-</blockquote>
-<pre>
-function sayHi() {
-  var a = arguments.shift() // error! arguments is not Array
-  alert(a)
-}
-sayHi()
-</pre>
-
-<p>错误！（Object has no method ‘shift’）arguments 是个“伪“数组，是个 object</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function() {
-  alert( {}.toString.call(arguments) )  // [object Arguments] 
-})()
-</pre>
-
-<h3 id="Using_arguments_as_Array">Using arguments as Array</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){alert(arguments.length)})(1,2)
-</pre>
-
-<p>注意：是 2 而不是 3</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){console.log(arguments[0]===a)})(1,2)
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-function sayHi() {
-  var args = [].join.call(arguments, ':')
-  alert(args)  // 1:2:3
-}
-sayHi(1,2,3)
-</pre>
-
-<p>这个办法对 numeric indexes 的 object （其实就是“数组”了，这点很象 php 数组）也能用</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-var obj = { 0: "A", 1: "B", length: 2 }
-alert( [].join.call(obj) ) // "A,B"
-</pre>
-
-<p>非数组索引的不行，用 Object.keys（）</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-var obj = { name: "guoshuang", age: "xxx", location: "xi\'an" }
-alert( [].join.call(obj) ) // ""
-alert(Object.keys(obj).length) //3
-</pre>
-
-<p>真正的数组</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){
-alert(Array.isArray(Array.prototype.slice.call(arguments)));
-alert(Array.isArray(arguments));
-})(1,2)
-</pre>
-
-<blockquote>
-<p>The arguments and named parameters reference same values. 函数 arguments 和 parameters 指向同一个值（一荣俱荣一损俱损）</p>
-</blockquote>
-<pre onclick="eval(this.innerText||this.textContent)">
-f(1)
-function f(x) {
-  arguments[0] = 5
-  alert(x) // 5, updating arguments changed x
-}
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-f(1)
-function f(x) {
-  x = 5
-  alert(arguments[0]) // 5, update of x reflected in arguments
-}
-</pre>
-
-<p>不要试图改变 arguments(Generally, it is a good practice not to modify arguments.)</p>
-<h2 id="默认值">默认值</h2>
-<pre onclick="eval(this.innerText||this.textContent)" id="abc">
-function sayHi(who) {
-  who = who || 'me'  // if who is falsy, returns 'me'
-  alert(who)  
-}
-sayHi("John")
-sayHi()  // 'me'
-</pre>
-
-<h2 id="类型检测_Type_detection">类型检测 <a href="http://javascript.info/tutorial/type-detection" target="_blank" rel="external">Type detection</a></h2>
-<h3 id="检测_AAAA_是否存在_typeof">检测 AAAA 是否存在 typeof</h3>
-<p><del>if(typeof AAA !==’undefined’){}</del> //不推荐！</p>
-<p><del>if(AAA){}</del> //没有时，js报错</p>
-<pre>
-if(window.aaaa){} //正确办法
-</pre>
-
-<h3 id="区分_Array_Date_类型_[[Class]]">区分 Array Date 类型 [[Class]]</h3>
-<p>object,array 都是 object 类型，如何区分呢？</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( typeof {key:'val'} ) // Object is object
-alert( typeof [1,2] ) // Array is object
-alert( typeof new Date ) // Date object
-</pre>
-
-<blockquote>
-<p>Fortunately, there is a hidden [[Class]] property in all JavaScript native objects. It equals “Array” for arrays, “Date” for dates etc.</p>
-</blockquote>
-<pre onclick="eval(this.innerText||this.textContent)">
-var toClass={}.toString;
-alert( toClass.call( [1,2] ) ) // [object Array]
-alert( toClass.call( new Date ) ) // [object Date]
-</pre>
-
-<blockquote>
-<ol>
-<li>Copy a reference to toString for objects into toClass variable.</li>
-<li>Call it, but provide the object which we are going to check as this. So, object toString becomes applied to arrays, dates etc. We have to do it, because their own toString behaves differently. For arrays it returns element list, for dates it returns the string representation.</li>
-</ol>
-</blockquote>
-<p>该方法对原始类型也可以</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( toClass.call(123) ) // [object Number]
-alert( toClass.call("primitive")) ) // [object String
-</pre>
-
-<h3 id="用_instanceof_检测数组">用 instanceof 检测数组</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( [] instanceof Array ) 
-</pre>
-
-<p>注意：跨窗口（frame）不行！每个window有自己的 层次结构。用 [[class]] 方法</p>
-<blockquote>
-<p>Although, it will not work if arr was created in another window or iframe and then passed into current window. That’s because each window has it’s own object hierarchy.<br> To workaround that, most frameworks use [[Class]] for native objects.</p>
-</blockquote>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/45/" class="alignleft prev">上一页</a>
@@ -536,14 +390,14 @@ alert( [] instanceof Array )
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>3</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>76</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

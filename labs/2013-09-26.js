@@ -1,3 +1,1 @@
-setInterval(function(){
-	$('#stripedAnimationDiv3').toggleClass('toggleRadial');
-},300)
+setInterval(function(){$("#stripedAnimationDiv3").toggleClass("toggleRadial")},300);
