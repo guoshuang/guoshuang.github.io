@@ -51,6 +51,114 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/software/dns-cname/">解析域名到花生壳</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>貌似 VPS 都蛮贵的，MT,godaddy 等都是 $30/月，穷人们只好另辟它迳。</p>
+<h3 id="路由器上设置花生壳">路由器上设置花生壳</h3>
+<p>在 虚拟服务器 或者 端口映射 那里打开 80 到内网 192.168.1.x 80。(ssh 端口 22)</p>
+<p>设置花生壳得到 xxxxx.eicp.net 地址。测试看是否可用。</p>
+<h3 id="设置_dns_cname_到_花生壳地址">设置 dns cname 到 花生壳地址</h3>
+<p>我的域名服务商是 namecheap。（鉴于国内 域名、主机服务，罪犯一样的体验，我的域名和空间都逃了出去）</p>
+<ul>
+<li>Click My Account </li>
+<li>Click Manage Domains. </li>
+<li>Under Domain Names, click the domain you wish to modify </li>
+<li>Click All Host Records in the menu on the left </li>
+<li>Under Sub Domain Settings type the subdomain name you chose for your website in LaunchRock. </li>
+<li>For example, if you chose signup.yoursite.com, enter: signup. </li>
+<li>In the IP Address / URL field enter host.launchrock.com </li>
+<li>In the Record Type menu select CNAME (Alias) </li>
+<li>Click Save Changes</li>
+</ul>
+<p>比如我的域名是 guoshuang.com 而我需要 cname lab.guoshuang.com 的话：</p>
+<ul>
+<li>第一个填（Sub Domain） lab</li>
+<li>第二个填（IP Address / URL） xxxx.eicp.net.</li>
+<li>ttl 无所谓</li>
+</ul>
+<h3 id="如何测试">如何测试</h3>
+<p>namecheap 的 dns 服务器是</p>
+<ul>
+<li>freedns1.registrar-servers.com</li>
+<li>freedns2.registrar-servers.com</li>
+<li>freedns3.registrar-servers.com</li>
+<li>freedns4.registrar-servers.com</li>
+<li>freedns5.registrar-servers.com</li>
+</ul>
+<p>打开终端执行</p>
+<p><code>nslookup</code></p>
+<p><code>&gt;server freedns1.registrar-servers.com</code> 使用哪个dns服务</p>
+<p><code>&gt;lab.guoshuang.com</code> 测试</p>
+<p>这确结果应该类似：</p>
+<p>lab.guoshuang.com    canonical name = xxxxxxx.eicp.net.</p>
+<p>canonical name(CNAME) 规范名</p>
+<p>测试正确的话，过几小时或几天的话，这个 dns 就会生效。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/color-ol-list-num-with-css/">color ol list num with css</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>I want the ordered list(OL) num show different color. </p>
+<h3 id="method_1_:_with_css3_counter">method 1 : with css3 counter</h3>
+<pre>
+ol {
+    margin: 10px 0;counter-reset:item;    
+}
+ol li:before {content:counter(item)+'.';counter-increment: item;
+        color: red;display: inline-block;margin-right: 8px;font-size:1.3em;font-style: italic;}
+</pre>
+
+<h3 id="method_2">method 2</h3>
+<pre>
+&lt;li style='color: red;'&gt;&lt;span style='color:black;'&gt;test&lt;/span&gt;&lt;/li&gt;
+</pre>
+
+<h3 id="method_3_:_with_jquery">method 3 : with jquery</h3>
+<pre>
+$('ol li').each(function(j,k){$(k).prepend('<span style="color:red">'+(j+1)+'</span> ')})
+</pre>
+
+<h3 id="marker">marker</h3>
+<p>css ::marker will solve this problem either.But no Bowser support NOW!</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/software/windows7-install-ubuntu-server/">windows7 install ubuntu server</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
@@ -434,134 +542,6 @@ if (
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/weather/">天气</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>weather.com.cn 越来越小气，到处限制与世界背道而驰。</p>
-<p><input id="yahoo-weoid" value="西安" type="text" style="width:16em;" placeholder="输入地名、邮编之类"> <button id="yahoo-weoid-btn" class="btn-flat">查询 yahoo WOEID</button></p>
-<div id="yahoo-weoid-result"></div>
-
-<style>
-#yahoo-weoid-result table {border-collapse: collapse;}
-#yahoo-weoid-result td {border:solid 1px #ccc;padding: 4px;cursor:pointer;}
-#yahoo-weoid-result tr:hover {background:#eee;}
-#yahoo-weoid-result tr.current {background:#333;color:#fff;}
-</style>
-
-
-<p><input id="yahoo-weather" value="" type="text" style="width:16em;" placeholder="yahoo WOEID"> <button id="yahoo-weather-btn" class="btn-flat">查询天气</button></p>
-<div id="yahoo-weather-result"></div>
-
-<script src="/labs/yahoo-weather.js"></script>
-
-<h3 id="原理">原理</h3>
-<p>位置来自：</p>
-<pre>http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22Place%20name%22&amp;format=json</pre>
-
-<p>天气来自：</p>
-<pre>
-http://weather.yahooapis.com/forecastrss?w=12713912&amp;u=c
-</pre>
-
-<ul>
-<li>w 是 WOEID，<a href="http://woeid.rosselliot.co.nz/lookup/" target="_blank" rel="external">在这里搜索</a></li>
-<li>u 表示单位 c 摄氏度； f 华氏度</li>
-<li>p 不再推荐使用！</li>
-</ul>
-<p><a href="/labs/yahoo-weather.js" class="btn-flat-green">下载 js 文件</a></p>
-<h3 id="天气代码">天气代码</h3>
-<p>没有中文版，yweather:forecast 参数对照表</p>
-<table style="width: 100%;" class="table-bordered"><br>    <tbody><tr><br>      <th style="width: 10%;">Code</th><br>      <th>Description</th><br>    </tr><br>    <tr><br>      <td>0</td><br>      <td>tornado</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>tropical storm</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>hurricane</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>severe thunderstorms</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>thunderstorms</td><br>    </tr><br>    <tr><br>      <td>5</td><br>      <td>mixed rain and snow</td><br>    </tr><br>    <tr><br>      <td>6</td><br>      <td>mixed rain and sleet</td><br>    </tr><br>    <tr><br>      <td>7</td><br>      <td>mixed snow and sleet</td><br>    </tr><br>    <tr><br>      <td>8</td><br>      <td>freezing drizzle</td><br>    </tr><br>    <tr><br>      <td>9</td><br>      <td>drizzle</td><br>    </tr><br>    <tr><br>      <td>10</td><br>      <td>freezing rain</td><br>    </tr><br>    <tr><br>      <td>11</td><br>      <td>showers</td><br>    </tr><br>    <tr><br>      <td>12</td><br>      <td>showers</td><br>    </tr><br>    <tr><br>      <td>13</td><br>      <td>snow flurries</td><br>    </tr><br>    <tr><br>      <td>14</td><br>      <td>light snow showers</td><br>    </tr><br>    <tr><br>      <td>15</td><br>      <td>blowing snow</td><br>    </tr><br>    <tr><br>      <td>16</td><br>      <td>snow</td><br>    </tr><br>    <tr><br>      <td>17</td><br>      <td>hail</td><br>    </tr><br>    <tr><br>      <td>18</td><br>      <td>sleet</td><br>    </tr><br>    <tr><br>      <td>19</td><br>      <td>dust</td><br>    </tr><br>    <tr><br>      <td>20</td><br>      <td>foggy</td><br>    </tr><br>    <tr><br>      <td>21</td><br>      <td>haze</td><br>    </tr><br>    <tr><br>      <td>22</td><br>      <td>smoky</td><br>    </tr><br>    <tr><br>      <td>23</td><br>      <td>blustery</td><br>    </tr><br>    <tr><br>      <td>24</td><br>      <td>windy</td><br>    </tr><br>    <tr><br>      <td>25</td><br>      <td>cold</td><br>    </tr><br>    <tr><br>      <td>26</td><br>      <td>cloudy</td><br>    </tr><br>    <tr><br>      <td>27</td><br>      <td>mostly cloudy (night)</td><br>    </tr><br>    <tr><br>      <td>28</td><br>      <td>mostly cloudy (day)</td><br>    </tr><br>    <tr><br>      <td>29</td><br>      <td>partly cloudy (night)</td><br>    </tr><br>    <tr><br>      <td>30</td><br>      <td>partly cloudy (day)</td><br>    </tr><br>    <tr><br>      <td>31</td><br>      <td>clear (night)</td><br>    </tr><br>    <tr><br>      <td>32</td><br>      <td>sunny</td><br>    </tr><br>    <tr><br>      <td>33</td><br>      <td>fair (night)</td><br>    </tr><br>    <tr><br>      <td>34</td><br>      <td>fair (day)</td><br>    </tr><br>    <tr><br>      <td>35</td><br>      <td>mixed rain and hail</td><br>    </tr><br>    <tr><br>      <td>36</td><br>      <td>hot</td><br>    </tr><br>    <tr><br>      <td>37</td><br>      <td>isolated thunderstorms</td><br>    </tr><br>    <tr><br>      <td>38</td><br>      <td>scattered thunderstorms</td><br>    </tr><br>    <tr><br>      <td>39</td><br>      <td>scattered thunderstorms</td><br>    </tr><br>    <tr><br>      <td>40</td><br>      <td>scattered showers</td><br>    </tr><br>    <tr><br>      <td>41</td><br>      <td>heavy snow</td><br>    </tr><br>    <tr><br>      <td>42</td><br>      <td>scattered snow showers</td><br>    </tr><br>    <tr><br>      <td>43</td><br>      <td>heavy snow</td><br>    </tr><br>    <tr><br>      <td>44</td><br>      <td>partly cloudy</td><br>    </tr><br>    <tr><br>      <td>45</td><br>      <td>thundershowers</td><br>    </tr><br>    <tr><br>      <td>46</td><br>      <td>snow showers</td><br>    </tr><br>    <tr><br>      <td>47</td><br>      <td>isolated thundershowers</td><br>    </tr><br>    <tr><br>      <td>3200</td><br>      <td>not available</td><br>    </tr><br>  </tbody><br></table>
-
-<p>参考：</p>
-<ul>
-<li><a href="http://developer.yahoo.com/weather/" target="_blank" rel="external">yahoo weather api</a></li>
-<li><a href="http://developer.yahoo.com/geo/geoplanet/guide/api_docs.html" target="_blank" rel="external">http://developer.yahoo.com/geo/geoplanet/guide/api_docs.html</a></li>
-<li>更多免费天气 <a href="http://blog.programmableweb.com/2012/01/11/12-json-weather-apis/" target="_blank" rel="external">weather api</a></li>
-</ul>
-<h3 id="yql_好东西">yql 好东西</h3>
-<p>也可以直接返回 jsonp，这个更简单！</p>
-<pre>
-http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D2155661&amp;format=json&amp;callback=
-</pre>
-
-<p>在 <a href="http://developer.yahoo.com/yql/console/" target="_blank" rel="external">yahoo console</a> 可以测试 yql</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/html5-notifier/">html5 notifier</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <button class="btn-flat" id="btn-notifier">请求 notifier 权限</button> <button class="btn-flat-green" id="btn-notifier-close">关闭</button>
-
-<audio src="/labs/html5-notifier.mp3" preload="auto" id="html5-notifier-sound"></audio>
-
-<h3 id="源代码">源代码</h3>
-<p><a href="/labs/html5-notifier.js">js源代码</a>  或者  <a href="/labs/html5-notify-example.html">另一个例子</a></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/notification" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/API/notification</a></li>
-</ul>
-<h3 id="Chrome_浏览器设置">Chrome 浏览器设置</h3>
-<p>在这里管理</p>
-<p>Preferences - Show advanced settings - Privacy - Content settings - Notifications - Manage exceptions</p>
-<p>或者点击地址栏文档图标</p>
-<p><img src="http://i.stack.imgur.com/Fhtgu.jpg" alt=""></p>
-<h2 id="那些酱油">那些酱油</h2>
-<h3 id="声音文件">声音文件</h3>
-<p>念中文需要在 Preferences - Speech - Text to Speech ，system Voice 中选择 customize,然后选中文，<a href="/mac/mac-terminal-tips/">需要安装600M的语言包</a></p>
-<p><code>say 老郭牛逼 -o 1.aiff</code></p>
-<p>听听对不</p>
-<p><code>afplay 1.aiff</code></p>
-<p>下载编译 <a href="http://sourceforge.net/projects/lame/files/lame/3.99/lame-3.99.5.tar.gz/download" target="_blank" rel="external">lame</a>（或者 直接下载 <a href="https://www.macupdate.com/download/18882/lame-3.99.5.pkg.zip" target="_blank" rel="external">lame mac</a>），然后转换 mp3。当然，用某些播放器也可以转换。</p>
-<p><code>lame 1.aiff 1.mp3</code></p>
-<p>测试下</p>
-<p><code>afplay 1.mp3</code></p>
-<h3 id="编译_lame">编译 lame</h3>
-<p>和 *nix 世界一样。解压，终端进入文件夹</p>
-<p><code>./configure</code> 检查环境</p>
-<p><code>make</code> 编译</p>
-<p><code>sudo make install</code>  编译安装</p>
-<script src="/labs/html5-notifier.js"></script>
-
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/6/" class="alignleft prev">上一页</a>
@@ -575,14 +555,14 @@ http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    
@@ -590,7 +570,7 @@ http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%
 </div>
 
 <footer id="footer" class="inner"><div class="alignleft">
-    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+    &copy; 2015  <a href="https://plus.google.com/112004170577825985894"
  rel="author">David Guoshuang</a>
   </div>
 <div class="clearfix"></div></footer>

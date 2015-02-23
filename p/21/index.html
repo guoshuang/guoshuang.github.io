@@ -51,6 +51,264 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/css/css-loading-progress-2/">css loading progress 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>原来的 <a href="/css/css-repeating-gradient/">css repeating gradient loading progress</a> 有 bug，动画跳动不连续！</p>
+<div id="stripedAni2"></div>
+
+<p>原来的代码是 </p>
+<pre>
+background-image: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(255,255,255,.1) 14px, rgba(255,255,255,.1) 28px);
+</pre>
+
+<p>现在是</p>
+<pre>
+background-image: linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+background-size: 40px 40px;
+</pre>    
+
+<p>关键是 background-size: 40px 40px; 无聊加入 <a href="/labs/stripedAni2.js">颜色和方向变化</a></p>
+<p>animation-direction 有4个值  normal reverse alternate alternate-reverse(正常、反向、来回、反向来回)</p>
+<p>alternate-reverse 定义</p>
+<p>The animation plays backward on the first play-through, then forward on the next, then continues to alternate. The count to determinate if it is an even or an odd iteration starts at one.</p>
+<style>
+#stripedAni2 {
+    height: 20px;
+    background-color: #06c;
+
+    background-image: linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+    background-size: 40px 40px;
+
+    -webkit-animation: progress2 2s infinite linear;
+    animation: progress2 2s infinite linear;
+}
+
+@-webkit-keyframes progress2 {
+    0%{background-position:0 0}
+    100%{background-position:40px 0}
+}
+
+@keyframes progress2 {
+    0%{background-position:0 0}
+    100%{background-position:40px 0}
+}
+</style>
+
+<script src="/labs/stripedAni2.js"></script>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/conditionizr/">conditionizr</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://conditionizr.com" target="_blank" rel="external">conditionizr</a> 蛮难用的。但浏览器检测办法还是可以学学</p>
+<h3 id="Chrome">Chrome</h3>
+<pre>
+conditionizr.add('chrome', [], function () {
+  return !!window.chrome &amp;&amp; !/opera|opr/i.test(navigator.userAgent);
+});
+</pre>
+
+
+<h3 id="Safari">Safari</h3>
+<pre>
+conditionizr.add('safari', [], function () {
+  return /constructor/i.test(window.HTMLElement);
+});
+</pre>
+
+<h3 id="Firefox">Firefox</h3>
+<pre>
+conditionizr.add('firefox', [], function () {
+  return typeof InstallTrigger !== 'undefined';
+});
+</pre>
+
+<h3 id="Opera">Opera</h3>
+<pre>
+conditionizr.add('opera', [], function () {
+  return !!window.opera || /opera|opr/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="IE_10">IE 10</h3>
+<pre>
+conditionizr.add('ie10', [], function () {
+  var version = false;
+  /*@cc_on
+      if (/^10/.test(@_jscript_version) &amp;&amp; /MSIE 10\.0(?!.*IEMobile)/i.test(navigator.userAgent))
+      version = true
+  @*/
+  return version;
+});
+</pre>
+
+<h3 id="IE_10_Touch">IE 10 Touch</h3>
+<pre>
+conditionizr.add('ie10touch', [], function () {
+  return /MSIE 10\.0.*Touch(?!.*IEMobile)/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="IE_9">IE 9</h3>
+<pre>
+conditionizr.add('ie9', [], function () {
+  var version = false;
+  /*@cc_on
+      if (/^9/.test(@_jscript_version) &amp;&amp; /MSIE 9\.0(?!.*IEMobile)/i.test(navigator.userAgent))
+      version = true
+  @*/
+  return version;
+});
+</pre>
+
+<h3 id="IE_8">IE 8</h3>
+<pre>
+conditionizr.add('ie8', [], function () {
+  var version = false;
+  /*@cc_on
+      if (@_jscript_version &gt; 5.7 &amp;&amp; !/^(9|10)/.test(@_jscript_version))
+      version = true
+  @*/
+  return version;
+});
+</pre>
+
+<h3 id="IE_7">IE 7</h3>
+<pre>
+conditionizr.add('ie7', [], function () {
+  var version = false;
+  /*@cc_on
+      if (@_jscript_version == 5.7 &amp;&amp; window.XMLHttpRequest &amp;&amp; /MSIE 7\.0(?!.*IEMobile)/i.test(navigator.userAgent))
+      version = true
+  @*/
+  return version;
+});
+</pre>
+
+<h3 id="IE_6">IE 6</h3>
+<pre>
+conditionizr.add('ie6', [], function () {
+  var version = false;
+  /*@cc_on
+      if (@_jscript_version == 5.6 || (@_jscript_version == 5.7 &amp;&amp; /MSIE 6\.0/i.test(navigator.userAgent)))
+      version = true
+  @*/
+  return version;
+});
+</pre>
+
+<h3 id="Retina">Retina</h3>
+<pre>
+conditionizr.add('retina', [], function () {
+  return !!window.devicePixelRatio &gt;= 1.5;
+});
+</pre>
+
+<h3 id="Touch">Touch</h3>
+<pre>
+conditionizr.add('touch', [], function () {
+  return !!'ontouchstart' in window || !!navigator.msMaxTouchPoints;
+});
+</pre>
+
+<h3 id="iOS">iOS</h3>
+<pre>
+conditionizr.add('ios', [], function () {
+  return /(iPad|iPhone|iPod)/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="Windows_Phone_8">Windows Phone 8</h3>
+<pre>
+conditionizr.add('winPhone8', [], function () {
+  return /Windows Phone 8.0/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="Windows_Phone_7-5">Windows Phone 7.5</h3>
+<pre>
+conditionizr.add('winPhone75', [], function () {
+  return /Windows Phone 7.5/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="Windows_Phone_7">Windows Phone 7</h3>
+<pre>
+conditionizr.add('winPhone7', [], function () {
+  return /Windows Phone 7.0/i.test(navigator.userAgent);
+});
+</pre>
+
+<h3 id="Mac">Mac</h3>
+<pre>
+conditionizr.add('mac', [], function () {
+  return /mac/i.test(navigator.platform);
+});
+</pre>
+
+<h3 id="Windows">Windows</h3>
+<pre>
+conditionizr.add('windows', [], function () {
+  return /win/i.test(navigator.platform);
+});
+</pre>
+
+<h3 id="Chromium">Chromium</h3>
+<pre>
+conditionizr.add('chromium', [], function () {
+  return /cros i686/i.test(navigator.platform);
+});
+</pre>
+
+<h3 id="Linux">Linux</h3>
+<pre>
+conditionizr.add('linux', [], function () {
+  return /linux/i.test(navigator.platform) &amp;&amp; !/android|cros/i.test(navigator.userAgent);
+});
+</pre>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/web/php-create-jsonp/">php create jsonp</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
@@ -102,12 +360,12 @@ echo isset($_GET['callback'])
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
+          <span class="d">31</span>
+          <span class="ym">10/2014</span>
         </div>
       </div> 
     <h1 class="title"><a href="/web/gs-weather.com.cn/">gs weather.com.cn</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+ <div class="meta">最后更新: <span class="pubTime">Fri Oct 31 2014 17:37:37 GMT+0800</span></div>
     </header>
     <div class="entry">
       
@@ -135,6 +393,7 @@ echo isset($_GET['callback'])
 <p>weather.com.cn json 地址是：(101110101 是 西安 id)</p>
 <pre>http://m.weather.com.cn/data/101110101.html</pre>
 
+<p>guoshuang2014-10-31 17:37:34+ <a href="http://m.weather.com.cn/atad/101110101.html" target="_blank" rel="external">http://m.weather.com.cn/atad/101110101.html</a></p>
 <p>可惜 json 不能跨域。必须后台，只好写了个 php 转换为 jsonp（大家可用，但不保证一直能用）。这个可以跨域，直接  javascript 就可以了。</p>
 <pre>http://labs.guoshuang.com/weather/weather.com.cn.php?cid=101110101</pre>
 
@@ -312,408 +571,6 @@ http://api.wunderground.com/api/11111/forecast/lang:CN/q/china/xian.json
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/css3-column/">css3 column</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <style> 
-.newspaper {
-    margin-top: 20px;
-    column-count:3; -moz-column-count:3; -webkit-column-count:3;
-    column-gap:40px;-moz-column-gap:40px;-webkit-column-gap:40px;
-    column-rule:3px dotted #ccc;-moz-column-rule:3px dotted #ccc;-webkit-column-rule:3px dotted #ccc;
-}
-.newspaper2 {
-    margin-top: 20px;
-    column-width:5em;-moz-column-width:5em;-webkit-column-width:5em;
-}
-.newspaper3 {
-    margin-top: 20px;
-    columns:80px 3;-moz-columns:80px 3;-webkit-columns:80px 3;
-}
-</style>
-
-<div class="newspaper"><br>    <p>1、太史公自序  且夫孝始于事亲，中于事君，终于立身。 《易》曰‘失之豪厘，差以千里’。   夫礼禁未然之前，法施已然之后；法之所为用者易见，而礼之所为禁者难知。</p>  <p>2、（史记·项羽本纪）  楚虽三户，亡秦必楚。 嗟夫，大丈夫生当如此也。  彼可取而代也。 项庄舞剑，意在沛公。  大行不顾细谨，大礼不辞小让。   人为刀俎，我为鱼肉。 战胜而将骄卒惰者败。  力拔山兮气盖世，时不利兮骓不逝。骓不逝兮可奈何，虞兮虞兮奈若何。 自矜功伐，奋其私智而不师古，谓霸王之业，欲以力征经营天下，五年卒亡 其国，身死东城，尚不觉寐而不自责，过矣。  </p><br>    <p>3、（高祖本纪）  忠言逆耳利于行，毒药苦口利于病。  夫运筹策帷帐之中，决胜于千里之外，吾不如子房。  大风起兮云飞扬，威加海内兮归故乡，安得猛士兮守四方！   </p><br>    <p>4、孔子世家  孔子曰：“君子固穷，小人穷则滥矣。”</p><br></div>
-
-<div class="newspaper2"><br>    <p>1、太史公自序  且夫孝始于事亲，中于事君，终于立身。 《易》曰‘失之豪厘，差以千里’。   夫礼禁未然之前，法施已然之后；法之所为用者易见，而礼之所为禁者难知。</p>  <p>2、（史记·项羽本纪）  楚虽三户，亡秦必楚。 嗟夫，大丈夫生当如此也。  彼可取而代也。 项庄舞剑，意在沛公。  大行不顾细谨，大礼不辞小让。   人为刀俎，我为鱼肉。 战胜而将骄卒惰者败。  力拔山兮气盖世，时不利兮骓不逝。骓不逝兮可奈何，虞兮虞兮奈若何。 自矜功伐，奋其私智而不师古，谓霸王之业，欲以力征经营天下，五年卒亡 其国，身死东城，尚不觉寐而不自责，过矣。  </p><br>    <p>3、（高祖本纪）  忠言逆耳利于行，毒药苦口利于病。  夫运筹策帷帐之中，决胜于千里之外，吾不如子房。  大风起兮云飞扬，威加海内兮归故乡，安得猛士兮守四方！   </p><br>    <p>4、孔子世家  孔子曰：“君子固穷，小人穷则滥矣。”</p><br></div>
-
-<div class="newspaper3"><br>    <p>1、太史公自序  且夫孝始于事亲，中于事君，终于立身。 《易》曰‘失之豪厘，差以千里’。   夫礼禁未然之前，法施已然之后；法之所为用者易见，而礼之所为禁者难知。</p>  <p>2、（史记·项羽本纪）  楚虽三户，亡秦必楚。 嗟夫，大丈夫生当如此也。  彼可取而代也。 项庄舞剑，意在沛公。  大行不顾细谨，大礼不辞小让。   人为刀俎，我为鱼肉。 战胜而将骄卒惰者败。  力拔山兮气盖世，时不利兮骓不逝。骓不逝兮可奈何，虞兮虞兮奈若何。 自矜功伐，奋其私智而不师古，谓霸王之业，欲以力征经营天下，五年卒亡 其国，身死东城，尚不觉寐而不自责，过矣。  </p><br>    <p>3、（高祖本纪）  忠言逆耳利于行，毒药苦口利于病。  夫运筹策帷帐之中，决胜于千里之外，吾不如子房。  大风起兮云飞扬，威加海内兮归故乡，安得猛士兮守四方！   </p><br>    <p>4、孔子世家  孔子曰：“君子固穷，小人穷则滥矣。”</p><br></div>
-
-<h3 id="css_code">css code</h3>
-<pre>
-.newspaper {
-    margin-top: 20px;
-    column-count:3; -moz-column-count:3; -webkit-column-count:3;
-    column-gap:40px;-moz-column-gap:40px;-webkit-column-gap:40px;
-    column-rule:3px dotted #ccc;-moz-column-rule:3px dotted #ccc;-webkit-column-rule:3px dotted #ccc;
-}
-.newspaper2 {
-    margin-top: 20px;
-    column-width:5em;-moz-column-width:5em;-webkit-column-width:5em;
-}
-.newspaper3 {
-    margin-top: 20px;
-    columns:80px 3;-moz-columns:80px 3;-webkit-columns:80px 3;
-}
-</pre>
-
-<ul>
-<li>column-count  列数量</li>
-<li>column-gap  列空隙宽度</li>
-<li>column-rule   列间边框</li>
-<li>column-width  列宽度</li>
-<li>columns  列宽度和数量</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/bootstrap-less-mixin/">bootstrap less mixin 笔记</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>@import 别人的 less mixin 可以节约大量的时间，：）</p>
-<p><a href="https://github.com/twbs/bootstrap/blob/master/less/mixins.less" target="_blank" rel="external">bootstrap less mixin</a> 有大家风范，值得学习</p>
-<p>2013-11-26 19:44:56+ 类似的还有 <a href="http://lesshat.com/" target="_blank" rel="external">LESS Hat</a> <a href="http://lesselements.com/" target="_blank" rel="external">LESS Elements</a>。 bootstrap less mixin 和 LESS Hat 更好一些。细节可以看这篇文章 <a href="http://designshack.net/articles/css/battle-of-the-less-mixin-libraries-less-elements-vs-less-hat-vs-bootstrap/" target="_blank" rel="external">Battle of the LESS Mixin Libraries: LESS Elements vs. LESS Hat vs. Bootstrap</a></p>
-<h3 id="clearfix">clearfix</h3>
-<p>目前最好的 self clear float 办法</p>
-<pre>
-.clearfix() {
-  &amp;:before,
-  &amp;:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-  }
-  &amp;:after {
-    clear: both;
-  }
-}    
-</pre>
-
-<h3 id="Center-align_a_block_level_element_块元素居中">Center-align a block level element 块元素居中</h3>
-<pre>
-.center-block() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</pre>
-
-<h3 id="Sizing_shortcuts">Sizing shortcuts</h3>
-<pre>
-.size(@width; @height) {
-  width: @width;
-  height: @height;
-}
-.square(@size) {
-  .size(@size; @size);
-}
-</pre>
-
-<h3 id="文字溢出…">文字溢出…</h3>
-<pre>
-// Requires inline-block or block for proper styling
-.text-overflow() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-</pre>
-
-<h3 id="隐藏文字">隐藏文字</h3>
-<pre>
-.text-hide() {
-  font: ~"0/0" a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-</pre>
-
-<h3 id="单边的圆角">单边的圆角</h3>
-<pre>
-.border-top-radius(@radius) {
-  border-top-right-radius: @radius;
-   border-top-left-radius: @radius;
-}
-.border-right-radius(@radius) {
-  border-bottom-right-radius: @radius;
-     border-top-right-radius: @radius;
-}
-.border-bottom-radius(@radius) {
-  border-bottom-right-radius: @radius;
-   border-bottom-left-radius: @radius;
-}
-.border-left-radius(@radius) {
-  border-bottom-left-radius: @radius;
-     border-top-left-radius: @radius;
-}
-</pre>
-
-<h3 id="阴影">阴影</h3>
-<pre>
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow; // iOS <4.3 &="" android="" <4.1="" box-shadow:="" @shadow;="" }="" <="" pre="">
-
-<h3 id="厂商前缀">厂商前缀</h3>
-<p>有些 -webkit- 并不是给 chrome 看的，有可能是“落后”的 safari 或者 android 浏览器。但我感觉手机上还是少用 阴影、3d、animation 等效果 —— “卡”！</p>
-<pre>
-// Transitions
-.transition(@transition) {
-  -webkit-transition: @transition;
-          transition: @transition;
-}
-.transition-property(@transition-property) {
-  -webkit-transition-property: @transition-property;
-          transition-property: @transition-property;
-}
-.transition-delay(@transition-delay) {
-  -webkit-transition-delay: @transition-delay;
-          transition-delay: @transition-delay;
-}
-.transition-duration(@transition-duration) {
-  -webkit-transition-duration: @transition-duration;
-          transition-duration: @transition-duration;
-}
-.transition-transform(@transition) {
-  -webkit-transition: -webkit-transform @transition;
-     -moz-transition: -moz-transform @transition;
-       -o-transition: -o-transform @transition;
-          transition: transform @transition;
-}
-
-// Transformations
-.rotate(@degrees) {
-  -webkit-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees); // IE9+
-          transform: rotate(@degrees);
-}
-.scale(@ratio) {
-  -webkit-transform: scale(@ratio);
-      -ms-transform: scale(@ratio); // IE9+
-          transform: scale(@ratio);
-}
-.translate(@x; @y) {
-  -webkit-transform: translate(@x, @y);
-      -ms-transform: translate(@x, @y); // IE9+
-          transform: translate(@x, @y);
-}
-.skew(@x; @y) {
-  -webkit-transform: skew(@x, @y);
-      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
-          transform: skew(@x, @y);
-}
-.translate3d(@x; @y; @z) {
-  -webkit-transform: translate3d(@x, @y, @z);
-          transform: translate3d(@x, @y, @z);
-}
-
-.rotateX(@degrees) {
-  -webkit-transform: rotateX(@degrees);
-      -ms-transform: rotateX(@degrees); // IE9+
-          transform: rotateX(@degrees);
-}
-.rotateY(@degrees) {
-  -webkit-transform: rotateY(@degrees);
-      -ms-transform: rotateY(@degrees); // IE9+
-          transform: rotateY(@degrees);
-}
-.perspective(@perspective) {
-  -webkit-perspective: @perspective;
-     -moz-perspective: @perspective;
-          perspective: @perspective;
-}
-.perspective-origin(@perspective) {
-  -webkit-perspective-origin: @perspective;
-     -moz-perspective-origin: @perspective;
-          perspective-origin: @perspective;
-}
-.transform-origin(@origin) {
-  -webkit-transform-origin: @origin;
-     -moz-transform-origin: @origin;
-          transform-origin: @origin;
-}
-
-// Animations
-.animation(@animation) {
-  -webkit-animation: @animation;
-          animation: @animation;
-}
-</pre>
-
-<h3 id="防止_css_3d_transforms_时的闪烁（bug）">防止 css 3d transforms 时的闪烁（bug）</h3>
-<pre>
-// Backface visibility
-// Prevent browsers from flickering when using CSS 3D transforms.
-// Default value is "visible", but can be changed to "hidden"
-.backface-visibility(@visibility){
-  -webkit-backface-visibility: @visibility;
-     -moz-backface-visibility: @visibility;
-          backface-visibility: @visibility;
-}
-</pre>
-
-<h3 id="选择_user-select">选择 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/user-select" target="_blank" rel="external">user-select</a></h3>
-<p>none 表示禁止用户选择（很多操作，如点击、拖拽等 会导致双击选择文字！蓝汪汪一片。。。）</p>
-<ul>
-<li>all 全部（默认）</li>
-<li>none 不能选</li>
-<li>text 只能选文字</li>
-<li>elemement </li>
-</ul>
-<pre>
-// For selecting text on the page
-.user-select(@select) {
-  -webkit-user-select: @select;
-     -moz-user-select: @select;
-      -ms-user-select: @select; // IE10+
-       -o-user-select: @select;
-          user-select: @select;
-}
-</pre>
-
-<p>其实还有一个</p>
-<pre>
--webkit-touch-callout: none;
-</pre>
-
-<h3 id="css_resize">css resize</h3>
-<pre>
-.resizable(@direction) {
-  resize: @direction; // Options: horizontal, vertical, both
-  overflow: auto; // Safari fix
-}
-</pre>
-
-<h3 id="css_columns">css columns</h3>
-<p>列数、缝隙宽度</p>
-<pre>
-.content-columns(@column-count; @column-gap: @grid-gutter-width) {
-  -webkit-column-count: @column-count;
-     -moz-column-count: @column-count;
-          column-count: @column-count;
-  -webkit-column-gap: @column-gap;
-     -moz-column-gap: @column-gap;
-          column-gap: @column-gap;
-}
-</pre>
-
-<h3 id="hyphens_连字符">hyphens 连字符</h3>
-<p>英文单词换行时候的尴尬，中文没这个问题。</p>
-<ul>
-<li>none 不用连字符，单词直接到下一行开始</li>
-<li>manual 在单词中间加入  <strong><em>&amp;shy;</em></strong> 建议给浏览器的断词位置！</li>
-<li>auto 自动断词</li>
-</ul>
-<p>用 firefox 看看<a href="https://developer.mozilla.org/samples/cssref/hyphens.html" target="_blank" rel="external">这个 css hyphens 例子</a></p>
-<pre>
-.hyphens(@mode: auto) {
-  word-wrap: break-word;
-  -webkit-hyphens: @mode;
-     -moz-hyphens: @mode;
-      -ms-hyphens: @mode; // IE10+
-       -o-hyphens: @mode;
-          hyphens: @mode;
-}
-</pre>
-
-<h3 id="透明">透明</h3>
-<p>其实就是折腾 ie67 8 </p>
-<pre>
-.opacity(@opacity) {
-  opacity: @opacity;
-  // IE8 filter
-  @opacity-ie: (@opacity * 100);
-  filter: ~"alpha(opacity=@{opacity-ie})";
-}
-</pre>
-
-<h3 id="Retina_images">Retina images</h3>
-<p>根据屏幕（主要是苹果设备的精细屏）选择（两）倍尺寸的大图片。因为这时 px 没意义。而位图放大会变虚。我记得，似乎只有 opera 缩放图片用的是 双立方。其它都是 nearest neibour,line… 之类</p>
-<pre>
-.img-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
-  background-image: url("@{file-1x}");
-
-  @media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (   min--moz-device-pixel-ratio: 2),
-  only screen and (     -o-min-device-pixel-ratio: 2/1),
-  only screen and (        min-device-pixel-ratio: 2),
-  only screen and (                min-resolution: 192dpi),
-  only screen and (                min-resolution: 2dppx) {
-    background-image: url("@{file-2x}");
-    background-size: @width-1x @height-1x;
-  }
-}
-</pre>
-
-
-<h3 id="图片自适应大小">图片自适应大小</h3>
-<pre>
-/ Keep images from scaling beyond the width of their parents.
-
-.img-responsive(@display: block;) {
-  display: @display;
-  max-width: 100%; // Part 1: Set a maximum relative to the parent
-  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
-}
-</pre>
-
-<h3 id="水平线">水平线</h3>
-<pre>
-// Dividers (basically an hr) within dropdowns and nav lists
-.nav-divider(@color: #e5e5e5) {
-  height: 1px;
-  margin: ((@line-height-computed / 2) - 1) 0;
-  overflow: hidden;
-  background-color: @color;
-}
-</pre>
-
-<p>在 <a href="https://github.com/twbs/bootstrap/blob/master/less/variables.less" target="_blank" rel="external">bootstrap variables.less</a> 中</p>
-<pre>
-@font-size-base:14px;
-@line-height-base:        1.428571429; // 20/14
-
-@line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
-</pre> 
-
-<p>未完…</p>
-</4.3></pre>
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/20/" class="alignleft prev">上一页</a>
@@ -727,14 +584,14 @@ http://api.wunderground.com/api/11111/forecast/lang:CN/q/china/xian.json
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    
@@ -742,7 +599,7 @@ http://api.wunderground.com/api/11111/forecast/lang:CN/q/china/xian.json
 </div>
 
 <footer id="footer" class="inner"><div class="alignleft">
-    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+    &copy; 2015  <a href="https://plus.google.com/112004170577825985894"
  rel="author">David Guoshuang</a>
   </div>
 <div class="clearfix"></div></footer>

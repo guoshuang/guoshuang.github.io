@@ -3,13 +3,35 @@
   <title><![CDATA[Digest of guoshuang]]></title>
   <link href="http://guoshuang.com/atom.xml" rel="self"/>
   <link href="http://guoshuang.com"/>
-  <updated>2014-10-09T03:29:46.106Z</updated>
+  <updated>2015-01-12T10:34:32.165Z</updated>
   <id>http://guoshuang.com/</id>
   <author>
     <name><![CDATA[David Guoshuang]]></name>
     <email><![CDATA[davidguoshuang@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[location search change without reload]]></title>
+    <link href="http://guoshuang.com/javascript/location-search-change-without-reload/"/>
+    <id>http://guoshuang.com/javascript/location-search-change-without-reload/</id>
+    <published>2014-11-25T08:21:21.000Z</published>
+    <updated>2014-11-25T08:21:31.000Z</updated>
+    <content type="html"><![CDATA[<p> history.replaceState(null, “GlyphSearch”, “?” + $.param(qs));</p>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/javascript/" term="javascript"/>
+    <category scheme="http://guoshuang.com/cat/javascript/" term="javascript"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[user agent determine]]></title>
+    <link href="http://guoshuang.com/web/useragent-determine/"/>
+    <id>http://guoshuang.com/web/useragent-determine/</id>
+    <published>2014-11-05T09:01:22.000Z</published>
+    <updated>2014-11-05T09:03:23.000Z</updated>
+    <content type="html"><![CDATA[<p><code><br>var browser = {<br>versions: function () {<br>    var u = navigator.userAgent, app = navigator.appVersion;<br>    return {//移动终端浏览器版本信息<br>        trident: u.indexOf(‘Trident’) &gt; -1, //IE内核<br>        presto: u.indexOf(‘Presto’) &gt; -1, //opera内核<br>        webKit: u.indexOf(‘AppleWebKit’) &gt; -1, //苹果、谷歌内核<br>        gecko: u.indexOf(‘Gecko’) &gt; -1 &amp;&amp; u.indexOf(‘KHTML’) == -1, //火狐内核<br>        mobile: !!u.match(/AppleWebKit.<em>Mobile.</em>/) || !!u.match(/AppleWebKit/), //是否为移动终端<br>        ios: !!u.match(/(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端<br>        MSIE: u.indexOf(‘MSIE’) &gt; -1 || u.indexOf(‘Trident’) &gt; -1, //是否IE<br>        WOW64MSIE: u.indexOf(‘WOW64’) &gt; -1 &amp;&amp; u.indexOf(‘MSIE’) &gt; -1, //是否为64位系统和IE浏览器<br>        android1: u.indexOf(‘Android’) &gt; -1 &amp;&amp; u.indexOf(‘Linux’) &gt; -1, //android 4.2版本以下终端或者uc浏览器<br>        android2: u.indexOf(‘Android 4.2’) &gt; -1 || u.indexOf(‘Android 4.3’) &gt; -1 || u.indexOf(‘Android 4.4’) &gt; -1 || u.indexOf(‘Android 5.0’) &gt; -1 &amp;&amp; u.indexOf(‘Linux’) &gt; -1, //android 4.2版本以上终端或者uc浏览器<br>        iPhone: u.indexOf(‘iPhone’) &gt; -1 || u.indexOf(‘Mac’) &gt; -1, //是否为iPhone或者QQHD浏览器<br>        iPad: u.indexOf(‘iPad’) &gt; -1, //是否iPad<br>        webApp: u.indexOf(‘Safari’) == -1 //是否web应该程序，没有头部与底部<br>    };<br>}(),<br>language:(navigator.browserLanguage || navigator.language).toLowerCase()<br>}</code></p>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/web/" term="web"/>
+    <category scheme="http://guoshuang.com/cat/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[text overflow ellipsis on multiline]]></title>
     <link href="http://guoshuang.com/css/text-overflow-ellipsis-on-multiline/"/>
@@ -686,52 +708,5 @@ $.fn.btn = btn // assigns bootstrap button functionality to $.fn.btn
     <category scheme="http://guoshuang.com/tag/bootstrap/" term="bootstrap"/>
     <category scheme="http://guoshuang.com/tag/jqueryui/" term="jqueryui"/>
     <category scheme="http://guoshuang.com/cat/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[chrome textarea auto height]]></title>
-    <link href="http://guoshuang.com/html5/chrome-textarea-auto-height/"/>
-    <id>http://guoshuang.com/html5/chrome-textarea-auto-height/</id>
-    <published>2014-06-04T08:19:58.000Z</published>
-    <updated>2014-09-10T04:37:50.000Z</updated>
-    <content type="html"><![CDATA[<p>chrome 直接 overflow-y:visible 是不行的。</p>
-<p>用 js</p>
-<textarea style="overflow-y:hidden;line-height:25px;font-size:14px;padding:10px;width:90%;height:100px;resize:none;" onkeyup="this.style.height=0;this.style.height=this.scrollHeight+'px';">1<br>2<br>3<br>4 </textarea>
-
-<p>或者 contenteditable </p>
-<div contenteditable="true" style="white-space: pre-wrap;border:solid 1px #ccc;padding:6px;outline:0;">1<br>2<br>3<br>4</div>]]></content>
-    <category scheme="http://guoshuang.com/tag/chrome/" term="chrome"/>
-    <category scheme="http://guoshuang.com/tag/javscript/" term="javscript"/>
-    <category scheme="http://guoshuang.com/tag/css/" term="css"/>
-    <category scheme="http://guoshuang.com/cat/html5/" term="html5"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[entity 2 css content]]></title>
-    <link href="http://guoshuang.com/css/entity-2-css-content/"/>
-    <id>http://guoshuang.com/css/entity-2-css-content/</id>
-    <published>2014-05-27T07:13:24.000Z</published>
-    <updated>2014-09-10T04:29:11.000Z</updated>
-    <content type="html"><![CDATA[<div id="test-bull"></div>
-
-<pre>
-function string_as_unicode_escape(input) {
-    function pad_four(input) {
-        var l = input.length;
-        if (l == 0) return '0000';
-        if (l == 1) return '000' + input;
-        if (l == 2) return '00' + input;
-        if (l == 3) return '0' + input;
-        return input;
-    }
-    var output = '';
-    for (var i = 0, l = input.length; i &lt; l; i++)
-        output += '\\u' + pad_four(input.charCodeAt(i).toString(16));
-    return output;
-}
-console.log(string_as_unicode_escape$('#test-bull').text()));
-</pre>]]></content>
-    <category scheme="http://guoshuang.com/tag/html/" term="html"/>
-    <category scheme="http://guoshuang.com/tag/entity/" term="entity"/>
-    <category scheme="http://guoshuang.com/tag/css/" term="css"/>
-    <category scheme="http://guoshuang.com/cat/css/" term="css"/>
   </entry>
 </feed>

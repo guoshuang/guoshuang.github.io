@@ -51,6 +51,216 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/life/乌贼-鱿鱼-章鱼的区别/">乌贼 鱿鱼 章鱼的区别</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>网上说法混乱，以下基本取自维基百科。简单说，<strong><em>鱿鱼 是 乌贼 的一种。章鱼不同， 8条腿，头圆圆的家伙。</em></strong> 都喷墨。</p>
+<h3 id="乌贼_Sepiidae">乌贼 Sepiidae</h3>
+<p><img src="http://labs.guoshuang.com/pics/%E4%B9%8C%E8%B4%BC.jpg" alt="乌贼"></p>
+<p>乌贼，又稱墨魚、墨鬥魚，本名烏鰂，与鱿鱼不同的是，<strong>乌贼有一船形石灰质的硬鞘</strong>。</p>
+<h3 id="鱿鱼_Mastigoteuthis_flamea">鱿鱼 Mastigoteuthis flamea</h3>
+<p><img src="http://labs.guoshuang.com/pics/%E9%B1%BF%E9%B1%BC.jpg" alt="鱿鱼"></p>
+<p>鱿鱼，又称句公、柔鱼或鎗乌贼，鱿鱼身体细长，呈长锥形，有十只觸腕，其中两只较长。《本草綱目》引宋代蘇頌《圖經本草》：“一種柔魚，與烏賊相似，但無骨耳。”</p>
+<h3 id="章鱼_Octopoda">章鱼  Octopoda</h3>
+<p><img src="http://labs.guoshuang.com/pics/%E7%AB%A0%E9%B1%BC.jpg" alt="章鱼"></p>
+<p>章鱼，又称八带蛸、坐蛸、死牛、石居、石吸、望潮，<strong>章鱼有8个腕足</strong>。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-repeating-gradient/">css repeating gradient loading progress</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="html5_内置_progress">html5 内置 progress</h3>
+<progress></progress><br><progress value="80" max="100"></progress>
+
+<p>下面是 css 模拟的例子</p>
+<h3 id="css_progress_例子一">css progress 例子一</h3>
+<p>repeating-linear-gradient(角度,颜色,颜色…)</p>
+<ul>
+<li><strong><em>角度</em></strong>  30deg 或者 to left(to left top) 之类</li>
+<li><strong><em>颜色</em></strong>  #cc0000 + 宽度（百分比或者像素）</li>
+</ul>
+<p>比如下面的例子：</p>
+<div id="stripedAnimationDiv2"></div>
+
+<p>修改颜色：<input type="color" value="#0066cc" onchange="$('#stripedAnimationDiv2').css({backgroundColor:this.value})"></p>
+
+<pre>
+background-image: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(255,255,255,.1) 14px, rgba(255,255,255,.1) 28px);
+</pre>
+
+<p>方向：45度；透明 到 透明 宽度14像素；10％（不）透明的白色，宽度14像素</p>
+<h3 id="css_progress_例子二">css progress 例子二</h3>
+<div id="stripedAnimationDiv1"></div>
+
+<pre>
+background-image: repeating-linear-gradient(90deg,red,orange,yellow,green,blue,purple,red);    
+</pre>
+
+<p>90度（水平渐变，赤橙黄绿青蓝紫）青 的英文单词(cyan)不行！：（ 最后到回到红色。</p>
+<p>动画用 background-position-x:100% 不行，没办法只好像素。</p>
+<pre>
+@-webkit-keyframes progress1{
+    0%{background-position: 0 0;}
+    100%{background-position: 400px 0}
+}
+</pre>
+
+<style>
+#stripedAnimationDiv1 {
+height: 20px;    width:400px;
+background-image: repeating-linear-gradient(90deg,red,orange,yellow,green,blue,purple,red);
+-webkit-animation: progress1 3s infinite linear;
+animation: progress1 3s infinite linear;
+}
+
+@-webkit-keyframes progress1{
+    0%{background-position: 0 0;}
+    100%{background-position: 400px 0}
+}
+
+@keyframes progress1{
+    0%{background-position: 0 0;}
+    100%{background-position: 400px 0}
+}
+
+#stripedAnimationDiv2 {
+height: 20px;
+background-color: #06c;
+/*background-image: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(255,255,255,.1) 14px, rgba(255,255,255,.1) 28px);*/
+
+background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+
+background-image: linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+
+background-size: 40px 40px;
+
+-webkit-animation: progress2 3s infinite linear;
+animation: progress2 3s infinite linear;
+}
+
+@-webkit-keyframes progress2 {
+    0%{background-position:0 0}
+    100%{background-position:39.592px 0}
+}
+
+@keyframes progress2 {
+    0%{background-position:0 0}
+    100%{background-position:39.592px 0}
+}
+
+#stripedAnimationDiv3 {
+height: 200px;
+width: 400px;
+background:#cc0000 repeating-radial-gradient(ellipse closest-side, rgba(255,255,255,.1) ,rgba(255,255,255,.1) 10px,transparent 10px,transparent 20px);
+}
+
+.toggleRadial {
+    background:#cc0000 repeating-radial-gradient(ellipse closest-side, transparent,transparent 10px,rgba(255,255,255,.1) 10px,rgba(255,255,255,.1) 20px) !important;
+}
+
+#stripedAnimationDiv4 {
+height: 100px;
+background:#296312;
+background-image:radial-gradient(ellipse closest-side,rgba(255,255,255,0.8),rgba(255,255,255,0));
+background-repeat:no-repeat;
+background-size: 40% 50%;
+background-position: -100% center;
+-webkit-animation: progress4 3s infinite ease-in-out;
+animation: progress4 3s infinite ease-in-out;
+}
+@-webkit-keyframes progress4 {
+    0%{}
+    100%{background-position:200% center}
+}
+@keyframes progress4 {
+    0%{}
+    100%{background-position:200% center}
+}
+
+</style>
+
+<link rel="stylesheet" href="/labs/2013-09-26.css" type="text/css">
+
+<script src="/labs/2013-09-26.js"></script>
+
+<h3 id="放射（radial）渐变">放射（radial）渐变</h3>
+<div id="stripedAnimationDiv3"></div>
+
+<pre>
+background:#cc0000 repeating-radial-gradient(ellipse closest-side, rgba(255,255,255,.1) ,rgba(255,255,255,.1) 10px,transparent 10px,transparent 20px);
+</pre>
+
+<h3 id="放射渐变效果二">放射渐变效果二</h3>
+<div id="stripedAnimationDiv4"></div>
+
+<p>修改颜色：<input type="color" value="#296312" onchange="$('#stripedAnimationDiv4').css({backgroundColor:this.value})"></p>
+
+<p>这个其实不是 repeating-*-gradient。模拟win8启动？</p>
+<h3 id="各自为战">各自为战</h3>
+<p>考量下面的代码，多个背景的属性其实可以各自为战。</p>
+<pre>
+background-image:
+    radial-gradient(rgba(255, 255, 255, 1) 50%, rgba(255,255,255,0) 80%),
+    linear-gradient(rgba(255, 255, 255, 1) 5px, transparent 5px),
+    linear-gradient(0, rgba(0, 100, 0, 0.75) 3px, transparent 3px);
+background-size:
+    400px 60px,
+    15px 15px,
+    7px 7px;
+background-position:
+    1px 1px,
+    -2px -2px,
+    1px 1px;
+background-position:
+        no-repeat,
+        repeat,
+        repeat
+</pre>
+
+
+<p>via</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeating-linear-gradient" target="_blank" rel="external">repeating-linear-gradient</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeating-radial-gradient" target="_blank" rel="external">repeating-radial-gradient</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/mac/ulimit-n/">ulimit -n</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
@@ -305,125 +515,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/frontend/uikit/">uikit 笔记</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="http://getuikit.com/" target="_blank" rel="external">getuikit</a> 似乎比 bootstrap 轻一些</p>
-<ul>
-<li>uikit 没有 responsive.css，需要作者手工写</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/wordpress/wordpress-gallery-shortcode/">wordpress gallery shortcode</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>注意：后台 Settings - Media 中，可以设置 Thumbnail size 默认的缩略图大小。</p>
-<h3 id="默认">默认</h3>
-<p>由id 为 729,732,731,720 的图片组成相册。</p>
-<pre>
-[gallery ids="729,732,731,720"]
-</pre>
-
-<h3 id="在_php_模版文件中">在 php 模版文件中</h3>
-<pre>
-&lt;?php echo do_shortcode('[gallery option1="value1"]'); ?&gt;
-</pre>
-
-<h3 id="orderby">orderby</h3>
-<ul>
-<li>menu_order - you can reorder the images in the Gallery tab of the Add Media pop-up</li>
-<li>title - order by the title of the image in the Media Library</li>
-<li>post_date - sort by date/time</li>
-<li>rand - order randomly</li>
-<li>ID</li>
-</ul>
-<h3 id="order">order</h3>
-<p>ASC 或者 DESC</p>
-<pre>[gallery order="DESC" orderby="ID"]</pre>
-
-<h3 id="columns_列">columns 列</h3>
-<p>0 表示不分列。分列实际上是通过 br style=”clear:both” 来实现的。</p>
-<pre>
-[gallery columns="4"]
-</pre>
-
-<p>注意：自己的主题中需要加 css 处理</p>
-<pre>
-.gallery-columns-3 dt,.gallery-columns-3 dl {display:inline-block;}
-</pre>
-
-<h3 id="id">id</h3>
-<p>注意这个是 上传时关联的 post 的 id!也就是说，某篇文章的 所有附件图片。</p>
-<pre>
-[gallery id="123"]
-</pre>
-
-<h3 id="size">size</h3>
-<p>“thumbnail”, “medium”, “large”, “full” ，默认是 thumbnail</p>
-<pre>
-[gallery size="medium"]
-</pre>
-
-<h3 id="自定义标签">自定义标签</h3>
-<p><strong>itemtag</strong> </p>
-<p>the name of the XHTML tag used to enclose each item in the gallery. The default is “dl”.替换掉 dl </p>
-<p><strong>icontag</strong> </p>
-<p>the name of the XHTML tag used to enclose each thumbnail icon in the gallery. The default is “dt”.替换掉 dt</p>
-<p><strong>captiontag</strong></p>
-<p>the name of the XHTML tag used to enclose each caption. The default is “dd”. For example, to change the gallery markup to use div, span and p tags 替换dd</p>
-<h3 id="link">link</h3>
-<p>默认点击图片链接到 image.php <strong><em>页面</em></strong> 而不是图片文件本身。下面这句 直接链接到 图片文件本身</p>
-<pre>
-[gallery link="file"] 
-</pre>
-
-<h3 id="include">include</h3>
-<p>只显示这些 图片id（IDs）</p>
-<pre>
-[gallery include="23,39,45"] 
-</pre>
-
-<h3 id="exclude">exclude</h3>
-<p>不包括这些 图片id（IDs）</p>
-<p>via <a href="http://codex.wordpress.org/Gallery_Shortcode" target="_blank" rel="external">Gallery_Shortcode</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/27/" class="alignleft prev">上一页</a>
@@ -437,14 +528,14 @@
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    
@@ -452,7 +543,7 @@
 </div>
 
 <footer id="footer" class="inner"><div class="alignleft">
-    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+    &copy; 2015  <a href="https://plus.google.com/112004170577825985894"
  rel="author">David Guoshuang</a>
   </div>
 <div class="clearfix"></div></footer>

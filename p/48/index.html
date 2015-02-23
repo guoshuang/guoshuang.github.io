@@ -47,6 +47,92 @@
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
+          <span class="d">16</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/regular-expression/">正则表达式速查</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Tue Sep 16 2014 11:32:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>正则表达式（Regular Expression,regex）</p>
+<table id="regTable"><thead><tr><th>字符</th><th>描述</th></tr></thead><tbody><tr><th style="text-align:center;">\</th><td>将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，<strong>n</strong>匹配字符<strong>n</strong>。<strong>\n</strong>匹配一个换行符。序列<strong>\\</strong>匹配<strong>\</strong>而<strong>(</strong>则匹配<strong>(</strong>。</td></tr><tr><th style="text-align:center;">^</th><td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配<strong>\n</strong>或<strong>\r</strong>之后的位置。</td></tr><tr><th style="text-align:center;">$</th><td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配<strong>\n</strong>或<strong>\r</strong>之前的位置。</td></tr><tr><th style="text-align:center;"><em></em></th><td>匹配前面的子表达式零次或多次。例如，zo能匹配<strong>z</strong>以及<strong>zoo</strong>。<em>等价于{0,}。</em></td></tr><tr><th style="text-align:center;">+</th><td>匹配前面的子表达式一次或多次。例如，<strong>zo+</strong>能匹配<strong>zo</strong>以及<strong>zoo</strong>，但不能匹配<strong>z</strong>。+等价于{1,}。</td></tr><tr><th style="text-align:center;">?</th><td>匹配前面的子表达式零次或一次。例如，<strong>do(es)?</strong>可以匹配<strong>do</strong>或<strong>does</strong>中的<strong>do</strong>。?等价于{0,1}。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>}</th><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。匹配确定的<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但是能匹配<strong>food</strong>中的两个o。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}</th><td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。至少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，<strong>o{2,}</strong>不能匹配<strong>Bob</strong>中的<strong>o</strong>，但能匹配<strong>foooood</strong>中的所有o。<strong>o{1,}</strong>等价于<strong>o+</strong>。<strong>o{0,}</strong>则等价于<strong>o</strong>。</td></tr><tr><th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}</th><td><span style="font-family:Times New Roman; font-style:italic;">m</span>和<span style="font-family:Times New Roman; font-style:italic;">n</span>均为非负整数，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>&lt;=<span style="font-family:Times New Roman; font-style:italic;">m</span>。最少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次且最多匹配<span style="font-family:Times New Roman; font-style:italic;">m</span>次。例如，<strong>o{1,3}</strong>将匹配<strong>fooooood</strong>中的前三个o。<strong>o{0,1}</strong>等价于<strong>o?</strong>。请注意在逗号和两个数之间不能有空格。</td></tr><tr><th style="text-align:center;">?</th><td>当该字符紧跟在任何一个其他限制符（*,+,?，{<span style="font-family:Times New Roman; font-style:italic;">n</span>}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串<strong>oooo</strong>，<strong>o+?</strong>将匹配单个<strong>o</strong>，而<strong>o+</strong>将匹配所有<strong>o</strong>。</td></tr><tr><th style="text-align:center;">.</th><td>匹配除<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>之外的任何单个字符。要匹配包括<strong>\</strong><span style="font-family:Times New Roman; font-style:italic;"><strong>n</strong></span>在内的任何字符，请使用像<strong>(.|\n)</strong>的模式。</td></tr><tr><th style="text-align:center;">(pattern)</th><td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括號字符，请使用<strong>(</strong>或<strong>)</strong>。</td></tr><tr><th style="text-align:center;">(?:pattern)</th><td>匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符<strong>(|)</strong>来组合一个模式的各个部分是很有用。例如<strong>industr(?:y|ies)</strong>就是一个比<strong>industry|industries</strong>更简略的表达式。</td></tr><tr><th style="text-align:center;">(?=pattern)</th><td>正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<strong>Windows(?=95|98|NT|2000)</strong>能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td></tr><tr><th style="text-align:center;">(?!pattern)</th><td>正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<strong>Windows(?!95|98|NT|2000)</strong>能匹配<strong>Windows3.1</strong>中的<strong>Windows</strong>，但不能匹配<strong>Windows2000</strong>中的<strong>Windows</strong>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td></tr><tr><th style="text-align:center;">(?&lt;=pattern)</th><td>反向肯定预查，与正向肯定预查类似，只是方向相反。例如，<strong>(?&lt;=95|98|NT|2000)Windows</strong>能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>。</td></tr><tr><th style="text-align:center;">(?&lt;!pattern)</th><td>反向否定预查，与正向否定预查类似，只是方向相反。例如<strong>(?&lt;!95|98|NT|2000)Windows</strong>能匹配<strong>3.1Windows</strong>中的<strong>Windows</strong>，但不能匹配<strong>2000Windows</strong>中的<strong>Windows</strong>。</td></tr><tr><th style="text-align:center;">x|y</th><td>匹配x或y。例如，<strong>z|food</strong>能匹配<strong>z</strong>或<strong>food</strong>。<strong>(z|f)ood</strong>则匹配<strong>zood</strong>或<strong>food</strong>。</td></tr><tr><th style="text-align:center;">[xyz]</th><td>字符集合。匹配所包含的任意一个字符。例如，<strong>[abc]</strong>可以匹配<strong>plain</strong>中的<strong>a</strong>。</td></tr><tr><th style="text-align:center;">[^xyz]</th><td>负值字符集合。匹配未包含的任意字符。例如，<strong>[^abc]</strong>可以匹配<strong>plain</strong>中的<strong>plin</strong>。</td></tr><tr><th style="text-align:center;">[a-z]</th><td>字符范围。匹配指定范围内的任意字符。例如，<strong>[a-z]</strong>可以匹配<strong>a</strong>到<strong>z</strong>范围内的任意小写字母字符。</td></tr><tr><th style="text-align:center;">[^a-z]</th><td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，<strong>[^a-z]</strong>可以匹配任何不在<strong>a</strong>到<strong>z</strong>范围内的任意字符。</td></tr><tr><th style="text-align:center;">\b</th><td>匹配一个单词边界，也就是指单词和空格间的位置。例如，<strong>er\b</strong>可以匹配<strong>never</strong>中的<strong>er</strong>，但不能匹配<strong>verb</strong>中的<strong>er</strong>。</td></tr><tr><th style="text-align:center;">\B</th><td>匹配非单词边界。<strong>er\B</strong>能匹配<strong>verb</strong>中的<strong>er</strong>，但不能匹配<strong>never</strong>中的<strong>er</strong>。</td></tr><tr><th style="text-align:center;">\cx</th><td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的<strong>c</strong>字符。</td></tr><tr><th style="text-align:center;">\d</th><td>匹配一个数字字符。等价于<strong>[0-9]</strong>。</td></tr><tr><th style="text-align:center;">\D</th><td>匹配一个非数字字符。等价于<strong>[^0-9]</strong>。</td></tr><tr><th style="text-align:center;">\f</th><td>匹配一个换页符。等价于\x0c和\cL。</td></tr><tr><th style="text-align:center;">\n</th><td>匹配一个换行符。等价于\x0a和\cJ。</td></tr><tr><th style="text-align:center;">\r</th><td>匹配一个回车符。等价于\x0d和\cM。</td></tr><tr><th style="text-align:center;">\s</th><td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<strong>[\f\n\r\t\v]</strong>。</td></tr><tr><th style="text-align:center;">\S</th><td>匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</td></tr><tr><th style="text-align:center;">\t</th><td>匹配一个制表符。等价于\x09和\cI。</td></tr><tr><th style="text-align:center;">\v</th><td>匹配一个垂直制表符。等价于\x0b和\cK。</td></tr><tr><th style="text-align:center;">\w</th><td>匹配包括下划线的任何单词字符。等价于<strong>[A-Za-z0-9<em>]</em></strong>。</td></tr><tr><th style="text-align:center;">\W</th><td>匹配任何非单词字符。等价于<strong>[^A-Za-z0-9]</strong>。</td></tr><tr><th style="text-align:center;">\x<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，<strong>\x41</strong>匹配<strong>A</strong>。<strong>\x041</strong>则等价于<strong>\x04&amp;1</strong>。正則表达式中可以使用ASCII编码。.</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">num</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">num</span>，其中<span style="font-family:Times New Roman; font-style:italic;">num</span>是一个正整数。对所获取的匹配的引用。例如，<strong>(.)\1</strong>匹配两个连续的相同字符。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">n</span>之前至少<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取的子表达式，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为向后引用。否则，如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-7），则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个八进制转义值。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nm</span></th><td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">nm</span>个获得子表达式，则<span style="font-family:Times New Roman; font-style:italic;">nm</span>为向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个后跟文字<span style="font-family:Times New Roman; font-style:italic;">m</span>的向后引用。如果前面的条件都不满足，若<span style="font-family:Times New Roman; font-style:italic;">n</span>和<span style="font-family:Times New Roman; font-style:italic;">m</span>均为八进制数字（0-7），则\<span style="font-family:Times New Roman; font-style:italic;">nm</span>将匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>。</td></tr><tr><th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nml</span></th><td>如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-3），且<span style="font-family:Times New Roman; font-style:italic;">m和l</span>均为八进制数字（0-7），则匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>l。</td></tr><tr><th style="text-align:center;">\u<span style="font-family:Times New Roman; font-style:italic;">n</span></th><td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>是一个用四个十六进制数字表示的Unistrong字符。例如，\u00A9匹配版权符号（©）。</td></tr></tbody></table>
+
+<style>
+#regTable {border-collapse: collapse;}
+#regTable th {font-size:1.em;}
+#regTable tbody th {color:#3a7312;}
+#regTable td,#regTable th {border:solid 1px #ccc;padding:6px;}
+#regTable strong {line-height: 20px}
+#regTable strong:before {display:none;}
+</style>
+
+<p>参考：</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">MDN RegExp</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/sublime-package-control/">安装 sublime 包管理器</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="安装">安装</h3>
+<p>打开 sublime,<key><kbd>ctrl</kbd>+<kbd>`</kbd></key> 打开控制台，运行下面代码</p>
+<p>Sublime 3</p>
+<pre>
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+</pre>    
+
+<p>Sublime 2</p>
+<pre>
+import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')
+</pre>
+
+<p>重启 sublime。</p>
+<h3 id="使用">使用</h3>
+<p><key><kbd class="mac"></kbd>+<kbd>shift</kbd>+<kbd>p</kbd></key> 然后输入 <strong><em>package</em></strong>，选择命令 <strong><em>Install Package</em></strong>，然后输入要安装的包名字，选择之。</p>
+<h3 id="延伸">延伸</h3>
+<p>其实，选择 Preferenes - browser packages，打开包目录，这里就是 sublime 的包所在目录，你可以直接下载，然后拷贝到这里，如</p>
+<ul>
+<li><a href="https://github.com/thinkpixellab/flatland.git" target="_blank" rel="external">https://github.com/thinkpixellab/flatland.git</a> flatland 主题</li>
+<li><a href="https://github.com/SublimeText/Tag.git" target="_blank" rel="external">https://github.com/SublimeText/Tag.git</a> html 书写工具</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://wbond.net/sublime_packages/package_control/installation" target="_blank" rel="external">http://wbond.net/sublime_packages/package_control/installation</a></li>
+<li><a href="http://wbond.net/sublime_packages/package_control/usage" target="_blank" rel="external">http://wbond.net/sublime_packages/package_control/usage</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
           <span class="d">10</span>
           <span class="ym">09/2014</span>
         </div>
@@ -252,77 +338,6 @@ strong.hide {color:#999;visibility:hidden;color:#c00;margin-left:10px;}
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo-zero-file/">hexo zero file</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>hexo 经常出错，生成 0 字节大小的文件。而且 hexo generate 也不能修复，必须手工删除，下次 hexo generate 才行</p>
-<p>进入 hexo 的 <strong style="color:#c00">public</strong> 目录</p>
-<p>找到所有 0 字节文件</p>
-<p><code>find . -size 0</code></p>
-<p>删除这些 0 字节文件 <strong style="color:#c00">看清楚！别弄错了目录！</strong></p>
-<p><code>find . -size 0 -exec rm {} +</code></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/mac/man-pageup-down/">man pagedown pageup</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>比如 <code>man find</code> 内容很长，找东西很不方便。</p>
-<h2 id="在_man_中">在 man 中</h2>
-<p>Mac 没有pageup down键，所以只能用 b(back) f(forward)</p>
-<p><kbd>f</kbd> 或者 <kbd>z</kbd>  向前（下）翻页</p>
-<p><kbd>b</kbd> 或者 <kbd>w</kbd>  向后（上）翻页</p>
-<p><kbd>q</kbd> 退出</p>
-<p><strong>/AAA</strong></p>
-<p>向前（下）查找AAA </p>
-<p><strong>?AAA</strong> </p>
-<p>向后（上）查找AAA</p>
-<p><kbd>n</kbd> 继续查找  <kbd>N</kbd> 反方向继续查找</p>
-<p><kbd>d</kbd> 向前（下）半页<br><kbd>u</kbd> 向后（上）半页</p>
-<p><kbd>h</kbd> 快捷键 帮助</p>
-<h2 id="在_vim_中">在 vim 中</h2>
-<p><kbd>ctrl</kbd>+<kbd>f</kbd> 向前（下）翻页</p>
-<p><kbd>ctrl</kbd>+<kbd>b</kbd> 向后（上）翻页</p>
-<h2 id="其它办法">其它办法</h2>
-<p><code>man find &gt; 1.txt</code> 然后打开 1.txt 慢慢看</p>
-<p><code>man find | pbcopy</code> 已经拷贝到系统剪贴板了，找个文本编辑器粘贴吧</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/47/" class="alignleft prev">上一页</a>
@@ -336,14 +351,14 @@ strong.hide {color:#999;visibility:hidden;color:#c00;margin-left:10px;}
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>74</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>13</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    
@@ -351,7 +366,7 @@ strong.hide {color:#999;visibility:hidden;color:#c00;margin-left:10px;}
 </div>
 
 <footer id="footer" class="inner"><div class="alignleft">
-    &copy; 2014  <a href="https://plus.google.com/112004170577825985894"
+    &copy; 2015  <a href="https://plus.google.com/112004170577825985894"
  rel="author">David Guoshuang</a>
   </div>
 <div class="clearfix"></div></footer>

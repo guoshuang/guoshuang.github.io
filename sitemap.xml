@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://guoshuang.com/javascript/location-search-change-without-reload/</loc>
+    <lastmod>2014-11-25T08:21:31.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/web/useragent-determine/</loc>
+    <lastmod>2014-11-05T09:03:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/web/gs-weather.com.cn/</loc>
+    <lastmod>2014-10-31T09:37:37.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://guoshuang.com/design/gs-ajax-percent-loading/</loc>
     <lastmod>2014-10-09T03:10:28.000Z</lastmod>
   </url>
@@ -51,10 +63,6 @@
   <url>
     <loc>http://guoshuang.com/labs/all.html</loc>
     <lastmod>2014-09-10T04:57:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/web/protocol-less-url/</loc>
-    <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
     <loc>http://guoshuang.com/wordpress/wp_title/</loc>
@@ -129,7 +137,7 @@
     <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/web/robots-txt/</loc>
+    <loc>http://guoshuang.com/web/protocol-less-url/</loc>
     <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
@@ -157,7 +165,7 @@
     <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/web/gs-weather.com.cn/</loc>
+    <loc>http://guoshuang.com/web/robots-txt/</loc>
     <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
@@ -529,19 +537,11 @@
     <lastmod>2014-09-10T04:39:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/life/wish/</loc>
-    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/hexo/github-pages-customize-404/</loc>
-    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://guoshuang.com/life/刘慈欣/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/life/围城/</loc>
+    <loc>http://guoshuang.com/hexo/github-pages-customize-404/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -570,6 +570,14 @@
   </url>
   <url>
     <loc>http://guoshuang.com/life/隗嚣/</loc>
+    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/life/乌贼-鱿鱼-章鱼的区别/</loc>
+    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/life/wish/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -713,11 +721,19 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
+    <loc>http://guoshuang.com/hexo/hexo-quick-publish/</loc>
+    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/hexo/hexo-run-js/</loc>
+    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://guoshuang.com/javascript/javascript-fun/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-quick-publish/</loc>
+    <loc>http://guoshuang.com/hexo/hexo-static-file/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -741,7 +757,7 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-run-js/</loc>
+    <loc>http://guoshuang.com/hexo/hexo-tagcloud-limit-40/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -801,7 +817,7 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-static-file/</loc>
+    <loc>http://guoshuang.com/hexo/hexo-tags/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -961,6 +977,10 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
+    <loc>http://guoshuang.com/hexo/hexo-change-url/</loc>
+    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://guoshuang.com/javascript/ie9-headjs-ready-bug/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
@@ -970,18 +990,6 @@
   </url>
   <url>
     <loc>http://guoshuang.com/javascript/headjs/</loc>
-    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/hexo/hexo-change-url/</loc>
-    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/javascript/get-jquery-version/</loc>
-    <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/javascript/get-current-style/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -1045,11 +1053,11 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-typeerror/</loc>
+    <loc>http://guoshuang.com/javascript/get-jquery-version/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-tags/</loc>
+    <loc>http://guoshuang.com/javascript/get-current-style/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
@@ -1113,27 +1121,19 @@
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/hexo/hexo-tagcloud-limit-40/</loc>
+    <loc>http://guoshuang.com/life/围城/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/life/乌贼-鱿鱼-章鱼的区别/</loc>
+    <loc>http://guoshuang.com/hexo/hexo-typeerror/</loc>
     <lastmod>2014-09-10T04:37:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/frontend/fouc-no-js/</loc>
-    <lastmod>2014-09-10T04:36:06.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/frontend/raquo/</loc>
-    <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
     <loc>http://guoshuang.com/frontend/google-map-options/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/frontend/google-speed/</loc>
+    <loc>http://guoshuang.com/frontend/remove-ie-horizontal-scrollbar/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
@@ -1237,15 +1237,15 @@
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/frontend/fontend-optimize/</loc>
+    <loc>http://guoshuang.com/frontend/raquo/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/frontend/express-jade-stylus-coffee/</loc>
+    <loc>http://guoshuang.com/frontend/front-end-questions/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/frontend/remove-ie-horizontal-scrollbar/</loc>
+    <loc>http://guoshuang.com/frontend/fouc-no-js/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
@@ -1290,6 +1290,14 @@
   </url>
   <url>
     <loc>http://guoshuang.com/frontend/why-not-html-minifier/</loc>
+    <lastmod>2014-09-10T04:36:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/frontend/fontend-optimize/</loc>
+    <lastmod>2014-09-10T04:36:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/frontend/express-jade-stylus-coffee/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
@@ -1365,7 +1373,7 @@
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/frontend/front-end-questions/</loc>
+    <loc>http://guoshuang.com/frontend/google-speed/</loc>
     <lastmod>2014-09-10T04:36:06.000Z</lastmod>
   </url>
   <url>
@@ -1377,7 +1385,7 @@
     <lastmod>2014-09-10T04:35:31.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/design/deskjs/</loc>
+    <loc>http://guoshuang.com/design/flot-chart-tips/</loc>
     <lastmod>2014-09-10T04:35:31.000Z</lastmod>
   </url>
   <url>
@@ -1397,11 +1405,11 @@
     <lastmod>2014-09-10T04:35:31.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/design/film-taste/</loc>
+    <loc>http://guoshuang.com/design/deskjs/</loc>
     <lastmod>2014-09-10T04:35:31.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/design/flot-chart-tips/</loc>
+    <loc>http://guoshuang.com/design/film-taste/</loc>
     <lastmod>2014-09-10T04:35:31.000Z</lastmod>
   </url>
   <url>
@@ -1609,14 +1617,6 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/pure-css-pie/</loc>
-    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/css/sass/</loc>
-    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://guoshuang.com/css/bootstrap-narrow/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
@@ -1633,7 +1633,7 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/simulate-google-ajax-indicator-2/</loc>
+    <loc>http://guoshuang.com/css/pure-css-pie/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
@@ -1645,11 +1645,15 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/clear-float/</loc>
+    <loc>http://guoshuang.com/css/bootstrap-less-mixin/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/simulate-google-ajax-indicator/</loc>
+    <loc>http://guoshuang.com/css/sass/</loc>
+    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/css/clear-float/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
@@ -1657,15 +1661,11 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/boring-3dmenu/</loc>
-    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://guoshuang.com/css/bootstrap-less-mixin/</loc>
-    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://guoshuang.com/css/color-ol-list-num-with-css/</loc>
+    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/css/boring-3dmenu/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
@@ -1681,7 +1681,7 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/striped-index-table/</loc>
+    <loc>http://guoshuang.com/css/simulate-google-ajax-indicator-2/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
@@ -1705,15 +1705,15 @@
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
-    <loc>http://guoshuang.com/css/white-space/</loc>
-    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://guoshuang.com/css/css-corner-border/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
     <loc>http://guoshuang.com/css/css-colon-vs-double-colon/</loc>
+    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/css/white-space/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
@@ -1786,6 +1786,14 @@
   </url>
   <url>
     <loc>http://guoshuang.com/css/font-face-type/</loc>
+    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/css/simulate-google-ajax-indicator/</loc>
+    <lastmod>2014-09-10T04:29:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://guoshuang.com/css/striped-index-table/</loc>
     <lastmod>2014-09-10T04:29:11.000Z</lastmod>
   </url>
   <url>
