@@ -51,13 +51,84 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
-    <h1 class="title"><a href="/web/can-not-sparrow-after-google-2-step/">can not sparrow after google 2 step</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    <h1 class="title"><a href="/css/css-hover-lean/">css hover lean</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
     </header>
     <div class="entry">
       
-        <p>After config Google 2-Step Verification.The Sparrow not WORK!</p>
-<p>Must use <strong><em><a href="https://accounts.google.com/b/0/IssuedAuthSubTokens?hide_authsub=1" target="_blank" rel="external">Application-specific passwords</a></em></strong>!</p>
+        <ul class="css-hover-lean"><br>    <li><a href="#1"><span>菜单 1</span></a></li><br>    <li><a href="#1"><span>菜单 2</span></a></li><br>    <li><a href="#1"><span>菜单 3</span></a></li><br></ul>
+
+<div class="clearfix"></div>
+
+<ul class="css-hover-lean2"><br>    <li><a href="#1"><span>菜单 1</span></a></li><br>    <li><a href="#1"><span>菜单 2</span></a></li><br>    <li><a href="#1"><span>菜单 3</span></a></li><br></ul>
+
+<div class="clearfix"></div>
+
+<ul class="css-hover-lean3"><br>    <li><a href="#1"><span>菜单 1</span></a></li><br>    <li><a href="#1"><span>菜单 2</span></a></li><br>    <li><a href="#1"><span>菜单 3</span></a></li><br></ul>
+
+<p><style>@import url(/labs/css-hover-lean.css);</style></p>
+<div class="clearfix"></div>
+
+<h3 id="原理">原理</h3>
+<p>其实就是 :before(after)+border</p>
+<pre>
+@color-default:#ddd;
+@color-hover:#258fb8;
+@nav-height:40px;/*导航高度*/
+@lean:20px;/*调整倾斜角度*/
+
+.css-hover-lean {
+    padding: 0;margin: 0;list-style: none;
+    padding-top: 26px;
+    li {
+        float: left;
+        a {
+            display: inline-block;
+            height:@nav-height;line-height:@nav-height;
+            color:#666;
+            span {
+                display: inline-block;
+                background: @color-default;
+                padding: 0 6px;
+            }
+            &amp;:before {
+                content:'';
+                display: inline-block;
+                vertical-align: top;
+                height: 0;width: 0;line-height: 0;
+                border-top:solid 0px red;
+                border-right:solid 0px blue;
+                border-bottom:solid @nav-height @color-default;
+                border-left:solid @lean transparent;
+            }
+            &amp;:after {
+                content:'';
+                display: inline-block;
+                vertical-align: top;
+                height: 0;width: 0;line-height: 0;
+                border-top:solid @nav-height @color-default;
+                border-right:solid @lean transparent;
+                border-bottom:solid 0px blue;
+                border-left:solid 0px transparent;
+            }
+        &amp;:hover {
+            color:#fff;
+            span {
+                background:@color-hover;
+            }
+            &amp;:before {
+                border-bottom-color:@color-hover;
+            }
+            &amp;:after {
+                border-top-color:@color-hover;
+            }
+        }
+        }
+    }
+}
+</pre>
+
+<p>源文件 <a href="/labs/css-hover-lean.less">less</a> 和 <a href="/labs/css-hover-lean.css">css</a></p>
 
       
     </div> 
@@ -112,6 +183,31 @@ animation-fill-mode: both
 <li><a href="http://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="external">http://www.w3schools.com/css/css3_animations.asp</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations</a></li>
 </ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/can-not-sparrow-after-google-2-step/">can not sparrow after google 2 step</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>After config Google 2-Step Verification.The Sparrow not WORK!</p>
+<p>Must use <strong><em><a href="https://accounts.google.com/b/0/IssuedAuthSubTokens?hide_authsub=1" target="_blank" rel="external">Application-specific passwords</a></em></strong>!</p>
 
       
     </div> 
@@ -521,488 +617,6 @@ form-horizontal
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/jquery-fn/">jquery fn list</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>来自 console.log($.fn)</p>
-
-<div id="btn-2013-10-30"><span class="btn">关闭源代码</span></div>
-
-<div id="div2013-10-30"></div>
-
-<script src="/labs/jquery-fn-list.js"></script>
-
-<p><strong><em>add</em></strong></p>
-<pre> function (e,t){var n="string"==typeof e?x(e,t):x.makeArray(e&&e.nodeType?[e]:e),r=x.merge(this.get(),n);return this.pushStack(x.unique(r))}</pre>
-
-<p><strong><em>addBack</em></strong></p>
-<pre> function (e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}</pre>
-
-<p><strong><em>addClass</em></strong></p>
-<pre> function (e){var t,n,r,i,o,s=0,a=this.length,u="string"==typeof e&&e;if(x.isFunction(e))return this.each(function(t){x(this).addClass(e.call(this,t,this.className))});if(u)for(t=(e||"").match(w)||[];a>s;s++)if(n=this[s],r=1===n.nodeType&&(n.className?(" "+n.className+" ").replace(W," "):" ")){o=0;while(i=t[o++])0>r.indexOf(" "+i+" ")&&(r+=i+" ");n.className=x.trim(r)}return this}</pre>
-
-<p><strong><em>after</em></strong></p>
-<pre> function (){return this.domManip(arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})}</pre>
-
-<p><strong><em>ajaxComplete</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>ajaxError</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>ajaxSend</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>ajaxStart</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>ajaxStop</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>ajaxSuccess</em></strong></p>
-<pre> function (e){return this.on(t,e)}</pre>
-
-<p><strong><em>andSelf</em></strong></p>
-<pre> function (e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}</pre>
-
-<p><strong><em>animate</em></strong></p>
-<pre> function (e,t,n,r){var i=x.isEmptyObject(e),o=x.speed(t,n,r),s=function(){var t=jn(this,x.extend({},e),o);(i||q.get(this,"finish"))&&t.stop(!0)};return s.finish=s,i||o.queue===!1?this.each(s):this.queue(o.queue,s)}</pre>
-
-<p><strong><em>append</em></strong></p>
-<pre> function (){return this.domManip(arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=pt(this,e);t.appendChild(e)}})}</pre>
-
-<p><strong><em>appendTo</em></strong></p>
-<pre> function (e){var n,r=[],i=x(e),o=i.length-1,s=0;for(;o>=s;s++)n=s===o?this:this.clone(!0),x(i[s])[t](n),h.apply(r,n.get());return this.pushStack(r)}</pre>
-
-<p><strong><em>attr</em></strong></p>
-<pre> function (e,t){return x.access(this,x.attr,e,t,arguments.length>1)}</pre>
-
-<p><strong><em>before</em></strong></p>
-<pre> function (){return this.domManip(arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})}</pre>
-
-<p><strong><em>bind</em></strong></p>
-<pre> function (e,t,n){return this.on(e,null,t,n)}</pre>
-
-<p><strong><em>blur</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>change</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>children</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>clearQueue</em></strong></p>
-<pre> function (e){return this.queue(e||"fx",[])}</pre>
-
-<p><strong><em>click</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>clone</em></strong></p>
-<pre> function (e,t){return e=null==e?!1:e,t=null==t?e:t,this.map(function(){return x.clone(this,e,t)})}</pre>
-
-<p><strong><em>closest</em></strong></p>
-<pre> function (e,t){var n,r=0,i=this.length,o=[],s=Q.test(e)||"string"!=typeof e?x(e,t||this.context):0;for(;i>r;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(11>n.nodeType&&(s?s.index(n)>-1:1===n.nodeType&&x.find.matchesSelector(n,e))){n=o.push(n);break}return this.pushStack(o.length>1?x.unique(o):o)}</pre>
-
-<p><strong><em>constructor</em></strong></p>
-<pre> function (e,n){return new x.fn.init(e,n,t)}</pre>
-
-<p><strong><em>contents</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>contextmenu</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>css</em></strong></p>
-<pre> function (e,t){return x.access(this,function(e,t,n){var r,i,o={},s=0;if(x.isArray(t)){for(r=qt(e),i=t.length;i>s;s++)o[t[s]]=x.css(e,t[s],!1,r);return o}return n!==undefined?x.style(e,t,n):x.css(e,t)},e,t,arguments.length>1)}</pre>
-
-<p><strong><em>data</em></strong></p>
-<pre> function (e,t){var n,r,i=this[0],o=0,s=null;if(e===undefined){if(this.length&&(s=L.get(i),1===i.nodeType&&!q.get(i,"hasDataAttrs"))){for(n=i.attributes;n.length>o;o++)r=n[o].name,0===r.indexOf("data-")&&(r=x.camelCase(r.slice(5)),P(i,r,s[r]));q.set(i,"hasDataAttrs",!0)}return s}return"object"==typeof e?this.each(function(){L.set(this,e)}):x.access(this,function(t){var n,r=x.camelCase(e);if(i&&t===undefined){if(n=L.get(i,e),n!==undefined)return n;if(n=L.get(i,r),n!==undefined)return n;if(n=P(i,r,undefined),n!==undefined)return n}else this.each(function(){var n=L.get(this,r);L.set(this,r,t),-1!==e.indexOf("-")&&n!==undefined&&L.set(this,e,t)})},null,t,arguments.length>1,null,!0)}</pre>
-
-<p><strong><em>dblclick</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>delay</em></strong></p>
-<pre> function (e,t){return e=x.fx?x.fx.speeds[e]||e:e,t=t||"fx",this.queue(t,function(t,n){var r=setTimeout(t,e);n.stop=function(){clearTimeout(r)}})}</pre>
-
-<p><strong><em>delegate</em></strong></p>
-<pre> function (e,t,n,r){return this.on(t,e,n,r)}</pre>
-
-<p><strong><em>dequeue</em></strong></p>
-<pre> function (e){return this.each(function(){x.dequeue(this,e)})}</pre>
-
-<p><strong><em>detach</em></strong></p>
-<pre> function (e){return this.remove(e,!0)}</pre>
-
-<p><strong><em>domManip</em></strong></p>
-<pre> function (e,t,n){e=f.apply([],e);var r,i,o,s,a,u,l=0,c=this.length,p=this,h=c-1,d=e[0],g=x.isFunction(d);if(g||!(1>=c||"string"!=typeof d||x.support.checkClone)&&st.test(d))return this.each(function(r){var i=p.eq(r);g&&(e[0]=d.call(this,r,i.html())),i.domManip(e,t,n)});if(c&&(r=x.buildFragment(e,this[0].ownerDocument,!1,!n&&this),i=r.firstChild,1===r.childNodes.length&&(r=i),i)){for(o=x.map(mt(r,"script"),ft),s=o.length;c>l;l++)a=r,l!==h&&(a=x.clone(a,!0,!0),s&&x.merge(o,mt(a,"script"))),t.call(this[l],a,l);if(s)for(u=o[o.length-1].ownerDocument,x.map(o,ht),l=0;s>l;l++)a=o[l],at.test(a.type||"")&&!q.access(a,"globalEval")&&x.contains(u,a)&&(a.src?x._evalUrl(a.src):x.globalEval(a.textContent.replace(lt,"")))}return this}</pre>
-
-<p><strong><em>each</em></strong></p>
-<pre> function (e,t){return x.each(this,e,t)}</pre>
-
-<p><strong><em>empty</em></strong></p>
-<pre> function (){var e,t=0;for(;null!=(e=this[t]);t++)1===e.nodeType&&(x.cleanData(mt(e,!1)),e.textContent="");return this}</pre>
-
-<p><strong><em>end</em></strong></p>
-<pre> function (){return this.prevObject||this.constructor(null)}</pre>
-
-<p><strong><em>eq</em></strong></p>
-<pre> function (e){var t=this.length,n=+e+(0>e?t:0);return this.pushStack(n>=0&&t>n?[this[n]]:[])}</pre>
-
-<p><strong><em>error</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>extend</em></strong></p>
-<pre> function (){var e,t,n,r,i,o,s=arguments[0]||{},a=1,u=arguments.length,l=!1;for("boolean"==typeof s&&(l=s,s=arguments[1]||{},a=2),"object"==typeof s||x.isFunction(s)||(s={}),u===a&&(s=this,--a);u>a;a++)if(null!=(e=arguments[a]))for(t in e)n=s[t],r=e[t],s!==r&&(l&&r&&(x.isPlainObject(r)||(i=x.isArray(r)))?(i?(i=!1,o=n&&x.isArray(n)?n:[]):o=n&&x.isPlainObject(n)?n:{},s[t]=x.extend(l,o,r)):r!==undefined&&(s[t]=r));return s}</pre>
-
-<p><strong><em>fadeIn</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>fadeOut</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>fadeTo</em></strong></p>
-<pre> function (e,t,n,r){return this.filter(Lt).css("opacity",0).show().end().animate({opacity:t},e,n,r)}</pre>
-
-<p><strong><em>fadeToggle</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>filter</em></strong></p>
-<pre> function (e){return this.pushStack(et(this,e||[],!1))}</pre>
-
-<p><strong><em>find</em></strong></p>
-<pre> function (e){var t,n=[],r=this,i=r.length;if("string"!=typeof e)return this.pushStack(x(e).filter(function(){for(t=0;i>t;t++)if(x.contains(r[t],this))return!0}));for(t=0;i>t;t++)x.find(e,r[t],n);return n=this.pushStack(i>1?x.unique(n):n),n.selector=this.selector?this.selector+" "+e:e,n}</pre>
-
-<p><strong><em>finish</em></strong></p>
-<pre> function (e){return e!==!1&&(e=e||"fx"),this.each(function(){var t,n=q.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=x.timers,s=r?r.length:0;for(n.finish=!0,x.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;s>t;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}</pre>
-
-<p><strong><em>first</em></strong></p>
-<pre> function (){return this.eq(0)}</pre>
-
-<p><strong><em>focus</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>focusin</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>focusout</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>get</em></strong></p>
-<pre> function (e){return null==e?this.toArray():0>e?this[this.length+e]:this[e]}</pre>
-
-<p><strong><em>has</em></strong></p>
-<pre> function (e){var t=x(e,this),n=t.length;return this.filter(function(){var e=0;for(;n>e;e++)if(x.contains(this,t[e]))return!0})}</pre>
-
-<p><strong><em>hasClass</em></strong></p>
-<pre> function (e){var t=" "+e+" ",n=0,r=this.length;for(;r>n;n++)if(1===this[n].nodeType&&(" "+this[n].className+" ").replace(W," ").indexOf(t)>=0)return!0;return!1}</pre>
-
-<p><strong><em>height</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>hide</em></strong></p>
-<pre> function (e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(qn(t,!0),e,r,i)}</pre>
-
-<p><strong><em>hover</em></strong></p>
-<pre> function (e,t){return this.mouseenter(e).mouseleave(t||e)}</pre>
-
-<p><strong><em>html</em></strong></p>
-<pre> function (e){return x.access(this,function(e){var t=this[0]||{},n=0,r=this.length;if(e===undefined&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!it.test(e)&&!ct[(nt.exec(e)||["",""])[1].toLowerCase()]){e=e.replace(tt,"<$1>");try{for(;r>n;n++)t=this[n]||{},1===t.nodeType&&(x.cleanData(mt(t,!1)),t.innerHTML=e);t=0}catch(i){}}t&&this.empty().append(e)},null,e,arguments.length)}</$1></pre>
-
-<p><strong><em>index</em></strong></p>
-<pre> function (e){return e?"string"==typeof e?g.call(x(e),this[0]):g.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1}</pre>
-
-<p><strong><em>init</em></strong></p>
-<pre> function (e,t,n){var r,i;if(!e)return this;if("string"==typeof e){if(r="<"===e.charat(0)&&">"===e.charAt(e.length-1)&&e.length>=3?[null,e,null]:T.exec(e),!r||!r[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(r[1]){if(t=t instanceof x?t[0]:t,x.merge(this,x.parseHTML(r[1],t&&t.nodeType?t.ownerDocument||t:o,!0)),C.test(r[1])&&x.isPlainObject(t))for(r in t)x.isFunction(this[r])?this[r](t[r]):this.attr(r,t[r]);return this}return i=o.getElementById(r[2]),i&&i.parentNode&&(this.length=1,this[0]=i),this.context=o,this.selector=e,this}return e.nodeType?(this.context=this[0]=e,this.length=1,this):x.isFunction(e)?n.ready(e):(e.selector!==undefined&&(this.selector=e.selector,this.context=e.context),x.makeArray(e,this))}</"===e.charat(0)&&"></pre>
-
-<p><strong><em>innerHeight</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>innerWidth</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>insertAfter</em></strong></p>
-<pre> function (e){var n,r=[],i=x(e),o=i.length-1,s=0;for(;o>=s;s++)n=s===o?this:this.clone(!0),x(i[s])[t](n),h.apply(r,n.get());return this.pushStack(r)}</pre>
-
-<p><strong><em>insertBefore</em></strong></p>
-<pre> function (e){var n,r=[],i=x(e),o=i.length-1,s=0;for(;o>=s;s++)n=s===o?this:this.clone(!0),x(i[s])[t](n),h.apply(r,n.get());return this.pushStack(r)}</pre>
-
-<p><strong><em>is</em></strong></p>
-<pre> function (e){return!!et(this,"string"==typeof e&&Q.test(e)?x(e):e||[],!1).length}</pre>
-
-<p><strong><em>jquery</em></strong></p>
-<pre> "2.0.3"</pre>
-
-<p><strong><em>keydown</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>keypress</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>keyup</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>last</em></strong></p>
-<pre> function (){return this.eq(-1)}</pre>
-
-<p><strong><em>length</em></strong></p>
-<pre> 0</pre>
-
-<p><strong><em>load</em></strong></p>
-<pre> function (e,t,n){if("string"!=typeof e&&nn)return nn.apply(this,arguments);var r,i,o,s=this,a=e.indexOf(" ");return a>=0&&(r=e.slice(a),e=e.slice(0,a)),x.isFunction(t)?(n=t,t=undefined):t&&"object"==typeof t&&(i="POST"),s.length>0&&x.ajax({url:e,type:i,dataType:"html",data:t}).done(function(e){o=arguments,s.html(r?x("<div>").append(x.parseHTML(e)).find(r):e)}).complete(n&&function(e,t){s.each(n,o||[e.responseText,t,e])}),this}</div></pre>
-
-<p><strong><em>map</em></strong></p>
-<pre> function (e){return this.pushStack(x.map(this,function(t,n){return e.call(t,n,t)}))}</pre>
-
-<p><strong><em>mousedown</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mouseenter</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mouseleave</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mousemove</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mouseout</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mouseover</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>mouseup</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>next</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>nextAll</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>nextUntil</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>not</em></strong></p>
-<pre> function (e){return this.pushStack(et(this,e||[],!0))}</pre>
-
-<p><strong><em>off</em></strong></p>
-<pre> function (e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,x(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return(t===!1||"function"==typeof t)&&(n=t,t=undefined),n===!1&&(n=Y),this.each(function(){x.event.remove(this,e,n,t)})}</pre>
-
-<p><strong><em>offset</em></strong></p>
-<pre> function (e){if(arguments.length)return e===undefined?this:this.each(function(t){x.offset.setOffset(this,e,t)});var t,n,i=this[0],o={top:0,left:0},s=i&&i.ownerDocument;if(s)return t=s.documentElement,x.contains(t,i)?(typeof i.getBoundingClientRect!==r&&(o=i.getBoundingClientRect()),n=Hn(s),{top:o.top+n.pageYOffset-t.clientTop,left:o.left+n.pageXOffset-t.clientLeft}):o}</pre>
-
-<p><strong><em>offsetParent</em></strong></p>
-<pre> function (){return this.map(function(){var e=this.offsetParent||s;while(e&&!x.nodeName(e,"html")&&"static"===x.css(e,"position"))e=e.offsetParent;return e||s})}</pre>
-
-<p><strong><em>on</em></strong></p>
-<pre> function (e,t,n,r,i){var o,s;if("object"==typeof e){"string"!=typeof t&&(n=n||t,t=undefined);for(s in e)this.on(s,t,n,e[s],i);return this}if(null==n&&null==r?(r=t,n=t=undefined):null==r&&("string"==typeof t?(r=n,n=undefined):(r=n,n=t,t=undefined)),r===!1)r=Y;else if(!r)return this;return 1===i&&(o=r,r=function(e){return x().off(e),o.apply(this,arguments)},r.guid=o.guid||(o.guid=x.guid++)),this.each(function(){x.event.add(this,e,r,n,t)})}</pre>
-
-<p><strong><em>one</em></strong></p>
-<pre> function (e,t,n,r){return this.on(e,t,n,r,1)}</pre>
-
-<p><strong><em>outerHeight</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>outerWidth</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>parent</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>parents</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>parentsUntil</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>peity</em></strong></p>
-<pre> function (a,b){r&&this.each(function(){var d=h(this),c=d.data("peity");if(c)a&&(c.type=a),h.extend(c.opts,b),c.draw();else{var f=i.defaults[a],e={};h.each(d.data(),function(a,b){a in f&&(e[a]=b)});var l=h.extend({},f,e,b),c=new q(d,a,l);c.draw();d.change(function(){c.draw()}).data("peity",c)}});return this}</pre>
-
-<p><strong><em>plot</em></strong></p>
-<pre> function (b,c){return this.each(function(){a.plot(this,b,c)})}</pre>
-
-<p><strong><em>position</em></strong></p>
-<pre> function (){if(this[0]){var e,t,n=this[0],r={top:0,left:0};return"fixed"===x.css(n,"position")?t=n.getBoundingClientRect():(e=this.offsetParent(),t=this.offset(),x.nodeName(e[0],"html")||(r=e.offset()),r.top+=x.css(e[0],"borderTopWidth",!0),r.left+=x.css(e[0],"borderLeftWidth",!0)),{top:t.top-r.top-x.css(n,"marginTop",!0),left:t.left-r.left-x.css(n,"marginLeft",!0)}}}</pre>
-
-<p><strong><em>prepend</em></strong></p>
-<pre> function (){return this.domManip(arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=pt(this,e);t.insertBefore(e,t.firstChild)}})}</pre>
-
-<p><strong><em>prependTo</em></strong></p>
-<pre> function (e){var n,r=[],i=x(e),o=i.length-1,s=0;for(;o>=s;s++)n=s===o?this:this.clone(!0),x(i[s])[t](n),h.apply(r,n.get());return this.pushStack(r)}</pre>
-
-<p><strong><em>prev</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>prevAll</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>prevUntil</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>promise</em></strong></p>
-<pre> function (e,t){var n,r=1,i=x.Deferred(),o=this,s=this.length,a=function(){--r||i.resolveWith(o,[o])};"string"!=typeof e&&(t=e,e=undefined),e=e||"fx";while(s--)n=q.get(o[s],e+"queueHooks"),n&&n.empty&&(r++,n.empty.add(a));return a(),i.promise(t)}</pre>
-
-<p><strong><em>prop</em></strong></p>
-<pre> function (e,t){return x.access(this,x.prop,e,t,arguments.length>1)}</pre>
-
-<p><strong><em>push</em></strong></p>
-<pre> function push() { [native code] }</pre>
-
-<p><strong><em>pushStack</em></strong></p>
-<pre> function (e){var t=x.merge(this.constructor(),e);return t.prevObject=this,t.context=this.context,t}</pre>
-
-<p><strong><em>queue</em></strong></p>
-<pre> function (e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),n>arguments.length?x.queue(this[0],e):t===undefined?this:this.each(function(){var n=x.queue(this,e,t);x._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&x.dequeue(this,e)})}</pre>
-
-<p><strong><em>ready</em></strong></p>
-<pre> function (e){return x.ready.promise().done(e),this}</pre>
-
-<p><strong><em>remove</em></strong></p>
-<pre> function (e,t){var n,r=e?x.filter(e,this):this,i=0;for(;null!=(n=r[i]);i++)t||1!==n.nodeType||x.cleanData(mt(n)),n.parentNode&&(t&&x.contains(n.ownerDocument,n)&&dt(mt(n,"script")),n.parentNode.removeChild(n));return this}</pre>
-
-<p><strong><em>removeAttr</em></strong></p>
-<pre> function (e){return this.each(function(){x.removeAttr(this,e)})}</pre>
-
-<p><strong><em>removeClass</em></strong></p>
-<pre> function (e){var t,n,r,i,o,s=0,a=this.length,u=0===arguments.length||"string"==typeof e&&e;if(x.isFunction(e))return this.each(function(t){x(this).removeClass(e.call(this,t,this.className))});if(u)for(t=(e||"").match(w)||[];a>s;s++)if(n=this[s],r=1===n.nodeType&&(n.className?(" "+n.className+" ").replace(W," "):"")){o=0;while(i=t[o++])while(r.indexOf(" "+i+" ")>=0)r=r.replace(" "+i+" "," ");n.className=e?x.trim(r):""}return this}</pre>
-
-<p><strong><em>removeData</em></strong></p>
-<pre> function (e){return this.each(function(){L.remove(this,e)})}</pre>
-
-<p><strong><em>removeProp</em></strong></p>
-<pre> function (e){return this.each(function(){delete this[x.propFix[e]||e]})}</pre>
-
-<p><strong><em>replaceAll</em></strong></p>
-<pre> function (e){var n,r=[],i=x(e),o=i.length-1,s=0;for(;o>=s;s++)n=s===o?this:this.clone(!0),x(i[s])[t](n),h.apply(r,n.get());return this.pushStack(r)}</pre>
-
-<p><strong><em>replaceWith</em></strong></p>
-<pre> function (){var e=x.map(this,function(e){return[e.nextSibling,e.parentNode]}),t=0;return this.domManip(arguments,function(n){var r=e[t++],i=e[t++];i&&(r&&r.parentNode!==i&&(r=this.nextSibling),x(this).remove(),i.insertBefore(n,r))},!0),t?this:this.remove()}</pre>
-
-<p><strong><em>resize</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>scroll</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>scrollLeft</em></strong></p>
-<pre> function (i){return x.access(this,function(t,i,o){var s=Hn(t);return o===undefined?s?s[n]:t[i]:(s?s.scrollTo(r?e.pageXOffset:o,r?o:e.pageYOffset):t[i]=o,undefined)},t,i,arguments.length,null)}</pre>
-
-<p><strong><em>scrollTop</em></strong></p>
-<pre> function (i){return x.access(this,function(t,i,o){var s=Hn(t);return o===undefined?s?s[n]:t[i]:(s?s.scrollTo(r?e.pageXOffset:o,r?o:e.pageYOffset):t[i]=o,undefined)},t,i,arguments.length,null)}</pre>
-
-<p><strong><em>select</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>selector</em></strong></p>
-<pre> ""</pre>
-
-<p><strong><em>serialize</em></strong></p>
-<pre> function (){return x.param(this.serializeArray())}</pre>
-
-<p><strong><em>serializeArray</em></strong></p>
-<pre> function (){return this.map(function(){var e=x.prop(this,"elements");return e?x.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!x(this).is(":disabled")&&zt.test(this.nodeName)&&!It.test(e)&&(this.checked||!ot.test(e))}).map(function(e,t){var n=x(this).val();return null==n?null:x.isArray(n)?x.map(n,function(e){return{name:t.name,value:e.replace(Bt,"\r\n")}}):{name:t.name,value:n.replace(Bt,"\r\n")}}).get()}</pre>
-
-<p><strong><em>show</em></strong></p>
-<pre> function (e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(qn(t,!0),e,r,i)}</pre>
-
-<p><strong><em>siblings</em></strong></p>
-<pre> function (n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(K[e]||x.unique(i),J.test(e)&&i.reverse()),this.pushStack(i)}</pre>
-
-<p><strong><em>size</em></strong></p>
-<pre> function (){return this.length}</pre>
-
-<p><strong><em>slice</em></strong></p>
-<pre> function (){return this.pushStack(d.apply(this,arguments))}</pre>
-
-<p><strong><em>slideDown</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>slideToggle</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>slideUp</em></strong></p>
-<pre> function (e,n,r){return this.animate(t,e,n,r)}</pre>
-
-<p><strong><em>sort</em></strong></p>
-<pre> function sort() { [native code] }</pre>
-
-<p><strong><em>splice</em></strong></p>
-<pre> function splice() { [native code] }</pre>
-
-<p><strong><em>stop</em></strong></p>
-<pre> function (e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=undefined),t&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=x.timers,s=q.get(this);if(i)s[i]&&s[i].stop&&r(s[i]);else for(i in s)s[i]&&s[i].stop&&Cn.test(i)&&r(s[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));(t||!n)&&x.dequeue(this,e)})}</pre>
-
-<p><strong><em>submit</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>text</em></strong></p>
-<pre> function (e){return x.access(this,function(e){return e===undefined?x.text(this):this.empty().append((this[0]&&this[0].ownerDocument||o).createTextNode(e))},null,e,arguments.length)}</pre>
-
-<p><strong><em>toArray</em></strong></p>
-<pre> function (){return d.call(this)}</pre>
-
-<p><strong><em>toggle</em></strong></p>
-<pre> function (e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(qn(t,!0),e,r,i)}</pre>
-
-<p><strong><em>toggleClass</em></strong></p>
-<pre> function (e,t){var n=typeof e;return"boolean"==typeof t&&"string"===n?t?this.addClass(e):this.removeClass(e):x.isFunction(e)?this.each(function(n){x(this).toggleClass(e.call(this,n,this.className,t),t)}):this.each(function(){if("string"===n){var t,i=0,o=x(this),s=e.match(w)||[];while(t=s[i++])o.hasClass(t)?o.removeClass(t):o.addClass(t)}else(n===r||"boolean"===n)&&(this.className&&q.set(this,"__className__",this.className),this.className=this.className||e===!1?"":q.get(this,"__className__")||"")})}</pre>
-
-<p><strong><em>trigger</em></strong></p>
-<pre> function (e,t){return this.each(function(){x.event.trigger(e,t,this)})}</pre>
-
-<p><strong><em>triggerHandler</em></strong></p>
-<pre> function (e,t){var n=this[0];return n?x.event.trigger(e,t,n,!0):undefined}</pre>
-
-<p><strong><em>unbind</em></strong></p>
-<pre> function (e,t){return this.off(e,null,t)</pre>
-
-<p><strong><em>undelegate</em></strong></p>
-<pre> function (e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}</pre>
-
-<p><strong><em>unload</em></strong></p>
-<pre> function (e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}</pre>
-
-<p><strong><em>unwrap</em></strong></p>
-<pre> function (){return this.parent().each(function(){x.nodeName(this,"body")||x(this).replaceWith(this.childNodes)}).end()}</pre>
-
-<p><strong><em>val</em></strong></p>
-<pre> function (e){var t,n,r,i=this[0];{if(arguments.length)return r=x.isFunction(e),this.each(function(n){var i;1===this.nodeType&&(i=r?e.call(this,n,x(this).val()):e,null==i?i="":"number"==typeof i?i+="":x.isArray(i)&&(i=x.map(i,function(e){return null==e?"":e+""})),t=x.valHooks[this.type]||x.valHooks[this.nodeName.toLowerCase()],t&&"set"in t&&t.set(this,i,"value")!==undefined||(this.value=i))});if(i)return t=x.valHooks[i.type]||x.valHooks[i.nodeName.toLowerCase()],t&&"get"in t&&(n=t.get(i,"value"))!==undefined?n:(n=i.value,"string"==typeof n?n.replace($,""):null==n?"":n)}}</pre>
-
-<p><strong><em>width</em></strong></p>
-<pre> function (r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return x.access(this,function(t,n,r){var i;return x.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):r===undefined?x.css(t,n,s):x.style(t,n,r,s)},t,o?r:undefined,o,null)}</pre>
-
-<p><strong><em>wrap</em></strong></p>
-<pre> function (e){var t=x.isFunction(e);return this.each(function(n){x(this).wrapAll(t?e.call(this,n):e)})}</pre>
-
-<p><strong><em>wrapAll</em></strong></p>
-<pre> function (e){var t;return x.isFunction(e)?this.each(function(t){x(this).wrapAll(e.call(this,t))}):(this[0]&&(t=x(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){var e=this;while(e.firstElementChild)e=e.firstElementChild;return e}).append(this)),this)}</pre>
-
-<p><strong><em>wrapInner</em></strong></p>
-<pre> function (e){return x.isFunction(e)?this.each(function(t){x(this).wrapInner(e.call(this,t))}):this.each(function(){var t=x(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})}</pre>
-
-<p><strong><em><strong>proto</strong></em></strong></p>
-<pre> Object</pre>
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/23/" class="alignleft prev">上一页</a>
@@ -1016,14 +630,14 @@ form-horizontal
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>1</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>22</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>23</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>6</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

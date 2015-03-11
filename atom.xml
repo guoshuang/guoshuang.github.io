@@ -3,13 +3,26 @@
   <title><![CDATA[Digest of guoshuang]]></title>
   <link href="http://guoshuang.com/atom.xml" rel="self"/>
   <link href="http://guoshuang.com"/>
-  <updated>2015-01-12T10:34:32.165Z</updated>
+  <updated>2015-03-11T09:44:25.976Z</updated>
   <id>http://guoshuang.com/</id>
   <author>
     <name><![CDATA[David Guoshuang]]></name>
     <email><![CDATA[davidguoshuang@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[add mac dock recent items]]></title>
+    <link href="http://guoshuang.com/mac/mac-dock-rencent-items/"/>
+    <id>http://guoshuang.com/mac/mac-dock-rencent-items/</id>
+    <published>2015-03-10T01:26:55.000Z</published>
+    <updated>2015-03-10T01:26:56.000Z</updated>
+    <content type="html"><![CDATA[<p><code>defaults write com.apple.dock persistent-others -array-add &#39;{ &quot;tile-data&quot; = { &quot;list-type&quot; = 1; }; &quot;tile-type&quot; = &quot;recents-tile&quot;; }&#39;</code></p>
+<p><code>killall Dock</code></p>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/mac/" term="mac"/>
+    <category scheme="http://guoshuang.com/tag/apache/" term="apache"/>
+    <category scheme="http://guoshuang.com/cat/mac/" term="mac"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[location search change without reload]]></title>
     <link href="http://guoshuang.com/javascript/location-search-change-without-reload/"/>
@@ -688,25 +701,5 @@ $('#myDiv').serializeAny();
 ]]></content>
     <category scheme="http://guoshuang.com/tag/mac/" term="mac"/>
     <category scheme="http://guoshuang.com/cat/mac/" term="mac"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[bootstrap conflict with jqueryui]]></title>
-    <link href="http://guoshuang.com/javascript/bootstrap-conflict-with-jqueryui/"/>
-    <id>http://guoshuang.com/javascript/bootstrap-conflict-with-jqueryui/</id>
-    <published>2014-06-07T02:37:22.000Z</published>
-    <updated>2014-09-10T04:37:50.000Z</updated>
-    <content type="html"><![CDATA[<p>button 和 tooltip 都冲突。最简单的办法：</p>
-<p>jqueryui.js 在前</p>
-<p>bootstrap.js 在后</p>
-<pre>
-var btn = $.fn.button.noConflict() // reverts $.fn.button to jqueryui btn
-$.fn.btn = btn // assigns bootstrap button functionality to $.fn.btn    
-</pre>
-
-<p>hammer.js 比  jqueryswipe.js 好用，后者会 prevent default 导致不能上下 滚动页面。</p>
-]]></content>
-    <category scheme="http://guoshuang.com/tag/bootstrap/" term="bootstrap"/>
-    <category scheme="http://guoshuang.com/tag/jqueryui/" term="jqueryui"/>
-    <category scheme="http://guoshuang.com/cat/javascript/" term="javascript"/>
   </entry>
 </feed>
