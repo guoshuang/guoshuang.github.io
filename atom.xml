@@ -3,13 +3,190 @@
   <title><![CDATA[Digest of guoshuang]]></title>
   <link href="http://guoshuang.com/atom.xml" rel="self"/>
   <link href="http://guoshuang.com"/>
-  <updated>2015-03-11T09:44:25.976Z</updated>
+  <updated>2015-03-12T02:42:25.480Z</updated>
   <id>http://guoshuang.com/</id>
   <author>
     <name><![CDATA[David Guoshuang]]></name>
     <email><![CDATA[davidguoshuang@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[ios8 app]]></title>
+    <link href="http://guoshuang.com/mobile/ios8-app/"/>
+    <id>http://guoshuang.com/mobile/ios8-app/</id>
+    <published>2015-03-12T01:56:44.000Z</published>
+    <updated>2015-03-12T02:39:43.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3>
+<p>ios 6 7 8 各种烂。前者对 click 尤其慢（有 300ms 的说法），用 touchstart 快，只是容易在 touchmove 的时候 也触发，过于敏感。</p>
+<p>另外，对于 overflow:scroll 的处理 三者也方法混乱，各自不同。ios8 可能还有点人性。但 pdf 除非 独占窗口 否则 只能显示 第一页。</p>
+<p>在 apple-mobile-web-app-capable 模式下，三者也是各领骚气。ios 6 的 a herf 会导致切换到 safari 打开。必须 location=”111”;return false;</p>
+<h3 id="js">js</h3>
+<pre>//click on pc and touchstart on mobile
+var gsclick=((document.ontouchstart!==null)?'click':'touchstart');</pre>
+
+<pre>
+/*
+!!注意：这是 ios6 的写法，不能用于 ios8（导致iframe不能拖动）
+
+关掉 touchstart 
+然后关掉 html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+} ；
+然后使用 :active
+
+document.addEventListener("touchstart", function() {},false);
+
+禁止 上下乱拖
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
+
+*/    
+</pre>
+
+<h3 id="各种_meta">各种 meta</h3>
+<pre>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</pre>
+加到主屏以后，全屏显示
+
+<pre>&lt;meta name="apple-mobile-web-app-title" content="iOS Web App"&gt;</pre>
+加到主屏时显示的标题
+
+<pre>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;</pre>
+头部状态栏显示方式
+
+default, black, and black-translucent（ios6 7 各有不同效果）
+
+<pre>&lt;meta name="viewport" content="initial-scale=1"&gt;</pre>
+默认比例
+
+<pre>&lt;meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1"&gt;</pre>
+不允许用户放大缩小
+
+<pre>&lt;meta name="format-detection" content="telephone=no"&gt;</pre>
+
+<p>不予许 苹果自做聪明地 把一串数字修改为 tel:1234 的链接</p>
+<h3 id="万恶的程序图标">万恶的程序图标</h3>
+<pre>&lt;!-- iPad retina icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-152.png"
+      sizes="152x152"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-144.png"
+      sizes="144x144"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad non-retina icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-76.png"
+      sizes="76x76"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad non-retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-72.png"
+      sizes="72x72"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone 6 Plus icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-180.png"
+      sizes="120x120"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-114.png"
+      sizes="114x114"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone non-retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-57.png"
+      sizes="57x57"
+      rel="apple-touch-icon-precomposed"&gt;</pre>
+
+
+<ul>
+<li>152x152 (76@2x) for iPad retina on iOS 7+</li>
+<li>144x144 (72@2x) for iPad retina on iOS 6</li>
+<li>76x76 for iPad on iOS 7+</li>
+<li>72x72 for iPad on iOS 6</li>
+<li>180x180 (60@3x) for iPhone 6 Plus</li>
+<li>144x144 (57@2x) for iPhone retina on iOS 6</li>
+<li>57x57 for iPhone on iOS 6</li>
+</ul>
+<p>如果没有上面的 meta 标签，苹果会按照下面的顺序寻找</p>
+<ul>
+<li>/apple-touch-icon-180x180-precomposed.png</li>
+<li>/apple-touch-icon-180x180.png</li>
+<li>/apple-touch-icon-precomposed.png</li>
+<li>/apple-touch-icon.png  </li>
+</ul>
+<h3 id="更加万恶的启动画面（splash）">更加万恶的启动画面（splash）</h3>
+<pre>&lt;!-- iPad retina portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-1536x2008.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 2)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad retina landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-1496x2048.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 2)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad non-retina portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-768x1004.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 1)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad non-retina landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-748x1024.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 1)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 Plus portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-1242x2148.png"
+      media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 Plus landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-1182x2208.png"
+      media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 startup image --&gt;
+&lt;link href="apple-touch-startup-image-750x1294.png"
+      media="(device-width: 375px) and (device-height: 667px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 5 startup image --&gt;
+&lt;link href="apple-touch-startup-image-640x1096.png"
+      media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone &lt; 5 retina startup image --&gt;
+&lt;link href="apple-touch-startup-image-640x920.png"
+      media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone &lt; 5 non-retina startup image --&gt;
+&lt;link href="apple-touch-startup-image-320x460.png"
+      media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"&gt;</pre>
+
+<ul>
+<li>1536x2008 (768x1004@2x) for iPad retina portrait</li>
+<li>1496x2048 (748x1024@2x) for iPad retina landscape</li>
+<li>768x1004 for iPad portrait</li>
+<li>748x1024 for iPad landscape</li>
+<li>1242x2148 (414x716@3x) for iPhone 6 Plus portrait</li>
+<li>1182x2208 (394x736@3x) for iPhone 6 Plus landscape</li>
+<li>750x1294 (375x647@2x) for iPhone 6</li>
+<li>640x1096 (320x548@2x) for iPhone 5</li>
+<li>640x920 (320x460@2x) for iPhone retina</li>
+<li>320x460 for iPhone</li>
+</ul>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/ios/" term="ios"/>
+    <category scheme="http://guoshuang.com/tag/mobile/" term="mobile"/>
+    <category scheme="http://guoshuang.com/cat/mobile/" term="mobile"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[add mac dock recent items]]></title>
     <link href="http://guoshuang.com/mac/mac-dock-rencent-items/"/>
@@ -686,20 +863,5 @@ $('#myDiv').serializeAny();
 ]]></content>
     <category scheme="http://guoshuang.com/tag/读书/" term="读书"/>
     <category scheme="http://guoshuang.com/cat/life/" term="life"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[change mac input source turn]]></title>
-    <link href="http://guoshuang.com/mac/change-mac-input-source-turn/"/>
-    <id>http://guoshuang.com/mac/change-mac-input-source-turn/</id>
-    <published>2014-06-18T21:25:37.000Z</published>
-    <updated>2014-09-10T04:39:11.000Z</updated>
-    <content type="html"><![CDATA[<p>我的 mac 是英文，但需要中文输入法。每次登录后，默认都是中文输入状态，很郁闷。（每次开机后第一件事情就是输入网址）</p>
-<h3 id="解决办法">解决办法</h3>
-<p>删除 /Users/username/Library/Preferences/ByHost/com.apple.HIToolbox.*</p>
-<p>然后注销  重新设置 输入法</p>
-<p>via <a href="https://discussions.apple.com/message/10360994#" target="_blank" rel="external">https://discussions.apple.com/message/10360994#</a></p>
-]]></content>
-    <category scheme="http://guoshuang.com/tag/mac/" term="mac"/>
-    <category scheme="http://guoshuang.com/cat/mac/" term="mac"/>
   </entry>
 </feed>
