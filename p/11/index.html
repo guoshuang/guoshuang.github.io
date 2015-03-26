@@ -51,6 +51,33 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/javascript/javascript-books/">javascript books</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/" target="_blank" rel="external">Essential JavaScript Design Patterns For Beginners</a></p>
+<p><a href="http://jqfundamentals.com/" target="_blank" rel="external">jQuery Fundamentals</a></p>
+<p><a href="http://t.cn/SxnRfG" target="_blank" rel="external">Principles of Writing Consistent, Idiomatic JavaScript | 编写连贯且地道的 JavaScript 代码的原则</a></p>
+<p><a href="http://linuxcommand.org/tlcl.php" target="_blank" rel="external">The Linux command line</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/javascript/get-jquery-version/">get jquery version</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
     </header>
@@ -426,211 +453,6 @@ $content = str_replace(']]>', ']]&gt;', $content);
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/web/iis/">IIS 安全</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>一、系统的安装 </p>
-<p>1、按照Windows2003安装光盘的提示安装，默认情况下2003没有把IIS6.0安装在系统里面。 </p>
-<p>2、IIS6.0的安装 </p>
-<p>以下为引用的内容： </p>
-<p>开始菜单—&gt;控制面板—&gt;添加或删除程序—&gt;添加/删除Windows组件 </p>
-<p>应用程序 ———ASP.NET(可选) </p>
-<p>　　　　　|——启用网络 COM 访问(必选) </p>
-<p>　　　　　|——Internet 信息服务(IIS)———Internet 信息服务管理器(必选)　 </p>
-<p>　　　　　|——公用文件(必选) </p>
-<p>　　　　　|——万维网服务———Active Server pages(必选) </p>
-<p>　　　　　|——Internet 数据连接器(可选) </p>
-<p>　　　　　|——WebDAV 发布(可选) </p>
-<p>　　　　　|——万维网服务(必选) </p>
-<p>　　　　　|——在服务器端的包含文件(可选) </p>
-<p>然后点击确定—&gt;下一步安装。 </p>
-<p>3、系统补丁的更新:点击开始菜单—&gt;所有程序—&gt;Windows Update 按照提示进行补丁的安装。 </p>
-<p>4、备份系统:用GHOST备份系统。 </p>
-<p>5、安装常用的软件:例如：杀毒软件、解压缩软件等；安装完毕后,配置杀毒软件,扫描系统漏洞,安装之后用GHOST再次备份系统。 </p>
-<p>6、先关闭不需要的端口 开启防火墙 导入IPSEC策略 </p>
-<p>在”网络连接”里，把不需要的协议和服务都删掉，这里只安装了基本的Internet协议(TCP/IP)，由于要控制带宽流量服务，额外安装了Qos数据包计划程序。在高级tcp/ip设置里—“NetBIOS”设置”禁用tcp/IP上的NetBIOS(S)”。在高级选项里，使用”Internet连接防火墙”，这是windows 2003 自带的防火墙，在2000系统里没有的功能，虽然没什么功能，但可以屏蔽端口，这样已经基本达到了一个IPSec的功能。</p>
-<p>修改3389远程连接端口 </p>
-<p>修改注册表 </p>
-<p>开始—运行—regedit </p>
-<p>依次展开 HKEY_LOCAL_MACHINE/SYSTEM/CURRENTCONTROLSET/CONTROL/ </p>
-<p>TERMINAL SERVER/WDS/RDPWD/TDS/TCP </p>
-<p>右边键值中 PortNumber 改为你想用的端口号.注意使用十进制(例 10000) </p>
-<p>HKEY_LOCAL_MACHINE/SYSTEM/CURRENTCONTROLSET/CONTROL/TERMINAL SERVER/WINSTATIONS/RDP-TCP/ </p>
-<p>右边键值中 PortNumber 改为你想用的端口号.注意使用十进制(例 10000) </p>
-<p>注意：别忘了在WINDOWS2003自带的防火墙给 上10000端口 </p>
-<p>修改完毕。重新启动服务器设置生效。 </p>
-<p>二、用户安全设置 </p>
-<p>1、禁用Guest账号 </p>
-<p>在计算机管理的用户里面把Guest账号禁用。为了保险起见，最好给Guest加一个复杂的密码。你可以打开记事本，在里面输入一串包含特殊字符、数字、字母的长字符串，然后把它作为Guest用户的密码拷进去。 </p>
-<p>2、限制不必要的用户 </p>
-<p>去掉所有的Duplicate User用户、测试用户、共享用户等等。用户组策略设置相应权限，并且经常检查系统的用户，删除已经不再使用的用户。这些用户很多时候都是黑客们入侵系统的突破口。 </p>
-<p>3、把系统Administrator账号改名 </p>
-<p>大家都知道，Windows 2003 的Administrator用户是不能被停用的，这意味着别人可以一遍又一遍地尝试这个用户的密码。尽量把它伪装成普通用户，比如改成Guesycludx。 </p>
-<p>4、创建一个陷阱用户 </p>
-<p>什么是陷阱用户？即创建一个名为”Administrator”的本地用户，把它的权限设置成最低，什么事也干不了的那种，并且加上一个超过10位的超级复杂密码。这样可以让那些 Hacker们忙上一段时间，借此发现它们的入侵企图。 </p>
-<p>5、把共享文件的权限从Everyone组改成授权用户 </p>
-<p>任何时候都不要把共享文件的用户设置成”Everyone”组，包括打印共享，默认的属性就是”Everyone”组的，一定不要忘了改。 </p>
-<p>6、开启用户策略 </p>
-<p>使用用户策略，分别设置复位用户锁定计数器时间为20分钟，用户锁定时间为20分钟，用户锁定阈值为3次。 (该项为可选) </p>
-<p>7、不让系统显示上次登录的用户名 </p>
-<p>默认情况下，登录对话框中会显示上次登录的用户名。这使得别人可以很容易地得到系统的一些用户名，进而做密码猜测。修改注册表可以不让对话框里显示上次登录的用户名。方法为：打开注册表编辑器并找到注册表”HKLM\Software\Microsoft\WindowsT\CurrentVersion\Winlogon\Dont-DisplayLastUserName”，把REG_SZ的键值改成1。 </p>
-<p>8、密码安全设置 </p>
-<p>a、使用安全密码 </p>
-<p>一些公司的管理员创建账号的时候往往用公司名、计算机名做用户名，然后又把这些用户的密码设置得太简单，比如”welcome”等等。因此，要注意密码的复杂性，还要记住经常改密码。 </p>
-<p>b、设置屏幕保护密码 </p>
-<p>这是一个很简单也很有必要的操作。设置屏幕保护密码也是防止内部人员破坏服务器的一个屏障。 </p>
-<p>c、开启密码策略 </p>
-<p>注意应用密码策略，如启用密码复杂性要求，设置密码长度最小值为6位 ，设置强制密码历史为5次，时间为42天。 </p>
-<p>d、考虑使用智能卡来代替密码 </p>
-<p>对于密码，总是使安全管理员进退两难，密码设置简单容易受到黑客的攻击，密码设置复杂又容易忘记。如果条件允许，用智能卡来代替复杂的密码是一个很好的解决方法。 </p>
-<p>三、系统权限的设置 </p>
-<p>1、磁盘权限 </p>
-<p>系统盘及所有磁盘只给 Administrators 组和 SYSTEM 的完全控制权限 </p>
-<p>系统盘\Documents and Settings 目录只给 Administrators 组和 SYSTEM 的完全控制权限 </p>
-<p>系统盘\Documents and Settings\All Users 目录只给 Administrators 组和 SYSTEM 的完全控制权限 </p>
-<p>系统盘\Windows\System32\cacls.exe、cmd.exe、net.exe、net1.exe、ftp.exe、tftp.exe、telnet.exe 、 netstat.exe、regedit.exe、at.exe、attrib.exe、format.com、del文件只给 Administrators 组和SYSTEM 的完全控制权限 </p>
-<p>另将<systemroot>\System32\cmd.exe、format.com、ftp.exe转移到其他目录或更名 </systemroot></p>
-<p>Documents and Settings下所有些目录都设置只给adinistrators权限。并且要一个一个目录查看，包括下面的所有子目录。 </p>
-<p>删除c:\inetpub目录 </p>
-<p>2、本地安全策略设置 </p>
-<p>开始菜单—&gt;管理工具—&gt;本地安全策略 </p>
-<p>A、本地策略——&gt;审核策略 </p>
-<p>审核策略更改　　　成功　失败 </p>
-<p>审核登录事件　　　成功　失败 </p>
-<p>审核对象访问　　　　　　失败审核过程跟踪　　　无审核 </p>
-<p>审核目录服务访问　　　　失败 </p>
-<p>审核特权使用　　　　　　失败 </p>
-<p>审核系统事件　　　成功　失败 </p>
-<p>审核账户登录事件　成功　失败 </p>
-<p>审核账户管理　　　成功　失败 </p>
-<p>B、本地策略——&gt;用户权限分配 </p>
-<p>关闭系统：只有Administrators组、其它全部删除。 </p>
-<p>通过终端服务允许登陆：只加入Administrators,Remote Desktop Users组，其他全部删除 </p>
-<p>C、本地策略——&gt;安全选项 </p>
-<p>交互式登陆：不显示上次的用户名　　　　　　　启用 </p>
-<p>网络访问：不允许SAM帐户和共享的匿名枚举　 启用 </p>
-<p>网络访问：不允许为网络身份验证储存凭证　　　启用 </p>
-<p>网络访问：可匿名访问的共享　　　　　　　　　全部删除 </p>
-<p>网络访问：可匿名访问的命　　　　　　　　　　全部删除 </p>
-<p>网络访问：可远程访问的注册表路径　　　　　　全部删除 </p>
-<p>网络访问：可远程访问的注册表路径和子路径　　全部删除 </p>
-<p>帐户：重命名来宾帐户　　　　　　　　　　　　重命名一个帐户 </p>
-<p>帐户：重命名系统管理员帐户　　　　　　　　　重命名一个帐户 </p>
-<p>3、禁用不必要的服务 开始-运行-services.msc </p>
-<p>TCP/IPNetBIOS Helper提供 TCP/IP 服务上的 NetBIOS 和网络上客户端的 NetBIOS 名称解析的支持而使用户能够共享文件、打印和登录到网络 </p>
-<p>Server支持此计算机通过网络的文件、打印、和命名管道共享 </p>
-<p>Computer Browser 维护网络上计算机的最新列表以及提供这个列表 </p>
-<p>Task scheduler 允许程序在指定时间运行 </p>
-<p>Messenger 传输客户端和服务器之间的 NET SEND 和 警报器服务消息 </p>
-<p>Distributed File System: 局域网管理共享文件，不需要可禁用 </p>
-<p>Distributed linktracking client：用于局域网更新连接信息，不需要可禁用 </p>
-<p>Error reporting service：禁止发送错误报告 </p>
-<p>Microsoft Serch：提供快速的单词搜索，不需要可禁用 </p>
-<p>NTLMSecuritysupportprovide：telnet服务和Microsoft Serch用的，不需要可禁用 </p>
-<p>PrintSpooler：如果没有打印机可禁用 </p>
-<p>Remote Registry：禁止远程修改注册表 </p>
-<p>Remote Desktop Help Session Manager：禁止远程协助 </p>
-<p>Workstation 关闭的话远程NET命令列不出用户组 </p>
-<p>以上是在Windows Server 2003 系统上面默认启动的服务中禁用的，默认禁用的服务如没特别需要的话不要启动。 </p>
-<p>4、修改注册表:修改注册表，让系统更强壮 </p>
-<p>a、隐藏重要文件/目录可以修改注册表实现完全隐藏 </p>
-<p>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\ Current-Version\Explorer\Advanced\Folder\Hi-dden\SHOWALL”，鼠标右击”CheckedValue”，选择修改，把数值由1改为0 </p>
-<p>b、防止SYN洪水攻击 </p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters </p>
-<p>新建DWORD值，名为SynAttackProtect，值为2 </p>
-<p>新建EnablePMTUDiscovery REG_DWORD 0 </p>
-<p>新建NoNameReleaseOnDemand REG_DWORD 1 </p>
-<p>新建EnableDeadGWDetect REG_DWORD 0 </p>
-<p>新建KeepAliveTime REG_DWORD 300,000 </p>
-<p>新建PerformRouterDiscovery REG_DWORD 0 </p>
-<p>新建EnableICMPRedirects REG_DWORD 03. 禁止响应ICMP路由通告报文 </p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\interface </p>
-<p>新建DWORD值，名为PerformRouterDiscovery 值为0 </p>
-<p>c. 防止ICMP重定向报文的攻击 </p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters </p>
-<p>将EnableICMPRedirects 值设为0 </p>
-<p>d. 不支持IGMP协议 </p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters </p>
-<p>新建DWORD值，名为IGMPLevel 值为0 </p>
-<p>e、禁止IPC空连接： </p>
-<p>cracker可以利用net use命令建立空连接，进而入侵，还有net view，nbtstat这些都是基于空连接的，禁止空连接就好了。 </p>
-<p>Local_Machine\System\CurrentControlSet\Control\LSA-RestrictAnonymous 把这个值改成”1”即可。 </p>
-<p>f、更改TTL值 </p>
-<p>cracker可以根据ping回的TTL值来大致判断你的操作系统，如： </p>
-<p>TTL=107(WINNT); </p>
-<p>TTL=108(win2000); </p>
-<p>TTL=127或128(win9x); </p>
-<p>TTL=240或241(linux); </p>
-<p>TTL=252(solaris); </p>
-<p>TTL=240(Irix); </p>
-<p>实际上你可以自己改的：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters：DefaultTTL REG_DWORD 0-0xff(0-255 十进制,默认值128)改成一个莫名其妙的数字如258，起码让那些小菜鸟晕上半天，就此放弃入侵你也不一定哦 </p>
-<p>g. 删除默认共享 </p>
-<p>有人问过我一开机就共享所有盘，改回来以后，重启又变成了共享是怎么回事，这是2K为管理而设置的默认共享，HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters：AutoShareServer类型是REG_DWORD把值改为0即可 </p>
-<p>h. 禁止建立空连接 </p>
-<p>默认情况下，任何用户通过通过空连接连上服务器，进而枚举出帐号，猜测密码。我们可以通过修改注册表来禁止建立空连接： </p>
-<p>Local_Machine\System\CurrentControlSet\Control\LSA-RestrictAnonymous 的值改成”1”即可。 </p>
-<p>i、建立一个记事本，填上以下代码。保存为*.bat并加到启动项目中 </p>
-<p>以下为引用的内容： </p>
-<p>net share c$ /del </p>
-<p>net share d$ /del </p>
-<p>net share e$ /del </p>
-<p>net share f$ /del </p>
-<p>net share ipc$ /del </p>
-<p>net share admin$ /del </p>
-<p>5、IIS站点设置： </p>
-<p>a、将IIS目录&amp;数据与系统磁盘分开，保存在专用磁盘空间内。 </p>
-<p>b、启用父级路径 </p>
-<p>c、在IIS管理器中删除必须之外的任何没有用到的映射(保留asp等必要映射即可) </p>
-<p>d、在IIS中将HTTP404 Object Not Found出错页面通过URL重定向到一个定制HTM文件 </p>
-<p>e、Web站点权限设定(建议) </p>
-<p>读 允许 </p>
-<p>写 不允许 </p>
-<p>脚本源访问 不允许 </p>
-<p>目录浏览 建议关闭 </p>
-<p>日志访问 建议关闭 </p>
-<p>索引资源 建议关闭 </p>
-<p>执行 推荐选择 “仅限于脚本” </p>
-<p>f、建议使用W3C扩充日志文件格式，每天记录客户IP地址，用户名，服务器端口，方法，URI字根，HTTP状态，用户代理，而且每天均要审查日志。(最好不要使用缺省的目录，建议更换一个记日志的路径，同时设置日志的访问权限，只允许管理员和system为Full Control)。 </p>
-<p>g、程序安全 </p>
-<p>1) 涉及用户名与口令的程序最好封装在服务器端，尽量少的在ASP文件里出现，涉及到与数据库连接地用户名与口令应给予最小的权限; </p>
-<p>2) 需要经过验证的ASP页面，可跟踪上一个页面的文件名，只有从上一页面转进来的会话才能读取这个页面。3) 防止ASP主页.inc文件泄露问题; </p>
-<p>4) 防止UE等编辑器生成some.asp.bak文件泄露问题。 </p>
-<p>6、IIS权限设置的思路 </p>
-<p>1) 要为每个独立的要保护的个体(比如一个网站或者一个虚拟目录)创建一个系统用户，让这个站点在系统中具有惟一的可以设置权限的身份。 </p>
-<p>2) 在IIS的【站点属性或者虚拟目录属性→目录安全性→匿名访问和验证控制→编辑→匿名访问→编辑】填写刚刚创建的那个用户名。 </p>
-<p>3) 设置所有的分区禁止这个用户访问，而刚才这个站点的主目录对应的那个文件夹设置允许这个用户访问(要去掉继承父权限，并且要加上超管组和SYSTEM组)。 </p>
-<p>7、卸载最不安全的组件 </p>
-<p>最简单的办法是直接卸载后删除相应的程序文件。将下面的代码保存为一个.BAT文件，( 以下均以 WIN2000 为例，如果使用2003，则系统文件夹应该是 C:\WINDOWS\ ) </p>
-<p>以下为引用的内容： </p>
-<p>regsvr32/u C:\WINDOWS\System32\wshom.ocx </p>
-<p>del C:\WINDOWS\System32\wshom.ocx </p>
-<p>regsvr32/u C:\WINDOWS\system32\shell32.dll </p>
-<p>del C:\WINNT\WINDOWS\shell32.dll </p>
-<p>然后运行一下，WScript.Shell, Shell.application, WScript.Network就会被卸载了。可能会提示无法删除文件，不用管它，重启一下服务器，你会发现这三个都提示”×安全”了。</p>
-<p>via <a href="http://www.jb51.net/article/29559.htm" target="_blank" rel="external">http://www.jb51.net/article/29559.htm</a></p>
-<hr>
-<h3 id="修改_rdp(c)_端口">修改 rdp(c) 端口</h3>
-<p>修改以下两个注册表中的键值即可：<br>HKEY_LOCAL_MACHINE\SYSTEM\CURRENTCONTROLSET\CONTROL\TERMINAL SERVER\WDS\REPWD\TDS\TCP<br>HKEY_LOCAL_MACHINE\SYSTEM\CURRENTCONTROLSET\CONTROL\TERMINAL SERVER\WINSTATIONS\RDP-TCP </p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/10/" class="alignleft prev">上一页</a>
@@ -644,14 +466,14 @@ $content = str_replace(']]>', ']]&gt;', $content);
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>75</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>23</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>7</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>2</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>23</small></li> <li><a href="/tag/map/">map</a><small>4</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>7</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>1</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

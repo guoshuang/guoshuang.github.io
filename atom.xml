@@ -3,13 +3,41 @@
   <title><![CDATA[Digest of guoshuang]]></title>
   <link href="http://guoshuang.com/atom.xml" rel="self"/>
   <link href="http://guoshuang.com"/>
-  <updated>2015-03-12T02:42:25.480Z</updated>
+  <updated>2015-03-26T02:39:27.723Z</updated>
   <id>http://guoshuang.com/</id>
   <author>
     <name><![CDATA[David Guoshuang]]></name>
     <email><![CDATA[davidguoshuang@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[window resize trigger once]]></title>
+    <link href="http://guoshuang.com/javascript/window-resize-trigger-once/"/>
+    <id>http://guoshuang.com/javascript/window-resize-trigger-once/</id>
+    <published>2015-03-26T02:37:02.000Z</published>
+    <updated>2015-03-26T02:38:35.000Z</updated>
+    <content type="html"><![CDATA[<p><code>function debouncer( func , timeout ) {<br>   var timeoutID , timeout = timeout || 200;<br>   return function () {<br>      var scope = this , args = arguments;<br>      clearTimeout( timeoutID );<br>      timeoutID = setTimeout( function () {<br>          func.apply( scope , Array.prototype.slice.call( args ) );<br>      } , timeout );<br>   }<br>}</code></p>
+<p>$( window ).resize( debouncer( function ( e ) {<br>    // do stuff<br>} ) );</p>
+<p><code>$(window).resize(function() {<br>    clearTimeout($.data(this, ‘resizeTimer’));<br>    $.data(this, ‘resizeTimer’, setTimeout(function() {<br>        //do something<br>        alert(“Haven’t resized in 200ms!”);<br>    }, 200));<br>});<br></code></p>
+<p><code>(function ($) {<br>    var methods = { on: $.fn.on, bind: $.fn.bind };<br>    $.each(methods, function(k){<br>        $.fn[k] = function () {<br>            var args = [].slice.call(arguments),<br>                delay = args.pop(),<br>                fn = args.pop(),<br>                timer;</code></p>
+<pre><code>        args.push(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+            <span class="keyword">var</span> self = <span class="keyword">this</span>,
+                arg = <span class="built_in">arguments</span>;
+            clearTimeout(timer);
+            timer = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+                fn.apply(self, [].slice.call(arg));
+            }, delay);
+        });
+
+        <span class="keyword">return</span> methods[k].apply(<span class="keyword">this</span>, <span class="built_in">isNaN</span>(delay) ? <span class="built_in">arguments</span> : args);
+    };
+});
+</code></pre><p>}(jQuery));<br>Use it like any other on or bind-event handler, except that you can pass an extra parameter as a last:</p>
+<p><code>$(window).on(‘resize’, function(e) {<br>    console.log(e.type + ‘-event was 200ms not triggered’);<br>}, 200);</code></p>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/javascript/" term="javascript"/>
+    <category scheme="http://guoshuang.com/cat/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[ios8 app]]></title>
     <link href="http://guoshuang.com/mobile/ios8-app/"/>
@@ -852,16 +880,5 @@ $('#myDiv').serializeAny();
 ]]></content>
     <category scheme="http://guoshuang.com/tag/svg/" term="svg"/>
     <category scheme="http://guoshuang.com/cat/html5/" term="html5"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[足以颠覆世界观的10本书]]></title>
-    <link href="http://guoshuang.com/life/books10/"/>
-    <id>http://guoshuang.com/life/books10/</id>
-    <published>2014-06-22T00:20:39.000Z</published>
-    <updated>2014-09-10T04:37:50.000Z</updated>
-    <content type="html"><![CDATA[<p>1.红太阳是怎样升起的——延安整风运动的来龙去脉<br>2.美国宪政历程——影响美国的25个司法大案<br>3.<a href="http://txt.rain8.com/plus/download.php?open=2&amp;id=9769&amp;uhash=b8632a93785aa26bdcdfd556" target="_blank" rel="external">自由选择 </a><br>4.西方哲学史<br>5.物理世界奇遇记<br>6.上帝掷骰子吗——量子物理史话<br>7.自私的基因<br>8.基因组：人种自传23<br>9.平行宇宙<br>10.猜想与反驳——科学知识的增长</p>
-]]></content>
-    <category scheme="http://guoshuang.com/tag/读书/" term="读书"/>
-    <category scheme="http://guoshuang.com/cat/life/" term="life"/>
   </entry>
 </feed>
