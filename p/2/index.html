@@ -51,6 +51,66 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/javascript/funny-stuffs/">funny stuffs</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Mon Sep 15 2014 10:29:14 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="CHARTIST-JS_优点："><a href="https://gionkunz.github.io/chartist-js/index.html" target="_blank" rel="external">CHARTIST.JS</a> 优点：</h3>
+<ul>
+<li>svg 个人感觉的确比 canvas 好控制。canvas 太黑箱了</li>
+<li>也正是因为 svg，所以可以直接 css 控制（media queries and responsive）</li>
+<li>SASS 可怜的 less 已经死去</li>
+<li>语法类似 flot</li>
+</ul>
+<h3 id="Map_Glyphs_地图字体"><a href="http://mapglyphs.com/" target="_blank" rel="external">Map Glyphs</a> 地图字体</h3>
+<p>可惜只有 世界、中国、亚洲 能用，人家 usa 有州，没咱省，：（</p>
+<link rel="stylesheet" href="/labs/mapglyphs/mapglyphs.css" type="text/css">
+
+<style>#mapglyphsExample i {font-size:5em;} </style>
+
+<div id="mapglyphsExample"><i class="mg map-cn"></i> 中国<i class="mg map-jp"></i> 日本<i class="mg map-tw"></i> 台湾<i class="mg map-us"></i> 美国<i class="mg map-glb-as"></i> 全球（asian亚洲中心）</div>
+
+<h3 id="Hamburger_icon">Hamburger icon</h3>
+<link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css" type="text/css">
+
+<p>原来这个倒霉的  <i class="fa fa-bars" style="font-size:2em;"></i> 叫 Hamburger icon</p>
+<p><img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/09/1410502599hamburger-icon.jpg" alt="hamburger icon"></p>
+<h3 id="window-screen-orientation"><a href="http://www.sitepoint.com/introducing-screen-orientation-api/" target="_blank" rel="external">window.screen.orientation</a></h3>
+<p>chrome 38+ 以后才有</p>
+<p>{“onchange”:null,”type”:”landscape-primary”,”angle”:0}</p>
+<p>以下对对手机而言：</p>
+<ul>
+<li>portrait 垂直    </li>
+<li>landscape 水平  </li>
+<li>portrait-primary 垂直，按钮在下</li>
+<li>portrait-secondary 垂直，按钮在上</li>
+<li>landscape-primary 水平，按钮在右</li>
+<li>landscape-secondary水平，按钮在左</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>lockOrientation()</li>
+<li>unlockOrientation()</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">15</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/software/chromium-args/">chromium-args</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Mon Sep 15 2014 08:48:06 GMT+0800</span></div>
     </header>
@@ -241,38 +301,6 @@
 <p>To override a file in an existing package, just create a file with the same name under the Packages/<package name=""> directory.</package></p>
 </blockquote>
 <p>For example to override the file function.sublime-snippet in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the <data_path>/Packages directory, and place your function.sublime-snippet file there.</data_path></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/baidu-map-customize-marker/">baidu map customize marker</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>很多年不用 lib in china，的确有些成见。用 wordpress,jquery, 甚至 google map 都有惊喜。近期不得不使用 baidu map，的确也有“惊喜”，哎…</p>
-<pre>
-var myIcon = new BMap.Icon("pics/marker-blue.png", new BMap.Size(66, 128),{  
-  offset: new BMap.Size(10, 25)
-});
-console.log(myIcon);
-</pre>
-
-<p>2014-09-01 v2.0 以后 offset 没用了，应该是 anchor。可惜混乱的官方文档、甚至例子，仍然是 offset，哎。。。</p>
 
       
     </div> 

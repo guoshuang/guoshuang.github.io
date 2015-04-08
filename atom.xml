@@ -3,13 +3,25 @@
   <title><![CDATA[Digest of guoshuang]]></title>
   <link href="http://guoshuang.com/atom.xml" rel="self"/>
   <link href="http://guoshuang.com"/>
-  <updated>2015-03-26T02:39:27.723Z</updated>
+  <updated>2015-04-08T08:47:28.367Z</updated>
   <id>http://guoshuang.com/</id>
   <author>
     <name><![CDATA[David Guoshuang]]></name>
     <email><![CDATA[davidguoshuang@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[2342423423432423]]></title>
+    <link href="http://guoshuang.com/design/baidu-map-customize-marker/"/>
+    <id>http://guoshuang.com/design/baidu-map-customize-marker/</id>
+    <published>2015-04-08T08:46:39.000Z</published>
+    <updated>2015-04-08T08:46:52.000Z</updated>
+    <content type="html"><![CDATA[<p>fsdfsdfsdfdsfdsfsd</p>
+]]></content>
+    <category scheme="http://guoshuang.com/tag/baidu/" term="baidu"/>
+    <category scheme="http://guoshuang.com/tag/map/" term="map"/>
+    <category scheme="http://guoshuang.com/cat/design/" term="design"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[window resize trigger once]]></title>
     <link href="http://guoshuang.com/javascript/window-resize-trigger-once/"/>
@@ -513,26 +525,6 @@ default, black, and black-translucent（ios6 7 各有不同效果）
 ]]></content>
     <category scheme="http://guoshuang.com/tag/sublime/" term="sublime"/>
     <category scheme="http://guoshuang.com/cat/software/" term="software"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[baidu map customize marker]]></title>
-    <link href="http://guoshuang.com/design/baidu-map-customize-marker/"/>
-    <id>http://guoshuang.com/design/baidu-map-customize-marker/</id>
-    <published>2014-09-04T08:05:04.000Z</published>
-    <updated>2014-09-10T04:35:31.000Z</updated>
-    <content type="html"><![CDATA[<p>很多年不用 lib in china，的确有些成见。用 wordpress,jquery, 甚至 google map 都有惊喜。近期不得不使用 baidu map，的确也有“惊喜”，哎…</p>
-<pre>
-var myIcon = new BMap.Icon("pics/marker-blue.png", new BMap.Size(66, 128),{  
-  offset: new BMap.Size(10, 25)
-});
-console.log(myIcon);
-</pre>
-
-<p>2014-09-01 v2.0 以后 offset 没用了，应该是 anchor。可惜混乱的官方文档、甚至例子，仍然是 offset，哎。。。</p>
-]]></content>
-    <category scheme="http://guoshuang.com/tag/baidu/" term="baidu"/>
-    <category scheme="http://guoshuang.com/tag/map/" term="map"/>
-    <category scheme="http://guoshuang.com/cat/design/" term="design"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[baidu map event]]></title>
