@@ -51,6 +51,418 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/design/jquery-flot-barnumbers-add-font-color-size/">flot.barnumbers add font color size control</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>The deafult <a href="https://github.com/joetsoi/flot-barnumbers" target="_blank" rel="external">jquery.flot.barnumbers.js</a> can not modify the </p>
+<ul>
+<li>font family</li>
+<li>font size</li>
+<li>text color</li>
+</ul>
+<p>So i add some code between lines 47-48</p>
+<pre>
+/*by davidguoshuang at gmail.com -start*/
+if(series.bars.numbers.color){
+  ctx.fillStyle=series.bars.numbers.color;
+}
+if(series.bars.numbers.font){
+  ctx.font=series.bars.numbers.font;
+}
+/*by davidguoshuang at gmail.com -end*/
+</pre>
+
+<p>Usage:</p>
+<pre>
+bars:{
+show:true,
+barWidth:0.65,
+align:'center',
+numbers:{
+  color:'rgba(0,0,0,.5)',//text color
+  font:'14px arial',//font size and family
+  show:true,
+  xAlign:50,//align center
+  yAlign: function(y) { return y + 5; } //upside of bars
+}
+</pre>
+
+<p><a href="/labs/jquery.flot.barnumbers.js" class="btn">Download the .js file</a><br><a href="/life/iq-test/" class="btn btn-success"> Demo </a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/flot-chart-tips/">flot chart tips</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://www.flotcharts.org/" target="_blank" rel="external">Flot</a> 文档比较混乱</p>
+<h3 id="完整数据">完整数据</h3>
+<pre>
+[ series1, series2, ... ]
+</pre>
+
+<p>一个 series 的格式</p>
+<pre>
+{
+  color: color or number
+  data: rawdata
+  label: string
+  lines: specific lines options
+  bars: specific bars options
+  points: specific points options
+  xaxis: number
+  yaxis: number
+  clickable: boolean
+  hoverable: boolean
+  shadowSize: number
+}
+</pre>
+
+<h3 id="legend_参数">legend 参数</h3>
+<pre>
+ legend: {
+    show: boolean
+    labelFormatter: null or (fn: string, series object -> string)
+    labelBoxBorderColor: color
+    noColumns: number
+    position: "ne" or "nw" or "se" or "sw"
+    margin: number of pixels or [x margin, y margin]
+    backgroundColor: null or color
+    backgroundOpacity: number between 0 and 1
+    container: null or jQuery object/DOM element/jQuery expression
+  }
+</pre>
+
+<h3 id="xy_坐标">xy 坐标</h3>
+<pre>
+xaxis, yaxis: {
+show: null or true/false
+position: "bottom" or "top" or "left" or "right"
+mode: null or "time"
+
+color: null or color spec
+tickColor: null or color spec
+font: null or font spec object
+
+min: null or number
+max: null or number
+autoscaleMargin: null or number
+
+transform: null or fn: number -> number
+inverseTransform: null or fn: number -> number
+
+ticks: null or number or ticks array or (fn: axis -> ticks array)
+tickSize: number or array
+minTickSize: number or array
+tickFormatter: (fn: number, object -> string) or string
+tickDecimals: null or number
+
+labelWidth: null or number
+labelHeight: null or number
+reserveSpace: null or true
+
+tickLength: null or number
+
+alignTicksWithAxis: null or number
+}
+</pre>
+
+<p>tickLength = 0 不显示背景格子</p>
+<h3 id="options_写法">options 写法</h3>
+<p>在 $.flot(‘#div-id’,dataArr,options) 情况下：</p>
+<pre>
+var options = {
+    series: {
+    lines, points, bars: {
+      show: boolean
+      lineWidth: number
+      fill: boolean or number
+      fillColor: null or color/gradient
+    }
+
+    points: {
+      radius: number
+      symbol: "circle" or function
+    }
+
+    bars: {
+      barWidth: number
+      align: "left" or "center"
+      horizontal: boolean
+    }
+
+    lines: {
+      steps: boolean
+    }
+
+    shadowSize: number
+  },
+  colors: [ color1, color2, ... ]
+}
+</pre>
+
+<h3 id="grid">grid</h3>
+<pre>
+grid: {
+  show: boolean
+  aboveData: boolean
+  color: color
+  backgroundColor: color/gradient or null
+  labelMargin: number
+  axisMargin: number
+  markings: array of markings or (fn: axes -> array of markings)
+  borderWidth: number
+  borderColor: color or null
+  minBorderMargin: number or null
+  clickable: boolean
+  hoverable: boolean
+  autoHighlight: boolean
+  mouseActiveRadius: number
+}
+</pre>
+
+<p>borderWidth = 0 去掉最外面的黑框</p>
+<h3 id="动态修改数据（重画_chart）">动态修改数据（重画 chart）</h3>
+<pre>
+var flot_gs=$.flot('#flot_div',data1,option1);
+flot_gs.setData(data2);
+flot_gs.draw();
+</pre>
+
+<h3 id="动态修改options">动态修改options</h3>
+<p>把 grid.borderWidth 0 改为 10</p>
+<pre>
+var flot_gs=$.flot('#flot_div',data1,option1);
+flot_gs.getOptions().grid.borderWidth=10;
+flot_gs.draw();
+</pre>
+
+<h3 id="setupGrid()">setupGrid()</h3>
+<p>没有参数。重新计算 坐标轴、ticks 和 legend 等。一般放在 flot_gs.draw() 前面。</p>
+<h3 id="查看_object_结构">查看 object 结构</h3>
+<p><code class="chrome">console.log(flot_bar</code></p>
+<p>options 内容</p>
+<p><code class="chrome">console.log(flot_bar.getOptions())</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/semantic-ui/">semantic ui</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Semantic ui 的好处：干净、语义、编码严格、组件多、轻量级</p>
+<p> <a href="http://stackoverflow.com/questions/18886813/semantic-ui-vs-bootstrap" target="_blank" rel="external">Alexian 的观点</a> 有意思，他认为：</p>
+<ul>
+<li>Foundation 是 bootstrap 最佳替代</li>
+<li><p>semantic ui 的确很语义（semantic），组件也不少。尤其是，组件包放的很整齐，每个组件有自己的 css 和 js。使用更灵活，轻巧。</p>
+<p>疑问：</p>
+</li>
+<li><p>semantic ui 似乎并不是 mobile（responsive） 优先</p>
+</li>
+<li>bootstrap 背后有大佬（twitter）Foundation 背后有 Zurb。似乎 semantic ui 草根？商业（较大）项目选型，持续的文档技术支持很重要啊。</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/iq-test/">iq test flot chart</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="Intelligence_Quotient_=_IQ"><strong>I</strong>ntelligence <strong>Q</strong>uotient = IQ</h3>
+<p>经过 <a href="http://www.free-iqtest.net/" target="_blank" rel="external">再次测试</a>，我老人家还是 130 ，的确难堪“天才”二字，勉强可称“聪明”。</p>
+<p>二骚狂妄高歌，高分低能啊。再次印证了<span style="font-size:1.2em">“真正的大湿是低调地。。。”</span> </p>
+<h3 id="人类智商分布图">人类智商分布图</h3>
+<div id="iq-test-chart" style="height:200px;margin-top: 10px;"></div>
+
+<script src="/labs/jquery.flot.min.js"></script>
+<script src="/labs/jquery.flot.resize.js"></script>
+<script src="/labs/jquery.flot.barnumbers.js"></script>
+
+<script src="/labs/iq-test.js"></script>
+
+<div id="btn-group-2013-11-28"><br>    <button class="btn btn-success gongrui">龚骚 148</button><br>    <button class="btn pujian">蒲骚 140</button><br>    <button class="btn btn-danger laoguo">老郭 130</button><br></div>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/clear float/">清除 float 的两种办法</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="办法一_clear:both">办法一 clear:both</h3>
+<div style="float:left;background:red;">float:left</div><br><div style="float:right;background:green;">float:right</div><br><div style="clear:both;background:blue;">after float</div>
+
+<pre>
+&lt;div style="float:left;background:red;"&gt;float:left&lt;/div&gt;
+&lt;div style="float:right;background:green;"&gt;float:right&lt;/div&gt;
+&lt;div style="clear:both;background:blue;"&gt;after float&lt;/div&gt;
+</pre>
+
+<h4 id="办法1-5_self_clear">办法1.5 self clear</h4>
+<p>和办法一本质是一样的。</p>
+<div style="float:left;background:red;">float:left</div><br><div style="float:right;background:green;" class="clearfix">float:right</div><br><div style="clear:both;background:blue;">after float</div>
+
+<style>
+.clearfix:after {
+    content:' ';
+    display:table;
+    clear:both;    
+}
+.clearfix {
+    *zoom:1;
+}
+</style>
+
+<pre>
+&lt;div style="float:left;background:red;"&gt;float:left&lt;/div&gt;
+&lt;div style="float:right;background:green;" class="clearfix"&gt;float:right&lt;/div&gt;
+&lt;div style="clear:both;background:blue;"&gt;after float&lt;/div&gt;
+
+&lt;style&gt;
+.clearfix:after {
+    content:' ';
+    display:table;
+    clear:both;    
+}
+.clearfix {
+    *zoom:1;
+}
+&lt;/style&gt;
+</pre>
+
+<h3 id="办法二_父容器_overlfow(auto,scroll,hidden)_并且_width(或者height)">办法二 父容器 overlfow(auto,scroll,hidden) 并且 width(或者height)</h3>
+<div style="overflow:auto;width: 100%;"><br><div style="float:left;background:red;">float:left</div><br><div style="float:right;background:green;">float:right</div><br></div><br><div style="background:blue;">after float</div>
+
+<pre>
+&lt;div style="overflow:auto;width: 100%;"&gt;
+&lt;div style="float:left;background:red;"&gt;float:left&lt;/div&gt;
+&lt;div style="float:right;background:green;"&gt;float:right&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="background:blue;"&gt;after float&lt;/div&gt;
+</pre>
+
+<h3 id="结论">结论</h3>
+<p>现在最常用的是 办法 1.5(self clear float)，办法1.5 和 二 的好处是 semantic，不破坏 dom 结构。</p>
+<p>via <a href="http://www.quirksmode.org/css/clearing.html" target="_blank" rel="external">http://www.quirksmode.org/css/clearing.html</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/style contenteditable/">style contenteditable</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <style contenteditable="" style="display:block;border:solid 1px #ccc;padding:20px;">
+    #div2013-11-26 {color:blue;}
+</style>
+
+<div id="div2013-11-26">&lt;style contenteditable&gt;…</div>
+
+<pre>
+&lt;style contenteditable style="display:block;border:solid 1px #ccc;padding:20px;"&gt;
+    #div2013-11-26 {color:blue;}
+&lt;/style&gt;
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/frontend/front-end-questions/">有趣的前端面试问题</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
     </header>
@@ -218,444 +630,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/twitter puddle/">twitter puddle</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="水坑算法_题目">水坑算法 题目</h3>
-<p>如图，如果 <span id="twitter-puddle-arr" style="font-size:18px;font-weight:700;color:#c00;"></span> 数组是墙，问：下雨墙之间能积多少水？</p>
-<div id="twitter-puddle"></div><br><div id="twitter-puddle-info"></div>
-
-<p><script src="/labs/twitter-puddle.js"></script><br><style>@import url(/labs/twitter-puddle.css);</style></p>
-<p><span class="btn" onclick="$('#twitter-puddle-answer').toggle()">显示算法</span></p>
-<div id="twitter-puddle-answer" style="display:none;"><br><br><h3>观察计算过程</h3><br><br><div id="twitter-puddle-info2"></div>
-
-<ul>
-<li>循环，从两头开始（leftMax,rightMax）</li>
-<li>找到低的那个</li>
-<li>和旁边（左边＋1；右边－1）比较，如果比我低，会存水,并且 水＝ 哥两儿相减。如果旁边比我高，存不住水，向外侧流走了。因为我是两头中间低的那个，所以，旁边比我低的就是存水。</li>
-<li>下一个</li>
-</ul>
-<h3 id="代码：">代码：</h3>
-<pre class="linenums">
-function maxWater(arr) {
-  var left = 0,
-      right = arr.length - 1,
-      leftMax = arr[left],
-      rightMax = arr[right],
-      volume = 0;
-
-  while (left &lt; right) {
-
-    if (leftMax &lt; rightMax) {
-      var height = arr[++left];
-      leftMax = Math.max(leftMax, height);
-      volume += leftMax - height;
-    } else {
-      var height = arr[--right];
-      rightMax = Math.max(rightMax, height);
-      volume += rightMax - height;
-    }  
-
-  }
-  return volume;
-}
-</pre>
-
-<p></p></div><p></p>
-<p>via <a href="https://gist.github.com/mkozakov/59af0fd5bddbed1a0399" target="_blank" rel="external">https://gist.github.com/mkozakov/59af0fd5bddbed1a0399</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/web/node server js/">node server.js</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>copy server.js to the WWW folder,then in the terminal run </p>
-<p><code>node server.js</code></p>
-<p>open browser visit </p>
-<p><a href="http://localhost:8888" target="_blank" rel="external">http://localhost:8888</a></p>
-<pre class="linenums">
-var http = require("http"),
-    url = require("url"),
-    path = require("path"),
-    fs = require("fs")
-    port = process.argv[2] || 8888;
-
-var mimeTypes = {
-    "htm": "text/html",
-    "html": "text/html",
-    "jpeg": "image/jpeg",
-    "jpg": "image/jpeg",
-    "png": "image/png",
-    "gif": "image/gif",
-    "js": "text/javascript",
-    "css": "text/css",
-    "json": "application/json"
-  };
-
-var virtualDirectories = {
-    //"images": "../images/"
-  };
-
-http.createServer(function(request, response) {
-
-  var uri = url.parse(request.url).pathname
-    , filename = path.join(process.cwd(), uri)
-    , root = uri.split("/")[1]
-    , virtualDirectory;
-
-  virtualDirectory = virtualDirectories[root];
-  if(virtualDirectory){
-    uri = uri.slice(root.length + 1, uri.length);
-    filename = path.join(virtualDirectory ,uri);
-  }
-
-  path.exists(filename, function(exists) {
-    if(!exists) {
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write("404 Not Found\n");
-      response.end();
-      console.error('404: ' + filename);
-      return;
-    }
-
-    if (fs.statSync(filename).isDirectory()) filename += '/index.html';
-
-    fs.readFile(filename, "binary", function(err, file) {
-      if(err) {        
-        response.writeHead(500, {"Content-Type": "text/plain"});
-        response.write(err + "\n");
-        response.end();
-        console.error('500: ' + filename);
-        return;
-      }
-
-      var mimeType = mimeTypes[path.extname(filename).split(".")[1]];
-      response.writeHead(200, {"Content-Type": mimeType});
-      response.write(file, "binary");
-      response.end();
-      console.log('200: ' + filename + ' as ' + mimeType);
-    });
-  });
-}).listen(parseInt(port, 10));
-
-console.log("Static file server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
-</pre>
-
-<p>via <a href="http://github.com/thedigitalself/node-static-http-server/" target="_blank" rel="external">node-static-http-server by James Wanga</a></p>
-<h3 id="Another_method">Another method</h3>
-<p>You can use Connect with NodeJS for this:</p>
-<ol>
-<li>Install connect with NPM</li>
-</ol>
-<p><code>npm install connect</code></p>
-<ol>
-<li>Create server.js file with this content:</li>
-</ol>
-<pre>var connect = require('connect');
-connect.createServer(
-    connect.static(__dirname)
-).listen(8080);</pre>
-
-<ol>
-<li>Run with NodeJS</li>
-</ol>
-<p><code>node server.js</code></p>
-<p>You can now go to <a href="http://localhost:8080/yourfile.html" target="_blank" rel="external">http://localhost:8080/yourfile.html</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime-themes-preview/">sublime themes preview</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="Sublime_3_颜色主题">Sublime 3 颜色主题</h3>
-<div id="sublime-themes-preview-div" style="padding: 0 10px;border:solid 1px #ccc;height:160px"><br><br><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><br>  <div class="ace_line" style="height:20px"><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    <span class="ace_storage ace_type"><br>      function<br>    </span><br>    &nbsp;<br>    <span class="ace_entity ace_name ace_function"><br>      foo<br>    </span><br>    <span class="ace_paren ace_lparen"><br>      (<br>    </span><br>    <span class="ace_variable ace_parameter"><br>      items<br>    </span><br>    <span class="ace_paren ace_rparen"><br>      )<br>    </span><br>    &nbsp;<br>    <span class="ace_paren ace_lparen"><br>      {<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    &nbsp;&nbsp;<br>    <span class="ace_storage ace_type"><br>      var<br>    </span><br>    &nbsp;<br>    <span class="ace_identifier"><br>      i<br>    </span><br>    <span class="ace_punctuation ace_operator"><br>      ;<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    &nbsp;&nbsp;<br>    <span class="ace_keyword"><br>      for<br>    </span><br>    &nbsp;<br>    <span class="ace_paren ace_lparen"><br>      (<br>    </span><br>    <span class="ace_identifier"><br>      i<br>    </span><br>    &nbsp;<br>    <span class="ace_keyword ace_operator"><br>      =<br>    </span><br>    &nbsp;<br>    <span class="ace_constant ace_numeric"><br>      0<br>    </span><br>    <span class="ace_punctuation ace_operator"><br>      ;<br>    </span><br>    &nbsp;<br>    <span class="ace_identifier"><br>      i<br>    </span><br>    &nbsp;<br>    <span class="ace_keyword ace_operator"><br>      &lt;<br>    </span><br>    &nbsp;<br>    <span class="ace_identifier"><br>      items<br>    </span><br>    <span class="ace_punctuation ace_operator"><br>      .<br>    </span><br>    <span class="ace_support ace_constant"><br>      length<br>    </span><br>    <span class="ace_punctuation ace_operator"><br>      ;<br>    </span><br>    &nbsp;<br>    <span class="ace_identifier"><br>      i<br>    </span><br>    <span class="ace_keyword ace_operator"><br>      ++<br>    </span><br>    <span class="ace_paren ace_rparen"><br>      )<br>    </span><br>    &nbsp;<br>    <span class="ace_paren ace_lparen"><br>      {<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    <span class="ace_indent-guide"><br>      &nbsp;&nbsp;&nbsp;&nbsp;<br>    </span><br>    &nbsp;&nbsp;<br>    <span class="ace_support ace_function"><br>      alert<br>    </span><br>    <span class="ace_paren ace_lparen"><br>      (<br>    </span><br>    <span class="ace_string"><br>      “Ace&nbsp;Rocks&nbsp;”<br>    </span><br>    &nbsp;<br>    <span class="ace_keyword ace_operator"><br>      +<br>    </span><br>    &nbsp;<br>    <span class="ace_identifier"><br>      items<br>    </span><br>    <span class="ace_paren ace_lparen"><br>      [<br>    </span><br>    <span class="ace_identifier"><br>      i<br>    </span><br>    <span class="ace_paren ace_rparen"><br>      ])<br>    </span><br>    <span class="ace_punctuation ace_operator"><br>      ;<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    &nbsp;&nbsp;<br>    <span class="ace_paren ace_rparen"><br>      }<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>    <span class="ace_paren ace_rparen"><br>      }<br>    </span><br>  </div><br>  <div class="ace_line" style="height:20px"><br>  </div><br></div>
-
-<p></p></div><p></p>
-<div id="sublime-themes-css"></div>
-
-<style>
-#sublime-themes-css ul {padding: 0;margin: 0;list-style: none;}
-#sublime-themes-css li {padding: 0;margin: 0;list-style: none;display: inline-block;padding:0 1em;cursor:pointer;}
-#sublime-themes-css li:hover {background:#cdf;}
-#sublime-themes-css li.current {background:#258fb8;color:#fff;}
-</style>
-
-<script src="/labs/sublime-themes/themes.js"></script>
-
-<h3 id="原理">原理</h3>
-<p>用 <a href="https://github.com/ajaxorg/ace/wiki/Importing-.tmtheme-and-.tmlanguage-Files-into-Ace" target="_blank" rel="external">ace tool 中的 tmtheme.js 生成 相应的 css 文件</a>，然后弄上一小段 ace DOM 以后生成的代码做例子，动态改变 class（.ace-AAAAA 之流）。</p>
-<h3 id="ace_tmtheme-js_玩法">ace tmtheme.js 玩法</h3>
-<p>打开终端，进入某工作目录，然后下载 ace</p>
-<p><code>git clone https://github.com/ajaxorg/ace.git</code></p>
-<p>注意：这个源文件里面 build 目录是空的！并不能直接用。如果你只是用 ace 的在线代码编辑器。请去 git <a href="https://github.com/ajaxorg/ace-builds" target="_blank" rel="external">ace-builds</a>。</p>
-<p>回到刚才的话题，继续。进入 ace/tool 目录，执行</p>
-<p><code>npm install</code></p>
-<p>会自动安装所需要的一些node模块（css-parse,css-stringify,plist等）</p>
-<p>然后把 sublime 的 .tmTheme 文件（比如我的  /Users/david/Library/Application\ Support/Sublime\ Text\ 2/Packages/Color\ Scheme\ -\ Default ），拷贝到 tmthemes 目录中</p>
-<p>小提示：.tmTheme 就是 textMate 的颜色文件。plist 就是 Mac 的程序配置文件。.tmTheme.cache 是 sublime 的临时文件。</p>
-<p>修改 ace/tool/themes.js （大约第 230 行）</p>
-<p>注释掉已有的那些，然后添加诸如</p>
-<pre>
-"flatland":"Flatland",
-"all_hallows_eve":"All Hallow's Eve",
-"amy":"Amy",
-"blackboard":"Blackboard",
-"cobalt":"Cobalt",
-"dawn":"Dawn",
-"eiffel":"Eiffel",
-"espresso_libre":"Espresso Libre",
-"idle":"IDLE",
-"lazy":"LAZY",
-"mac_classic":"Mac Classic",
-"magicwb_amiga":"MagicWB (Amiga)",
-"monokai_bright":"Monokai Bright",
-"monokai":"Monokai",
-"pastelson_dark":"Pastels on Dark",
-"slush_poppies":"Slush &amp; Poppies",
-"solarized_dark":"Solarized (Dark)",
-"solarized_light":"Solarized (Light)",
-"spacecadet":"SpaceCadet",
-"sunburst":"Sunburst",
-"twilight":"Twilight",
-"zenburnesque":"Zenburnesque",
-"iplastic":"iPlastic"
-</pre>
-
-<p>后面是实际的文件名，前面是转换后的 css 文件名。注意：前面不要用大写、空格、中划线等。打开转换好的 css 你就明白了，css 中的伪类名称类似  .ace-aaa-bbb 这样的方式。如果用中划线会被 double 为  .ace—aaa—bbb 等。</p>
-<p>生成的文件在 ace/lib/ace/theme 里面！注意：同时还会生成 同名的 .js 文件。这是给 ace 自己用的，用 requirejs 来动态加载 css 文件。</p>
-<h3 id="其它">其它</h3>
-<p>中间从控制台拷贝的代码没有换行，用 <a href="http://ctrlq.org/beautifier/" target="_blank" rel="external">online code beautifier</a> 格式化为 换行缩进 的漂亮代码。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/mac/diff-and-patch/">diff and patch</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="diff_对比文件">diff 对比文件</h3>
-<p>对比 1 2 区别写在 3（1,2 可以是目录）</p>
-<p><code>diff 1 2 &gt; 3</code></p>
-<p>如果 1 2 是目录并且含有子目录的话</p>
-<p><code>diff -r 1 2 &gt; d</code></p>
-<h3 id="patch_将对比结果应用">patch 将对比结果应用</h3>
-<p>根据 3 把 1 写成  2</p>
-<p><code>patch 1 3</code></p>
-<h3 id="其它">其它</h3>
-<ul>
-<li>git 用的就是 diff patch 来减少 scp(ssh)的流量，所以快</li>
-<li>windows 下 dos 叫 fc</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/ace-editor/">ace editor</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><style>@import url(/ace/ace-mine.css);</style></p>
-<script src="/ace/src-min-noconflict/ace.js"></script>
-
-<p><style>@import url(/labs/select2.css);</style></p>
-<script src="/labs/select2.min.js"></script>
-
-<h3 id="javascript_highlight">javascript highlight</h3>
-<div class="codeContainer" style="height:160px;"><br><div id="ace-editor" class="ace-editor"><br>function foo(items) {<br>  var i;<br>  for (i = 0; i &lt; items.length; i++) {<br>      alert(“Ace Rocks “ + items[i]);<br>  }<br>}<br></div><br></div>
-
-<h3 id="css_highlight">css highlight</h3>
-<div class="codeContainer" style="height:100px;"><br><div id="ace-editor-css" class="ace-editor"><br>body {background:red;}<br>h1 {font-size:14px;}<br>header article {margin: 0 auto;}<br></div><br></div>
-
-<div id="ace-themes-selector"></div>
-
-<h3 id="选择语法文件">选择语法文件</h3>
-<p>比如下面的 less</p>
-<div class="codeContainer" style="height:100px;"><br><div id="ace-editor-diy" class="ace-editor"><br>//随便写代码看看<br>@color-link:red;<br>h1 {color:@color-link;}<br></div><br></div>
-
-<input type="text" id="select2-2013-11-24" style="width:50%;margin-top: 10px;">
-
-<script src="/ace/ace-mine.js"></script>
-
-<h3 id="下载_ace_builds">下载 ace builds</h3>
-<p>下载地址：<a href="https://github.com/ajaxorg/ace-builds" target="_blank" rel="external">ace builds</a></p>
-<p>src-min-noconflict（目录） 表示压缩（min）并且不需要 require.js 的独立运行（noconflict）版本。并且包含了常见的 语法高亮和主题文件。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/collapsing-margins/">Collapsing margins</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><ul id="collapsing-margins-div" style="margin: 0;padding: 0;list-style: none;background:red;"><br>    <li style="float:left;width:50%;"><br>        <div style="background:green;" class="wrapper"><br>            <h3>标题</h3><p>文字</p><br>        </div><br>    </li><br>    <li style="float:left;width:50%;"><br>        <div style="background:blue" class="wrapper"><br>            <h3>标题</h3><p>文字</p><br>        </div><br>    </li><br>    <div style="clear:both;"></div><br></ul></p>
-<style>
-#collapsing-margins-div li:hover {background-color: #333;}
-</style>
-
-<button class="btn" onclick="appendStyle(this);">切换 h3 margin-top 样式</button>
-
-<h3 id="html_代码">html 代码</h3>
-<pre>
-&lt;ul id="collapsing-margins-div" style="margin: 0;padding: 0;list-style: none;background:red;"&gt;
-    &lt;li style="float:left;width:50%;"&gt;
-        &lt;div style="background:green" class="wrapper"&gt;
-            &lt;h3&gt;标题&lt;/h3&gt;&lt;p&gt;文字&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/li&gt;
-    &lt;li style="float:left;width:50%;"&gt;
-        &lt;div style="background:blue" class="wrapper"&gt;
-            &lt;h3&gt;标题&lt;/h3&gt;&lt;p&gt;文字&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/li&gt;    
-    &lt;div style="clear:both;"&gt;&lt;/div&gt;
-&lt;/ul&gt;
-&lt;style&gt;
-#collapsing-margins-div li:hover {background-color: #333;}
-&lt;/style&gt;
-</pre>
-
-<h3 id="问题">问题</h3>
-<p>注意：那个莫名其妙的 <span style="color:red;">红边</span>，实际上是由  h3 的 margin-top 产生的！</p>
-<pre>
-#collapsing-margins-div h3 {margin-top: 0;}
-</pre>
-
-<script src="/labs/collapsing-margins.js"></script>
-
-<h3 id="难道这就是传说中的_collapsing-margins">难道这就是传说中的 <a href="http://www.w3.org/TR/CSS2/box.html#collapsing-margins" target="_blank" rel="external">collapsing-margins</a></h3>
-<pre>
-h1 {
-  margin: 0 0 25px 0;
-  background: #cfc;
-}
-p {
-  margin: 20px 0 0 0;
-  background: #cf9;
-}
-</pre>
-
-<p><img src="http://reference.sitepoint.com/css/figures/css-box-model_collapsing-margins.png" alt="collapsing-margins"></p>
-<p>简单的说：上下两个相邻元素之间的 margin 会合并为大的那个！除非发生以下情况之一</p>
-<ul>
-<li>float 浮动</li>
-<li>position:absolute</li>
-<li>inline-block</li>
-<li>父元素 overflow:auto 或者 overflow:scroll 或者 overflow:visible</li>
-<li>clear:xxx</li>
-<li>root element </li>
-</ul>
-<h3 id="结论">结论</h3>
-<p>这就是为什么 <a href="/labs/gs-accordin.less">gs-accordin.less</a> 中出现下面的</p>
-<pre>
-//fix inside first and last elements overflow parent!!
-parent {
-    :first-child {margin-top:0 !important;margin-left:0 !important;}
-    :last-child {margin-bottom:0 !important;margin-right:0 !important;}
-}
-</pre>
-
-<p>当然，上面那些 float,display:inline-block  等办法也可以。</p>
-<p>参考：</p>
-<p><a href="http://reference.sitepoint.com/css/collapsingmargins" target="_blank" rel="external">http://reference.sitepoint.com/css/collapsingmargins</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/19/" class="alignleft prev">上一页</a>
@@ -669,14 +643,14 @@ parent {
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

@@ -51,6 +51,220 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/hexo/hexo-tags/">hexo tags</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Block_引用块">Block 引用块</h2>
+<pre>
+{&#37; blockquote guoshuang http://guoshuang.com/life/开始/  重生在 github &#37;}
+本站用 hexo 写静态，然后 host 在 github。
+{&#37;endblockquote &#37;}
+</pre>
+
+<p>效果：</p>
+<blockquote>
+
+<p>本站用 hexo 写静态，然后 host 在 github。</p>
+<footer><strong>guoshuang</strong><cite><a href="http://guoshuang.com/life/开始/" target="_blank" rel="external">重生在 github</a></cite></footer></blockquote>
+
+
+
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/hexo/hexo-tags/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/jquery-prop/">jquery prop</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>jquery prop() (property) 获得属性。和 attr() 很类似，但区别也不少。推荐优先使用 prop()，有些 非显式声明 的属性只能用 prop。（jquery 1.6 以前的 attr 不能获得 <strong>实时</strong> 的属性） </p>
+<p>prop 不能获得自定义属性值（jquery 1.9.1） attr(‘data-url’) 可以</p>
+
+      
+    </div> 
+    
+          <footer>
+          <div class="alignleft">
+            <a href="/javascript/jquery-prop/#more" class="more-link" title="继续阅读">继续阅读</a>
+          </div>
+          <div class="clearfix"></div>
+          </footer>  
+  </div>
+</article>
+
+<article class="link">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div>  <h1 class="title"><a href="http://www.google.com/" target="_blank">hexo link test</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>hexo 链接类型的格式：</p>
+<pre>
+layout: link
+title: hexo link test
+date: 2013-04-16 11:21:54
+link: http://www.google.com/
+category: hexo
+tags: hexo
+</pre>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-feed-sitemap/">hexo 加 feed 和 sitemap</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>根据 <a href="https://github.com/tommy351/hexo/wiki/Plugins" title="hexo 官方 plugins" target="_blank" rel="external">hexo 官方 plugins</a> 说法，安装 feed 生成器，执行</p>
+<p><code>npm install hexo-generator-feed --save</code></p>
+<p><strong>注意：当前目录必须是你 hexo init 的根目录 如 hexo/MYSITE </strong> 安装后在,hexo/MYSITE 目录中会出现 node_modules 目录。</p>
+<p>安装 sitemap 生成器</p>
+<p><code>npm install hexo-generator-sitemap --save</code></p>
+<p>还需要修改 hexo/MYSITE/_config.yml，注意是根目录的 _config.yml，不是 themes/light/ 目录的那个。</p>
+<pre>
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+</pre>
+
+<p>重启服务后,feed 和 sitemap 可见。</p>
+<pre>
+http://localhost:4000/atom.xml 
+http://localhost:4000/sitemap.xml
+</pre>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac安装npm/">mac安装npm</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>先尝试</p>
+<p><code>curl https://npmjs.org/install.sh | sh</code></p>
+<p>失败，然后尝试下面的办法，下载，本地编译</p>
+<pre class="prettyprinted" style="color:#b5bd68">
+git clone http://github.com/isaacs/npm.git
+cd npm
+sudo make install
+</pre>
+
+<p>查看一下版本，安装成功</p>
+<pre>
+$ npm -v
+1.2.17
+</pre> 
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-favicon/">hexo 如何处理静态文件（html,favicon等）</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><span style="color:red">注意：2013－04－19 的版本，有问题！会 render 所有的 .htm .html 文件！</span></p>
+<p><a href="/hexo/hexo-static-file/">只 render .md 文件的办法</a> 2013－04－21</p>
+<blockquote>
+<p><strong>放在 source 目录中的 .css .js 无后缀 等文件会被直接 拷贝到 public 目录中！</strong></p>
+</blockquote>
+<p>source 目录中的文件（包括非空文件夹），generate 的时候会被拷贝到 pulish 目录中。</p>
+<p>注意：手工拷贝到 pulish 目录的文件 会在下一次 generate 的时候 清空！</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/life/hawkin/">与霍金一起了解宇宙</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
     </header>
@@ -112,233 +326,6 @@ pre.nowrap { /*不需要自动换行*/
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime关闭搜索栏/">sublime关闭搜索栏</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>sublime 打开搜索条容易，<key><kbd class="mac"></kbd>+<kbd>f</kbd></key>（Mac）。可没有关闭按钮，：（ 按 esc 关闭（隐藏）搜索栏</p>
-<p>可以自定义设置为：toggle 第一次开，第二次关<br>
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/software/sublime关闭搜索栏/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/jquery-operate-iframe/">jquery访问iframe内容</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>先看这个 <a href="/labs/jquery-iframe.html">iframe 内外互访的例子</a></p>
-<pre class="linenums">
-&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
-$(function(){
-$('#showIframeContent').click(function(){
-    var info=$('body',$('#iframeId').contents()).html()
-    alert(info);
-})
-})
-&lt;/script&gt;
-&lt;iframe  name="iframeId" id="iframeId" style="width:95%;border:solid 1px #ccc;" src="http://localhost/~david/jquery-iframe2.htm"&gt;&lt;/iframe&gt;
-&lt;button id="showIframeContent"&gt;iframe内容&lt;/button&gt;
-</pre>
-
-<h3 id="更多方法：">更多方法：
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/javascript/jquery-operate-iframe/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo加评论/">hexo加评论 - disqus</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>hexo 采用第三方评论系统 - <a href="http://disqus.com/" target="_blank" rel="external">disqus</a>，需要先去注册，然后在 _config.yml 中 disqus_shortname 填写你的 shortname 即可。</p>
-<p>disqus NB 之处在于：</p>
-<ul>
-<li>评论集中保存（在 disqus 上），方便回顾</li>
-<li>Comment feed 和 Subscribe via email  方便评论跟踪</li>
-<li>有点论坛的意思，这篇文章就象楼主的1楼</li>
-<li>webmaster 管理评论更方便</li>
-<li>对垃圾留言的斗争让 disqus 去做吧（整合了 Akismet）</li>
-<li>支持一切 openid 的帐号，留言者不用到处登陆了，直接开说即可</li>
-<li>支持 黑白名单和关键字过滤</li>
-<li>和 twitter facebook 等社会应用整合</li>
-</ul>
-<p>类似网站还有  <a href="http://intensedebate.com/" target="_blank" rel="external">IntenseDebate</a>  <a href="http://livefyre.com/" target="_blank" rel="external">Livefyre</a></p>
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/hexo/hexo加评论/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/jquery-mobile-例子/">jquery mobile 例子</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="/labs/jquery-mobile.html">jquery mobile 例子</a> </p>
-<p>Web SQL 目前 webkit（Chrome） 支持，请用 firefox 看效果。<br>另外一个问题就是 jqueru mobile 动态加入的 html dom 没有样式的问题。（因为不仅仅是 css 的问题，有些效果需要 js 帮忙处理，动态写入时，人家已经弄过了）</p>
-<p>加一句话 trigger(‘create’),再来一遍</p>
-<p>$(“#div_content”).html(ohtm).trigger(‘create’);</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/css-word-wrap/">一劳永逸地解决文字溢出问题</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>中文没问题，因为中文其实不是字符！gb2312或者utf-8的编码，都有 <strong>单词边界</strong>。</p>
-<p>英文有两种情况。</p>
-<p>一种就是一个<em>单词</em>中间没有空格 / \ ? 等（下例1）。另外就是长的 url 地址中间没有空格。</p>
-<pre class="linenums lang-css">
-word-wrap: break-word;/*长单词强制打断*/
-white-space: pre-wrap;/*自动绕行 firefox need this*/
-word-break:break-all; /* ie67 only*/
-比如：
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js
-</pre>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/frontend/prettify-guoshuang/">我的 google prettify 样式</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="https://code.google.com/p/google-code-prettify/" target="_blank" rel="external">google prettify</a> 有两种玩法</p>
-<h2 id="方法一">方法一</h2>
-<p>页面引用 run_prettify.js </p>
-<pre class="linenums">
-&lt;script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&gt;&lt;/script&gt;
-</pre>
-
-<p>写代码用</p>
-<pre class="linenums">
-&lt;pre class="prettyprint linenums"&gt;
-代码在这里！
-&lt;/pre&gt;
-</pre>
-
-<p>run_prettify.js 后面可以带参数:</p>
-<ul>
-<li>autoload= 是否执行（默认执行）</li>
-<li>lang=css 按 css 语言高亮（页面中需要加入 lang-css.js）</li>
-<li>skin= 用哪种 <a href="http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html" target="_blank" rel="external">主题</a>（颜色）如 Default,desert 等</li>
-<li>callback= 回调。每段 pre.prettyprint 执行完都调用。</li>
-</ul>
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/frontend/prettify-guoshuang/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/55/" class="alignleft prev">上一页</a>
@@ -352,14 +339,14 @@ https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

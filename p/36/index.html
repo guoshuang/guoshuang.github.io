@@ -51,6 +51,447 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/web/canvas-bezier/">canvas bezier</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <canvas id="canvas-bezier" width="320" height="200" style="background:#ddd;">This is canvas by guoshuang!</canvas>
+
+<script src="/labs/dashed-line.js"></script>
+<script src="/labs/canvas-bezier.js"></script>
+
+<pre>
+canvas = document.getElementById("canvas-bezier");
+ctx = canvas.getContext("2d");
+ctx.lineWidth = 2;
+ctx.strokeStyle = "#c00";
+ctx.beginPath();
+ctx.moveTo(10,10);
+ctx.bezierCurveTo(10,150,200,100,310,10);
+ctx.stroke();
+</pre>
+
+<p>ctx.moveTo(10,10); //<strong><em>从 10,10 开始画</em></strong></p>
+<p>ctx.bezierCurveTo(10,150,200,100,310,10); //<strong><em>10,150 是第一个贝赛尔控制点（左面的绿点），200,100 第二个控制点（右面绿点）,310,10 是终点。</em></strong></p>
+<h3 id="笔记">笔记</h3>
+<ul>
+<li>canvas 不能直接 style 设置高宽，会变形。直接 width height=</li>
+<li>canvas 没有 zindex，上面的后画；或者多个 canvas position:absolute</li>
+<li><a href="http://www.w3schools.com/tags/canvas_quadraticcurveto.asp" target="_blank" rel="external">quadraticcurveto</a> 中间只有一个控制点。类似于 flash 中拖线；</li>
+<li><a href="http://stackoverflow.com/questions/4576724/dotted-stroke-in-canvas" target="_blank" rel="external">dotted stroke in canvas</a> 垂直线的时候可能不显示（正好在缝隙中）</li>
+<li><a href="http://www.html5canvastutorials.com/kineticjs/html5-canvas-select-shape-by-id-with-kineticjs/" target="_blank" rel="external">select by id</a> 或者 rapheal</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/" target="_blank" rel="external">html5canvastutorials</a></li>
+<li><a href="http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html" target="_blank" rel="external">Canvas Bézier Curve Example</a></li>
+<li><a href="http://www.w3schools.com/tags/canvas_beziercurveto.asp" target="_blank" rel="external">w3schools canvas_beziercurveto</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/img-hover-transition2/">pure css img hover 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <ul id="gsimghover2"><br>    <li><a href="#1">看看她</a><div class="d1"><div class="d2"><div class="d3"><div class="d4"><div class="d5"><div class="shadow"></div></div></div></div></div></div></li><br>    <li class="style2"><a href="#1">看看她</a><div class="d1"><div class="d2"><div class="d3"><div class="d4"><div class="d5"><div class="shadow"></div></div></div></div></div></div></li><br></ul>
+
+<p><style>@import url(/labs/img-hover-transition2.css)</style></p>
+<div style="clear: both;"></div>
+
+<h3 id="原理">原理</h3>
+<p>旋转 rotateY 形成梯形。注意，必须有 perspective ！</p>
+<ul id="imghover2-test"><br>    <li></li><br></ul>
+
+<style>
+#imghover2-test {
+    -webkit-perspective: 500px;perspective: 500px;
+    position:relative; height:100px; background:#ddd; margin:40px 0;
+}
+#imghover2-test li {
+    position: absolute; background:red; width:100px; height:100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: left center;
+    -webkit-transform: rotateY(-45deg);
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transform: rotateY(-45deg);
+}
+</style>
+
+<h3 id="完整代码">完整代码</h3>
+<pre>
+&lt;ul id="imghover2-test"&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt;
+#imghover2-test {
+    -webkit-perspective: 500px;perspective: 500px;
+    position:relative; height:100px; background:#ddd; margin:40px 0;
+}
+#imghover2-test li {
+    position: absolute; background:red; width:100px; height:100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: left center;
+    -webkit-transform: rotateY(-45deg);
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transform: rotateY(-45deg);
+}
+&lt;/style&gt;
+</pre>
+
+<h3 id="translate_rotate_的另一种写法">translate rotate 的另一种写法</h3>
+<pre>
+-webkit-transform: translate3d(50px,0,0) rotate3d(0,1,0,-45deg);}
+</pre>
+
+<h3 id="源文件下载">源文件下载</h3>
+<p>如果懒的话，其实可以 js append 那些 divs。<a href="/labs/img-hover-transition2.less">less 源文件</a> 或者 <a href="/labs/img-hover-transition2.css">css 源文件</a></p>
+<p>via <a href="http://showcase.sketchup.com/" target="_blank" rel="external">sketchup</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/wzyboy/">自古英雄出少年</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>这些都是这个<a href="https://wzyboy.im/post/653.html" target="_blank" rel="external">上高中的孩子</a> 写的。(2011参加高考)我们这些叔叔们都在干什么呢？</p>
+<ul>
+<li><a href="https://wzyboy.im/post/874.html" target="_blank" rel="external">https://wzyboy.im/post/874.html</a> 国内外dns比较</li>
+<li><a href="https://wzyboy.im/post/652.html" target="_blank" rel="external">https://wzyboy.im/post/652.html</a> gmail 玩法</li>
+<li><a href="https://wzyboy.im/post/658.html" target="_blank" rel="external">https://wzyboy.im/post/658.html</a> VHD 制作</li>
+<li><a href="https://wzyboy.im/post/635.html" target="_blank" rel="external">https://wzyboy.im/post/635.html</a> opera mini hack </li>
+<li><a href="https://wzyboy.im/post/693.html" target="_blank" rel="external">https://wzyboy.im/post/693.html</a>  密码管理办法</li>
+<li><a href="https://wzyboy.im/post/281.html" target="_blank" rel="external">https://wzyboy.im/post/281.html</a> 多功能u盘</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/img-hover-transition/">pure css img hover</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <ul class="imgHoverTransition"><br><li class="a"><a href="#1"><img src="/pics/girl.jpg"><span class="t">美女图片又被用来做例子了。。。</span></a></li><br><li class="b"><a href="#1"><img src="/pics/girl.jpg"><span class="t">还是她。。。</span></a></li><br><li class="c"><a href="#1"><img src="/pics/girl.jpg"><span class="t">是她</span></a></li><br><li class="d"><a href="#1"><img src="/pics/girl.jpg"><span class="t">jiu是她</span></a></li><br><li class="e"><a href="#1"><img src="/pics/girl.jpg"><span class="t">jiu是她</span></a></li><br><li class="f"><a href="#1"><img src="/pics/girl.jpg"><span class="t">是她，是她，还是她</span></a></li><br></ul>
+
+<div style="clear:both;"></div>
+
+<style>
+.imgHoverTransition {list-style: none;maring:0;padding: 0;}
+.imgHoverTransition img {width:250px;}
+.imgHoverTransition li {list-style: none;maring:0;padding: 0;float:left;margin-right:10px;position: relative;cursor:pointer;margin-bottom: 10px;overflow: hidden;}
+.imgHoverTransition li img {display: block;-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+.imgHoverTransition li .t {display:block;position:absolute;left:0px;width:100%;background-color:rgba(0,0,0,0.5);text-align: center;color:#fff;line-height: 30px;height:0;overflow:hidden;}
+.imgHoverTransition li .t {
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+.imgHoverTransition li:hover img {-webkit-filter: grayscale(0%);}
+li.a .t {top:0;}
+li.b .t {bottom:0;}
+.imgHoverTransition li.a:hover .t {height:30px;}
+.imgHoverTransition li.b:hover .t {height:30px;}
+li.c .t {
+    -webkit-transform-origin:100% 0%;
+    -webkit-transform:rotate(-45deg);
+    -moz-transform-origin:100% 0%;
+    -moz-transform:rotate(-45deg);
+    transform-origin:100% 0%;
+    transform:rotate(-45deg);
+    height:30px;
+    width:100px;
+    left:250px;
+    top:129px;
+}
+li.c:hover .t {
+    left:150px;
+}
+li.d .t {
+    height:200px;
+    width:250px;
+    left:0;
+    top:0;
+    border-radius: 0%;
+    margin-left:0px;
+    margin-top:0px;
+    line-height: 200px;
+    opacity: 0;
+}
+
+li.d:hover .t {
+    opacity: 1;
+    height:80px;
+    line-height:80px;
+    width:80px;
+    left:50%;
+    top:50%;
+    border-radius: 100%;
+    margin-left:-40px;
+    margin-top:-40px;
+}
+
+li.e {
+        width:250px;
+        height:200px;
+}
+
+li.e .t {
+    width:250px;
+        height:200px;
+        line-height:200px;
+}
+
+.imgHoverTransition li.e a {
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    position: absolute;
+
+}
+
+li.e:hover a {
+    top:-200px;
+}
+
+li.f {
+    width:250px;
+    height:200px;
+}
+
+li.f .t {
+    width:250px;
+    height:200px;
+    line-height:200px;
+}
+
+li.f img {
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+li.f:hover img {
+    left:-250px;
+    z-index: 1;
+}
+</style>
+
+<p>在童童的帮助下，才搞定这个算法：200-100<em>Math.cos(45/180</em>Math.PI)。代码太烂，都不好意思拿出来，自己源代码看吧。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/coffee-tips/">coffee 点滴</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>条件表达式</p>
+<pre>
+balls =$.trim($(k).attr('data-balls'));
+balls = if balls=='' then ballsDefault else balls
+</pre>
+
+<p>循环</p>
+<pre>
+$('.gAjaxLoader').each (j,k)->
+    console.log($(k));
+</pre>
+
+<p>for(i=0;i&lt;XX.length;i++){…}</p>
+<pre>
+for i in [1..balls]
+    divs+='<div></div>';
+</pre>
+
+<p>jquery ready</p>
+<pre>
+jQuery ($)->
+    console.log($);
+</pre>
+
+<p>定义函数</p>
+<pre>
+myfunc = -&gt;
+    console.log(123);
+</pre>
+
+<p>定义全局函数（window.func）这样可以在 html 中 button onclick=”initialAjaxLoader()”(默认的 coffee 会把代码封装在一个 匿名函数 scope 中)</p>
+<pre>
+root = exports ? this
+root.initialAjaxLoader = -&gt;
+    console.log(123);
+</pre>
+
+<p>注释</p>
+<p><pre># 这里是注释</pre><br>.js 文件中不会显示。</p>
+<p><pre>### 注释输出到js文件中 ###</pre><br>注释输出到js文件中</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/less-mixins/">less mixins</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>每次都要重写 mixin，太罗嗦。把我常用的写在 lib.less，以后的 less 直接 </p>
+<pre>
+@import "lib.less";
+</pre>
+
+<pre>
+//less lib used by davidguoshuang at gamil.com
+//紧密团结在 以 webkit 为核心的...
+
+.transform (...) {
+    -webkit-transform:@arguments;
+    -moz-transform:@arguments;
+    -o-transform:@arguments;
+    transform:@arguments;
+}
+...
+</pre>
+
+<p>下载我的 <a href="/labs/lib.less">lib.less</a></p>
+<pre>
+.bgmixin(@color) {
+    (~".@{color}") {
+        background-color: @@color;
+        .boxbar {
+            background-color: lighten(@@color, 10%);
+        }
+    }
+}
+
+@blue: #468ACE;
+@green: #41A53D;
+@red: #9C2525;
+
+.bgmixin("blue");
+.bgmixin("green");
+.bgmixin("red");
+</pre>
+
+<pre>
+.blue{
+  background-color: #468ace;
+}
+.blue .boxbar {
+  background-color: #6ea3d9;
+}
+.green{
+  background-color: #41a53d;
+}
+.green .boxbar {
+  background-color: #59c055;
+}
+.red{
+  background-color: #9c2525;
+}
+.red .boxbar{
+  background-color: #c52f2f;
+}
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/css/pure-css-ajax-loader/">pure css ajax loader</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
     </header>
@@ -168,266 +609,6 @@ jQuery.browser.msie&amp;&amp;jQuery.browser.version&lt;8
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/css-3d-cylinder/">css 3d cylinder</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>谁敢把我装桶里来着？</p>
-<div id="circle_3d_thick" class="circle_3d_thick rotated" style="float:left"></div><br><div id="circle_3d_thick_slider" style="float:left;margin-top:100px;margin-left:60px"></div><br><div style="clear:both;"></div>
-
-<h3 id="代码：">代码：</h3>
-<pre>
-&lt;div id="circle_3d_thick" class="circle_3d_thick rotated"&gt;&lt;/div&gt;
-</pre>
-
-<p><style>@import url(/labs/css-3d-cylinder.css)</style></p>
-<link rel="Stylesheet" href="/cs/jquery-ui.css">
-
-<script src="/js/jquery-ui.min.js"></script>
-
-<script src="/labs/css-3d-cylinder.js"></script> 
-
-<div style="clear:both"></div>
-
-<h3 id="原理">原理</h3>
-<ol>
-<li>150*150px的方块，自己 position:relative，border-radius:100% </li>
-<li>然后 :before :after 插入两个 position:absolute 方块 A（before） B(after)</li>
-<li>A 是桶底。transform:translateZ(-75px) 向 z 方向挪动 75;</li>
-<li>B 担任侧面。比较罗嗦 rotateX(90deg) translateY(-1<em>@circle_size/2) translateZ(-1</em>@circle_size/2)  首先旋转（因为是侧面嘛），然后往中间挪动（根本不是曲面，就是平面，所以要放在圆心上）</li>
-<li>打酱油的阴影是 jquery append 进去的。z 方向 85 然后 box-shadow 几次(温柔点的阴影)。</li>
-</ol>
-<h3 id="源代码">源代码</h3>
-<p>js 引入 jquery ui slider，是为了方便查看桶的侧面。我写的时候是 <a href="/labs/css-3d-cylinder.less">less</a> 和 <a href="/labs/css-3d-cylinder.coffee">coffee</a>。当然，你也可以直接查看 <a href="/labs/css-3d-cylinder.css">css</a> 和 <a href="/labs/css-3d-cylinder.js">js</a>。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime-insert-date/">sublime insert date</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>Install <a href="https://github.com/FichteFoll/sublimetext-insertdate" target="_blank" rel="external">sublimetext-insertdate</a> with <a href="http://wbond.net/sublime_packages/package_control" target="_blank" rel="external">Package Control</a> or directly install with git clone.</p>
-<p><code class="no-flash no-dollar">ctrl+`</code> open sublime console and type</p>
-<p><code class="no-flash no-dollar">sublime.packages_path()</code> to show the packages_path</p>
-<p><code class="no-flash no-dollar">cd PATH_OF_YOUR_SUBLIME_PACKAGES</code> and git clone</p>
-<p><code class="no-flash no-dollar">git clone git://github.com/FichteFoll/sublimetext-insertdate.git</code></p>
-<p>then modify Key Bindings-User,add</p>
-<pre>
-{ "keys": ["ctrl+d"],"command": "insert_date","args": {"format": "%Y-%m-%d %H:%M:%S"} }
-</pre>
-
-<p>Any time you want insert date,just <key><kbd>ctrl</kbd>+<kbd>d</kbd></key>.will output</p>
-<p><strong>2013-05-29 08:30:54</strong></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/js-compile/">js compile</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>For instance if you are into classical OOP instead of prototypal and want some syntactical sugar, you might enjoy <strong><em>CoffeeScript</em></strong>. In case you wish to have a stricter typing system, you could find <strong><em>Dart</em></strong> or <strong><em>TypeScript</em></strong> interesting. Those that enjoy functional programming, could perhaps enjoy <strong><em>ClojureScript</em></strong> or <strong><em>Roy</em></strong>. coffee 面向对象的编程；严谨编程用 dart 或者 typescript；注重功能用 ClojureScript 或者 roy</p>
-<p>via </p>
-<ul>
-<li><a href="http://jster.net/blog/js-alternatives-coffeescript-dart-typescript#.UaUn-C-SCv0" target="_blank" rel="external">The Others: CoffeeScript, Dart, TypeScript</a></li>
-<li><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank" rel="external">List of languages that compile to JS</a></li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/mobile/phonegap-web-font/">phonegap not show webfont</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>Android does support TTF and OTF files.</p>
-<p><strong>Don’t use the local hack for ie</strong></p>
-<p>If you realy want to support ie,use code below</p>
-<pre>
-&lt;link rel="stylesheet" type="text/css" href="/css/fonts.css" /&gt;
-&lt;!--[if IE]&gt;
-    &lt;link rel="stylesheet" href="/css/styleiefonts.css" type="text/css" charset="utf-8" /&gt;
-&lt;![endif]--&gt;
-</pre>
-
-<p>via <a href="http://stackoverflow.com/questions/3200069/css-fonts-on-android#answer-4520467" target="_blank" rel="external">http://stackoverflow.com/questions/3200069/css-fonts-on-android#answer-4520467</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/less-css-variables-use-array/">less variables use array</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>I want set random color to sth use lesscss.</p>
-<pre class="linenums">
-@colorArr:'#00c,red,green';
-
-.random_color(@arg){
-    background-color:~`@{colorArr}.split(',')[@{arg}]`;
-}
-
-.random_color(){
-    @len:`Math.floor(Math.random()*(@{colorArr}.split(',').length))`;
-    background-color:~`@{colorArr}.split(',')[@{len}]`;
-}
-
-.div1 {
-    height:300px;
-    .random_color();
-    .random_color(0);
-}
-</pre>
-
-<ul>
-<li>use <strong><em>.random_color()</em></strong> to generate random color. </li>
-<li><strong><em>.random_color(N)</em></strong> get the N-index of colorArr.</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/pure-css-pie/">pure css pie</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>用 webkit 或者 firefox 看</p>
-<ul class="pureCssPie"><br><li><div></div></li><br><li><div></div></li><br><li><div></div></li><br><li><div></div></li><br></ul>
-
-<h3 id="原理如下">原理如下</h3>
-<p>两个200x200 div(a,b)，各自横竖方向 clip:rect(…) 一半，旋转一个角度，注意重合的部分就是我们要的 pie。当然，还需要 border-radius:100% ，例外 b 应该嵌在 a 里面，这样溢出的部分不会显示。查看源文件：<a href="/labs/pure-css-pie.less">lesscss</a> 或者 <a href="/labs/pure-css-pie.css">css</a></p>
-<div style="background:#ccc;position:relative;height:200px;margin:1em 0;"><br><div style="position:absolute;background:red;width:200px;height:200px;clip:rect(0,100px,200px,0);opacity:0.5;border-radius:100%;"></div><br><div style="position:absolute;background:green;width:200px;height:200px;clip:rect(0,100px,200px,0);-webkit-transform:rotate(60deg);transform:rotate(60deg);border-radius:100%;opacity:0.5;"></div><br></div> 
-
-<h3 id="javascript_版本?">javascript 版本?</h3>
-<ul class="gsPie" style="display:inline-block;width:220px;"><br><li data-pie="200"></li><br><li data-pie="50"></li><br><li data-pie="50"></li><br><li data-pie="300"></li><br><li data-pie="650"></li><br><li data-pie="240"></li><br></ul>
-
-<ul class="gsPie" style="display:inline-block;" data-donut="0.3"><br><li data-pie="50">谱扫</li><br><li data-pie="200">郭爽</li><br><li data-pie="80">共扫</li><br></ul>
-
-<ul class="gsPie" data-piesize="0.5" style="display:inline-block;"><br><li data-pie="50"></li><br><li data-pie="200"></li><br><li data-pie="80"></li><br><li data-pie="300"></li><br><li data-pie="650"></li><br><li data-pie="240"></li><br></ul>
-
-<ul class="gsPie" style="display:inline-block;" data-piesize="0.8" data-pielabel="true"><br><li data-pie="50">谱扫</li><br><li data-pie="200">郭爽</li><br><li data-pie="80">共扫</li><br></ul>
-
-<p>代码如下：</p>
-<pre>
-&lt;ul class="gsPie"&gt;
-&lt;li data-pie="90"&gt;&lt;/li&gt;
-&lt;li data-pie="180"&gt;&lt;/li&gt;
-&lt;li data-pie="89"&gt;&lt;/li&gt;
-&lt;li data-pie="300"&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;style&gt;@import url(http://guoshuang.com/labs/gspie.css)&lt;/style&gt;
-&lt;script src="http://guoshuang.com/js/jquery-2.0.0.min.js"&gt;&lt;/script&gt;
-&lt;script src="http://guoshuang.com/labs/gspie.js"&gt;&lt;/script&gt;
-</pre>
-
-<h3 id="简单说明">简单说明</h3>
-<ul>
-<li>data-pie 数量（百分比当然也可以）</li>
-<li>data-donut=”0.5” 圆心的百分比</li>
-<li>data-piesize=”0.5” 默认大小为 200x200px，0.5 表示一半大小</li>
-<li>label绕圈？嗯，这个不好处理。简单放在下边。</li>
-</ul>
-<p><style>@import url(/labs/pure-css-pie.css)</style></p>
-<p><style>@import url(/labs/gspie.css)</style></p>
-<script src="/labs/gspie.js"></script>
-
-
-
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/35/" class="alignleft prev">上一页</a>
@@ -441,14 +622,14 @@ jQuery.browser.msie&amp;&amp;jQuery.browser.version&lt;8
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

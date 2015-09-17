@@ -47,6 +47,355 @@
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
+          <span class="d">26</span>
+          <span class="ym">03/2015</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/window-resize-trigger-once/">window resize trigger once</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Thu Mar 26 2015 10:38:35 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><code>function debouncer( func , timeout ) {<br>   var timeoutID , timeout = timeout || 200;<br>   return function () {<br>      var scope = this , args = arguments;<br>      clearTimeout( timeoutID );<br>      timeoutID = setTimeout( function () {<br>          func.apply( scope , Array.prototype.slice.call( args ) );<br>      } , timeout );<br>   }<br>}</code></p>
+<p>$( window ).resize( debouncer( function ( e ) {<br>    // do stuff<br>} ) );</p>
+<p><code>$(window).resize(function() {<br>    clearTimeout($.data(this, ‘resizeTimer’));<br>    $.data(this, ‘resizeTimer’, setTimeout(function() {<br>        //do something<br>        alert(“Haven’t resized in 200ms!”);<br>    }, 200));<br>});<br></code></p>
+<p><code>(function ($) {<br>    var methods = { on: $.fn.on, bind: $.fn.bind };<br>    $.each(methods, function(k){<br>        $.fn[k] = function () {<br>            var args = [].slice.call(arguments),<br>                delay = args.pop(),<br>                fn = args.pop(),<br>                timer;</code></p>
+<pre><code>        args.push(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+            <span class="keyword">var</span> self = <span class="keyword">this</span>,
+                arg = <span class="built_in">arguments</span>;
+            clearTimeout(timer);
+            timer = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+                fn.apply(self, [].slice.call(arg));
+            }, delay);
+        });
+
+        <span class="keyword">return</span> methods[k].apply(<span class="keyword">this</span>, <span class="built_in">isNaN</span>(delay) ? <span class="built_in">arguments</span> : args);
+    };
+});
+</code></pre><p>}(jQuery));<br>Use it like any other on or bind-event handler, except that you can pass an extra parameter as a last:</p>
+<p><code>$(window).on(‘resize’, function(e) {<br>    console.log(e.type + ‘-event was 200ms not triggered’);<br>}, 200);</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">12</span>
+          <span class="ym">03/2015</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mobile/ios8-app/">ios8 app</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Thu Mar 12 2015 10:39:43 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="前言">前言</h3>
+<p>ios 6 7 8 各种烂。前者对 click 尤其慢（有 300ms 的说法），用 touchstart 快，只是容易在 touchmove 的时候 也触发，过于敏感。</p>
+<p>另外，对于 overflow:scroll 的处理 三者也方法混乱，各自不同。ios8 可能还有点人性。但 pdf 除非 独占窗口 否则 只能显示 第一页。</p>
+<p>在 apple-mobile-web-app-capable 模式下，三者也是各领骚气。ios 6 的 a herf 会导致切换到 safari 打开。必须 location=”111”;return false;</p>
+<h3 id="js">js</h3>
+<pre>//click on pc and touchstart on mobile
+var gsclick=((document.ontouchstart!==null)?'click':'touchstart');</pre>
+
+<pre>
+/*
+!!注意：这是 ios6 的写法，不能用于 ios8（导致iframe不能拖动）
+
+关掉 touchstart 
+然后关掉 html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+} ；
+然后使用 :active
+
+document.addEventListener("touchstart", function() {},false);
+
+禁止 上下乱拖
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
+
+*/    
+</pre>
+
+<h3 id="各种_meta">各种 meta</h3>
+<pre>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</pre>
+加到主屏以后，全屏显示
+
+<pre>&lt;meta name="apple-mobile-web-app-title" content="iOS Web App"&gt;</pre>
+加到主屏时显示的标题
+
+<pre>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;</pre>
+头部状态栏显示方式
+
+default, black, and black-translucent（ios6 7 各有不同效果）
+
+<pre>&lt;meta name="viewport" content="initial-scale=1"&gt;</pre>
+默认比例
+
+<pre>&lt;meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1"&gt;</pre>
+不允许用户放大缩小
+
+<pre>&lt;meta name="format-detection" content="telephone=no"&gt;</pre>
+
+<p>不予许 苹果自做聪明地 把一串数字修改为 tel:1234 的链接</p>
+<h3 id="万恶的程序图标">万恶的程序图标</h3>
+<pre>&lt;!-- iPad retina icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-152.png"
+      sizes="152x152"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-144.png"
+      sizes="144x144"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad non-retina icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-76.png"
+      sizes="76x76"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPad non-retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-72.png"
+      sizes="72x72"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone 6 Plus icon --&gt;
+&lt;link href="apple-touch-icon-precomposed-180.png"
+      sizes="120x120"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-114.png"
+      sizes="114x114"
+      rel="apple-touch-icon-precomposed"&gt;
+&lt;!-- iPhone non-retina icon (iOS &lt; 7) --&gt;
+&lt;link href="apple-touch-icon-precomposed-57.png"
+      sizes="57x57"
+      rel="apple-touch-icon-precomposed"&gt;</pre>
+
+
+<ul>
+<li>152x152 (76@2x) for iPad retina on iOS 7+</li>
+<li>144x144 (72@2x) for iPad retina on iOS 6</li>
+<li>76x76 for iPad on iOS 7+</li>
+<li>72x72 for iPad on iOS 6</li>
+<li>180x180 (60@3x) for iPhone 6 Plus</li>
+<li>144x144 (57@2x) for iPhone retina on iOS 6</li>
+<li>57x57 for iPhone on iOS 6</li>
+</ul>
+<p>如果没有上面的 meta 标签，苹果会按照下面的顺序寻找</p>
+<ul>
+<li>/apple-touch-icon-180x180-precomposed.png</li>
+<li>/apple-touch-icon-180x180.png</li>
+<li>/apple-touch-icon-precomposed.png</li>
+<li>/apple-touch-icon.png  </li>
+</ul>
+<h3 id="更加万恶的启动画面（splash）">更加万恶的启动画面（splash）</h3>
+<pre>&lt;!-- iPad retina portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-1536x2008.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 2)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad retina landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-1496x2048.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 2)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad non-retina portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-768x1004.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 1)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPad non-retina landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-748x1024.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+             and (-webkit-device-pixel-ratio: 1)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 Plus portrait startup image --&gt;
+&lt;link href="apple-touch-startup-image-1242x2148.png"
+      media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: portrait)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 Plus landscape startup image --&gt;
+&lt;link href="apple-touch-startup-image-1182x2208.png"
+      media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: landscape)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 6 startup image --&gt;
+&lt;link href="apple-touch-startup-image-750x1294.png"
+      media="(device-width: 375px) and (device-height: 667px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone 5 startup image --&gt;
+&lt;link href="apple-touch-startup-image-640x1096.png"
+      media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone &lt; 5 retina startup image --&gt;
+&lt;link href="apple-touch-startup-image-640x920.png"
+      media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"&gt;
+&lt;!-- iPhone &lt; 5 non-retina startup image --&gt;
+&lt;link href="apple-touch-startup-image-320x460.png"
+      media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"&gt;</pre>
+
+<ul>
+<li>1536x2008 (768x1004@2x) for iPad retina portrait</li>
+<li>1496x2048 (748x1024@2x) for iPad retina landscape</li>
+<li>768x1004 for iPad portrait</li>
+<li>748x1024 for iPad landscape</li>
+<li>1242x2148 (414x716@3x) for iPhone 6 Plus portrait</li>
+<li>1182x2208 (394x736@3x) for iPhone 6 Plus landscape</li>
+<li>750x1294 (375x647@2x) for iPhone 6</li>
+<li>640x1096 (320x548@2x) for iPhone 5</li>
+<li>640x920 (320x460@2x) for iPhone retina</li>
+<li>320x460 for iPhone</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">03/2015</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-dock-rencent-items/">add mac dock recent items</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Tue Mar 10 2015 09:26:56 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><code>defaults write com.apple.dock persistent-others -array-add &#39;{ &quot;tile-data&quot; = { &quot;list-type&quot; = 1; }; &quot;tile-type&quot; = &quot;recents-tile&quot;; }&#39;</code></p>
+<p><code>killall Dock</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">25</span>
+          <span class="ym">11/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/location-search-change-without-reload/">location search change without reload</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Tue Nov 25 2014 16:21:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p> history.replaceState(null, “GlyphSearch”, “?” + $.param(qs));</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">05</span>
+          <span class="ym">11/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/useragent-determine/">user agent determine</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Nov 05 2014 17:03:23 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><code><br>var browser = {<br>versions: function () {<br>    var u = navigator.userAgent, app = navigator.appVersion;<br>    return {//移动终端浏览器版本信息<br>        trident: u.indexOf(‘Trident’) &gt; -1, //IE内核<br>        presto: u.indexOf(‘Presto’) &gt; -1, //opera内核<br>        webKit: u.indexOf(‘AppleWebKit’) &gt; -1, //苹果、谷歌内核<br>        gecko: u.indexOf(‘Gecko’) &gt; -1 &amp;&amp; u.indexOf(‘KHTML’) == -1, //火狐内核<br>        mobile: !!u.match(/AppleWebKit.<em>Mobile.</em>/) || !!u.match(/AppleWebKit/), //是否为移动终端<br>        ios: !!u.match(/(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端<br>        MSIE: u.indexOf(‘MSIE’) &gt; -1 || u.indexOf(‘Trident’) &gt; -1, //是否IE<br>        WOW64MSIE: u.indexOf(‘WOW64’) &gt; -1 &amp;&amp; u.indexOf(‘MSIE’) &gt; -1, //是否为64位系统和IE浏览器<br>        android1: u.indexOf(‘Android’) &gt; -1 &amp;&amp; u.indexOf(‘Linux’) &gt; -1, //android 4.2版本以下终端或者uc浏览器<br>        android2: u.indexOf(‘Android 4.2’) &gt; -1 || u.indexOf(‘Android 4.3’) &gt; -1 || u.indexOf(‘Android 4.4’) &gt; -1 || u.indexOf(‘Android 5.0’) &gt; -1 &amp;&amp; u.indexOf(‘Linux’) &gt; -1, //android 4.2版本以上终端或者uc浏览器<br>        iPhone: u.indexOf(‘iPhone’) &gt; -1 || u.indexOf(‘Mac’) &gt; -1, //是否为iPhone或者QQHD浏览器<br>        iPad: u.indexOf(‘iPad’) &gt; -1, //是否iPad<br>        webApp: u.indexOf(‘Safari’) == -1 //是否web应该程序，没有头部与底部<br>    };<br>}(),<br>language:(navigator.browserLanguage || navigator.language).toLowerCase()<br>}</code></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">09</span>
+          <span class="ym">10/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/text-overflow-ellipsis-on-multiline/">text overflow ellipsis on multiline</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Thu Oct 09 2014 11:09:13 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="opera">opera</h3>
+<pre>text-overflow: -o-ellipsis-lastline, but it only works in Opera:</pre>
+
+<h3 id="webkit">webkit</h3>
+<pre>&lt;p style="
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+"&gt;
+  WebKit Browsers will clamp the number of lines 
+  in this paragraph to 2. Lorem ipsum dolor sit amet, 
+  consectetur adipisicing elit, sed do eiusmod tempor 
+  incididunt ut labore et dolore magna aliqua. Ut enim 
+  ad minim veniam, quis nostrud exercitation ullamco 
+  laboris nisi ut aliquip ex ea commodo consequat. Duis 
+  aute irure dolor in reprehenderit in voluptate velit 
+  esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+  sint occaecat cupidatat non proident, sunt in culpa qui 
+  officia deserunt mollit anim id est laborum.
+&lt;/p&gt;</pre>
+
+<p style="overflow : hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; "> WebKit Browsers will clamp the number of lines in this paragraph to 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
           <span class="d">09</span>
           <span class="ym">10/2014</span>
         </div>
@@ -151,240 +500,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">15</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/chromium-args/">chromium-args</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Mon Sep 15 2014 08:48:06 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="http://peter.sh/experiments/chromium-command-line-switches/" target="_blank" rel="external">chromium-args</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">12</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime-command-d-unselect/">sublime command d unselect</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Fri Sep 12 2014 10:02:42 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>To deselect the last occurrence selected with ⌘ + D try using:</p>
-<p>On Mac:</p>
-<p><code>⌘ + U</code></p>
-<p>On Windows:</p>
-<p><code>Control + U</code></p>
-<h2 id="BTW">BTW</h2>
-<p>command+cltr+g  select ALL instances of the current selection</p>
-<p>command+alt+d   toggle Dock</p>
-<p>command+ctrl+d  search in Dictionary</p>
-<p>command+shift+d  duplicate</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/web/manifest-of-nodewebit/">Manifest of nodewebit</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 15:35:45 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <pre>{
-  "main": "index.html",                   // required: (string) which page should be opened when node-webkit starts.
-  "name": "nw-demo",                      // required: (string) the name of the package. This must be a unique, lowercase alpha-numeric name without spaces. It may include "." or "_" or "-" characters. It is otherwise opaque.name should be globally unique since node-webkit will store app's data under the directory named name.
-  "chromium-args": "",                    // (string) Specify chromium (content shell) command line arguments. It will be useful if you want to distribute the app with some custom chromium args.
-  "description": "my node-webkit app",    // (string) a brief description of the package. By convention, the first sentence (up to the first ". ") should be usable as a package title in listings.
-  "dom_storage_quota": 524288,            // (int) Number of mega bytes for the quota of the DOM storage. The suggestion is to put double the value you want.
-  "inject-js-start": "",                  // (string) a local filename, relative to the application path, used to specify a JavaScript file to inject to the window. inject-js-start: The injecting JavaScript code is to be executed after any files from css, but before any other DOM is constructed or any other script is run.
-  "inject-js-end": "",                    // (string) a local filename, relative to the application path, used to specify a JavaScript file to inject to the window.inject-js-end: The injecting JavaScript code is to be executed after the document object is loaded, before onload event is fired.
-  "js-flags": "",                         // (string) Specify the flags passed to JS engine(v8). e.g. turn on Harmony Proxies and Collections feature.
-  "no-edit-menu": false,                  // (boolean) whether the default Edit menu should be disabled on Mac. The default value is false. Only effective on Mac.
-  "node": true,                           // (boolean) set nodejs to false will disable Node support in WebKit.
-  "node-main": "script.js",               // (string) specify the path to a node.js script file, it will be executed on startup in Node context. 
-  "node-remote": "",                      // (string) Enable calling Node in remote pages. The value controls for which sites this feature should be turned on. The format is the same with the "proxy bypass rules" of the browser.
-  "snapshot": "",                         // (string) Specify the path to the snapshot file to be loaded with the application. The snapshot file contains compiled code of your application.
-  "single-instance": true,                // (boolean) by default node-webkit only allows one instance of your app if your app is a standalone package, if you want to allow multiple instances of your app running at the same time, specify this to false.
-  "user-agent": "Mozilla/5.0 ...",        // (string) Override the User-Agent header in HTTP requests made from the application.
-  "version": "0.1.0",                     // (string) a version string conforming to the Semantic Versioning requirements.
-  "keywords": [ "demo", "node-webkit" ],  // (array) an Array of string keywords to assist users searching for the package in catalogs.
-  "maintainers": [{                       // (array) an Array of maintainers of the package. Each maintainer is a hash which must have a "name" property and may optionally provide "email" and "web" properties.
-    "name": "Julien Le Coupanec",
-    "email": "julien@gentlenode.com",
-    "web": "https://gentlenode.com",
-  }],
-  "contributors": [{                      // (array) an Array of hashes each containing the details of a contributor. Format is the same as for author. By convention, the first contributor is the original author of the package.
-    "name": "Bill Bloggs",
-    "email": "billblogs@bblogmedia.com",
-    "web": "http://www.bblogmedia.com",
-  }],
-  "bugs": "https://gentlenode.com/bugs",  // (string) URL for submitting bugs. Can be mailto or http.
-  "licenses": [{                          // (array) an Array of licenses under which the package is provided. Each license is a hash with a "type" property specifying the type of license and a url property linking to the actual text. If the license is one of the official open source licenses the official license name or its abbreviation may be explicated with the "type" property. If an abbreviation is provided (in parentheses), the abbreviation must be used.
-    "type": "GPLv2",
-    "url": "http://www.example.com/licenses/gpl.html",
-  }],
-  "repositories": [{                      // (array) an Array of repositories where the package can be located. Each repository is a hash with properties for the "type" and "url" location of the repository to clone/checkout the package. A "path" property may also be specified to locate the package in the repository if it does not reside at the root.
-    "type": "git", 
-    "url": "http://github.com/example.git",
-    "path": "packages/mypackage"
-  }],
-  "window": {                             // (object) controls how the main window looks.
-    "title": "My Node-Webkit App",        // (string) the default title of window created by node-webkit, it's very useful if you want to show your own title when the app is starting.
-    "icon": "link.png",                   // (string) path to window's icon.
-    "toolbar": true,                      // (boolean) should the navigation toolbar be showed.
-    "frame": false,                       // boolean) specify it to false to make the window frameless.
-    "width": 800,                         // (int) the initial width of the main window.
-    "height": 500,                        // (int) the initial height of the main window.
-    "position": "mouse",                  // (string) be null or center or mouse, controls where window will be put.
-    "min_width": 400,                     // (int) minimum width of window.
-    "min_height": 200,                    // (int) minimum height of window.
-    "max_width": 800,                     // (int) maximum width of window.
-    "max_height": 600,                    // (int) maximum height of window.
-    "as_desktop": false,                  // (boolean) show as desktop background window under X11 environment.
-    "always-on-top": true,                // (boolean) whether the window should always stay on top of other windows.
-    "kiosk": false,                       // (boolean) whether to use Kiosk mode. In Kiosk mode, the app will be fullscreen and try to prevent users from leaving the app, so you should remember to provide a way in app to leave Kiosk mode. This mode is mainly used for presentation on public displays.
-    "fullscreen": false,                  // (boolean) whether window is fullscreen.
-    "show": true,                         // (boolean) specify it to false if you want your app to be hidden on startup.
-    "show_in_taskbar": true,              // (boolean) whether the window is shown in taskbar or dock. The default is true.
-    "resizable": true                     // (boolean) whether window is resizable.
-
-  },
-  "webkit": {                             // (object) controls what features of WebKit should be on/off.
-    "plugin": false,                      // (boolean) whether to load external browser plugins like Flash, default to false.
-    "java": false,                        // (boolean) whether to load Java applets, default to false.
-    "page-cache": false                   // (boolean) whether to enable page cache, default to false.
-  }
-}</pre>
-
-<p>via <a href="https://github.com/rogerwang/node-webkit/wiki/Manifest-format" target="_blank" rel="external">https://github.com/rogerwang/node-webkit/wiki/Manifest-format</a></p>
-<ul>
-<li><a href="https://github.com/rogerwang/node-webkit/wiki/Using-MP3-%26-MP4-%28H.264%29-using-the--video--%26--audio--tags." target="_blank" rel="external">播放 mp3,mp4 问题</a></li>
-<li><a href="https://github.com/rogerwang/node-webkit" target="_blank" rel="external">node webkit download</a></li>
-<li><a href="http://journal.gentlenode.com/node-webkit-1-complete-cheatsheet/" target="_blank" rel="external">node webkit cheatcheet</a></li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/jsdb/">jsdb</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="jsdb">http://www.jsdb.io/</a> 各种 js lib 排行。</p>
-<p>BTW:</p>
-<p><code>npm update -g</code></p>
-<p>以后，npm 崩溃，郁闷。重新下载<a href="nodejs 安装包">http://nodejs.org/download/</a> 恢复。也可以</p>
-<p><code>curl https://npmjs.org/install.sh | sudo sh</code></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/sublime-3-modify-Installed-Packages/">sublime 3 modify Installed Packages</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="Overriding_Files_From_a_Zipped_Package">Overriding Files From a Zipped Package</h3>
-<blockquote>
-<p>To override a file in an existing package, just create a file with the same name under the Packages/<package name=""> directory.</package></p>
-</blockquote>
-<p>For example to override the file function.sublime-snippet in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the <data_path>/Packages directory, and place your function.sublime-snippet file there.</data_path></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/baidu-map-event/">baidu map event</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 13:04:51 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <table class="table-bordered"><tbody><tr><th>事件</th><th>参数</th><th>描述</th></tr><tr><td>click</td><td>{type, target, point, pixel, overlay}</td><td>左键单击地图时触发此事件。当双击时，产生的事件序列为：click click dblclick(自 1.1 更新)</td></tr><tr><td>dblclick</td><td>{type, target, pixel, point}</td><td>鼠标双击地图时会触发此事件。</td></tr><tr><td>rightclick</td><td>{type, target, point, pixel, overlay}</td><td>右键单击地图时触发此事件。当双击时，产生的事件序列为：rightclick rightclick rightdblclick(自 1.1 更新)</td></tr><tr><td>rightdblclick</td><td>{type, target, point, pixel, overlay}</td><td>右键双击地图时触发此事件。(自 1.1 新增)</td></tr><tr><td>maptypechange</td><td>{type, target}</td><td>地图类型发生变化时触发此事件。(自 1.1 新增)</td></tr><tr><td>mousemove</td><td>{type, target, point, pixel, overlay}</td><td>鼠标在地图区域移动过程中触发此事件。(自 1.1 新增)</td></tr><tr><td>mouseover</td><td>{type, target}</td><td>鼠标移入地图区域时触发此事件。(自 1.2 新增)</td></tr><tr><td>mouseout</td><td>{type, target}</td><td>鼠标移出地图区域时触发此事件。(自 1.2 新增)</td></tr><tr><td>movestart</td><td>{type, target}</td><td>地图移动开始时触发此事件。</td></tr><tr><td>moving</td><td>{type, target}</td><td>地图移动过程中触发此事件。</td></tr><tr><td>moveend</td><td>{type, target}</td><td>地图移动结束时触发此事件。</td></tr><tr><td>zoomstart</td><td>{type, target}</td><td>地图更改缩放级别开始时触发触发此事件。</td></tr><tr><td>zoomend</td><td>{type, target}</td><td>地图更改缩放级别结束时触发触发此事件。</td></tr><tr><td>addoverlay</td><td>{type, target}</td><td>当使用Map.addOverlay()方法向地图中添加单个覆盖物时会触发此事件。</td></tr><tr><td>addcontrol</td><td>{type, target}</td><td>当使用Map.addControl()方法向地图中添加单个控件时会触发此事件。</td></tr><tr><td>removecontrol</td><td>{type, target}</td><td>当使用Map.removeControl()方法移除单个控件时会触发此事件。</td></tr><tr><td>removeoverlay</td><td>{type, target}</td><td>当使用Map.removeOverlay()方法移除单个覆盖物时会触发此事件。</td></tr><tr><td>clearoverlays</td><td>{type, target}</td><td>当使用Map.clearOverlays()方法一次性移除全部覆盖物时会触发此事件。</td></tr><tr><td>dragstart</td><td>{type, target, pixel, point}</td><td>开始拖拽地图时触发。</td></tr><tr><td>dragging</td><td>{type, target, pixel, point}</td><td>拖拽地图过程中触发。</td></tr><tr><td>dragend</td><td>{type, target, pixel, point}</td><td>停止拖拽地图时触发。</td></tr><tr><td>addtilelayer</td><td>{type, target}</td><td>添加一个自定义地图图层时触发此事件。</td></tr><tr><td>removetilelayer</td><td>{type, target}</td><td>移除一个自定义地图图层时触发此事件。</td></tr><tr><td>load</td><td>{type, target, pixel, point, zoom}</td><td>调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块。</td></tr><tr><td>resize</td><td>{type, target, size}</td><td>地图可视区域大小发生变化时会触发此事件。</td></tr><tr><td>hotspotclick</td><td>{type, target, hotspots}</td><td>点击热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>hotspotover</td><td>{type, target, hotspots}</td><td>鼠标移至热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>hotspotout</td><td>{type, target, hotspots}</td><td>鼠标移出热区时触发此事件。(自 1.2 新增)</td></tr><tr><td>tilesloaded</td><td>{type, target}</td><td>当地图所有图块完成加载时触发此事件。(自 1.2 新增)</td></tr><tr><td>touchstart</td><td>{type, target, point,pixel}</td><td>触摸开始时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>touchmove</td><td>{type, target, point,pixel}</td><td>触摸移动时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>touchend</td><td>{type, target, point,pixel}</td><td>触摸结束时触发此事件，仅适用移动设备。(自 1.5新增)</td></tr><tr><td>longpress</td><td>{type, target, point,pixel}</td><td>长按事件，仅适用移动设备。(自 1.5新增)</td></tr></tbody></table>
-
-<p>via <a href="http://developer.baidu.com/map/reference/index.php" target="_blank" rel="external">http://developer.baidu.com/map/reference/index.php</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一页</a>
@@ -398,14 +513,14 @@
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

@@ -51,6 +51,351 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/css/clear-float/">best clear float method</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>目前最好的办法 <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank" rel="external">micro clearfix hack</a></p>
+<pre class="lang-css">
+.cf:before,
+.cf:after {
+    content: " "; /* 解决 opera bug */
+    display: table; /* 子元素有 margin-top 的情况下,block 不行 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1; /*ie67*/
+}
+</pre>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/auto-increment-ol-list/">Auto increment ol list with css only</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Nested ol show numder just use CSS only.(not support ie6-7)</p>
+<p><style>@import url(/labs/increment-ol.css)</style></p>
+<div style="height:210px;overflow:scroll;border:solid 1px #ccc;"><ol class="increment-ul"><br>    <li>第一章</li><br>    <li>第二章<br>            <ol><br>                    <li>第一节</li><br>                    <li>第二节<br>                            <ol><br>                                <li>第一段</li><br>                                <li>第二段</li><br>                                <li>第三段<br>                                    <ol><br>                                        <li>第一小段</li><br>                                        <li>第二小段</li><br>                                        <li>第三小段</li><br>                                </ol><br>                                </li><br>                        </ol><br>                    </li><br>                    <li>第三节</li><br>            </ol><br>    </li><br>    <li>第三章<br>            <ol><br>                    <li>第一节</li><br>                    <li>第二节</li><br>                    <li>第三节</li><br>            </ol><br>    </li><br></ol><br></div>
+
+<h2 id="How_it_works?">How it works?</h2>
+<p>Html code is simple,just keep the right hierarchy.</p>
+<pre>
+&lt;ol class="increment-ul"&gt;
+    &lt;li&gt;第一章&lt;/li&gt;
+    &lt;li&gt;第二章
+            &lt;ol&gt;
+                    &lt;li&gt;第一节&lt;/li&gt;
+                    &lt;li&gt;第二节
+                            &lt;ol&gt;
+                                &lt;li&gt;第一段&lt;/li&gt;
+                                &lt;li&gt;第二段&lt;/li&gt;
+                                &lt;li&gt;第三段
+                                    &lt;ol&gt;
+                                        &lt;li&gt;第一小段&lt;/li&gt;
+                                        &lt;li&gt;第二小段&lt;/li&gt;
+                                        &lt;li&gt;第三小段&lt;/li&gt;
+                                &lt;/ol&gt;
+                                &lt;/li&gt;
+                        &lt;/ol&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;第三节&lt;/li&gt;
+            &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;第三章
+            &lt;ol&gt;
+                    &lt;li&gt;第一节&lt;/li&gt;
+                    &lt;li&gt;第二节&lt;/li&gt;
+                    &lt;li&gt;第三节&lt;/li&gt;
+            &lt;/ol&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+<p>The css code</p>
+<pre class="lang-css">
+.increment-ul,.increment-ul li {list-style: none;margin:0;padding:0;}
+.increment-ul li:before {display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#999;}
+
+.increment-ul {counter-reset:l1;}
+.increment-ul>li:before {content:counter(l1)'.';counter-increment:l1;}
+
+.increment-ul>li>ol {counter-reset:l2;}
+.increment-ul>li>ol>li:before {content:counter(l1)'.'counter(l2);counter-increment:l2;}
+
+.increment-ul>li>ol>li>ol {counter-reset:l3;}
+.increment-ul>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3);counter-increment:l3;}
+
+.increment-ul>li>ol>li>ol>li>ol {counter-reset:l4;}
+.increment-ul>li>ol>li>ol>li>ol>li:before {content:counter(l1)'.'counter(l2)'.'counter(l3)'.'counter(l4);counter-increment:l4;}
+/*you can add more level here*/
+</pre>
+
+<p>You can  add more level yourself.l1-l4（is just variables you named） reset the level of li tag.</p>
+<p><a target="_blank" href="/labs/ol-auto-increment.html" class="btn">View the Demo</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/ol-li-bullet-size/">ol bullet 样式</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>无序列表(ul)改变 bullet 办法比较简单（list-style,:before），有序列表(ol)怎么办呢？</p>
+<h2 id="方法一">方法一</h2>
+<pre class="linenums">
+&lt;ol class="ulTest01"&gt;
+    &lt;li&gt;&lt;span&gt;第一行&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;第二行&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;第三行&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;style&gt;
+.ulTest01 li {font-size: 1.6em;font-style: italic;color:#3a7312;}
+.ulTest01 li span {font-size: 14px;font-style: normal;color:#444;}
+&lt;/style&gt;
+</pre>
+
+<p>效果：</p>
+<ol class="ulTest01"><br>    <li><span>第一行</span></li><br>    <li><span>第二行</span></li><br>    <li><span>第三行</span></li><br></ol>
+
+<style>
+.ulTest01 {padding-left: 20px;}
+.ulTest01 li {font-size: 1.6em;font-style: italic;color:#3a7312;}
+.ulTest01 li span {font-size: 14px;font-style: normal;color:#444;}
+</style>
+
+<p>兼容所有浏览器。但需要手工加入 span，当然也可以用 jQuery 来处理</p>
+<pre>
+$('.ulTest01 li').wrapInner('<span></span>');
+</pre>
+
+<h2 id="方法二">方法二</h2>
+<p>只用css，不支持 ie8 以下</p>
+<pre class="linenums">
+&lt;ol class="ulTest02"&gt;
+    &lt;li&gt;第一行&lt;/li&gt;
+    &lt;li&gt;第二行&lt;/li&gt;
+    &lt;li&gt;第三行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;style&gt;
+.ulTest02,.ulTest02 li {list-style: none;margin:0;padding:0;}
+.ulTest02 {counter-reset:li;}
+.ulTest02 li:before {content:counter(li) ;counter-increment:li;display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#3a7312;}
+&lt;/style&gt;
+</pre>
+
+<p>效果：</p>
+<ol class="ulTest02"><br>    <li>第一行</li><br>    <li>第二行</li><br>    <li>第三行</li><br></ol>
+
+<style>
+.ulTest02,.ulTest02 li {list-style: none;margin:0;padding:0;}
+.ulTest02 {counter-reset:section;}
+.ulTest02 li:before {content:counter(section) ;counter-increment:section;display:inline-block;margin-right: 0.5em;font-size: 1.6em;font-style: italic;color:#3a7312;}
+</style>
+
+<h2 id="方法三">方法三</h2>
+<p>用jQuery each 遍历 。</p>
+<pre>
+jQuery('ul#test li').each(function(){
+    $(this).prepend('<span>'+$(this).index()+'</span>')
+})
+</pre>
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-no-menu/">mac去掉menu菜单</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Mac 默认把自己和应用程序的菜单（menu）永远放在最上方。menu+dock（去dock简单，直接点右键 trun hideing on） 太占地方了，决心去掉。</p>
+<ol>
+<li><p>下载安装 <a href="http://www.400gb.com/downhtml/3433091/1367469271/606840278/5333f178b2efddb7d687bf183213f3e8.html" target="_blank" rel="external">PlistEdit Pro</a></p>
+</li>
+<li><p>Finder 打开 Applications，右键一个软件，比如 sublime，show Package cotents，找到 Info.plist，右键用 PlistEdit Pro 打开。New Child 新建一个键值叫 Application UI Presentation Mode，class 为 number，value 为 4（也就是 All suppressed）。可能回提问是否解锁该文件，当然，不然怎么改。</p>
+</li>
+</ol>
+<p><img src="/pics/plisteditor-pro.png" alt="PlistEdit Pro 添加 Application UI Presentation Mode 为 4"></p>
+<p>3.重启 sublime。</p>
+<p>以后，切换到 sublime 的时候，类似全屏状态，鼠标靠近屏幕上方出菜单，下方出 dock。这个桌面干净了,你可以对常用的软件都这么干。</p>
+<p>另：传说中的 magicmenu 在 lion 下报错。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-2/">javascript tutorial notes 2</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Array_every_方法">Array every 方法</h2>
+<p>array.every(callback[, thisObject])</p>
+<p>Tests whether all elements in the array pass the test implemented by the provided function.根据提供的函数测试 是否 所有数组元素都满足该条件</p>
+<pre onclick="eval(this.innerText||this.textContent)">
+a=[1,2,3,4,5,6,7];
+alert(a.every(function(el,i,arr){return el>0}));
+</pre>
+
+<p>找到 false 就立即（退出循环）返回 false，否则返回 true。下面例子返回 1－5</p>
+<pre>
+console.log(a.every(function(el,i,arr){console.log(el);return el<5})) <="" pre="">
+
+<p>回调的三个参数：element, index, array</p>
+<p>every 不改变 array.</p>
+<p>空数组 满足任意条件，甚至不可能的 &gt;1 &amp;&amp; &lt;0</p>
+<pre>
+console.log([].every(function(el,i,arr){console.log(el);return el>1 &amp;&amp; el<0})) <="" pre="">
+
+<p>The range of elements processed by every is set before the first invocation of callback. Elements which are appended to the array after the call to every begins will not be visited by callback. If existing elements of the array are changed, their value as passed to callback will be the value at the time every visits them; elements that are deleted are not visited.第一次调用前，数组元素就已经被处理。新添加或者修改数组元素，没用了。看下面例子</p>
+<pre class="prettyprinted console_command">
+<strong>a=[1,2,3,4,5,6,7]</strong>
+<strong>console.log(a.every(function(el,i,arr){a[0]=-1;console.log(el);return el>0}))</strong>
+1... 7 true
+<strong>console.log(a)</strong>
+[-1, 2, 3, 4, 5, 6, 7]
+</pre>
+
+
+<pre onclick="eval(this.innerText||this.textContent)">
+function isLetter(character) {
+    var character=character.toLowerCase();
+  return (character &gt;= "a" &amp;&amp; character &lt;= "z");
+}
+var word = prompt('输入一个单词');
+alert(isLetter(word))
+</pre>
+
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sina.com.cn/s/blog_6230d93701018vpt.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6230d93701018vpt.html</a></li>
+<li><a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">http://javascript.info/tutorial/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments/callee" target="_blank" rel="external">参数回调 arguments.callee</a></li>
+</ul>
+</0}))></pre></5}))></pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/save-gas/">驾驶如何省油</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>看看美国鬼子如何解释这个问题：<a href="http://www.howcast.com/videos/53095-How-to-Save-Gas-with-Eight-Secret-Tips" target="_blank" rel="external">How to Save Gas with Eight Secret Tips</a>，和简体中文世界看到的不太一样</p>
+<ul>
+<li>关掉空调，把窗户打开。</li>
+<li>快没油了，再加。（你又不是去戈壁沙漠，前面会有加油站的）</li>
+<li>加油枪倒过来，控一下。（难了，据我所知，除了新泽西，美国加油站都是自助，自己动手加油刷卡。国内，似乎都是工作人员才能动加油枪）</li>
+<li>邮箱盖子拧紧。（“汽”油挥发很快）</li>
+<li>开慢点，使用经济车速。每个车不太一样，看说明书，一般80-100km/h</li>
+<li>不要没事变道。（个人体验，在美国变道很少，经常开了100公里，前后左右还是那几辆车，打死也不变道。国内，似乎到处都是f1赛场）</li>
+<li>高速路用巡航，路况复杂的时候别用。</li>
+<li>能关掉的都关掉（音响之类）。</li>
+<li>按时换机油、滤清器。</li>
+<li>不要急停急驶。</li>
+<li>清理车内不需要带的东西。</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/life/2-dimensions/">二维生物</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
     </header>
@@ -145,384 +490,6 @@
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/life/wish/">有趣的小文</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>欣赏的不是思想有多深刻，而是 — 态度。</p>
-<ul>
-<li><a href="http://www.douban.com/group/topic/21385346/" target="_blank" rel="external">每天学习8小时以下是不道德的</a></li>
-<li><a href="http://www.douban.com/group/topic/32379512/" target="_blank" rel="external">不是看到希望才努力，而是努力才能看到希望</a></li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/life/隗嚣/">隗嚣怎么念</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>最近看 《东汉不是传说之历史的岔路》，隗嚣应该念 隗(wěi)嚣(xiāo)。顺便复习一下那些拗口的古名</p>
-<p>女娲 （ wā ） ；禅 （ shàn ） 让；炮烙 （ páo luò ） 之刑；镐 （ hào ） 京； 回纥 （ hé ） ；钟繇 （ yóu ） ；仆射 （ yè ） ；阏氏 （ yān zhī ） ； 康居 （ qú ） ；伍员 （ yún ） ；吐谷 （ yù ） 浑；可汗（ kè hán ）； 会稽（ kuài jī ）；曹丕（ pī ）；金兀术（ wù zhú ）；元昊（ hào ）； 祖逖（ tì ）； 蔡邕（ yōng ）； 老聃（ dān ）；孙思邈（ miǎo ）； 临洮（ táo ）； 单于（ chán yú ） ；大宛 （ yuān ） ；龟兹（ qiū cí ）； 妲（ dá ）己； 身毒（ yuān dú ）；阿房（ ē páng ）宫；伊尹（ yī yǐn ）； 召（ shào ）公；倭（ wō ）寇；鲜卑（xiān bēi ）； 墨翟（ dí ）； 虞姬（ yú jī ）；大月氏（ ròu zhī ）；张骞（ qiān ）； 邗（ hán ）沟； 燕（ yān ）国；鞑靼（ dá dá ）；高句（ gōu ）丽；亳（ bó ）； 吐蕃（ bō ）；玄奘（ zàng ）；巴尔喀（ kā ）什湖；回鹘（ hú ）； 于阗（ tián ）；赤嵌（ kàn ）城；武曌 ( zhào ) ；彀（ gòu ）中； 幞（ fú ）头； 步辇（ niǎn ）；洨（ xiáo ）河； 蹴鞠（ cù jū ）； 斡（ wò ）难（nán？)河；朱彧（ yù ）；俳（ pái ）优；狼筅（ xiǎn ）； 噶（ gá？ ）尔丹；嫘（ léi ）祖； 耒耜（ lěi sì ）；蚩 ( chī ) 尤； 鲧（ gǔn ）； 皋陶（gāo yáo）；妇好（ hǎo ）；重（ chóng ）耳； 贾思勰（ xié ）； 李悝（ kuī ）；卯榫（ mǎo sǔn ）； 陶鬶（ guī ）； 褒姒（ bāo sì ）；乐（ yuè ）羊；黥（ qíng ）刑；劓（ yì ）刑； 笞（ chī ）刑；卜筮（ shì ）；赭（ zhě ）衣；囹圄（ líng yǔ ）； 范哙（ kuài ）；垓（ gāi ）下； 廪庾（ lǐn yǔ ）；火耕水耨（ nòu ）； 饕餮（ tāo tiè ）纹； 区（ ōu ）种法； 赵嘏（ gǔ ）； 羁縻（ jī mí ）州； 陈祎（ yī ）； 天平之甍（ méng ）；圩（ wéi ）田； 暹（ xiān ）罗； 李煜（ yù ）； 折（ shé ）氏；澶（ chán ）渊之盟； 米芾（ fú ）； 火铳（ chòng ）；骠骑将军（piào,jì,jiāng,jūn），荤粥（xūn yù ，即匈奴。）</p>
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/life/隗嚣/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/life/rose-chinese_rose/">玫瑰和月季的区别</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="简单说：没有区别！">简单说：没有区别！</h3>
-<p>玫瑰 英文 rose ；月季 英文 <a href="http://translate.google.cm/#zh-CN/en/%E6%9C%88%E5%AD%A3" target="_blank" rel="external">chinese rose</a>,我的理解是：圣女果和西红柿，狼和狗的区别。小资们要郁闷了。</p>
-<p>月季(种：月季 R. chinensis)、玫瑰（玫瑰 R. rugosa）和蔷薇 是同 蔷薇科 蔷薇属 的姊妹花。（界 门 纲 目 科 属 种，还记得吗？）蔷薇 － 一種蔓藤爬籬笆的小花</p>
-<h3 id="维基百科的资料">维基百科的资料</h3>
-<p><a href="http://zh.wikipedia.org/wiki/%E6%9C%88%E5%AD%A3" target="_blank" rel="external">月季</a>（學名：Rosa chinensis），又名月月红（江苏浙江）、月月花、长春花（吉林长春）、庚申蔷薇，原產於中國中部的贵州、湖北、四川等地，現遍布世界各地。</p>
-<p>玫瑰、月季和薔薇都是薔薇屬植物，之間有種類上的區別，沒有科屬上的差異。在漢語中人們習慣把花朵直徑大、單生的品種稱為玫瑰或月季，小朵叢生的稱為薔薇。但在英語中它們均稱為rose。</p>
-<p><a href="http://zh.wikipedia.org/wiki/%E7%8E%AB%E7%91%B0" target="_blank" rel="external">玫瑰</a>原产是中国。在古時的漢語，「玫瑰」一詞原意是指紅色美玉。後來，一種野生薔薇屬植物Rosa rugosa，因果實又大又紅豔，因而以「玫瑰」作為稱呼。在日本Rosa rugosa稱為浜茄子，朝鮮稱為海棠花。</p>
-<p>玫瑰原產地 - 中國山东、甘肃、昆明、遼寧、河北等。</p>
-<p>日常生活中的玫瑰 - 在欧洲诸语言中，蔷薇、玫瑰、月季都是一个词，如英语是rose，德语是die Rose，因为蔷薇科植物从中国传到欧洲后他们并不能看出它们的不同之处，但实际上这是不同的花种。今日世界上最常見所的雜交玫瑰（Rosa hybrida，亦稱現代薔薇或現代月季）是數百年來由許多種薔薇花及月季花育種雜交所誕生的成品。</p>
-<p>今天在日常用语中，“玫瑰”已成為多種薔薇屬植物的通稱。玫瑰依目前正式登記的品種，約有三萬左右。</p>
-<h3 id="如果非要扯什么区别，大致如下">如果非要扯什么区别，大致如下</h3>
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/life/rose-chinese_rose/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo-fontawesome-error/">hexo显示fontawesome问题</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>hexo 自带的 fontawesome 版本低，少了一些“字”。但很奇怪，chrome 显示正常，而 firefox 显示空的框子。经过折腾，终于解决问题：</p>
-<p>原来，我曾经把 fontawesome（老版本的） 字体安装到系统字体了！在这种情况下，chrome 优先从网络 @font-face  引用字体，而 firefox 则是操作系统的字体优先！</p>
-<p>删除系统中的 fontawesome，然后替换 themes/light/css/font 中的字体，重新 generate。</p>
-<p>hexo 程序本身的字体在：</p>
-<p>/usr/local/lib/node_modules/hexo/assets/themes/light/source/css/font</p>
-<p>替换这里的字体，以后 init 新项目以后就不用每次在 themes/light/css/font 折腾了。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/hexo/hexo-run-js/">hexo run js</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>hexo markdown 没办法写 javascript,script 里面的 引号 会被转义，html 里面的 引号不会。所以只好用这个土办法！</p>
-<div style="transform:rotate(180deg);-webkit-transform:rotate(180deg);">镜子啊，镜子，谁是这个世界上最NB的前端啊？</div>
-
-<p><img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" style="display:none;"> </p>
-<div id="jsCode2Run" style="display:none;"><br>jQuery(function($){<br>///////<br><br>var article=$(‘#jsCode2Run’).parents(‘article’);<br>article.css({“transform”: “scale(-1, 1)”})<br><br>article.mouseenter(function(){<br>    $(this).css({“transform”: “scale(1, 1)”})<br>}).mouseleave(function(){<br>    $(this).css({“transform”: “scale(-1, 1)”})<br>});<br><br>//////<br>})<br></div>
-
-<pre class="linenums">
-&lt;img src="/pics/shim.gif" onload="var t=document.getElementById('jsCode2Run').innerText||document.getElementById('jsCode2Run').textContent;eval(t)" /&gt; 
-
-&lt;div id="jsCode2Run" style="display:none;"&gt;
-jQuery(function($){
-///////    
-
-var article=$('#jsCode2Run').parents('article');
-article.css({"transform": "scale(-1, 1)"})
-
-article.mouseenter(function(){
-    $(this).css({"transform": "scale(1, 1)"})
-}).mouseleave(function(){
-    $(this).css({"transform": "scale(-1, 1)"})
-});
-
-//////
-})
-&lt;/div&gt;
-</pre>
-
-
-      
-    </div> 
-    
-          <footer>
-          <div class="alignleft">
-            <a href="/hexo/hexo-run-js/#more" class="more-link" title="继续阅读">继续阅读</a>
-          </div>
-          <div class="clearfix"></div>
-          </footer>  
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/javascript-tutorial-notes-1/">javascript tutorial notes 1</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p><a href="http://javascript.info/" target="_blank" rel="external">The JavaScript Tutorial</a> 学习笔记，不分先后</p>
-<h2 id="浏览器引擎">浏览器引擎</h2>
-<ul>
-<li>firefox - gecko</li>
-<li>safari/chrome - webkit</li>
-<li>opera - presto</li>
-<li>ie - trident</li>
-</ul>
-<h2 id="文档参考">文档参考</h2>
-<ul>
-<li><a href="http://msdn.microsoft.com/" target="_blank" rel="external">MDSN</a></li>
-<li><a href="https://developer.mozilla.org/" target="_blank" rel="external">MDN</a></li>
-</ul>
-<p>JavaScript 是 Oracle 注册商标，所以 javascript 标准是 ECMAScript。传统版本是 es3，现在是 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank" rel="external">es5</a></p>
-<h2 id="函数参数_Function_arguments">函数参数 <a href="http://javascript.info/tutorial/arguments" target="_blank" rel="external">Function arguments</a></h2>
-<h3 id="没有参数，里面是_underfined">没有参数，里面是 underfined</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-function check(x) {
-    alert(x === undefined) //没提供参数，里面是 underfined
-}
-check()
-</pre>
-
-<p><strong>点击代码，执行之</strong></p>
-<h3 id="重复定义">重复定义</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-function f(a){alert(a)}
-function f(a,b,c){alert(a+','+b+','+c)}
-f(1,2,3,4)
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-function f(a,b,c){alert(a+','+b+','+c)}
-function f(a){alert(a)}
-f(1,2,3,4)
-</pre>
-
-<h3 id="arguments_是个“伪“数组，是个_object">arguments 是个“伪“数组，是个 object</h3>
-<blockquote>
-<p>An Array-like object corresponding to the arguments passed to a function.The arguments object is not an Array. It is similar to an Array, but does not have any Array properties except length. via <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="external">mdn</a></p>
-</blockquote>
-<pre>
-function sayHi() {
-  var a = arguments.shift() // error! arguments is not Array
-  alert(a)
-}
-sayHi()
-</pre>
-
-<p>错误！（Object has no method ‘shift’）arguments 是个“伪“数组，是个 object</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function() {
-  alert( {}.toString.call(arguments) )  // [object Arguments] 
-})()
-</pre>
-
-<h3 id="Using_arguments_as_Array">Using arguments as Array</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){alert(arguments.length)})(1,2)
-</pre>
-
-<p>注意：是 2 而不是 3</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){console.log(arguments[0]===a)})(1,2)
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-function sayHi() {
-  var args = [].join.call(arguments, ':')
-  alert(args)  // 1:2:3
-}
-sayHi(1,2,3)
-</pre>
-
-<p>这个办法对 numeric indexes 的 object （其实就是“数组”了，这点很象 php 数组）也能用</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-var obj = { 0: "A", 1: "B", length: 2 }
-alert( [].join.call(obj) ) // "A,B"
-</pre>
-
-<p>非数组索引的不行，用 Object.keys（）</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-var obj = { name: "guoshuang", age: "xxx", location: "xi\'an" }
-alert( [].join.call(obj) ) // ""
-alert(Object.keys(obj).length) //3
-</pre>
-
-<p>真正的数组</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-(function(a,b,c){
-alert(Array.isArray(Array.prototype.slice.call(arguments)));
-alert(Array.isArray(arguments));
-})(1,2)
-</pre>
-
-<blockquote>
-<p>The arguments and named parameters reference same values. 函数 arguments 和 parameters 指向同一个值（一荣俱荣一损俱损）</p>
-</blockquote>
-<pre onclick="eval(this.innerText||this.textContent)">
-f(1)
-function f(x) {
-  arguments[0] = 5
-  alert(x) // 5, updating arguments changed x
-}
-</pre>
-
-<pre onclick="eval(this.innerText||this.textContent)">
-f(1)
-function f(x) {
-  x = 5
-  alert(arguments[0]) // 5, update of x reflected in arguments
-}
-</pre>
-
-<p>不要试图改变 arguments(Generally, it is a good practice not to modify arguments.)</p>
-<h2 id="默认值">默认值</h2>
-<pre onclick="eval(this.innerText||this.textContent)" id="abc">
-function sayHi(who) {
-  who = who || 'me'  // if who is falsy, returns 'me'
-  alert(who)  
-}
-sayHi("John")
-sayHi()  // 'me'
-</pre>
-
-<h2 id="类型检测_Type_detection">类型检测 <a href="http://javascript.info/tutorial/type-detection" target="_blank" rel="external">Type detection</a></h2>
-<h3 id="检测_AAAA_是否存在_typeof">检测 AAAA 是否存在 typeof</h3>
-<p><del>if(typeof AAA !==’undefined’){}</del> //不推荐！</p>
-<p><del>if(AAA){}</del> //没有时，js报错</p>
-<pre>
-if(window.aaaa){} //正确办法
-</pre>
-
-<h3 id="区分_Array_Date_类型_[[Class]]">区分 Array Date 类型 [[Class]]</h3>
-<p>object,array 都是 object 类型，如何区分呢？</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( typeof {key:'val'} ) // Object is object
-alert( typeof [1,2] ) // Array is object
-alert( typeof new Date ) // Date object
-</pre>
-
-<blockquote>
-<p>Fortunately, there is a hidden [[Class]] property in all JavaScript native objects. It equals “Array” for arrays, “Date” for dates etc.</p>
-</blockquote>
-<pre onclick="eval(this.innerText||this.textContent)">
-var toClass={}.toString;
-alert( toClass.call( [1,2] ) ) // [object Array]
-alert( toClass.call( new Date ) ) // [object Date]
-</pre>
-
-<blockquote>
-<ol>
-<li>Copy a reference to toString for objects into toClass variable.</li>
-<li>Call it, but provide the object which we are going to check as this. So, object toString becomes applied to arrays, dates etc. We have to do it, because their own toString behaves differently. For arrays it returns element list, for dates it returns the string representation.</li>
-</ol>
-</blockquote>
-<p>该方法对原始类型也可以</p>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( toClass.call(123) ) // [object Number]
-alert( toClass.call("primitive")) ) // [object String
-</pre>
-
-<h3 id="用_instanceof_检测数组">用 instanceof 检测数组</h3>
-<pre onclick="eval(this.innerText||this.textContent)">
-alert( [] instanceof Array ) 
-</pre>
-
-<p>注意：跨窗口（frame）不行！每个window有自己的 层次结构。用 [[class]] 方法</p>
-<blockquote>
-<p>Although, it will not work if arr was created in another window or iframe and then passed into current window. That’s because each window has it’s own object hierarchy.<br> To workaround that, most frameworks use [[Class]] for native objects.</p>
-</blockquote>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/46/" class="alignleft prev">上一页</a>
@@ -536,14 +503,14 @@ alert( [] instanceof Array )
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

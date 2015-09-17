@@ -47,6 +47,353 @@
         <div class="date-shadow"></div>
         <div class="date-mask"></div>
         <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/spdy/">spdy</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>SPDY 协议旨在通过压缩、多路复用和优先级来缩短网页的加载时间和提高安全性。（SPDY 是 Speedy 的昵音，意思是更快）</p>
+<p>HTTP 协议的不足</p>
+<ol>
+<li>单路连接 请求低效</li>
+<li>HTTP 只允许由客户端主动发起请求</li>
+<li>HTTP 头冗余</li>
+</ol>
+<p>SPDY 协议的优点</p>
+<ol>
+<li>多路复用 请求优化</li>
+<li>支持服务器推送技术</li>
+<li>SPDY 压缩了 HTTP 头</li>
+<li>强制使用 SSL 传输协议</li>
+</ol>
+<p><strong>浏览器打开 chrome://net-internals/#spdy 就会发现你已经在使用 SPDY 协议了。</strong></p>
+<p>在最新的协议文档里 Google 重新将 SPDY 分为了两层，其中一层被描述为 HTTP-like，大有取代 HTTP 的意图（Google 最近的一篇文章已经直呼 SPDY 为“a replacement for HTTP”）。同时 HTTP 2.0 标准制定工作组（HTTPbis）也表示，SPDY 很有希望接替当前的 HTTP 传输实现。考虑到 Chrome 和安卓的份额以及标准的推动，相信 SPDY 会有一个好前景。因此选择此刻支持 SPDY 也是明智的选择。</p>
+<p>转自 <a href="http://www.williamlong.info/archives/3119.html" target="_blank" rel="external">月光</a></p>
+<p><a href="https://developers.google.com/speed/spdy/mod_spdy/" target="_blank" rel="external">mod_spdy 下载地址</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/css-calc/">css calc()</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Css <strong><em>calc()</em></strong> can use like Grid.Just see the demo below:</p>
+<style>
+.calcDiv1,.calcDiv2,.calcDiv3,.calcDiv4,.calcDiv5,.calcDiv6 {text-align: center;box-sizing:border-box;-moz-box-sizing:border-box;border:solid 1px rgba(0,0,0,0.1);margin-bottom:10px;color:rgba(255,255,255,0.5);line-height: 25px;}
+
+.calcDiv1 {background:#ddd;width:100%;text-align:center;color:#666;}
+
+.calcDiv2 {background: #c00;float:left;width:calc((100% - 20px)/3);}
+.testContainer div:nth-child(2) {background:purple;margin-left: 10px;}
+.testContainer div:nth-child(3) {margin-left: 10px;}
+
+.calcDiv3 {background: #093;width:calc(100% - 110px);float:left;color:}
+.calcDiv4 {background: #093;width:100px;float:left;margin-left: 10px;}
+
+.calcDiv5 {background: #039;width:calc(50% - 5px);float:left;}
+.testContainer2 .calcDiv5:not(:first-child) {margin-left:10px;}
+</style>
+
+<div class="calcDiv1">This is 100% width</div><br><div class="testContainer"><br>    <div class="calcDiv2">1/3 width</div><br>    <div class="calcDiv2">1/3 width</div><br>    <div class="calcDiv2">1/3 width</div><br></div><br><div class="calcDiv3">100% - 110px</div><br><div class="calcDiv4">100px</div><br><div class="testContainer2"><br>    <div class="calcDiv5">50% - 5px</div><br>    <div class="calcDiv5">50% - 5px</div><br></div>
+
+<div style="clear:both;"></div>
+
+<p>This is html code</p>
+<pre class="linenums">
+&lt;div class="calcDiv1"&gt;This is 100% width&lt;/div&gt;
+&lt;div class="testContainer"&gt;
+    &lt;div class="calcDiv2"&gt;1/3 width&lt;/div&gt;
+    &lt;div class="calcDiv2"&gt;1/3 width&lt;/div&gt;
+    &lt;div class="calcDiv2"&gt;1/3 width&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="calcDiv3"&gt;100% - 110px&lt;/div&gt;
+&lt;div class="calcDiv4"&gt;100px&lt;/div&gt;
+&lt;div class="testContainer2"&gt;
+    &lt;div class="calcDiv5"&gt;50% - 5px&lt;/div&gt;
+    &lt;div class="calcDiv5"&gt;50% - 5px&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h3 id="1/3_width_grid">1/3 width grid</h3>
+<pre class="lang-css">
+.calcDiv2 {background: #c00;float:left;width:calc((100% - 20px)/3);}
+.testContainer div:nth-child(2) {background:purple;margin-left: 10px;}
+.testContainer div:nth-child(3) {margin-left: 10px;}
+</pre>
+
+<p>Every div width is : (100% - 20px)/3 .20px is for margin-left.</p>
+<h3 id="left|right_grid">left|right grid</h3>
+<pre class="lang-css">
+.calcDiv3 {background: #093;width:calc(100% - 110px);float:left;color:}
+.calcDiv4 {background: #093;width:100px;float:left;margin-left: 10px;}
+</pre>
+
+<p>The right column width is fixed 100px.Other space for left Column(100% - 110px).10 px for margin-left</p>
+<h3 id="50%_width_and_another_writing_for_margin-left">50% width and another writing for margin-left</h3>
+<pre class="lang-css">
+.calcDiv5 {background: #039;width:calc(50% - 5px);float:left;}
+.testContainer2 .calcDiv5:not(:first-child) {margin-left:10px;}
+</pre>
+
+<p>All the other(not first) set margin-left:10px</p>
+<h3 id="what’s_more?">what’s more?</h3>
+<p>I also tried</p>
+<pre class="linenums">
+&lt;style&gt;
+.testContainer3 {counter-reset:kkk;}
+.testContainer3 div {background:#ddd;margin-bottom: 6px;padding-left:6px;letter-spacing: 10px;}
+.testContainer3 div {counter-increment:kkk;}
+.testContainer3 div:before {content:counter(kkk);}
+.testContainer3 div:after {content:attr(data-size);}
+.testContainer3 div {font-size:calc(counter(kkk) * 12px)}
+.testContainer3 div {font-size:calc(attr(data-size) * 12px);}
+&lt;/style&gt;
+
+&lt;div class="testContainer3"&gt;
+    &lt;div data-size="2"&gt;&lt;/div&gt;
+    &lt;div data-size="3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<p>As you see below.Neither counter or attr works till today(2013-05-05)!But wait,soon or later the new browser will done.</p>
+<style>
+.testContainer3 {counter-reset:kkk;}
+.testContainer3 div {background:#ddd;margin-bottom: 6px;padding-left:6px;letter-spacing: 10px;}
+.testContainer3 div {counter-increment:kkk;}
+.testContainer3 div:before {content:counter(kkk);}
+.testContainer3 div:after {content:attr(data-size);}
+.testContainer3 div {font-size:calc(counter(kkk) * 12px)}
+.testContainer3 div {font-size:calc(attr(data-size) * 12px);}
+</style>
+
+<div class="testContainer3"><br>    <div data-size="2"></div><br>    <div data-size="3"></div><br></div>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/chrome-console-theme/">chrome console themes</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><img src="/pics/chrome-console-theme.png" alt="chrome console themes"></p>
+<h2 id="下载_Custom-css">下载 Custom.css</h2>
+<p>下载<br><a href="https://gist.github.com/tholex/5214137/raw/e3f698d851b0faa0296e24a1adf85644044c3861/Custom.css" target="_blank" rel="external">Custom.css</a>，拷贝到下面目录</p>
+<ul>
+<li><p>Mac</p>
+<div style="background:#eee;padding:5px;">~/Library/Application Support/Google/Chrome/Default/User StyleSheets/Custom.css</div>
+</li>
+<li><p>Ubuntu</p>
+<div style="background:#eee;padding:5px;">~/.config/chromium/Default/User StyleSheets/Custom.css</div>
+</li>
+<li><p>Windows</p>
+<div style="background:#eee;padding:5px;">C:\Users\YourUsername\AppData\Local\Google\Chrome\User Data\Default\User StyleSheets\Custom.css</div>
+
+</li>
+</ul>
+<p>提示：Mac 带空格目录，请 \空格 或者 干脆用引号</p>
+<p><code>mv Custom.css ~/Library/Application\ Support/Google/Chrome/Default/User\ StyleSheets/Custom.css</code></p>
+<p>重启 command+alt+j 看控制台。</p>
+<h2 id="查看当前_Custom-css">查看当前 Custom.css</h2>
+<p>查看样式表内容，在地址栏输入：</p>
+<div style="background:#eee;padding:5px;">chrome-devtools://devtools/devTools.css</div>
+
+<h2 id="更多主题">更多主题</h2>
+<ul>
+<li><a href="https://plus.google.com/+AddyOsmani/posts/UZF34wPJXsL" target="_blank" rel="external">https://plus.google.com/+AddyOsmani/posts/UZF34wPJXsL</a></li>
+<li><a href="http://devthemez.com/themes/chrome-developer-tools" target="_blank" rel="external">http://devthemez.com/themes/chrome-developer-tools</a></li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/hexo/hexo-quick-publish/">hexo quick publish</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>For some reason,I can not use hexo deploy for my site.I used to shell like this</p>
+<pre>
+hexo generate
+cd public
+git add .
+git commit . -m 1111
+git push
+</pre>
+
+<p>So boring!So i would like to shortcut this writing to a shell file - <strong><em>g</em></strong></p>
+<p>hexo/tt4 is my hexo project folder!</p>
+<p><code>cd ~/hexo/tt4</code></p>
+<p><code>vim g</code></p>
+<p>paste the content below</p>
+<pre>
+#!/bin/bash          
+
+START=$(date +%s)
+hexo generate
+
+uglifycss ./public/css/style.css > ./public/css/s.css
+mv ./public/css/s.css ./public/css/style.css
+
+cd ./public
+
+now=$(date +"%Y-%m-%d %H:%M")
+git add .
+git commit . -m "$now"
+git push
+
+END=$(date +%s)
+DIFF=$(( $END - $START ))
+echo "发布完毕！用了 $DIFF 秒"           
+</pre>
+
+<p><code>chmod +x g</code></p>
+<p>Everytime i want to pulish.just type in Terminal</p>
+<p><code>./g</code></p>
+<hr>
+<p>I also make hexo server -generate to <strong><em>s</em></strong> file.Everytime i want local sever just type</p>
+<p><code>./s</code></p>
+<p>BTW : Maybe you also want to know something about <a href="/software/git_cli/">github cli</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/gruvbox-vim-theme/">gruvbox - vim theme</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><img src="/pics/gruvbox.png" alt="gruvbox vim theme"></p>
+<p>在 <a href="https://github.com/morhetz/gruvbox" target="_blank" rel="external">gruvbox</a> 下载 <a href="https://raw.github.com/morhetz/gruvbox/master/colors/gruvbox.vim" target="_blank" rel="external">gruvbox.vim</a> 文件（注意保持后缀名仍然为 .vim）</p>
+<p>拷贝到 ~/.vim/colors/ 目录中</p>
+<p><code>mv gruvbox.vim ~/.vim/colors/</code></p>
+<p>编辑 ~/.vimrc</p>
+<p><code>vim ~/.vimrc</code></p>
+<p>内容为：</p>
+<pre class="linenums">
+syntax enable
+set background=dark
+colo gruvbox
+
+map <f5> :call ToggleBg()<cr>
+function! ToggleBg()
+    if &amp;background == 'dark'
+        set bg=light
+    else
+        set bg=dark
+    endif
+endfunc
+</cr></f5></pre>
+
+<p>重启 vim 看效果。如果你还想看看其它主题，看这里：<a href="http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/" target="_blank" rel="external">10 Vim Color Schemes You Need to Own</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/mac-toggle-terminal-tabs/">mac toggle terminal tabs</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Mac_oggle_terminal_tabs">Mac oggle terminal tabs</h2>
+<p>Command+shift+left(right)</p>
+<p>or</p>
+<p>Command+shift+{ 或者 }</p>
+<h2 id="Mac_chrome(firefox)_toggle_tabs">Mac chrome(firefox) toggle tabs</h2>
+<p>Command+alt+left(right)</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
           <span class="d">27</span>
           <span class="ym">08/2013</span>
         </div>
@@ -180,367 +527,6 @@ $(document).on( "focus", "input.date:not(.hasDatepicker)", function() {
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/webkit-scrollbar-css/">webkit scrollbar css</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>ie 可以控制滚动条样式，webkit 也可以，firefox 目前还不行。可控制的部分(伪元素)</p>
-<div id="webkitScrollDemo" class="nowrap" style="background:#ddd;padding:10px;">::-webkit-scrollbar              { /<em> 1 </em>/ }<br>::-webkit-scrollbar-button       { /<em> 2 </em>/ }<br>::-webkit-scrollbar-track        { /<em> 3 </em>/ }<br>::-webkit-scrollbar-track-piece  { /<em> 4 </em>/ }<br>::-webkit-scrollbar-thumb        { /<em> 5 </em>/ }<br>::-webkit-scrollbar-corner       { /<em> 6 </em>/ }<br>::-webkit-resizer                { /<em> 7 </em>/ }<br></div>
-
-<p><img src="http://cdn.css-tricks.com/wp-content/uploads/2011/05/scrollbarparts.png" alt="webkit scrollbar css"></p>
-<p>可控制的状态（伪类）</p>
-<style>
-#webkitScrollDemo {height:6em;overflow-y:scroll;}
-#webkitScrollDemo::-webkit-scrollbar {width:14px;}
-#webkitScrollDemo::-webkit-scrollbar-thumb {background:#06c;border-radius:7px;}
-#webkitScrollDemo::-webkit-scrollbar-track  {background: #cef;border-radius:7px;}
-</style>
-
-<div class="nowrap" style="background:#ddd;padding:10px;">:horizontal<br>:vertical<br>:decrement<br>:increment<br>:start<br>:end<br>:double-button<br>:single-button<br>:no-button<br>:corner-present<br>:window-inactive</div>
-
-<p>via <a href="http://css-tricks.com/custom-scrollbars-in-webkit/" target="_blank" rel="external">Custom Scrollbars in WebKit</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/css-colon-vs-double-colon/">css单双冒号的区别</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>经常会看到 :before 和 ::before 的写法，区别何在？</p>
-<p>（至少目前）没有区别！</p>
-<h3 id="区别在于？">区别在于？</h3>
-<ul>
-<li>单冒号 表示伪类 pseudo-classes</li>
-<li>双冒号 表示伪元素 pseudo-elements</li>
-</ul>
-<blockquote>
-<p>This [double-colon] notation is introduced … in order to establish a discrimination between pseudo-classes and pseudo-elements. For compatibility with existing style sheets, user agents must also accept the previous one-colon notation for pseudo-elements introduced in CSS levels 1 and 2 (namely, :first-line, :first-letter, :before and :after). This compatibility is not allowed for the new pseudo-elements introduced in CSS level 3.</p>
-</blockquote>
-<p>就象火车并没有火，马路也没有马一样，很尴尬的约定俗成。但是，也许不久的将来会有区别。via <a href="http://www.impressivewebs.com/before-after-css3/" target="_blank" rel="external">What’s the Difference Between “:before” and “::before”?</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/get-current-style/">get current style of element</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>IE use <strong><em>currentStyle</em></strong>.And other modern browser use </p>
-<p><strong><em>window.getComputedStyle(el).getPropertyValue(cssPropertyName)</em></strong></p>
-<pre class="linenums">
-function getStyle(el,cssprop){
- if (el.currentStyle) {//ie
-         cssArr=cssprop.split('-');//change font-size to fontSize etc.
-        for(i=1;i&lt;cssArr.length;i++){
-            cssArr[i]=cssArr[i].substr(0,1).toUpperCase()+cssArr[i].substr(1)
-        }
-        cssprop=cssArr.join('');
-      return el.currentStyle[cssprop];
-    }else if (window.getComputedStyle) {//modern browser  
-      return window.getComputedStyle(el).getPropertyValue(cssprop)
-     }else {//try and get inline style
-      return el.style[cssprop]
-    }
-}
-</pre>
-
-<p><a class="btn" target="_blank" href="/labs/css-get-style.html">Demo of get style</a></p>
-<p>Be Careful aslways use cssprop <strong>fontSize</strong> like <strong>font-size</strong>!</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/table-hover-column-with-pure-css/">table hover column with pure css</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>Just see the demo table below:</p>
-<iframe width="100%" height="165" src="/labs/table-hover-column-with-pure-css.html"></iframe>
-
-<p>view the <a target="_blank" href="/labs/table-hover-column-with-pure-css.html" class="btn">Demo : table hover column with pure css</a></p>
-<h3 id="How_it_works?">How it works?</h3>
-<p>This is the Core code.Make <strong>div.c:hover::after</strong> create a position:absolute element.Then adjust the position and size. </p>
-<pre class="linenums">
-#hoverTb tbody .c:hover:after {
-    content:'';
-    position:absolute;
-    background: rgba(170, 221, 238,1);
-    width:100%;
-    height:10000px;
-    left:0;
-    top:-5000px;
-    z-index:-1;
-}
-</pre>
-
-<h3 id="Why_div-c?">Why div.c?</h3>
-<p>the firefox don’t allow <strong><em>td</em></strong> to be <strong><em>position:relative</em></strong>.You can view this <a href="/labs/table-hover-column-with-pure-css-chrome.html">example</a> (it works well for chrome,but NOT firefox)</p>
-<h3 id="How_div-c?">How div.c?</h3>
-<p>You maybe hate the ugly <strong><em>div class=”c”</em></strong> everywhere.Sure you can use jQuery to add them by code like below.</p>
-<pre>
-if(/firefox/.test( window.navigator.userAgent.toLowerCase()) ){
-    $('#hoverTb tbody td').wrapInner('&lt;div class="c"&gt;&lt;/div&gt;')
-}
-</pre>
-
-<p>via <a href="http://stackoverflow.com/questions/1553571/html-hover-table-column" target="_blank" rel="external">http://stackoverflow.com/questions/1553571/html-hover-table-column</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/nth-child-vs-nth-of-type/">nth-child 和 nth-of-type 区别</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>网上转摘的似乎都是同一篇文章，难道就是简体中文世界对技术的态度 - “能用就好，何必太认真”。俺老人家较真如下：</p>
-<p><strong><em>p:nth-child(2n+1)</em></strong> 匹配（p的父节点的）奇数个 p标签</p>
-<p><strong><em>p:nth-of-child(2n+1)</em></strong> 匹配（p的父节点的）p标签的 第奇数个</p>
-<p><span style="color:#c00;font-size:1.2em;">nth-child 先配置序号，nth-of-type 先匹配标签</span>。观察这段 html 代码</p>
-<pre class="linenums">
-&lt;div class="nthExample"&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;div&gt;div 块&lt;/div&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;p&gt;p 段落&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-<style>
-::selection {background-color: purple;color:#fff;} 
-.nthExample {counter-reset:p;border:solid 20px #ccc;}
-.nthExample p,.nthExample div {counter-increment: p;margin:0;padding:0;padding-left:8px;}
-.nthExample p:before,.nthExample div:before {display: inline-block;margin-right:0.5em;font-size:1.2em;font-style: italic;color:#999;content:counter(p);}
-
-#nthExample-1 p,#nthExample-2 p {margin:0;}
-</style>
-
-<p>先用 nth-child(2n+1)</p>
-<pre>
-#nthExample-1 p:nth-child(2n+1) {background:#900;color:#fff;}
-</pre>
-
-<p>效果如下：</p>
-<style>
-#nthExample-1 p:nth-child(2n+1) {background:#900;color:#fff;}
-</style>
-
-<div class="nthExample" id="nthExample-1"><br><div>div 块</div><br><div>div 块</div><br><div>div 块</div><br><p>p 段落</p><br><p>p 段落</p><br><div>div 块</div><br><div>div 块</div><br><p>p 段落</p><br><div>div 块</div><br><p>p 段落</p><br><p>p 段落</p><br><p>p 段落</p><br></div>
-
-<p>意思是：<span style="color:#900;font-weight:700;">#nthExample-1 下 所有奇数节点，并且是 p 标签的</span> 先选出奇数节点，然后再看是不是 p</p>
-<hr>
-<p>而如果 nth-child(2n+1)</p>
-<pre>
-#nthExample-2 p:nth-of-type(2n+1) {background:#396;color:#fff;}
-</pre>
-
-<p>效果如下：</p>
-<style>
-#nthExample-2 p:nth-of-type(2n+1) {background:#396;color:#fff;}
-</style>
-
-<div class="nthExample" id="nthExample-2"><br><div>div 块</div><br><div>div 块</div><br><div>div 块</div><br><p>p 段落</p><br><p>p 段落</p><br><div>div 块</div><br><div>div 块</div><br><p>p 段落</p><br><div>div 块</div><br><p>p 段落</p><br><p>p 段落</p><br><p>p 段落</p><br></div>
-
-<p>意思是：<span style="color:#396;font-weight:700;">#nthExample-2 下所有 p 标签的 奇数的 那些</span> 先选出p，然后找到 第奇数个的</p>
-<h3 id="小练习！">小练习！</h3>
-<p>html 代码</p>
-<pre class="linenums">
-&lt;dl&gt;
-    &lt;dt&gt;名词&lt;/dt&gt;
-    &lt;dd&gt;解释&lt;/dd&gt;
-    &lt;dt&gt;名词&lt;/dt&gt;
-    &lt;dd&gt;解释&lt;/dd&gt;
-    &lt;dt&gt;名词&lt;/dt&gt;
-    &lt;dd&gt;解释&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
-
-<p style="font-size:1.2em">我们想选择第三条解释 (dd)，怎么写呢？</p>
-
-<p>如果：<del>dl :nth-child(3) {background:#006;}</del></p>
-<p>你将得到</p>
-<style>
-dl {border:solid 20px #ccc;}
-dd {margin-left:1em;}
-
-dl#dl1 :nth-child(3) {background:#069;}
-</style>
-
-<dl id="dl1"><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br></dl>
-
-<p><strong>选择 dl 下的第三个元素（而不是第三个dd）</strong></p>
-<p>如果：<del>dd:nth-child(3) {background:#069;}</del></p>
-<p>你将得到</p>
-<style>
-dd:nth-child(3) {background:green;}
-</style>
-
-<dl id="dl2"><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br></dl>
-
-<p><strong>选择 dl 下的第三个元素，并且还是 dd 的（对不起，这两个条件放在一起，太苛刻了）</strong></p>
-<p>快请出 nth-of-type 大神吧</p>
-<pre>
-dd:nth-of-type(3) {background:green;}
-</pre>
-
-<style>
-#dl3 dd:nth-of-type(3) {background:green;}
-</style>
-
-<dl id="dl3"><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br>    <dt>名词</dt><br>    <dd>解释</dd><br></dl>
-
-<p><strong>没错，我要的就是第三个 dd</strong></p>
-<p>小技巧：nth-of-type(odd) 奇数个，even 偶数；nth-of-type(4n) 每4个；</p>
-<h3 id="nth-of-type_的小问题">nth-of-type 的小问题</h3>
-<p>nth-of-type 处理伪类的时候，有点问题！bug?</p>
-<p>比如代码</p>
-<pre class="linenums">
-&lt;style&gt;
-div.wrapper .b:nth-of-type(2) {background:#c00;}
-&lt;/style&gt;
-
-&lt;div class="wrapper"&gt;
-    &lt;div&gt;111&lt;/div&gt;
-    &lt;div class="b"&gt;222&lt;/div&gt;
-    &lt;div class="b"&gt;333&lt;/div&gt;
-    &lt;div class="b"&gt;444&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-<p>效果如下：</p>
-<style>
-div.wrapper .b:nth-of-type(2) {background:#c00;}
-</style>
-
-<div class="wrapper"><br>    <div>111</div><br>    <div class="b">222</div><br>    <div class="b">333</div><br>    <div class="b">444</div><br></div>
-
-<p>不是我所要求的 第二个 div.b。用 div.wrapper .b:nth-child(2) {background:#c00;} 效果一样。也就是说，似乎 nth-of-type 只能匹配 标签而不能 .b</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/striped-index-table/">Striped and index table with pure css</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <style>
-#stripedTb {width:100%;background:#def;cursor: pointer;}
-#stripedTb thead th {color:#def;padding: 4px;background:#345;}
-#stripedTb thead th:first-child {width:2%;white-space: nowrap;}
-#stripedTb tbody {counter-reset:trindex;}
-#stripedTb td {padding:0 4px;}
-#stripedTb tbody tr {counter-increment:trindex;}
-#stripedTb tbody tr td:first-child {text-align: center;}
-#stripedTb tbody tr td:first-child:before {content:counter(trindex);color:#999;}
-
-#stripedTb tbody tr:nth-child(2n+1) {background:#cdf;}
-#stripedTb tbody tr:hover {background-color: #ade}
-
-#abc {font-size:calc(2*20px);}
-</style>
-
-<table id="stripedTb"><br><thead><br><tr><th>序号</th><th>姓名</th><th>专业</th></tr><br></thead><br><tbody><br><tr><td></td><td>guoshuang</td><td>web前端</td></tr><br><tr><td></td><td>龚骚</td><td>程序员</td></tr><br><tr><td></td><td>蒲骚</td><td>程序员</td></tr><br><tr><td></td><td>老柴</td><td>平面设计师</td></tr><br></tbody><br></table>
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/44/" class="alignleft prev">上一页</a>
@@ -554,14 +540,14 @@ div.wrapper .b:nth-of-type(2) {background:#c00;}
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

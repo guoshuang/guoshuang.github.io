@@ -51,6 +51,405 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/life/china-stats-2012/">统计数据</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>有理有节，来自 <a href="http://data.stats.gov.cn/" target="_blank" rel="external">中华人民共和国国家统计局</a></p>
+<h3 id="2012年平均工资">2012年平均工资</h3>
+<p>城镇单位就业人员平均工资(元)    46,769元</p>
+<ul>
+<li>金融业城镇单位就业人员平均工资(元)    89,743</li>
+<li>信息传输、计算机服务和软件业城镇单位就业人员平均工资(元)    80,510</li>
+<li>电力、燃气及水的生产和供应业城镇单位就业人员平均工资(元)    58,202</li>
+</ul>
+<h3 id="2012年失业">2012年失业</h3>
+<ul>
+<li>城镇登记失业人数(万人)    917.0</li>
+<li>城镇登记失业率(%)    4.1</li>
+</ul>
+<h3 id="房地产">房地产</h3>
+<p>房屋施工面积(万平方米)    1,167,238.42（2012年末总人口(万人)    135,404） 平均每人 8.6 平米</p>
+<p>房地产开发企业竣工房屋造价(元/平方米)    2,498.03</p>
+<ul>
+<li>房地产开发企业资产总计(亿元)    351,858.65</li>
+<li>房地产开发企业负债合计(亿元)    264,597.55   每人 2 万</li>
+</ul>
+<p>竣工的没有卖的多！</p>
+<ul>
+<li>房地产开发企业别墅、高档公寓竣工套数(套)    161,899.00</li>
+<li>房地产开发企业别墅、高档公寓销售套数(套)    184,001.00</li>
+<li>房地产开发企业住宅竣工套数(套)    7,642,379.00</li>
+<li>房地产开发企业住宅销售套数(套)    9,446,424.00</li>
+</ul>
+<h3 id="进出口">进出口</h3>
+<ul>
+<li>出口总额(百万美元)    2,048,714.42</li>
+<li><p>进口总额(百万美元)    1,818,405.00</p>
+</li>
+<li><p>原油进口量(万吨)    27,103</p>
+</li>
+<li><p>煤进口量(万吨)    28,841</p>
+</li>
+<li><p>国内生产总值(亿元)    519,470.10</p>
+</li>
+<li>财政收入(亿元)    117,253.52</li>
+<li>城镇居民消费水平(元)    21,120      乘以人口  总消费为：  285973.25万元</li>
+</ul>
+<p>外债余额(亿美元)    7,369.9</p>
+<h3 id="汽车">汽车</h3>
+<p>机动车驾驶员人数(万人)    25,250.83</p>
+<ul>
+<li>民用汽车拥有量(万辆)    10,933.09</li>
+<li>私人汽车拥有量(万辆)    8,838.60</li>
+</ul>
+<h3 id="互联网">互联网</h3>
+<ul>
+<li>互联网上网人数(万人)    56,400</li>
+<li>网站数(万个)    268.07</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/javascript-note/">js code 笔记</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>分析 <a href="http://www.malot.fr/bootstrap-datetimepicker/js/application.js" target="_blank" rel="external">这段代码</a></p>
+<pre>
+!function ($) { // 执行匿名函数（返回 true）
+  $(function(){ //jQuery dom  ready
+    .....
+     })
+}(window.jQuery) 
+</pre>
+
+<pre>
+$('section [href^=#]').click(function (e) {
+  e.preventDefault()
+})
+</pre>
+书签不要跳
+
+<pre>
+$('.bs-docs-sidenav').affix({
+  offset: {
+    top: function () { return $window.width() &lt;= 980 ? 290 : 210 }//为啥不直接写呢
+  , bottom: 270
+  }
+})
+</pre>
+affix 锁定两头
+
+<pre>
+window.prettyPrint &amp;&amp; prettyPrint()    
+</pre>
+如果有 prettyPrint 执行
+
+---
+
+<pre>
+$('.add-on :checkbox').on('click', function () {
+  var $this = $(this)
+    , method = $this.attr('checked') ? 'addClass' : 'removeClass'
+  $(this).parents('.add-on')[method]('active')
+})
+</pre>
+
+<p>check 点上时 method 是 addClass，所以</p>
+<pre>$(this).parents('.add-on')[method]('active')</pre>
+
+<p>这时候是</p>
+<pre>$(this).parents('.add-on').addClass('active')</pre>
+
+<hr>
+<pre>
+if ($('#gridSystem').length) {
+  $('#gridSystem').tooltip({
+      selector: '.show-grid > div'
+    , title: function () { return $(this).width() + 'px' }
+  })
+}
+</pre>
+tooltips 
+
+<pre>$('.popover-test').popover()</pre>    
+
+<hr>
+<pre>
+ $("a[rel=popover]")
+    .popover()
+    .click(function(e) {
+  e.preventDefault()
+})
+</pre>
+a rel="popover" 的不触发链接
+
+---
+
+<pre>
+$('#fat-btn')
+.click(function () {
+  var btn = $(this)
+  btn.button('loading')
+  setTimeout(function () {
+    btn.button('reset')
+  }, 3000)
+})
+</pre>
+
+<p><strong>没看懂</strong></p>
+<hr>
+<pre>
+$('#components.download .toggle-all').on('click', function (e) {
+  e.preventDefault()
+  inputsComponent.attr('checked', !inputsComponent.is(':checked'))
+})
+
+</pre>
+
+<pre>
+var css = $("#components.download input:checked")
+      .map(function () { return this.value })
+      .toArray()
+  , js = $("#plugins.download input:checked")
+      .map(function () { return this.value })
+      .toArray()
+</pre>
+
+<pre>
+$("#variables.download input")
+      .each(function () {
+        $(this).val() &amp;&amp; (vars[ $(this).prev().text() ] = $(this).val())
+      })
+
+      $.ajax({
+        type: 'POST'
+      , url: /\?dev/.test(window.location) ? 'http://localhost:3000' : 'http://bootstrap.herokuapp.com'
+      , dataType: 'jsonpi'
+      , params: {
+          js: js
+        , css: css
+        , vars: vars
+        , img: img
+      }
+      })
+</pre>
+
+
+<p><a href="https://github.com/benvinegar/jquery-jsonpi" target="_blank" rel="external">https://github.com/benvinegar/jquery-jsonpi</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/javascript/html-ajax-login/">html ajax login</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="正常登录（从login-html开始）">正常登录（从login.html开始）</h3>
+<p>html 发出 ajax(post) 到后端 login.php</p>
+<p>login.php 检查用户表 成功后</p>
+<ul>
+<li>返回 success json 状态</li>
+<li>把 sessionID 写 cookie </li>
+</ul>
+<p>html location.reaplce 到 index</p>
+<h3 id="直接首页_index-html">直接首页 index.html</h3>
+<p>检查 会话 没有再检查 cookie </p>
+<ol>
+<li>都没有 replace 到 login.html</li>
+<li>有 会话 或者 cookie，后台建立 会话，继续提供数据</li>
+</ol>
+<h3 id="直接到内容页面_（chart-htm）">直接到内容页面 （chart.htm）</h3>
+<p>页面直接访问。当 ajax 请求页面数据（json）的时候</p>
+<ol>
+<li>检查会话，没有检查 cookie，都没有，转 login.html</li>
+<li>有一个，建立 会话，继续提供数据</li>
+</ol>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/flot-stop-propagation/">flot stop propagation</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Flot event is not the <strong>original event</strong>!So can not directly event.stopPropagation()</p>
+<p>Just use jquery on click to stop it!</p>
+<pre>
+.on('click',function(e){
+  //只能在这里 停止冒泡！！！
+  e.stopPropagation();
+  e.preventDefault();
+})
+</pre>
+
+<pre>
+var obj=$('#obj');
+$(document).on('click',function(){
+  console.error('clicked body')
+  clickInfo.hide();
+})
+obj.bind("plotclick", function (e,pos,item) {
+ if(item){
+    str=data.legends[item.dataIndex]+' '+item.series.label +':'+item.datapoint[0]
+    // console.log(str,pos.pageX)
+    clickInfo.find('.t').text(str).show();
+    clickInfo.css({
+      left:pos.pageX+'px',
+      top:pos.pageY+'px'
+    });
+
+  }
+}).on('click',function(e){
+  //只能在这里 停止冒泡！！！
+  e.stopPropagation();
+  e.preventDefault();
+})
+</pre>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/mac/show-file-tree/">如何生成目录文件结构</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>其实 linux（需要安装 sudo apt-get install tree）、windows 下直接都有 tree 命令。</p>
+<h3 id="Mac(*nix)_下">Mac(*nix) 下</h3>
+<p><code>find . -print | sed -e &#39;s;[^/]*/;|____;g;s;____|; |;g&#39;</code></p>
+<p>可以编辑 ~/.bash_profile，定义 tree 函数</p>
+<pre>
+function tree {
+find $&amp;;{1:-.} -print | sed -e ’s;[^/]*/;|____;g;s;____|; |;g’
+}
+</pre>
+
+<p>以后就可以直接 tree 了。</p>
+<h3 id="只生成_目录_结构：">只生成 目录 结构：</h3>
+<p><code>ls -R | grep &quot;:$&quot; | sed -e &#39;s/:$//&#39; -e &#39;s/[^-][^\/]*\//--/g&#39; -e &#39;s/^/   /&#39; -e &#39;s/-/|/&#39;</code></p>
+<h3 id="更复杂的_-sh_脚本可见">更复杂的 .sh 脚本可见</h3>
+<ul>
+<li><a href="http://www.centerkey.com/tree/" target="_blank" rel="external">http://www.centerkey.com/tree/</a></li>
+<li><a href="http://nandal.in/2011/12/tree-sh-shell-script-to-list-all-subdirectories/" target="_blank" rel="external">http://nandal.in/2011/12/tree-sh-shell-script-to-list-all-subdirectories/</a></li>
+<li>[node Create complex directory structures]<a href="https://github.com/mikey179/vfsStream/wiki/CreateComplexStructures(" target="_blank" rel="external">https://github.com/mikey179/vfsStream/wiki/CreateComplexStructures(</a>)</li>
+</ul>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/design/flot-toggle/">flot toggle</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>flot 显示｜隐藏 有两个思路：</p>
+<p>思路一 直接在 flot 修改 series</p>
+<p>缺点是：不重画。关掉大数据后，小数据仍然拘泥于一角，不肯放开</p>
+<pre>
+function togglePlot(somePlot,seriesIdx){ 
+  var someData = somePlot.getData();
+  someData[seriesIdx].lines.show = !someData[seriesIdx].lines.show;
+  someData[seriesIdx].points.show = !someData[seriesIdx].points.show;
+  somePlot.setData(someData);
+  somePlot.draw();
+}
+</pre>
+
+<p>思路二  修改 data 本身，然后画 flot</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/css/css-cursor/">css cursor</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
     </header>
@@ -104,394 +503,6 @@ display:inline-block;width: 30%;font-size:16px;padding: 6px;
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/recent-tips-2014-03-10/">奇技淫巧小结</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="stringify_带格式输出">stringify 带格式输出</h3>
-<pre>
-JSON.stringify(jsObj, null, "\t"); // stringify with tabs inserted at each level
-JSON.stringify(jsObj, null, 4);    // stringify with 4 spaces at each level
-</pre>
-
-<p>中间的 nul 是 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_native_JSON#The_replacer_parameter" target="_blank" rel="external">replacer</a> 对数据进行处理的自定义函数</p>
-<h3 id="JSON-parse">JSON.parse</h3>
-<p>JSON.parse(abc)  abc 必须是严格的 json，即 <strong>属性和数值</strong> 都必须 <strong>双引号</strong> 包裹</p>
-<h3 id="webkit(chrome)_textrea_resize">webkit(chrome) textrea resize</h3>
-<p>可用值：none both horizontal vertical initial inherit</p>
-<p><div id="textarea-eg"><br>    <textarea style="resize:none;"><br>        默认<br>    </textarea><br>    <textarea style="resize:none;"><br>        style=”resize:none;”<br>    </textarea><br>    <textarea style="resize:horizontal;"><br>        style=”resize:horizontal;”<br>    </textarea><br>    </div></p>
-<style>
-#textarea-eg textarea {width:95%;font-size:14px;}
-</style>
-
-<h3 id="css_validate">css validate</h3>
-<pre>
-:required {border-color:#333;}
-:invalid  {border-color:#c00;} /*required 为空也被视为 invalid*/
-</pre>
-
-<h3 id="用变量构造_正则匹配">用变量构造 正则匹配</h3>
-<pre>
-function escapeRegExp(string){
-    return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-}
-var regex = new RegExp('[' + escapeRegExp(separator) + '\\s]', 'g');
-</pre>
-
-<h3 id="html5_datetime-local_vs-_datetime">html5 datetime-local vs. datetime</h3>
-<p>chrome 不认识 datetime 二者区别在于: datetime-local 没有时区</p>
-<p>new Date().toISOString() 返回</p>
-<p>2014-03-10T04:33:42.465<strong>Z</strong></p>
-<h3 id="var_dump_和_print_r_区别">var_dump 和 print_r 区别</h3>
-<p>The var_dump function displays structured information about variables/expressions including its type and value. Arrays are explored recursively with values indented to show structure. It also shows which array values and object properties are references.</p>
-<p>The print_r() displays information about a variable in a way that’s readable by humans. array values will be presented in a format that shows keys and elements. Similar notation is used for objects.</p>
-<p>Example:</p>
-<p>$obj = (object) array(‘qualitypoint’, ‘technologies’, ‘India’);<br>var_dump($obj) will display below output in the screen.</p>
-<p>object(stdClass)#1 (3) {<br> [0]=&gt; string(12) “qualitypoint”<br> [1]=&gt; string(12) “technologies”<br> [2]=&gt; string(5) “India”<br>}<br>And, print_r($obj) will display below output in the screen.</p>
-<p>stdClass Object (<br> [0] =&gt; qualitypoint<br> [1] =&gt; technologies<br> [2] =&gt; India<br>)</p>
-<h3 id="web_app_icon_for_iphone">web app icon for iphone</h3>
-<p>ios icon ios7 标准：</p>
-<p>60x60  iphone/ipad<br>76x76  iPod<br>120x120 iPhone / iPod Retina<br>152x152 iPad Retina</p>
-<p><a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html</a></p>
-<h3 id="http://goodui-org/"><a href="http://goodui.org/" target="_blank" rel="external">http://goodui.org/</a></h3>
-<p>good ui</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/mac/funny-shell-command/">有趣的sheel命令</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>jobs fg1-9 nohup screen whoami who am i</p>
-<p>write guoshuang ttys000</p>
-<h3 id="bash_发声">bash 发声</h3>
-<p>tout bel</p>
-<p>或者</p>
-<p>echo echo ^G</p>
-<p>先 ctrl+v 然后 ctrl+g 可以输出 ^G（注意：这个 ^ 和键盘上输入的 ^ 不同！）</p>
-<p>或者</p>
-<p>printf “\a”</p>
-<p>或者</p>
-<p>say “dong”</p>
-<p>sshfs gongrui@lab.rayinfocn.com:/home/gongrui/bluechat ~/Desktop/remote/</p>
-<h3 id="退出_sudo_-i">退出 sudo -i</h3>
-<p>exit 退出 root 回到 guoshuang</p>
-<h3 id="man_快捷键">man 快捷键</h3>
-<p>man 类似命令 info</p>
-<ul>
-<li>f 前进</li>
-<li>b 后退</li>
-<li>j 下一行</li>
-<li>k 上一行</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/dns-cname/">解析域名到花生壳</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>貌似 VPS 都蛮贵的，MT,godaddy 等都是 $30/月，穷人们只好另辟它迳。</p>
-<h3 id="路由器上设置花生壳">路由器上设置花生壳</h3>
-<p>在 虚拟服务器 或者 端口映射 那里打开 80 到内网 192.168.1.x 80。(ssh 端口 22)</p>
-<p>设置花生壳得到 xxxxx.eicp.net 地址。测试看是否可用。</p>
-<h3 id="设置_dns_cname_到_花生壳地址">设置 dns cname 到 花生壳地址</h3>
-<p>我的域名服务商是 namecheap。（鉴于国内 域名、主机服务，罪犯一样的体验，我的域名和空间都逃了出去）</p>
-<ul>
-<li>Click My Account </li>
-<li>Click Manage Domains. </li>
-<li>Under Domain Names, click the domain you wish to modify </li>
-<li>Click All Host Records in the menu on the left </li>
-<li>Under Sub Domain Settings type the subdomain name you chose for your website in LaunchRock. </li>
-<li>For example, if you chose signup.yoursite.com, enter: signup. </li>
-<li>In the IP Address / URL field enter host.launchrock.com </li>
-<li>In the Record Type menu select CNAME (Alias) </li>
-<li>Click Save Changes</li>
-</ul>
-<p>比如我的域名是 guoshuang.com 而我需要 cname lab.guoshuang.com 的话：</p>
-<ul>
-<li>第一个填（Sub Domain） lab</li>
-<li>第二个填（IP Address / URL） xxxx.eicp.net.</li>
-<li>ttl 无所谓</li>
-</ul>
-<h3 id="如何测试">如何测试</h3>
-<p>namecheap 的 dns 服务器是</p>
-<ul>
-<li>freedns1.registrar-servers.com</li>
-<li>freedns2.registrar-servers.com</li>
-<li>freedns3.registrar-servers.com</li>
-<li>freedns4.registrar-servers.com</li>
-<li>freedns5.registrar-servers.com</li>
-</ul>
-<p>打开终端执行</p>
-<p><code>nslookup</code></p>
-<p><code>&gt;server freedns1.registrar-servers.com</code> 使用哪个dns服务</p>
-<p><code>&gt;lab.guoshuang.com</code> 测试</p>
-<p>这确结果应该类似：</p>
-<p>lab.guoshuang.com    canonical name = xxxxxxx.eicp.net.</p>
-<p>canonical name(CNAME) 规范名</p>
-<p>测试正确的话，过几小时或几天的话，这个 dns 就会生效。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/color-ol-list-num-with-css/">color ol list num with css</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>I want the ordered list(OL) num show different color. </p>
-<h3 id="method_1_:_with_css3_counter">method 1 : with css3 counter</h3>
-<pre>
-ol {
-    margin: 10px 0;counter-reset:item;    
-}
-ol li:before {content:counter(item)+'.';counter-increment: item;
-        color: red;display: inline-block;margin-right: 8px;font-size:1.3em;font-style: italic;}
-</pre>
-
-<h3 id="method_2">method 2</h3>
-<pre>
-&lt;li style='color: red;'&gt;&lt;span style='color:black;'&gt;test&lt;/span&gt;&lt;/li&gt;
-</pre>
-
-<h3 id="method_3_:_with_jquery">method 3 : with jquery</h3>
-<pre>
-$('ol li').each(function(j,k){$(k).prepend('<span style="color:red">'+(j+1)+'</span> ')})
-</pre>
-
-<h3 id="marker">marker</h3>
-<p>css ::marker will solve this problem either.But no Bowser support NOW!</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/software/windows7-install-ubuntu-server/">windows7 install ubuntu server</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <h3 id="恢复_grub">恢复 grub</h3>
-<p>hp 安装 ubuntu 以后没有 grub 菜单</p>
-<ol>
-<li>找到你安装ubuntu的安装光盘或u盘</li>
-<li>进入liveCD模式，启动后打开终端(ctrl + alt +T)</li>
-<li>sudo -i ，进入根用户下。</li>
-<li>fdisk -l ，查看你的ubuntu系统安装位置，我的是sda3.</li>
-<li>mount  /dev/sda3 /mnt  ，挂载上硬盘。</li>
-<li>grub-install —root-directory=/mnt /dev/sda，把启动项安装到硬盘启动信息中（注意/mnt和/dev/sda有个空格）</li>
-<li>重启电脑</li>
-<li>sudo update-grub2 ，更新启动列表，引导其它系统。<br>成功解决，这个很蛋疼的问题，其它品牌电脑没有这样的问题。其实上述步骤也解决<br>grub损坏的问题。</li>
-</ol>
-<h3 id="恢复_grub_里的_windows_启动项目">恢复 grub 里的 windows 启动项目</h3>
-<p><code>sudo update-grub</code></p>
-<h3 id="设置无线为固定ip">设置无线为固定ip</h3>
-<pre>
-auto wlan0
-iface wlan0 inet static
-address 192.168.0.2
-netmask 255.255.255.0
-network 192.168.0.0
-broadcast 192.168.0.255
-gateway 192.168.0.1
-dns-nameservers 192.168.0.1 192.168.0.2 8.8.8.8
-wpa-ssid &lt;Your Wifi Network SSID&gt;
-wpa-psk &lt;Your HEX encoded Wifi WPA password&gt;
-</pre>
-
-<p>多个 dns 之间用 空格 分开</p>
-<p>开关网卡</p>
-<pre>
-sudo ifdown wlan0
-sudo ifup wlan0
-</pre>
-
-<p>或者</p>
-<pre>sudo service networking restart</pre>
-
-<h3 id="安装_nodejs">安装 nodejs</h3>
-<pre>
-sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get update
-sudo apt-get install nodejs
-</pre>
-
-<h3 id="关机">关机</h3>
-<p>启用高级电源管理</p>
-<p>apt-get install acpid </p>
-<p>命令集</p>
-<p>sudo init 0  </p>
-<p>sudo init 6 #为重新启动  </p>
-<p>sudo shutdown -h now  </p>
-<p>sudo poweroff #关闭  </p>
-<p>sudo reboot #重启  </p>
-<p>sudo shutdown -r now #重启  </p>
-<p>如果切换到root权下 直接输入命令 免sudo  </p>
-<p>shutdown -h #是关机，最终是调用halt命令关机。  </p>
-<p>poweroff #只是做了磁盘同步就直接切断了电源，对于运行后台服务的服务器来说不太合适。</p>
-<h3 id="more">more</h3>
-<ul>
-<li>ratchet mobile for iphone</li>
-<li>jekyll ruby static html generator</li>
-<li>csshake css 抖动</li>
-<li><p>nanobar 不需要 jquery 的简单</p>
-</li>
-<li><p>🎸🎸🎸🎸 mac 输入法 吉它 出现的图形文字</p>
-</li>
-<li>baidu brainmap (漂亮)</li>
-</ul>
-<h3 id="添加用户">添加用户</h3>
-<p>useradd 和 adduser 区别是</p>
-<p>useradd 是系统自带。adduser 是前者的 perl 脚本，后者更好用！</p>
-<hr>
-<p>显示所有组</p>
-<p>cat /etc/group</p>
-<p>但前用户所在组</p>
-<p>groups</p>
-<p>加用户 guoshuang（带home目录）</p>
-<p>sudo adduser guoshuang</p>
-<p>把 guoshuang 加到 这些组中</p>
-<p>sudo usermod -G adm,cdrom,sudo,dip,plugdev,sambashare,lpadmin -a guoshuang</p>
-<p>注意：ssh 连接的话，还需要退出重新连接一次！！！</p>
-<p>-G, —groups GROUP1[,GROUP2,…[,GROUPN]]]</p>
-<p>A list of supplementary groups which the user is also a member of.<br>Each group is separated from the next by a comma, with no<br>intervening whitespace. The groups are subject to the same<br>restrictions as the group given with the -g option.</p>
-<p>If the user is currently a member of a group which is not listed,<br>the user will be removed from the group. This behaviour can be<br>changed via the -a option, which appends the user to the current<br>supplementary group list.</p>
-<h3 id="停掉自启动服务">停掉自启动服务</h3>
-<p><code>sudo update-rc.d apache2 disable</code></p>
-<p>打开自启动</p>
-<p><code>sudo update-rc.d apache2 enable</code></p>
-<h3 id="web_html_ios">web html ios</h3>
-<p>html class=”no-js”</p>
-<pre>
-&lt;link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/nc-icon/namecheap-icon-152x152.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/nc-icon/namecheap-icon-144x144.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/nc-icon/namecheap-icon-120x120.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/nc-icon/namecheap-icon-114x114.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/img/nc-icon/namecheap-icon-76x76.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/nc-icon/namecheap-icon-72x72.png" /&gt;&lt;link rel="apple-touch-icon-precomposed" href="/assets/img/nc-icon/namecheap-icon-57x57.png" /&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
-</pre>
-
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/bootstrap-menu-toggle-effect/">bootstrap menu toggle effect</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <div id="menu-like-mt" onclick="$(this).toggleClass('opened');"><br><span></span><br><span></span><br><span></span><br></div>
-
-<style>
-#menu-like-mt {background-color: #333;display:inline-block;width: 40px;height: 35px;cursor: pointer;padding-top: 10px;box-sizing: border-box;border-radius: 5px;-webkit-user-select: text;}
-#menu-like-mt span {display: block;height:3px;background: #fff;margin:0 auto 3px;width: 20px;
-    -webkit-transition: all 100ms linear;
-    transition: all 100ms linear;}
-#menu-like-mt.opened span {background: #F5513A;position:relative;}
-#menu-like-mt.opened span:nth-child(1) {-webkit-transform: rotate(45deg);top:6px;}
-#menu-like-mt.opened span:nth-child(2) {opacity:0;}
-#menu-like-mt.opened span:nth-child(3) {-webkit-transform: rotate(-45deg);bottom:6px;}
-</style>
-
-<p>css：</p>
-<pre>
-...
-#menu-like-mt.opened span {background: #F5513A;position:relative;}
-#menu-like-mt.opened span:nth-child(1) {-webkit-transform: rotate(45deg);top:6px;}
-#menu-like-mt.opened span:nth-child(2) {opacity:0;}
-#menu-like-mt.opened span:nth-child(3) {-webkit-transform: rotate(-45deg);bottom:6px;}
-...
-</pre>
-
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/6/" class="alignleft prev">上一页</a>
@@ -505,14 +516,14 @@ sudo apt-get install nodejs
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

@@ -51,19 +51,371 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
-    <h1 class="title"><a href="/web/html5-input-pattern/">html5 input pattern</a></h1>  
+    <h1 class="title"><a href="/web/emmet/">emmet 小结</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
     <div class="entry">
       
-        <form onsubmit="alert('可以提交了');return false;"><br><input class="text" pattern="^.+@.+\..+$" required><br><input type="submit" value="提交" style="font-size:16px;"><br></form>
+        <p>花了两天时间看 <a href="emmet.io">emmet</a>，三篇文章写 <a href="/web/emmet-tips/">1</a> <a href="/web/emmet-tips-2/">2</a> <a href="/web/emmet-tips-3/">3</a>。无它，一是 emmet 规则比较复杂，二是 emmet 很重要。</p>
+<h3 id="重要？">重要？</h3>
+<p>很多年前做 3d，瓶颈不是思路和方向，而是漫长的渲染等待。想到的总是比手比划得快。那时几天才能做一张效果图，可是现在作图的小孩，一天7、8张。除了熟练的因素，工具和方法很重要。</p>
+<p>做web前端也有类似的困惑。那么多无聊的 <strong><em> 结束标签、重复的部分、错误的DOM嵌套和交叉，冗长的 css…</em></strong> 这些都会化掉大部分的时间来 书写或者调试。</p>
+<h3 id="如何使用">如何使用</h3>
+<p>emmet 和 jade,less 类似，讲究的就是个 快。区别在于emmet 直接输出，jade less 这些保持在 <strong><em>简写的可编辑状态</em></strong>。如果是大点的项目还是建议 jade less 这些（保持简写状态），因为需要反复修改。小项目特别适合 emmet，确实快。</p>
+<p>emmet 的类似多年前的五笔字型一样，2000个字，1000个规则，学习起来很慢，但击键次数最少！熟练后，运指如飞，阻碍你的不再是鼠标、键盘而是思路。</p>
+<p>这真是一个伟大的 coding 2.0 时代。</p>
+<h3 id="缺点">缺点</h3>
+<p>规则太复杂，规律不够简单；大量冲突的快捷键，自定义的话，不利于记忆和传播。</p>
 
-<pre>
-&lt;form onsubmit="alert('可以提交了');return false;"&gt;
-&lt;input class="text" pattern="^.+@.+\..+$" required /&gt;
-&lt;input type="submit" value="提交" style="font-size:16px;"/&gt;
-&lt;/form&gt;
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/emmet-tips-3/">emmet 笔记 3 - actions</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>前面两片文章其实都只是 Expand Abbreviation（扩展缩写）快捷键是</p>
+<p><kbd>tab</kbd> 或者 <key><kbd>ctrl</kbd>+<kbd>e</kbd></key></p>
+<h3 id="交互式扩展">交互式扩展</h3>
+<p><kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>enter</kbd></p>
+<p>在下面的输入框，输入标签名</p>
+<h3 id="Match_Tag_Pair_匹配标签对">Match Tag Pair 匹配标签对</h3>
+<ul>
+<li>Match Tag Pair Outward – ⌃D (Mac) / Ctrl+, (PC)</li>
+<li>Match Tag Pair Inward – ⌃J / Shift+Ctrl+0</li>
+</ul>
+<h3 id="Wrap_With_Abbreviation_标签包裹">Wrap With Abbreviation 标签包裹</h3>
+<p>⌃W / Shift+Ctrl+G 选择文字，ctrl+w 用标签包裹</p>
+<h3 id="html_代码转义">html 代码转义</h3>
+<p>后面加 <strong>|e</strong>，escape  这个很有用。比如我在写代码的时候就需要转义  <strong>&gt; &lt;</strong> 等等.其它还有 <strong>|yaml</strong> 输出为 yaml,<strong>|s</strong> 代码输入为一行</p>
+<p><strong>#content&gt;p.title|e</strong></p>
+<pre>&amp;lt;div id="content"&amp;gt;
+    &amp;lt;p class="title"&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;</pre>
+
+<h3 id="图片_base64">图片 base64</h3>
+<p>选择图片路径，<key>ctrl+shift+d</key> </p>
+<h3 id="Go_to_Edit_Point">Go to Edit Point</h3>
+<p><key>ctrl+alt+左右键</key> 在标签中前进后退</p>
+<h3 id="数字加减">数字加减</h3>
+<ul>
+<li>Increment by 1: Ctrl+↑</li>
+<li>Decrement by 1: Ctrl+↓</li>
+<li>Increment by 0.1: Alt+↑</li>
+<li>Decrement by 0.1: Alt+↓</li>
+<li>Increment by 10: ⌥⌘↑ / Shift+Alt+↑</li>
+<li>Decrement by 10: ⌥⌘↓ / Shift+Alt+↓</li>
+</ul>
+<h3 id="配置文件">配置文件</h3>
+<p>snippets.json  代码片段<br>preferences.json  过滤和动作<br>syntaxProfiles.json 样式</p>
+<h3 id="更多资料">更多资料</h3>
+<ul><br>    <li><a href="http://docs.emmet.io/actions/expand-abbreviation/" target="_blank" rel="external">Expand Abbreviation</a></li><br>    <li><a href="http://docs.emmet.io/actions/match-pair/" target="_blank" rel="external">Match Tag Pair</a></li><br>    <li><a href="http://docs.emmet.io/actions/go-to-pair/" target="_blank" rel="external">Go to Matching Pair</a></li><br>    <li><a href="http://docs.emmet.io/actions/wrap-with-abbreviation/" target="_blank" rel="external">Wrap with Abbreviation</a></li><br>    <li><a href="http://docs.emmet.io/actions/go-to-edit-point/" target="_blank" rel="external">Go to Edit Point</a></li><br>    <li><a href="http://docs.emmet.io/actions/select-item/" target="_blank" rel="external">Select Item</a></li><br>    <li><a href="http://docs.emmet.io/actions/toggle-comment/" target="_blank" rel="external">Toggle Comment</a></li><br>    <li><a href="http://docs.emmet.io/actions/split-join-tag/" target="_blank" rel="external">Split/Join Tag</a></li><br>    <li><a href="http://docs.emmet.io/actions/remove-tag/" target="_blank" rel="external">Remove Tag</a></li><br>    <li><a href="http://docs.emmet.io/actions/merge-lines/" target="_blank" rel="external">Merge Lines</a></li><br>    <li><a href="http://docs.emmet.io/actions/update-image-size/" target="_blank" rel="external">Update Image Size</a></li><br>    <li><a href="http://docs.emmet.io/actions/evaluate-math/" target="_blank" rel="external">Evaluate Math Expression</a></li><br>    <li><a href="http://docs.emmet.io/actions/inc-dec-number/" target="_blank" rel="external">Increment/Decrement Number</a></li><br>    <li><a href="http://docs.emmet.io/actions/reflect-css-value/" target="_blank" rel="external">Reflect CSS Value</a></li><br>    <li><a href="http://docs.emmet.io/actions/base64/" target="_blank" rel="external">Encode/Decode Image to data:URL</a></li><br></ul>
+
+<p><a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="external">cheatsheet</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/emmet-tips-2/">emmet 笔记 2 - css Abbreviation</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h2 id="Css_Abbreviations_css_简写">Css Abbreviations css 简写</h2>
+<p><strong>p20</strong> 然后按 <strong>tab</strong> 键，生成（以下类推）</p>
+<pre>padding: 20px;</pre>
+
+<p><strong>p10!+m10e!</strong></p>
+<pre>padding: 10px !important;
+margin: 10em !important;</pre>
+
+<p>用来写 <a href="http://docs.emmet.io/css-abbreviations/vendor-prefixes/" target="_blank" rel="external">prefix</a></p>
+<p><strong>-wm-trf</strong></p>
+<pre>-webkit-transform: ;
+-moz-transform: ;
+transform: ;</pre>
+
+<p><strong>zi2</strong></p>
+<pre>z-index:2;</pre>
+
+<p><strong>-wmso-transform</strong></p>
+<pre>-webkit-transform: ;
+-moz-transform: ;
+-ms-transform: ;
+-o-transform: ;
+transform: ;</pre>
+
+<h3 id="单位和颜色">单位和颜色</h3>
+<p>单位</p>
+<ul>
+<li>p → %</li>
+<li>e → em</li>
+<li>x → ex</li>
+</ul>
+<p>颜色</p>
+<ul>
+<li>#1 → #111111</li>
+<li>#e0 → #e0e0e0</li>
+<li>#fc0 → #ffcc00</li>
+</ul>
+<h3 id="line-gradient">line-gradient</h3>
+<p><strong>lg(top,red,blue)</strong></p>
+<pre>background-image: -webkit-gradient(linear, 0 0, 0 100%, from(red), to(blue));
+background-image: -webkit-linear-gradient(red, blue);
+background-image: -moz-linear-gradient(red, blue);
+background-image: -o-linear-gradient(red, blue);
+background-image: linear-gradient(red, blue);</pre>
+
+<p><strong>bxz</strong></p>
+<pre>-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;</pre>
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/life/music-wonderful-night/">wonderful tonight</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>Great song by Eric Clapton。u can find lyric in console ajax,:) The oroginal sone link is not local.ogg transcode by guoshuang with vlc.</p>
+<div id="showLyrics-20130508"></div>
+
+<p><span class="btn btn-success" id="play-20130508">播放</span> <span class="btn btn-danger" id="pause-20130508">暂停</span> <span id="soneTimer-20130508"></span></p>
+<audio data-lyric="/labs/wonderful-tonight.lrc" id="mPlayer"><br>    <source src="http://labs.guoshuang.com/music/wonderful-tonight.ogg"><br>    <source src="http://m1.file.xiami.com/1/100/10100/51177/1013218_325590_l.mp3"><br>请用 firefox 或者 chrome<br></audio>
+
+<script src="/labs/gmusic.js"></script>
+
+<style>
+#showLyrics-20130508 {font-size:2em;font-style: italic;font-family: MuseoSlabTumblr;}
+</style>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/emmet-tips/">emmet 笔记 1 - html Abbreviation</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p><a href="https://github.com/sergeche/emmet-sublime#readme" target="_blank" rel="external">emmet</a>是用来 <strong><em>速写</em></strong> 代码的利器，主流文本编辑器都有插件。emmet 会根据文件类型（后缀名）来猜你想要干啥。下面以 sublime 为例。</p>
+<p>安装用包管理器，或者进入包目录,git clone</p>
+<p><strong><em>Expand Abbreviation 在 sublime 和 Eclipse 都是用 tab 键</em></strong></p>
+<h2 id="html_Abbreviations_html_简写">html Abbreviations html 简写</h2>
+<p><strong>.container</strong> 然后按 <strong>tab</strong> 键，生成（以下类推）</p>
+<pre>&lt;div class="container"&gt;&lt;/div&gt;</pre>
+
+<p><strong>.gsWrapper&gt;ul.gList&gt;li</strong></p>
+<pre>&lt;div class="gsWrapper"&gt;
+    &lt;ul class="gList"&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<p>注意：光标必须在最后面！emmet 处理的是光标之前的代码。</p>
+<h3 id="链式语法">链式语法</h3>
+<ul>
+<li>&gt; child 子节点</li>
+<li>+ sibling 并列</li>
+<li>^ climb-up 向上一层</li>
+</ul>
+<p><strong>.wrapper&gt;.test&gt;h1+p</strong></p>
+<pre>&lt;div class="wrapper"&gt;
+    &lt;div class="test"&gt;
+        &lt;h1&gt;&lt;/h1&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p><strong>.wrap&gt;.meta&gt;^p</strong></p>
+<pre>&lt;div class="wrap"&gt;
+    &lt;div class="meta"&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+<p><strong>.wrap&gt;.meta&gt;^^p</strong></p>
+<pre>&lt;div class="wrap"&gt;
+    &lt;div class="meta"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</pre>
+
+<p><strong>(ul.l1&gt;li)+(ul.l2&gt;li)</strong></p>
+<pre>&lt;ul class="l1"&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="l2"&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<h3 id="属性用中括号_[_]_文字用大括号_{_}">属性用中括号 [ ] 文字用大括号 { }</h3>
+<p><strong>h1{这是标题}+#content[style=”width:960px”]&gt;.leftCol[style=”float:left;width:600px”]{left}+.rightCol[style=”float:right;width:350px;margin-left:10px;”]{right}</strong></p>
+<pre>&lt;h1&gt;这是标题&lt;/h1&gt;
+&lt;div id="content" style="width:960px"&gt;
+    &lt;div class="leftCol" style="float:left;width:600px"&gt;left&lt;/div&gt;
+    &lt;div class="rightCol" style="float:right;width:350px;margin-left:10px;"&gt;right&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p><strong>i.icon.icon-home.icon-large</strong></p>
+<pre>&lt;div class="icon icon-home icon-large"&gt;&lt;/div&gt;</pre>
+
+<h3 id="循环（次数）和编号">循环（次数）和编号</h3>
+<p><strong>ul&gt;li*3&gt;a[href=”#$”]{text $$$}</strong></p>
+<pre>&lt;ul&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;text 001&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#2"&gt;text 002&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#3"&gt;text 003&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<p><strong>div+div&gt;p&gt;span+em^^^bq</strong></p>
+<pre>&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;</pre>
+
+<p><strong>table&gt;#row$*4&gt;[colspan=2]</strong></p>
+<pre>&lt;table&gt;
+    &lt;tr id="row1"&gt;
+        &lt;td colspan="2"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="row2"&gt;
+        &lt;td colspan="2"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="row3"&gt;
+        &lt;td colspan="2"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="row4"&gt;
+        &lt;td colspan="2"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+<h3 id="Lorem_ipsum">Lorem ipsum</h3>
+<p>生成随机单词（做页面 demo 时排版）lorem10 表示 10个单词</p>
+<p><strong>ul.generic-list&gt;lorem10.item*4</strong></p>
+<pre>&lt;ul class="generic-list"&gt;
+    &lt;li class="item"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, reiciendis.&lt;/li&gt;
+    &lt;li class="item"&gt;Corrupti, omnis tenetur dignissimos provident itaque atque magnam non labore?&lt;/li&gt;
+    &lt;li class="item"&gt;Vero, fugit dicta quam recusandae voluptatibus consequatur dignissimos eveniet molestias!&lt;/li&gt;
+    &lt;li class="item"&gt;Quos, quis, doloribus perspiciatis et commodi molestias impedit accusantium recusandae?&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<p><strong>!</strong></p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/css/pure-css-dock/">pure css dock</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <ul id="gsDock"><br>    <li><a href="#搜索"><i class="icon-search"></i><span class="t">搜索</span></a></li><br>    <li><a href="#音乐"><i class="icon-music"></i><span class="t">音乐</span></a></li><br>    <li><a href="#电影"><i class="icon-film"></i><span class="t">电影</span></a></li><br>    <li><a href="#1"><i class="icon-tags"></i><span class="t">标签</span></a></li><br>    <li><a href="#1"><i class="icon-bar-chart"></i><span class="t">图表</span></a></li><br>    <li><a href="#1"><i class="icon-google-plus-sign"></i><span class="t">google plus</span></a></li><br>    <li><a href="#1"><i class="icon-envelope-alt"></i><span class="t">邮件</span></a></li><br>    <li><a href="#1"><i class="icon-ambulance"></i><span class="t">救护车</span></a></li><br></ul>
+
+<div class="clearfix" style="height:200px;"></div>
+
+<p>html 代码</p>
+<pre class="linenums">
+&lt;ul id="gsDock"&gt;
+    &lt;li&gt;&lt;a href="#搜索"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;span class="t"&gt;搜索&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#音乐"&gt;&lt;i class="icon-music"&gt;&lt;/i&gt;&lt;span class="t"&gt;音乐&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#电影"&gt;&lt;i class="icon-film"&gt;&lt;/i&gt;&lt;span class="t"&gt;电影&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;&lt;i class="icon-tags"&gt;&lt;/i&gt;&lt;span class="t"&gt;标签&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;&lt;i class="icon-bar-chart"&gt;&lt;/i&gt;&lt;span class="t"&gt;图表&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;&lt;i class="icon-google-plus-sign"&gt;&lt;/i&gt;&lt;span class="t"&gt;google plus&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;&lt;i class="icon-envelope-alt"&gt;&lt;/i&gt;&lt;span class="t"&gt;邮件&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#1"&gt;&lt;i class="icon-ambulance"&gt;&lt;/i&gt;&lt;span class="t"&gt;救护车&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </pre>
+
+<p>查看源文件： <a href="/labs/pure-css-dock.less">less 代码</a> 或者 <a href="/labs/pure-css-dock.css">css 代码</a></p>
+<p><style>@import url(/labs/pure-css-dock.css)</style></p>
+
       
     </div> 
      
@@ -133,429 +485,18 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
-    <h1 class="title"><a href="/web/canvas-bezier/">canvas bezier</a></h1>  
+    <h1 class="title"><a href="/web/html5-input-pattern/">html5 input pattern</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
     <div class="entry">
       
-        <canvas id="canvas-bezier" width="320" height="200" style="background:#ddd;">This is canvas by guoshuang!</canvas>
-
-<script src="/labs/dashed-line.js"></script>
-<script src="/labs/canvas-bezier.js"></script>
+        <form onsubmit="alert('可以提交了');return false;"><br><input class="text" pattern="^.+@.+\..+$" required><br><input type="submit" value="提交" style="font-size:16px;"><br></form>
 
 <pre>
-canvas = document.getElementById("canvas-bezier");
-ctx = canvas.getContext("2d");
-ctx.lineWidth = 2;
-ctx.strokeStyle = "#c00";
-ctx.beginPath();
-ctx.moveTo(10,10);
-ctx.bezierCurveTo(10,150,200,100,310,10);
-ctx.stroke();
-</pre>
-
-<p>ctx.moveTo(10,10); //<strong><em>从 10,10 开始画</em></strong></p>
-<p>ctx.bezierCurveTo(10,150,200,100,310,10); //<strong><em>10,150 是第一个贝赛尔控制点（左面的绿点），200,100 第二个控制点（右面绿点）,310,10 是终点。</em></strong></p>
-<h3 id="笔记">笔记</h3>
-<ul>
-<li>canvas 不能直接 style 设置高宽，会变形。直接 width height=</li>
-<li>canvas 没有 zindex，上面的后画；或者多个 canvas position:absolute</li>
-<li><a href="http://www.w3schools.com/tags/canvas_quadraticcurveto.asp" target="_blank" rel="external">quadraticcurveto</a> 中间只有一个控制点。类似于 flash 中拖线；</li>
-<li><a href="http://stackoverflow.com/questions/4576724/dotted-stroke-in-canvas" target="_blank" rel="external">dotted stroke in canvas</a> 垂直线的时候可能不显示（正好在缝隙中）</li>
-<li><a href="http://www.html5canvastutorials.com/kineticjs/html5-canvas-select-shape-by-id-with-kineticjs/" target="_blank" rel="external">select by id</a> 或者 rapheal</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/" target="_blank" rel="external">html5canvastutorials</a></li>
-<li><a href="http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html" target="_blank" rel="external">Canvas Bézier Curve Example</a></li>
-<li><a href="http://www.w3schools.com/tags/canvas_beziercurveto.asp" target="_blank" rel="external">w3schools canvas_beziercurveto</a></li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/img-hover-transition2/">pure css img hover 2</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <ul id="gsimghover2"><br>    <li><a href="#1">看看她</a><div class="d1"><div class="d2"><div class="d3"><div class="d4"><div class="d5"><div class="shadow"></div></div></div></div></div></div></li><br>    <li class="style2"><a href="#1">看看她</a><div class="d1"><div class="d2"><div class="d3"><div class="d4"><div class="d5"><div class="shadow"></div></div></div></div></div></div></li><br></ul>
-
-<p><style>@import url(/labs/img-hover-transition2.css)</style></p>
-<div style="clear: both;"></div>
-
-<h3 id="原理">原理</h3>
-<p>旋转 rotateY 形成梯形。注意，必须有 perspective ！</p>
-<ul id="imghover2-test"><br>    <li></li><br></ul>
-
-<style>
-#imghover2-test {
-    -webkit-perspective: 500px;perspective: 500px;
-    position:relative; height:100px; background:#ddd; margin:40px 0;
-}
-#imghover2-test li {
-    position: absolute; background:red; width:100px; height:100%;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform-origin: left center;
-    -webkit-transform: rotateY(-45deg);
-    transform-style: preserve-3d;
-    transform-origin: left center;
-    transform: rotateY(-45deg);
-}
-</style>
-
-<h3 id="完整代码">完整代码</h3>
-<pre>
-&lt;ul id="imghover2-test"&gt;
-    &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;style&gt;
-#imghover2-test {
-    -webkit-perspective: 500px;perspective: 500px;
-    position:relative; height:100px; background:#ddd; margin:40px 0;
-}
-#imghover2-test li {
-    position: absolute; background:red; width:100px; height:100%;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform-origin: left center;
-    -webkit-transform: rotateY(-45deg);
-    transform-style: preserve-3d;
-    transform-origin: left center;
-    transform: rotateY(-45deg);
-}
-&lt;/style&gt;
-</pre>
-
-<h3 id="translate_rotate_的另一种写法">translate rotate 的另一种写法</h3>
-<pre>
--webkit-transform: translate3d(50px,0,0) rotate3d(0,1,0,-45deg);}
-</pre>
-
-<h3 id="源文件下载">源文件下载</h3>
-<p>如果懒的话，其实可以 js append 那些 divs。<a href="/labs/img-hover-transition2.less">less 源文件</a> 或者 <a href="/labs/img-hover-transition2.css">css 源文件</a></p>
-<p>via <a href="http://showcase.sketchup.com/" target="_blank" rel="external">sketchup</a></p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/web/wzyboy/">自古英雄出少年</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>这些都是这个<a href="https://wzyboy.im/post/653.html" target="_blank" rel="external">上高中的孩子</a> 写的。(2011参加高考)我们这些叔叔们都在干什么呢？</p>
-<ul>
-<li><a href="https://wzyboy.im/post/874.html" target="_blank" rel="external">https://wzyboy.im/post/874.html</a> 国内外dns比较</li>
-<li><a href="https://wzyboy.im/post/652.html" target="_blank" rel="external">https://wzyboy.im/post/652.html</a> gmail 玩法</li>
-<li><a href="https://wzyboy.im/post/658.html" target="_blank" rel="external">https://wzyboy.im/post/658.html</a> VHD 制作</li>
-<li><a href="https://wzyboy.im/post/635.html" target="_blank" rel="external">https://wzyboy.im/post/635.html</a> opera mini hack </li>
-<li><a href="https://wzyboy.im/post/693.html" target="_blank" rel="external">https://wzyboy.im/post/693.html</a>  密码管理办法</li>
-<li><a href="https://wzyboy.im/post/281.html" target="_blank" rel="external">https://wzyboy.im/post/281.html</a> 多功能u盘</li>
-</ul>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/img-hover-transition/">pure css img hover</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <ul class="imgHoverTransition"><br><li class="a"><a href="#1"><img src="/pics/girl.jpg"><span class="t">美女图片又被用来做例子了。。。</span></a></li><br><li class="b"><a href="#1"><img src="/pics/girl.jpg"><span class="t">还是她。。。</span></a></li><br><li class="c"><a href="#1"><img src="/pics/girl.jpg"><span class="t">是她</span></a></li><br><li class="d"><a href="#1"><img src="/pics/girl.jpg"><span class="t">jiu是她</span></a></li><br><li class="e"><a href="#1"><img src="/pics/girl.jpg"><span class="t">jiu是她</span></a></li><br><li class="f"><a href="#1"><img src="/pics/girl.jpg"><span class="t">是她，是她，还是她</span></a></li><br></ul>
-
-<div style="clear:both;"></div>
-
-<style>
-.imgHoverTransition {list-style: none;maring:0;padding: 0;}
-.imgHoverTransition img {width:250px;}
-.imgHoverTransition li {list-style: none;maring:0;padding: 0;float:left;margin-right:10px;position: relative;cursor:pointer;margin-bottom: 10px;overflow: hidden;}
-.imgHoverTransition li img {display: block;-webkit-filter: grayscale(100%);filter: grayscale(100%);}
-.imgHoverTransition li .t {display:block;position:absolute;left:0px;width:100%;background-color:rgba(0,0,0,0.5);text-align: center;color:#fff;line-height: 30px;height:0;overflow:hidden;}
-.imgHoverTransition li .t {
-    -webkit-transition: all linear 0.2s;
-    -moz-transition: all linear 0.2s;
-    transition: all linear 0.2s;
-}
-.imgHoverTransition li:hover img {-webkit-filter: grayscale(0%);}
-li.a .t {top:0;}
-li.b .t {bottom:0;}
-.imgHoverTransition li.a:hover .t {height:30px;}
-.imgHoverTransition li.b:hover .t {height:30px;}
-li.c .t {
-    -webkit-transform-origin:100% 0%;
-    -webkit-transform:rotate(-45deg);
-    -moz-transform-origin:100% 0%;
-    -moz-transform:rotate(-45deg);
-    transform-origin:100% 0%;
-    transform:rotate(-45deg);
-    height:30px;
-    width:100px;
-    left:250px;
-    top:129px;
-}
-li.c:hover .t {
-    left:150px;
-}
-li.d .t {
-    height:200px;
-    width:250px;
-    left:0;
-    top:0;
-    border-radius: 0%;
-    margin-left:0px;
-    margin-top:0px;
-    line-height: 200px;
-    opacity: 0;
-}
-
-li.d:hover .t {
-    opacity: 1;
-    height:80px;
-    line-height:80px;
-    width:80px;
-    left:50%;
-    top:50%;
-    border-radius: 100%;
-    margin-left:-40px;
-    margin-top:-40px;
-}
-
-li.e {
-        width:250px;
-        height:200px;
-}
-
-li.e .t {
-    width:250px;
-        height:200px;
-        line-height:200px;
-}
-
-.imgHoverTransition li.e a {
-    -webkit-transition: all linear 0.2s;
-    -moz-transition: all linear 0.2s;
-    transition: all linear 0.2s;
-    position: absolute;
-
-}
-
-li.e:hover a {
-    top:-200px;
-}
-
-li.f {
-    width:250px;
-    height:200px;
-}
-
-li.f .t {
-    width:250px;
-    height:200px;
-    line-height:200px;
-}
-
-li.f img {
-    -webkit-transition: all linear 0.2s;
-    -moz-transition: all linear 0.2s;
-    transition: all linear 0.2s;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-}
-
-li.f:hover img {
-    left:-250px;
-    z-index: 1;
-}
-</style>
-
-<p>在童童的帮助下，才搞定这个算法：200-100<em>Math.cos(45/180</em>Math.PI)。代码太烂，都不好意思拿出来，自己源代码看吧。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/coffee-tips/">coffee 点滴</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>条件表达式</p>
-<pre>
-balls =$.trim($(k).attr('data-balls'));
-balls = if balls=='' then ballsDefault else balls
-</pre>
-
-<p>循环</p>
-<pre>
-$('.gAjaxLoader').each (j,k)->
-    console.log($(k));
-</pre>
-
-<p>for(i=0;i&lt;XX.length;i++){…}</p>
-<pre>
-for i in [1..balls]
-    divs+='<div></div>';
-</pre>
-
-<p>jquery ready</p>
-<pre>
-jQuery ($)->
-    console.log($);
-</pre>
-
-<p>定义函数</p>
-<pre>
-myfunc = -&gt;
-    console.log(123);
-</pre>
-
-<p>定义全局函数（window.func）这样可以在 html 中 button onclick=”initialAjaxLoader()”(默认的 coffee 会把代码封装在一个 匿名函数 scope 中)</p>
-<pre>
-root = exports ? this
-root.initialAjaxLoader = -&gt;
-    console.log(123);
-</pre>
-
-<p>注释</p>
-<p><pre># 这里是注释</pre><br>.js 文件中不会显示。</p>
-<p><pre>### 注释输出到js文件中 ###</pre><br>注释输出到js文件中</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/css/less-mixins/">less mixins</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:29:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>每次都要重写 mixin，太罗嗦。把我常用的写在 lib.less，以后的 less 直接 </p>
-<pre>
-@import "lib.less";
-</pre>
-
-<pre>
-//less lib used by davidguoshuang at gamil.com
-//紧密团结在 以 webkit 为核心的...
-
-.transform (...) {
-    -webkit-transform:@arguments;
-    -moz-transform:@arguments;
-    -o-transform:@arguments;
-    transform:@arguments;
-}
-...
-</pre>
-
-<p>下载我的 <a href="/labs/lib.less">lib.less</a></p>
-<pre>
-.bgmixin(@color) {
-    (~".@{color}") {
-        background-color: @@color;
-        .boxbar {
-            background-color: lighten(@@color, 10%);
-        }
-    }
-}
-
-@blue: #468ACE;
-@green: #41A53D;
-@red: #9C2525;
-
-.bgmixin("blue");
-.bgmixin("green");
-.bgmixin("red");
-</pre>
-
-<pre>
-.blue{
-  background-color: #468ace;
-}
-.blue .boxbar {
-  background-color: #6ea3d9;
-}
-.green{
-  background-color: #41a53d;
-}
-.green .boxbar {
-  background-color: #59c055;
-}
-.red{
-  background-color: #9c2525;
-}
-.red .boxbar{
-  background-color: #c52f2f;
-}
+&lt;form onsubmit="alert('可以提交了');return false;"&gt;
+&lt;input class="text" pattern="^.+@.+\..+$" required /&gt;
+&lt;input type="submit" value="提交" style="font-size:16px;"/&gt;
+&lt;/form&gt;
 </pre>
       
     </div> 
@@ -576,14 +517,14 @@ root.initialAjaxLoader = -&gt;
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    

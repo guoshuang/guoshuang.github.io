@@ -51,6 +51,358 @@
           <span class="ym">09/2014</span>
         </div>
       </div> 
+    <h1 class="title"><a href="/javascript/get-jquery-version/">get jquery version</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <pre>
+$().jquery
+
+$.fn.jquery
+
+jQuery().jquery
+
+jQuery.fn.jquery
+
+$()['jquery']
+</pre>
+
+
+
+
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/wordpress/wordpress-admin-panel-customize/">wordpress admin panel customize</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <h3 id="Remove_the_WordPress_Logo_from_the_Toolbar_删除左上角logo（关于）">Remove the WordPress Logo from the Toolbar 删除左上角logo（关于）</h3>
+<pre>
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+
+function remove_wp_logo( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'wp-logo' );
+}
+</pre>
+
+<p>正上方 admin-bar 部分</p>
+<pre>
+&lt;?php $wp_admin_bar->remove_node( $id ); ?&gt;
+</pre>
+
+<p>或者（二者等价）</p>
+<pre>
+&lt;?php $wp_admin_bar->remove_menu( $id ); ?&gt;
+</pre>
+
+<p>via <a href="http://codex.wordpress.org/Function_Reference/remove_node#Remove_the_WordPress_Logo_from_the_Toolbar" target="_blank" rel="external">remove node</a></p>
+<h3 id="Remove_WordPress_Dashboard_Welcome_Panel_删除欢迎">Remove WordPress Dashboard Welcome Panel 删除欢迎</h3>
+<pre>
+//Remove  WordPress Welcome Panel
+remove_action('welcome_panel', 'wp_welcome_panel');
+</pre>
+
+<h3 id="修改版权（左下方）">修改版权（左下方）</h3>
+<pre>
+// customize admin footer text
+function custom_admin_footer() {
+    echo '2014 &amp;copy by <a href="http://guoshuang.com/" title="guoshuang" target="_blank" rel="external">guoshuang</a>';
+} 
+add_filter('admin_footer_text', 'custom_admin_footer');
+</pre>
+
+<h3 id="删除左侧菜单项目">删除左侧菜单项目</h3>
+<p>有时候，外观（主题）、插件之类不想让用户修改，要去掉。</p>
+<pre>
+//删除菜单项目
+function remove_menus(){
+  remove_menu_page( 'index.php' );                  //Dashboard
+  // remove_menu_page( 'edit.php' );                   //Posts
+  // remove_menu_page( 'upload.php' );                 //Media
+  // remove_menu_page( 'edit.php?post_type=page' );    //Pages
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  // remove_menu_page( 'themes.php' );                 //Appearance
+  // remove_menu_page( 'plugins.php' );                //Plugins
+  // remove_menu_page( 'users.php' );                  //Users
+  // remove_menu_page( 'tools.php' );                  //Tools
+  // remove_menu_page( 'options-general.php' );        //Settings
+}
+add_action( 'admin_menu', 'remove_menus' );
+</pre>
+
+<h3 id="admin_后台主题">admin 后台主题</h3>
+<p>用户可能接受不了黑色，在 /wp-admin/about.php 这里可以切换颜色</p>
+<h3 id="dashboard_控制">dashboard 控制</h3>
+<pre>
+//dashboard 部分控制
+function example_remove_dashboard_widgets() {
+    global $wp_meta_boxes;
+     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+    // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_drafts']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);//这是wp新闻
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+
+} 
+add_action('wp_dashboard_setup', 'example_remove_dashboard_widgets' );
+</pre>
+
+<p>还可以判断用户，然后给出不同的 后台！</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/web/google-search-by-date/">google 按时间搜索</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <form onsubmit="var a=$('#googleByTime');a.attr('href','http://www.google.com/?#newwindow=1&amp;q='+$(this).find('input[name=q]').val()+'&amp;tbs=qdr:'+$(this).find('select').val());a[0].click();return false" class="google"><p style="margin-bottom:10px;"><input name="q" value="" style="width:100%;padding:6px 8px;font-size:1.2em;box-sizing:border-box;"></p> <select><option value="y">近一年</option><option value="m">近一月</option><option value="w">近一周</option></select> <input type="submit" class="btn-flat" value="搜索"></form>
+
+<p><a id="googleByTime" style="display:none;" target="_blank"></a></p>
+<h3 id="原理">原理</h3>
+<pre>
+http://www.google.com/?#newwindow=1&amp;q=guoshuang&amp;tbs=qdr:y    
+</pre>    
+
+<p>或者</p>
+<pre>http://www.google.com/search?as_q=guoshuang&amp;as_qdr=y</pre>
+
+<p>y m w 分别表示：近一年 近一月 近一周</p>
+<p>或者时间区间</p>
+<pre>guoshuang daterange:2008-01-20..2009-01-20</pre>
+
+<style>
+
+.google select,.google option {height:35px;border:solid 1px #ccc;font-size:1.2em;}
+</style>
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/macos-can-not-install-firefox-26/">macos can not install firefox 26</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>firefox 25 升级 26 遇到</p>
+<blockquote>
+<p>The operation can’t be completed because some items had to be skipped. For each item, choose File &gt; Get Info, make sure “Locked” is deselected, and then check</p>
+</blockquote>
+<p>根据 <a href="https://support.mozilla.org/en-US/questions/969823" target="_blank" rel="external">mozilla 官方解释</a>：彻底关闭 firefox（包括 dock 右键 quit），然后打开 Applications 目录，删除 firefox.app。（个人设置、书签不在这里，可以放心删除）</p>
+<p>好事者，可以继续研究 <a href="http://thexlab.com/faqs/repairprocess.html" target="_blank" rel="external">mac os 权限修复</a>。我感觉其实就是 磁盘工具 修复权限。</p>
+<p>flash 12 也有类似问题，搜索而不果。</p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/frontend/html5-webcam/">html5 webcam</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:36:06 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>请使用 webkit 浏览器，每次会提问 是否 允许浏览器访问摄像头。</p>
+<div><video id="yourcam" autoplay></video></div>
+
+<p><button class="btn-flat" id="yourcam-btn">截屏</button></p>
+<div id="webcam-filters"></div>    
+
+<p><img src="" id="yourcam-screenshot"></p>
+<canvas id="yourcam-canvas" style="display:none;"></canvas>
+
+<script src="/labs/htm5-webcam.js"></script>
+
+<style>
+#webcam-filters span {
+    display: inline-block;margin: 0 8px;cursor: pointer;
+}
+#webcam-filters span:hover {
+    color:red;
+}
+#webcam-filters span.active {
+    background: #000;
+    color:#fff;
+}
+.blur {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+.brightness {
+  -webkit-filter: brightness(5);
+  -moz-filter: brightness(5);
+  -o-filter: brightness(5);
+  -ms-filter: brightness(5);
+  filter: brightness(5);
+}
+.contrast {
+  -webkit-filter: contrast(8);
+  -moz-filter: contrast(8);
+  -o-filter: contrast(8);
+  -ms-filter: contrast(8);
+  filter: contrast(8);
+}
+.hue-rotate {
+  -webkit-filter: hue-rotate(90deg);
+  -moz-filter: hue-rotate(90deg);
+  -o-filter: hue-rotate(90deg);
+  -ms-filter: hue-rotate(90deg);
+  filter: hue-rotate(90deg);
+}
+.hue-rotate2 {
+  -webkit-filter: hue-rotate(180deg);
+  -moz-filter: hue-rotate(180deg);
+  -o-filter: hue-rotate(180deg);
+  -ms-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+}
+.hue-rotate3 {
+  -webkit-filter: hue-rotate(270deg);
+  -moz-filter: hue-rotate(270deg);
+  -o-filter: hue-rotate(270deg);
+  -ms-filter: hue-rotate(270deg);
+  filter: hue-rotate(270deg);
+}
+.saturate {
+  -webkit-filter: saturate(10);
+  -moz-filter: saturate(10);
+  -o-filter: saturate(10);
+  -ms-filter: saturate(10);
+  filter: saturate(10);
+}
+.grayscale {
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(1);
+  -o-filter: grayscale(1);
+  -ms-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.sepia {
+  -webkit-filter: sepia(1);
+  -moz-filter: sepia(1);
+  -o-filter: sepia(1);
+  -ms-filter: sepia(1);
+  filter: sepia(1);
+}
+.invert {
+  -webkit-filter: invert(1);
+  -moz-filter: invert(1)
+  -o-filter: invert(1)
+  -ms-filter: invert(1)
+  filter: invert(1)
+}
+</style>
+
+<p>via <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/getusermedia/intro/</a></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
+    <h1 class="title"><a href="/software/filezilla-server-alias/">filezilla server alias</a></h1>  
+ <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
+    </header>
+    <div class="entry">
+      
+        <p>filezilla server 有时候需要 共享多个不同的目录。</p>
+<p>比如 ftp 根在 c:\ftproot 而同时还要 共享 d:\mypictures 目录。这时就需要 alias（别名）了。注意：别名前面有 <strong>/</strong></p>
+<p><img src="https://wiki.filezilla-project.org/wiki/images/f/f5/FZS_aliases.png" class="img-responsive"></p>
+<p>多个别名中间用 <strong>|</strong></p>
+
+      
+    </div> 
+     
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-content">
+    <header>
+      <div class="date-wrapper">
+        <div class="date-shadow"></div>
+        <div class="date-mask"></div>
+        <div class="dateTitle">
+          <span class="d">10</span>
+          <span class="ym">09/2014</span>
+        </div>
+      </div> 
     <h1 class="title"><a href="/wordpress/wordpress-get-the-content-with-format/">wordpress get the content with format</a></h1>  
  <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
     </header>
@@ -279,310 +631,6 @@ $content = str_replace(']]>', ']]&gt;', $content);
   </div>
 </article>
 
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/javascript/jquery-transform-animate/">jquery transform animate</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>jquery animate default can not animate the transform:rotate(90deg).So you want to write the <strong><em>step</em></strong> function yourself.</p>
-<pre>
-$('#abc').animate(
-    {rotate:80},
-    {
-      step:function(now,tween){
-        if (tween.prop === "rotate"){
-          $(this).css('transform','rotate('+now+'deg)');
-        }
-    }
-  },
-  500)
-</pre>
-
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/wordpress/design-a-wordpress-site-from-the-beginning/">design a wordpress site from the beginning</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>开发环境：</p>
-<p>virtualbox 里 ubuntu server，ssh 管理。下载 最新 wordpress，然后 filezilla 传到 ubuntu server。mysql 建立库名 ABC，建一个用户（不用root，为了安全）并赋予权限。</p>
-<p>修改本机 hosts 文件，ip 到 将来的真实域名，浏览器打开该域名，安装wordpress。</p>
-<p>复制 twentyfourteen(2014) 主题，开始修改：</p>
-<h3 id="必须修改的">必须修改的</h3>
-<ul>
-<li>style.css 最前面的注释部分，作者、名称之类。我一般清空，只留注释，css 直接用之前做好的静态页面（结构）</li>
-<li>header.php 头</li>
-<li>footer.php 尾。注意 div 的包裹关系</li>
-<li>home.php 首页</li>
-<li>page.php page 类型页面。page-<strong>id</strong> 或者 page-<strong>slug</strong> 控制具体一个page的html模版</li>
-<li>single.php 文章终端页面</li>
-<li>category.php 类别显示的页面。也可以 category-<strong>id</strong> 或者 category-<strong>slug</strong> 修改指定类别html模版</li>
-<li>screenshot.png 主题截图</li>
-</ul>
-<h3 id="可选修改项目">可选修改项目</h3>
-<ul>
-<li>404.php  错误页面</li>
-<li>search.php 搜索页面</li>
-<li>tag.php 标签</li>
-<li>index.php  </li>
-<li>image.php  图片终端页面</li>
-<li>content-*.php  不同类型页面的 single(get_template_part( ‘content’, get_post_format() );)</li>
-<li>author.php  作者终端页面</li>
-<li>sidebar.php  侧栏（我一般不用）</li>
-<li>comments.php  留言部分（一般关掉，用 disqus）</li>
-<li>archive.php  历史存档</li>
-<li>functions.php 这个页面很<strong>重要</strong>。各种个性化定制，更多在这里实现！</li>
-</ul>
-<h3 id="挂接服务器">挂接服务器</h3>
-<p>为了干活方便，挂接远程（虚拟机 ubuntu server），然后“就地”编辑。</p>
-<p>安装 <a href="http://sourceforge.net/projects/osxfuse/files/osxfuse-2.6.2/osxfuse-2.6.2.dmg/download" target="_blank" rel="external">osxfuse</a> 和 <a href="https://github.com/downloads/osxfuse/sshfs/SSHFS-2.4.1.pkg" target="_blank" rel="external">SSHFS</a>，然后挂接远程目录</p>
-<p><code>sshfs guoshuang@192.168.0.115:/ ~/development/sshfs-mount</code></p>
-<p>ssh 挂接文件系统  guoshuang 是用户名 挂接 :/ 根目录 到 本机的 ~/development/sshfs-mount</p>
-<p>via <a href="http://www.neverstopbuilding.com/mount-ssh-on-osx" target="_blank" rel="external">http://www.neverstopbuilding.com/mount-ssh-on-osx</a></p>
-<p>或者用 CyberDuck(ftp工具),好处是：修改后上传不问。</p>
-<h3 id="upload_limit">upload limit</h3>
-<p>修改 php.ini（在 phpinfo.php 页面可看到 php.ini 的真实地址）</p>
-<pre>
-upload_max_filesize = 64M
-post_max_size = 64M
-max_execution_time = 300
-</pre>
-
-<h3 id="循环">循环</h3>
-<pre>
-&lt;?php if(have_posts());?&gt;
-&lt;?php while(have_posts()); the_post();?&gt;
-// The Stuff... Custom HTML &amp; PHP Code
-&lt;?php else;?&gt;
-&lt;?php endif;?&gt;
-</pre>    
-
-<pre>
-&lt;?php query_posts('category_name=
- Category&amp;showposts=10'); ?&gt;
-&lt;?php while (have_posts()) : the_post(); ?&gt;
-// The Stuff... Custom HTML &amp; PHP Code
-&lt;?php endwhile;?&gt;
-</pre>
-
-<h3 id="wordpress_seo_相关代码">wordpress seo 相关代码</h3>
-<p>如果首页，显示站点标题和描述</p>
-<pre>
-&lt;title&gt;&lt;?php if ( is_home() ) { bloginfo('name'); echo(' — '); bloginfo('description'); } else wp_title('',true); ?&gt;&lt;/title&gt;
-</pre>    
-
-<p>翻页、日期、类别 页面不要被搜索（经常变化的<strong>临时</strong>页面给 google 没意义）</p>
-<pre>
-&lt;?php if((is_home() &amp;&amp; ($paged &gt; 2 )) || is_date() || is_category()) {
-echo '&lt;meta name="robots" content="noindex, follow, noarchive" /&gt;';
-} ?&gt;
-</pre>
-
-<p>使用短网址</p>
-<pre>
-http://guoshuang.com/wordpress/design-a-wordpress-site-from-the-beginning/
-</pre>
-
-<p>不要同时使用 guoshuag.com 和 www.guoshuang.com！会分权重。</p>
-<p>robots.txt 告诉 google 以下目录不用再钻来钻去了！</p>
-<pre>
-User-agent: *
-Disallow: /wp-admin
-Disallow: /wp-includes
-Disallow: /wp-content/plugins
-Disallow: /wp-content/cache
-Disallow: /wp-content/themes
-Disallow: /trackback
-Disallow: /cgi-bin
-Disallow: /search
-Disallow: /feed
-Disallow: /rss
-Disallow: /comments/feed
-Disallow: /feed/$
-Disallow: /*/feed/$
-Disallow: /*/feed/rss/$
-Disallow: /*/trackback/$
-</pre>
-
-<p>via <a href="http://mrkirkland.com/wordpress-seo-cheat-sheet/" target="_blank" rel="external">wordpress-seo-cheat-shee</a></p>
-<h3 id="标签">标签</h3>
-<pre>
-&lt;?php the_title() ?&gt; .....................Displays the posts/pages title
-&lt;?php the_content() ?&gt; ............Displays the content of the post/page
-&lt;?php the_excerpt() ?&gt; ....Displays the excerpt of the current post/page
-&lt;?php the_time() ?&gt; ..........Displays the time of the current post/page
-&lt;?php the_date() ?&gt; .....Displays the date of a post or set of post/page
-&lt;?php the_permalink() ?&gt; .............Displays the URL for the permalink
-&lt;?php the_category() ?&gt; .................Displays the category of a post
-&lt;?php the_author(); ?&gt; ..................Displays the author of the post
-&lt;?php the_ID(); ?&gt; ..........Displays the numeric ID of the current post
-&lt;?php wp_list_pages(); ?&gt; ........................Displays all the pages
-&lt;?php wp_tag_cloud(); ?&gt; ...........................Displays a tag cloud
-&lt;?php wp_list_cats(); ?&gt; ........................Displays the categories
-&lt;?php get_calendar(); ?&gt; ..........................Displays the calendar
-&lt;?php wp_get_archives() ?&gt; ..........Displays a date-based archives list
-&lt;?php posts_nav_link(); ?&gt; ...Displays Previous page and Next Page links
-&lt;?php next_post_link() ?&gt; .....................Displays Newer Posts link
-&lt;?php previous_post_link() ?&gt; ....................Displays previous link
-&lt;?php edit_post_link(\_\_('Edit Post')); ?&gt; ........Displays the edit link
-&lt;?php the_search_query();?&gt; ................Value for search form
-&lt;?php wp_register();?&gt; ................Displays the register link
-&lt;?php wp_loginout();?&gt; ..............Displays the log in/out link
-&lt;?php wp_meta();?&gt; .......................Meta for administrators
-&lt;?php timer_stop(1);?&gt; .....................Time to load the page
-&lt;?php echo c2c_custom('test');?&gt; ......Displays the custom field1
-&lt;?php get_links_list(); ?&gt; ...........Display links from Blogroll
-&lt;?php get_calendar(); ?&gt; ..........Displays the built-in calendar
-&lt;?php comments_popup_link(); ?&gt; .......Link of the posts comments
-</pre>    
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/life/joke-market-ring/">警钟为谁而鸣</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>昨晚，进小超市，见一年轻妈妈带3岁孩子出来，警铃大做，心想，熊孩子，是不是偷拿了超市的糖果，超市警铃这两天不会神经兮兮吧。</p>
-<p>出来，果然，我异常尴尬的反复、放回商品、掏钥匙、拖外套，还是叫个不停！工作人员淡淡地员原场，”进来的时候咋不响捏？”睽睽重目＋警声大作中，我尴尬地走出超市。</p>
-<p>今天去另一超市，还和老婆开玩笑昨晚的遭遇。又是警声大作！反复而不得入，哎，只好在门口等待避嫌。半晌，大悟，靠！昨晚的警钟其实也是我啊，哎…</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/life/films/">电影下载</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:37:50 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <button class="btn-flat" onclick="window.open('http://pan.baidu.com/share/link?shareid'+'=947822907&uk=2467199177');alert('提取密码是 mnbx')">打开下载地址</button>
-
-<p><a href="http://www.douban.com/" target="_blank" rel="external">http://www.douban.com/</a>   group   /  topic/   44517097/</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/web/apache-optimize/">apache optimize</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:39:11 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>根据 <a href="https://servercheck.in/blog/3-small-tweaks-make-apache-fly" target="_blank" rel="external">3 Small Tweaks to make Apache fly</a> 整理。</p>
-<p>网络部份的英文看着比前端还是陌生很多。</p>
-<p>apache 太老了。“新兴”的 nginx,lighttpd 和 nodejs 都不错。三者都用过，lighttpd 和 nodejs 多，nginx 和 apache 反而用的较少了。nginx 处理静态文件强大，但 插件、文档太少。个人喜欢 lighttpd，比较中和一点（插件、文档刚好够用）。apache 太臃肿了。</p>
-<p><a href="https://servercheck.in/blog/3-small-tweaks-make-apache-fly" target="_blank" rel="external">3 Small Tweaks to make Apache fly</a> 提出三个思路优化 apache</p>
-<p>打开KeepAlive。 保持长连接。原则是：如果静态文件（html,css,js,img 等）多时打开。反之，php,py,java 或者 ajax 请求多时，不要打开！现实中，大站点搞的 cdn 就是此类 静态 httpd。</p>
-<p>设置合理的 MaxClients。太高太低都有问题。（计算方法没看懂）</p>
-<p>AllowOverrides 虽然方便，却降低性能。尽量关掉。</p>
-<p>www 尽量用独立物理硬盘。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
-<article class="post">
-  <div class="post-content">
-    <header>
-      <div class="date-wrapper">
-        <div class="date-shadow"></div>
-        <div class="date-mask"></div>
-        <div class="dateTitle">
-          <span class="d">10</span>
-          <span class="ym">09/2014</span>
-        </div>
-      </div> 
-    <h1 class="title"><a href="/design/webpage-weight/">网页的大小（体积）</a></h1>  
- <div class="meta">最后更新: <span class="pubTime">Wed Sep 10 2014 12:35:31 GMT+0800</span></div>
-    </header>
-    <div class="entry">
-      
-        <p>一个网页的大小（体积）应该是多少呢？</p>
-<p>根据 <a href="http://www.sitepoint.com/average-page-weights-increase-32-2013/?utm_medium=email&amp;utm_campaign=SitePoint+Mobile+Newsletter++10+January+2014&amp;utm_content=SitePoint+Mobile+Newsletter++10+January+2014+CID_0ab4e2c703e55ad3275eeb36933be262&amp;utm_source=CampaignMonitor%20SitePoint&amp;utm_term=Read%20more" target="_blank" rel="external">Average Page Weights Increase by 32% in 2013</a> 的说法：</p>
-<p>2013 年 30万个热门站点 页面平均大小是 <strong style="font-size:2em;"><em>1.7M</em></strong></p>
-<p>而 2012 年还是  <strong style="font-size:2em;"><em>1.25M</em></strong></p>
-<p>而10年前的标准是 必须小于 100k</p>
-<p>本页的大小是： 220k  这个<a href="http://www.websiteoptimization.com/services/analyze/index.html" target="_blank" rel="external">Web Page Analyzer</a> 可以在线测试 url 体积</p>
-<p>BTW: flash 的使用也在不断下降。：）活该，臭流氓。</p>
-
-      
-    </div> 
-     
-  </div>
-</article>
-
 <nav id="pagination">
   
     <a href="/p/11/" class="alignleft prev">上一页</a>
@@ -596,14 +644,14 @@ Disallow: /*/trackback/$
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">13</span></li></ul>
+  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cat/css/">css</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/design/">design</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/frontend/">frontend</a><span class="category-list-count">64</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/hexo/">hexo</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/html5/">html5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/javascript/">javascript</a><span class="category-list-count">84</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/life/">life</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mac/">mac</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/mobile/">mobile</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/software/">software</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/web/">web</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/cat/wordpress/">wordpress</a><span class="category-list-count">15</span></li></ul>
   <div class="clearfix"></div>
 </div>
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>1</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>17</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>1</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>14</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
+  <ul class="entry"><li><a href="/tag/ace/">ace</a><small>1</small></li> <li><a href="/tag/ajax/">ajax</a><small>4</small></li> <li><a href="/tag/android/">android</a><small>2</small></li> <li><a href="/tag/angularjs/">angularjs</a><small>1</small></li> <li><a href="/tag/animation/">animation</a><small>1</small></li> <li><a href="/tag/apache/">apache</a><small>2</small></li> <li><a href="/tag/array/">array</a><small>2</small></li> <li><a href="/tag/audio/">audio</a><small>1</small></li> <li><a href="/tag/baidu/">baidu</a><small>1</small></li> <li><a href="/tag/blog/">blog</a><small>1</small></li> <li><a href="/tag/book/">book</a><small>2</small></li> <li><a href="/tag/bootstrap/">bootstrap</a><small>10</small></li> <li><a href="/tag/browser/">browser</a><small>4</small></li> <li><a href="/tag/bug/">bug</a><small>1</small></li> <li><a href="/tag/canvas/">canvas</a><small>6</small></li> <li><a href="/tag/car/">car</a><small>1</small></li> <li><a href="/tag/chart/">chart</a><small>8</small></li> <li><a href="/tag/china/">china</a><small>3</small></li> <li><a href="/tag/chrome/">chrome</a><small>11</small></li> <li><a href="/tag/coding/">coding</a><small>1</small></li> <li><a href="/tag/coffee/">coffee</a><small>5</small></li> <li><a href="/tag/color/">color</a><small>2</small></li> <li><a href="/tag/css/">css</a><small>77</small></li> <li><a href="/tag/css3/">css3</a><small>3</small></li> <li><a href="/tag/d3/">d3</a><small>2</small></li> <li><a href="/tag/design/">design</a><small>7</small></li> <li><a href="/tag/dns/">dns</a><small>1</small></li> <li><a href="/tag/drag/">drag</a><small>1</small></li> <li><a href="/tag/ejs/">ejs</a><small>1</small></li> <li><a href="/tag/email/">email</a><small>1</small></li> <li><a href="/tag/emmet/">emmet</a><small>4</small></li> <li><a href="/tag/entity/">entity</a><small>1</small></li> <li><a href="/tag/express/">express</a><small>1</small></li> <li><a href="/tag/feed/">feed</a><small>1</small></li> <li><a href="/tag/film/">film</a><small>3</small></li> <li><a href="/tag/finder/">finder</a><small>1</small></li> <li><a href="/tag/firefox/">firefox</a><small>3</small></li> <li><a href="/tag/fireworks/">fireworks</a><small>1</small></li> <li><a href="/tag/flatland/">flatland</a><small>1</small></li> <li><a href="/tag/flickr/">flickr</a><small>1</small></li> <li><a href="/tag/flot/">flot</a><small>5</small></li> <li><a href="/tag/font/">font</a><small>7</small></li> <li><a href="/tag/framework/">framework</a><small>1</small></li> <li><a href="/tag/front-end/">front-end</a><small>2</small></li> <li><a href="/tag/ftp/">ftp</a><small>1</small></li> <li><a href="/tag/fun/">fun</a><small>1</small></li> <li><a href="/tag/games/">games</a><small>2</small></li> <li><a href="/tag/geo/">geo</a><small>1</small></li> <li><a href="/tag/gfw/">gfw</a><small>1</small></li> <li><a href="/tag/git/">git</a><small>3</small></li> <li><a href="/tag/github/">github</a><small>3</small></li> <li><a href="/tag/goagent/">goagent</a><small>1</small></li> <li><a href="/tag/google/">google</a><small>6</small></li> <li><a href="/tag/hexo/">hexo</a><small>24</small></li> <li><a href="/tag/html/">html</a><small>4</small></li> <li><a href="/tag/html5/">html5</a><small>22</small></li> <li><a href="/tag/httpd/">httpd</a><small>1</small></li> <li><a href="/tag/human/">human</a><small>1</small></li> <li><a href="/tag/icon/">icon</a><small>3</small></li> <li><a href="/tag/ie/">ie</a><small>4</small></li> <li><a href="/tag/ie6/">ie6</a><small>1</small></li> <li><a href="/tag/input/">input</a><small>1</small></li> <li><a href="/tag/ios/">ios</a><small>1</small></li> <li><a href="/tag/jade/">jade</a><small>5</small></li> <li><a href="/tag/javascript/">javascript</a><small>76</small></li> <li><a href="/tag/javscript/">javscript</a><small>2</small></li> <li><a href="/tag/joke/">joke</a><small>1</small></li> <li><a href="/tag/jqm/">jqm</a><small>2</small></li> <li><a href="/tag/jquery/">jquery</a><small>24</small></li> <li><a href="/tag/jqueryui/">jqueryui</a><small>2</small></li> <li><a href="/tag/json/">json</a><small>2</small></li> <li><a href="/tag/jsonp/">jsonp</a><small>1</small></li> <li><a href="/tag/less/">less</a><small>9</small></li> <li><a href="/tag/life/">life</a><small>9</small></li> <li><a href="/tag/lighttpd/">lighttpd</a><small>1</small></li> <li><a href="/tag/linux/">linux</a><small>1</small></li> <li><a href="/tag/loading/">loading</a><small>1</small></li> <li><a href="/tag/mac/">mac</a><small>24</small></li> <li><a href="/tag/map/">map</a><small>3</small></li> <li><a href="/tag/markdown/">markdown</a><small>3</small></li> <li><a href="/tag/meta/">meta</a><small>1</small></li> <li><a href="/tag/mobile/">mobile</a><small>8</small></li> <li><a href="/tag/mount/">mount</a><small>1</small></li> <li><a href="/tag/music/">music</a><small>2</small></li> <li><a href="/tag/network/">network</a><small>2</small></li> <li><a href="/tag/node/">node</a><small>2</small></li> <li><a href="/tag/nodewekit/">nodewekit</a><small>1</small></li> <li><a href="/tag/npm/">npm</a><small>2</small></li> <li><a href="/tag/optimize/">optimize</a><small>2</small></li> <li><a href="/tag/phonegap/">phonegap</a><small>2</small></li> <li><a href="/tag/php/">php</a><small>2</small></li> <li><a href="/tag/pics/">pics</a><small>2</small></li> <li><a href="/tag/prettify/">prettify</a><small>3</small></li> <li><a href="/tag/reference/">reference</a><small>2</small></li> <li><a href="/tag/sass/">sass</a><small>1</small></li> <li><a href="/tag/selectize/">selectize</a><small>1</small></li> <li><a href="/tag/shell/">shell</a><small>19</small></li> <li><a href="/tag/shortcut/">shortcut</a><small>2</small></li> <li><a href="/tag/software/">software</a><small>1</small></li> <li><a href="/tag/sparrow/">sparrow</a><small>2</small></li> <li><a href="/tag/ssh/">ssh</a><small>2</small></li> <li><a href="/tag/stackoverflow/">stackoverflow</a><small>1</small></li> <li><a href="/tag/stylus/">stylus</a><small>2</small></li> <li><a href="/tag/sublime/">sublime</a><small>18</small></li> <li><a href="/tag/svg/">svg</a><small>4</small></li> <li><a href="/tag/telnet/">telnet</a><small>1</small></li> <li><a href="/tag/template/">template</a><small>1</small></li> <li><a href="/tag/theme/">theme</a><small>2</small></li> <li><a href="/tag/tips/">tips</a><small>1</small></li> <li><a href="/tag/ubuntu/">ubuntu</a><small>2</small></li> <li><a href="/tag/ui/">ui</a><small>1</small></li> <li><a href="/tag/uikit/">uikit</a><small>1</small></li> <li><a href="/tag/underscore/">underscore</a><small>1</small></li> <li><a href="/tag/vehicle/">vehicle</a><small>1</small></li> <li><a href="/tag/video/">video</a><small>2</small></li> <li><a href="/tag/vim/">vim</a><small>3</small></li> <li><a href="/tag/weather/">weather</a><small>1</small></li> <li><a href="/tag/web/">web</a><small>14</small></li> <li><a href="/tag/webdesign/">webdesign</a><small>5</small></li> <li><a href="/tag/webgl/">webgl</a><small>1</small></li> <li><a href="/tag/windows/">windows</a><small>1</small></li> <li><a href="/tag/wordpress/">wordpress</a><small>16</small></li> <li><a href="/tag/wysiwyg/">wysiwyg</a><small>1</small></li> <li><a href="/tag/yeoman/">yeoman</a><small>1</small></li> <li><a href="/tag/正则/">正则</a><small>1</small></li> <li><a href="/tag/读书/">读书</a><small>8</small></li> </ul><div class="clearfix"></div>
 </div>
 
   </aside>    
